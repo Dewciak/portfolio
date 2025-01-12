@@ -1,5 +1,6 @@
 "use client";
 import React, {useState} from "react";
+import {LuGamepad} from "react-icons/lu";
 
 const Navbar = () => {
   const [mobileNav, setMobileNav] = useState(false);
@@ -16,8 +17,9 @@ const Navbar = () => {
         <li>Projects</li>
         <li>Contact</li>
       </ul>
-      <div className='flex space-x-4 text-MylightGray'>
+      <div className='flex space-x-2 text-MylightGray items-center font-thin '>
         <h1>GAME MODE</h1>
+        <LuGamepad size={30} />
       </div>
     </div>
   );

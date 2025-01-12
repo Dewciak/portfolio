@@ -10,7 +10,7 @@ export default {
     extend: {
       colors: {
         MylightGray: "#b0adac",
-        ForegroundColor: "#00E0E4",
+        ForegroundColor: "var(--Foreground-Color)",
       },
     },
   },

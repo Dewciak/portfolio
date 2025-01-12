@@ -1,11 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+:root {
+  --Foreground-Color: #00e0e4;
+}
 body {
   background-color: #01000e;
   color: white;
   font-family: "Roboto";
+}
+span {
+  color: var(--Foreground-Color);
 }
 
 #ping-dot {
