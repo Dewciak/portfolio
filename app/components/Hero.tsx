@@ -6,8 +6,8 @@ import Spline from "@splinetool/react-spline/next";
 
 const Hero = () => {
   return (
-    <div className='flex flex-col 2xl:flex-row'>
-      <div className='w-[40%] flex flex-col justify-start items-center'>
+    <div className='flex flex-col 2xl:flex-row max-w-[1600px] mx-auto'>
+      <div className='w-[40%] flex flex-col justify-start items-start '>
         <div className='space-y-4'>
           <div className='mt-64 text-6xl font-bold'>
             <h1>
