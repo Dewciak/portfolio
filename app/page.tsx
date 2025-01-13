@@ -6,6 +6,10 @@ import Hero from "./components/Hero";
 import Tech from "./components/Tech";
 import Footer from "./components/Footer";
 import About from "./components/About";
+import Works from "./components/Works";
+import Gear from "./components/Gear";
+import Resume from "./components/Resume";
+import StarsCanvas from "./components/StarBackground";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -18,10 +22,14 @@ const rockSalt = Rock_Salt({
 export default function Home() {
   return (
     <div>
+      {/* <StarsCanvas /> */}
       <Navbar />
       <Hero />
       <Tech />
       <About />
+      <Works />
+      <Resume />
+      <Gear />
       <Footer />
     </div>
   );

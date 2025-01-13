@@ -12,6 +12,10 @@ export default {
         MylightGray: "#b0adac",
         ForegroundColor: "var(--Foreground-Color)",
       },
+      fontFamily: {
+        sans: ["Roboto", "sans-serif"],
+        rockSalt: ['"Rock Salt"', "cursive"],
+      },
     },
   },
   plugins: [],

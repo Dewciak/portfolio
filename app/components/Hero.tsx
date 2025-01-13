@@ -3,13 +3,14 @@ import {FaGithub} from "react-icons/fa";
 import {FaRegEnvelope} from "react-icons/fa";
 import {FaInstagram} from "react-icons/fa";
 import Spline from "@splinetool/react-spline/next";
+import IconsSocials from "./IconsSocials";
 
 const Hero = () => {
   return (
-    <div className='flex flex-col 2xl:flex-row max-w-[1600px] mx-auto'>
+    <section id='Home' className='flex flex-col 2xl:flex-row max-w-[1300px] mx-auto'>
       <div className='w-[40%] flex flex-col justify-start items-start '>
         <div className='space-y-4'>
-          <div className='mt-64 text-6xl font-bold'>
+          <div className='mt-64 '>
             <h1>
               I'm <span>Wiktor</span>,
             </h1>
@@ -17,15 +18,10 @@ const Hero = () => {
               <span>Frontend</span> dev.
             </h1>
           </div>
-          <h1 className='text-xl text-MylightGray'>
-            I solve problems and make things happen, all with a few <br />
-            keystrokes.
+          <h1 className='text-xl text-MylightGray font-thin max-w-[400px]'>
+            I solve problems and make things happen, all with a few keystrokes.
           </h1>
-          <div className='flex space-x-4'>
-            <FaGithub size={30} color='#b0adac' />
-            <FaRegEnvelope size={30} color='#b0adac' />
-            <FaInstagram size={30} color='#b0adac' />
-          </div>
+          <IconsSocials />
         </div>
       </div>
       <div className='w-[60%] h-[1000px] flex'>
@@ -33,7 +29,7 @@ const Hero = () => {
           <Spline scene='https://prod.spline.design/DHrmA9O3FtjyXCnz/scene.splinecode' />
         </Suspense>
       </div>
-    </div>
+    </section>
   );
 };
 

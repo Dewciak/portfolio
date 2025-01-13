@@ -4,13 +4,21 @@
 :root {
   --Foreground-Color: #00e0e4;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   background-color: #01000e;
   color: white;
   font-family: "Roboto";
 }
+::selection {
+  background-color: var(--Foreground-Color);
+  color: white; /* biały */
+}
 span {
   color: var(--Foreground-Color);
+  text-shadow: 0 0 1px #00e0e483, 0 0 10px #98bfff, 0 0 60px #00e0e483;
 }
 
 #ping-dot {
@@ -36,15 +44,19 @@ span {
 
 @keyframes ping {
   0% {
-    transform: scale(1);
+    transform: scale(1.2);
     opacity: 0.5;
   }
   100% {
-    transform: scale(2.5);
+    transform: scale(2.8);
     opacity: 0;
   }
 }
 
-.About-Text {
-  font-family: "Rock Salt";
+h1 {
+  font-size: 3.75rem;
+  font-weight: 700;
+}
+.AboutMainText {
+  text-shadow: 0 0 1px #00e0e483, 0 0 10px #98bfff, 0 0 60px #00e0e483;
 }
