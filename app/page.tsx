@@ -10,6 +10,11 @@ import Works from "./components/Works";
 import Gear from "./components/Gear";
 import Resume from "./components/Resume";
 import StarsCanvas from "./components/StarBackground";
+import dynamic from "next/dynamic";
+
+// const About = dynamic(() => import("./components/About"), {
+//   // ssr: false, // Wyłącz SSR, jeśli komponent wymaga DOM
+// });
 
 const roboto = Roboto({
   subsets: ["latin"],
