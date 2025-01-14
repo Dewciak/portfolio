@@ -7,7 +7,7 @@ const Footer = () => {
       <div className='max-w-[1300px] flex flex-col mx-auto py-24 w-full'>
         <div className='flex flex-row justify-between items-center max-w-[100%] '>
           <p className='font-bold text-6xl'>
-            <span>Let's</span> connect.
+            <span>Let&apos;s</span> connect.
           </p>
           <IconsSocials />
         </div>

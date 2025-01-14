@@ -1,7 +1,5 @@
 import React, {Suspense} from "react";
-import {FaGithub} from "react-icons/fa";
-import {FaRegEnvelope} from "react-icons/fa";
-import {FaInstagram} from "react-icons/fa";
+
 import Spline from "@splinetool/react-spline/next";
 import IconsSocials from "./IconsSocials";
 
@@ -12,7 +10,7 @@ const Hero = () => {
         <div className='space-y-4'>
           <div className='mt-64 '>
             <h1>
-              I'm <span>Wiktor</span>,
+              I&apos;m <span>Wiktor</span>,
             </h1>
             <h1>
               <span>Frontend</span> dev.

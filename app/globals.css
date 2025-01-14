@@ -60,3 +60,44 @@ h1 {
 .AboutMainText {
   text-shadow: 0 0 1px #00e0e483, 0 0 10px #98bfff, 0 0 60px #00e0e483;
 }
+.social-Icon {
+  position: relative; /* Ustawiamy relative na ikonie, by `::after` było pozycjonowane względem niej */
+}
+
+.social-Icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 45px;
+  height: 45px;
+  background-color: var(--Foreground-Color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.15s ease-in-out;
+  z-index: -1;
+}
+
+.social-Icon:hover::after {
+  transform: scale(1);
+  transform: translate(-50%, -50%);
+  animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(-20%, -45%);
+  }
+  25% {
+    transform: translate(-60%, -55%);
+  }
+  50% {
+    transform: translate(-30%, -40%);
+  }
+  75% {
+    transform: translate(-60%, -55%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}

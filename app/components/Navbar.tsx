@@ -1,9 +1,9 @@
 "use client";
-import React, {useState} from "react";
+import React from "react";
 import {LuGamepad} from "react-icons/lu";
 
 const Navbar = () => {
-  const [mobileNav, setMobileNav] = useState(false);
+  // const [mobileNav, setMobileNav] = useState(false);
   return (
     <div className='py-10 flex items-center justify-between w-[90%] mx-auto'>
       <div className='flex items-center space-x-4 font-thin'>

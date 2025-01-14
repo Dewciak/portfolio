@@ -8,8 +8,8 @@ const Tech = () => {
       </h1>
       <p className='max-w-[600px] text-MylightGray'>
         Web and mobile development is dynamic and complex, with new solutions constantly emerging. I stay updated with
-        these advancements to ensure I'm using the best tools for the job. Here are some of the key technologies I work
-        with
+        these advancements to ensure I&apos;m using the best tools for the job. Here are some of the key technologies I
+        work with
       </p>
       <div className='flex space-x-10'>
         <Card />

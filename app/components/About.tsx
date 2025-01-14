@@ -1,14 +1,12 @@
 "use client";
 import React, {useEffect, useState} from "react";
-import Me from "@/public/images/Me.jpg";
-import Image from "next/image";
 
 const About = () => {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const position = window.scrollY; // Bieżąca pozycja scrolla
+      const position = window.scrollY;
       setScrollPosition(position);
       console.log("Aktualny scroll position:", position);
     };
@@ -20,16 +18,11 @@ const About = () => {
     };
   }, []);
 
-  const calculateTransform = () => {
-    const maxScroll = 300; // Maksymalny scroll, przy którym napis się zatrzymuje
-    const translateValue = Math.min(scrollPosition, maxScroll); // Ograniczenie przesunięcia
-    return translateValue;
-  };
   return (
     <section id='About' className='w-full overflow-hidden'>
       <div className='max-w-[1300px] mx-auto mt-64 flex flex-col '>
         <p className='mr-auto max-w-[320px] mt-16 text-MylightGray leading-8 '>
-          I've worked in UI design and front-end development, so I can understand designs well and builds effective
+          I&apos;ve worked in UI design and front-end development, so I can understand designs well and builds effective
           communication between team members.
         </p>
         <div className='flex items-center justify-between max-w-[100%] mx-auto mt-16 w-full'>

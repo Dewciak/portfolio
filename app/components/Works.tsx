@@ -20,8 +20,9 @@ const Works = () => {
         <div className='flex flex-col w-[35%] space-y-10 px-6 items-start justify-center'>
           <h2 className='text-3xl font-bold '>Hebel Mebel</h2>
           <p className='text-lg'>
-            I've worked in UI design and front-end development, so I can understand designs well and builds effective
-            communication between team members.designs well and builds effective communication between team members.
+            I&apos;ve worked in UI design and front-end development, so I can understand designs well and builds
+            effective communication between team members.designs well and builds effective communication between team
+            members.
           </p>
           <div className='flex space-x-10 '>
             <span>Visit live</span>
