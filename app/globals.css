@@ -101,3 +101,23 @@ h1 {
     transform: translate(-50%, -50%);
   }
 }
+.view-resume {
+  position: relative;
+}
+.view-resume::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: var(--Foreground-Color);
+  top: 2.2vw;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  transition: all 0.3s ease-in-out;
+}
+.view-resume:hover::after {
+  width: 100%;
+}
+.cv-image-box:hover .view-resume::after {
+  width: 100%;
+}

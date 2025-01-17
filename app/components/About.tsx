@@ -48,7 +48,7 @@ const About = () => {
                 transition: "transform 0.1s ease-out",
               }}
             >
-              <EachLetterSeparator word='Creative' />
+              <EachLetterSeparator word='Developer' />
             </div>
           </div>
         </div>
