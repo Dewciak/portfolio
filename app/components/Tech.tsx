@@ -19,7 +19,10 @@ import Image, {StaticImageData} from "next/image";
 
 const Tech = () => {
   return (
-    <section id='Tech' className='max-w-[1300px] flex flex-col mx-auto justify-start items-start space-y-10 '>
+    <section
+      id='Tech'
+      className='max-w-[1300px] flex flex-col mx-auto justify-start items-start space-y-10 mt-64 lg:mt-0 px-6 '
+    >
       <h1 className='text-6xl font-bold'>
         <span>Tech</span> i work with
       </h1>
@@ -28,14 +31,15 @@ const Tech = () => {
         web applications. From front-end frameworks to design tools, these technologies help me craft seamless user
         experiences and ensure efficient, scalable development.
       </p>
-      <div className='overflow-hidden w-full flex hover:cursor-grab active:cursor-grabbing'>
+      <div className='overflow-hidden w-full flex hover:cursor-grab active:cursor-grabbing '>
         <motion.div
-          className='flex space-x-4'
+          className='flex space-x-4 '
           drag='x'
           dragConstraints={{left: -2700, right: 0}}
           initial={{x: 0}}
           animate={{x: 0}}
           transition={{type: "spring", stiffness: 300, damping: 30}}
+          style={{touchAction: "none"}}
         >
           <Card header='HTML' description='Markup language for structuring web content' icon={Html} />
           <Card header='CSS' description='Style sheet language for designing web pages' icon={Css} />

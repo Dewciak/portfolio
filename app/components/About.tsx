@@ -8,7 +8,6 @@ const About = () => {
     const handleScroll = () => {
       const position = window.scrollY;
       setScrollPosition(position);
-      console.log("Aktualny scroll position:", position);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -20,15 +19,15 @@ const About = () => {
 
   return (
     <section id='About' className='w-full overflow-hidden'>
-      <div className='max-w-[1300px] mx-auto mt-64 flex flex-col '>
-        <p className='mr-auto max-w-[320px] mt-16 text-MylightGray leading-8 '>
+      <div className='max-w-[1300px] mx-auto mt-64 flex flex-col px-6'>
+        <p className='lg:mr-auto max-w-[320px] mt-16 text-MylightGray leading-8 '>
           I&apos;ve worked in UI design and front-end development, so I can understand designs well and builds effective
           communication between team members.
         </p>
         <div className='flex items-center justify-between max-w-[100%] mx-auto mt-16 w-full'>
-          <div className='flex flex-col space-y-0 text-[110px] items-center justify-center font-rockSalt tracking-widest font-bold w-full '>
+          <div className='flex flex-col space-y-0 text-[50px] items-center justify-center font-rockSalt tracking-widest font-bold w-full '>
             <div
-              className='flex flex-col space-y-0 text-[110px] font-rockSalt tracking-widest font-bold '
+              className='flex flex-col space-y-0 text-[50px] font-rockSalt tracking-widest font-bold '
               style={{
                 transform: `translateX(${
                   scrollPosition >= 900 && scrollPosition < 3500 ? `${scrollPosition - 2200}` : "-500"
@@ -40,7 +39,7 @@ const About = () => {
             </div>
             <EachLetterSeparator word='Frontend' />
             <div
-              className='flex flex-col space-y-0 text-[110px] font-rockSalt tracking-widest font-bold '
+              className='flex flex-col space-y-0 text-[50px] font-rockSalt tracking-widest font-bold '
               style={{
                 transform: `translateX(${
                   scrollPosition >= 900 && scrollPosition < 3500 ? `${-scrollPosition + 2200}` : "500"
@@ -52,7 +51,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <p className='ml-auto max-w-[320px] mt-16 text-MylightGray leading-8 relative duration-100'>
+        <p className='lg:ml-auto max-w-[320px] mt-16 text-MylightGray leading-8 relative duration-100'>
           Currently, I live in Seattle. In my personal life, I love to travel with my backpack, watch documentaries
           about geography, and explore new traditional music.
         </p>

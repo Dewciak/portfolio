@@ -24,14 +24,14 @@ export default function Home() {
   return (
     <div>
       {/* <StarsCanvas /> */}
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
-      {/* <Tech />
+      <Tech />
       <About />
       <Works />
-      <Resume />
-      <Gear />
-      <Footer /> */}
+      {/* <Resume /> */}
+      {/* <Gear /> */}
+      {/* <Footer /> */}
     </div>
   );
 }

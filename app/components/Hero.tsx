@@ -5,28 +5,26 @@ import IconsSocials from "./IconsSocials";
 
 const Hero = () => {
   return (
-    <section id='Home' className='flex flex-col 2xl:flex-row max-w-[1300px] mx-auto'>
-      <div className='w-full xl:w-[40%] flex flex-col items-center'>
-        <div className='mr-64 mt-10'>
-          <div className='space-y-4'>
-            <div className='mt-64 '>
-              <h1>
-                I&apos;m <span>Wiktor</span>,
-              </h1>
-              <h1>
-                <span>Frontend</span> dev.
-              </h1>
-            </div>
-            <h1 className='text-xl text-MylightGray font-thin max-w-[400px]'>
-              I solve problems and make things happen, all with a few keystrokes.
+    <section id='Home' className='flex flex-col lg:flex-row max-w-[1300px] mx-auto'>
+      <div className='w-full lg:w-[40%] flex flex-col justify-start items-start '>
+        <div className='space-y-4'>
+          <div className='mt-64 '>
+            <h1>
+              I&apos;m <span>Wiktor</span>,
             </h1>
-            <IconsSocials />
+            <h1>
+              <span>Frontend</span> dev.
+            </h1>
           </div>
+          <h1 className='text-xl text-MylightGray font-thin max-w-[400px]'>
+            I solve problems and make things happen, all with a few keystrokes.
+          </h1>
+          <IconsSocials />
         </div>
       </div>
-      <div className='w-[60%] h-[1000px] flex overflow-hidden mx-auto lg:mr-auto absolute z-[-1] translate-x-[-50%] left-[50%]'>
+      {/* <div className='w-[60%] h-[1000px] flex overflow-hidden'>
         <Spline scene='https://prod.spline.design/DHrmA9O3FtjyXCnz/scene.splinecode' />
-      </div>
+      </div> */}
     </section>
   );
 };
