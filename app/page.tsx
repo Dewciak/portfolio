@@ -19,18 +19,19 @@ const rockSalt = Rock_Salt({
   subsets: ["latin"],
   weight: ["400"],
 });
+
 export default function Home() {
   return (
     <div>
       {/* <StarsCanvas /> */}
       <Navbar />
       <Hero />
-      <Tech />
+      {/* <Tech />
       <About />
       <Works />
       <Resume />
       <Gear />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }

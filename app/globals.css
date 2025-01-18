@@ -121,3 +121,20 @@ h1 {
 .cv-image-box:hover .view-resume::after {
   width: 100%;
 }
+
+/* .mobile-menu {
+  animation: mobile-menu-popup 0.3s ease-in;
+}
+@keyframes mobile-menu-popup {
+  0% {
+    transform: translate(130%, 0%);
+    opacity: 0%;
+  }
+  85% {
+    opacity: 80%;
+  }
+  100% {
+    opacity: 100%;
+    transform: translate(0%, 0%);
+  }
+} */

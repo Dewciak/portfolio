@@ -1,5 +1,6 @@
 import React from "react";
 import IconsSocials from "./IconsSocials";
+import axios from "axios";
 
 const Footer = () => {
   return (
