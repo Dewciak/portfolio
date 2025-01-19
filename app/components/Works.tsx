@@ -43,7 +43,7 @@ const Works = () => {
   return (
     <section className='max-w-[1300px] mx-auto flex flex-col justify-center items-center mt-64 px-6'>
       <div className='flex justify-between w-full items-end flex-col lg:flex-row '>
-        <h1 className='leading-[70%]'>
+        <h1 className='lg:leading-[70%] leading-[100%]'>
           My rescent <span>works</span>
         </h1>
         <select

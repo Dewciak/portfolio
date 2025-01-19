@@ -25,12 +25,12 @@ const About = () => {
           communication between team members.
         </p>
         <div className='flex items-center justify-between max-w-[100%] mx-auto mt-16 w-full'>
-          <div className='flex flex-col space-y-0 text-[50px] items-center justify-center font-rockSalt tracking-widest font-bold w-full '>
+          <div className='flex flex-col space-y-0 lg:text-[110px] text-5xl items-center justify-center font-rockSalt tracking-widest font-bold w-full '>
             <div
-              className='flex flex-col space-y-0 text-[50px] font-rockSalt tracking-widest font-bold '
+              className='flex flex-col space-y-0 lg:text-[110px] text-5xl font-rockSalt tracking-widest font-bold '
               style={{
                 transform: `translateX(${
-                  scrollPosition >= 900 && scrollPosition < 3500 ? `${scrollPosition - 2200}` : "-500"
+                  scrollPosition >= 900 && scrollPosition < 3500 ? `${scrollPosition - 2200}` : "500px"
                 }px)`,
                 transition: "transform 0.1s ease-out",
               }}
@@ -39,7 +39,7 @@ const About = () => {
             </div>
             <EachLetterSeparator word='Frontend' />
             <div
-              className='flex flex-col space-y-0 text-[50px] font-rockSalt tracking-widest font-bold '
+              className='flex flex-col space-y-0 lg:text-[110px] text-5xl font-rockSalt tracking-widest font-bold '
               style={{
                 transform: `translateX(${
                   scrollPosition >= 900 && scrollPosition < 3500 ? `${-scrollPosition + 2200}` : "500"

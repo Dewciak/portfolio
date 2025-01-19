@@ -3,6 +3,7 @@
 @tailwind utilities;
 :root {
   --Foreground-Color: #00e0e4;
+  --Background-Color: #01000e;
 }
 html {
   scroll-behavior: smooth;
@@ -104,13 +105,15 @@ h1 {
 .view-resume {
   position: relative;
 }
+
+/* @media  */
 .view-resume::after {
   content: "";
   position: absolute;
   width: 0%;
   height: 2px;
   background-color: var(--Foreground-Color);
-  top: 2.2vw;
+  top: 100%;
   left: 50%;
   transform: translate(-50%, -0%);
   transition: all 0.3s ease-in-out;

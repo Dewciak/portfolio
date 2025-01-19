@@ -8,6 +8,7 @@ import About from "./components/About";
 import Works from "./components/Works";
 import Gear from "./components/Gear";
 import Resume from "./components/Resume";
+import Scene from "./components/StarBackground";
 // import StarsCanvas from "./components/StarBackground";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const roboto = Roboto({
@@ -23,15 +24,15 @@ const rockSalt = Rock_Salt({
 export default function Home() {
   return (
     <div>
-      {/* <StarsCanvas /> */}
-      {/* <Navbar /> */}
+      {/* <Scene /> */}
+      <Navbar />
       <Hero />
       <Tech />
       <About />
       <Works />
-      {/* <Resume /> */}
-      {/* <Gear /> */}
-      {/* <Footer /> */}
+      <Resume />
+      <Gear />
+      <Footer />
     </div>
   );
 }

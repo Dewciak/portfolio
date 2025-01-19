@@ -11,6 +11,7 @@ export default {
       colors: {
         MylightGray: "#b0adac",
         ForegroundColor: "var(--Foreground-Color)",
+        BackgroundColor: "var(--Background-Color)",
       },
       fontFamily: {
         sans: ["Roboto", "sans-serif"],

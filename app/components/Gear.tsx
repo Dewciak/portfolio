@@ -5,15 +5,15 @@ import Image from "next/image";
 
 const Gear = () => {
   return (
-    <section className='max-w-[1300px] mx-auto flex mt-64 flex-col'>
+    <section className='max-w-[1300px] mx-auto flex mt-64 flex-col px-6'>
       <h1>
         My code <span>environment</span>
       </h1>
-      <div className='flex'>
-        <div className='w-[50%]'>
-          <div className='flex space-x-10 py-16'>
-            <p className='text-3xl font-bold'>Code setup</p>
-            <p className='text-3xl font-bold text-[#636363]'>Game setup</p>
+      <div className='flex flex-col-reverse lg:flex-row'>
+        <div className='w-full lg:w-[50%] '>
+          <div className='flex space-x-10 py-16 text-2xl lg:text-3xl'>
+            <p className=' font-bold'>Code setup</p>
+            <p className=' font-bold text-[#636363]'>Game setup</p>
           </div>
           <div className='flex flex-col justify-center items-start space-y-12'>
             <GearItem />
