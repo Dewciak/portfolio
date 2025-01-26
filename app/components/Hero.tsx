@@ -9,18 +9,18 @@ import Scene from "./Scene";
 
 const Hero = () => {
   return (
-    <section id='Home' className='flex flex-col lg:flex-row max-w-[1300px] mx-auto px-6'>
+    <section id='Home' className='flex flex-col-reverse lg:flex-row max-w-[1300px] mx-auto px-6'>
       <div className='absolute top-12 left-6 lg:hidden'>
         <OpenForWork />
       </div>
 
       <div className='w-full lg:w-[40%] flex flex-col justify-start items-start '>
         <div className='space-y-4'>
-          <div className='mt-64 '>
-            <h1>
+          <div className='lg:mt-64  '>
+            <h1 className='text-5xl lg:text-6xl font-bold'>
               I&apos;m <span>Wiktor</span>,
             </h1>
-            <h1>
+            <h1 className='text-5xl lg:text-6xl font-bold'>
               <span>Frontend</span> dev.
             </h1>
           </div>
@@ -30,13 +30,8 @@ const Hero = () => {
           <IconsSocials />
         </div>
       </div>
-      <div className='w-[60%] h-[1000px] flex overflow-hidden'>
-        {/* <Spline scene='https://prod.spline.design/DHrmA9O3FtjyXCnz/scene.splinecode' /> */}
-        {/* <Canvas shadows camera={{position: [0, 0, 5], fov: 75}}>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[5, 5, 5]} castShadow /> */}
-        <Scene />
-        {/* </Canvas> */}
+      <div className='w-full lg:w-[60%] lg:h-[1000px] h-[500px]  overflow-hidden mt-16 lg:mt-0  flex items-center justify-center'>
+        {/* <Scene /> */}
       </div>
     </section>
   );
