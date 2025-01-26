@@ -30,7 +30,8 @@
     "app/components/Room.tsx",
     "app/components/Room.js",
     "app/models/Room.jsx",
-    "next.config.js"
+    "next.config.js",
+    "app/components/Scene.tsx"
   ],
   "exclude": ["node_modules"]
 }

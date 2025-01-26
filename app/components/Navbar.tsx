@@ -1,7 +1,7 @@
 "use client";
 import React, {useState} from "react";
 import {LuGamepad} from "react-icons/lu";
-import {Twirl as Hamburger} from "hamburger-react";
+// import {Twirl as Hamburger} from "hamburger-react";
 import {motion} from "framer-motion";
 
 import {IoMdHome} from "react-icons/io";
@@ -42,7 +42,7 @@ const Navbar = () => {
           </div>
 
           <div className=' bg-slate-900 rounded-full text-gray-100 px-1 flex items-center justify-center '>
-            <Hamburger size={24} onToggle={setMobileNav} />
+            {/* <Hamburger size={24} onToggle={setMobileNav} /> */}
           </div>
         </div>
       </div>

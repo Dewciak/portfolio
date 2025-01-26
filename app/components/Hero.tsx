@@ -1,10 +1,12 @@
+"use client";
 import React, {Suspense} from "react";
 
 import Spline from "@splinetool/react-spline/next";
 import IconsSocials from "./IconsSocials";
 import OpenForWork from "./OpenForWork";
-// import {Room} from "@/app/models/Room";
-// import {Canvas} from "@react-three/fiber";
+import {Canvas} from "@react-three/fiber";
+import Scene from "./Scene";
+
 const Hero = () => {
   return (
     <section id='Home' className='flex flex-col lg:flex-row max-w-[1300px] mx-auto px-6'>
@@ -30,11 +32,11 @@ const Hero = () => {
       </div>
       <div className='w-[60%] h-[1000px] flex overflow-hidden'>
         {/* <Spline scene='https://prod.spline.design/DHrmA9O3FtjyXCnz/scene.splinecode' /> */}
-        {/* <Canvas>
-          <ambientLight />
-          <pointLight position={[10, 10, 10]} />
-          <Room position={[0, 0, 0]} />
-        </Canvas> */}
+        {/* <Canvas shadows camera={{position: [0, 0, 5], fov: 75}}>
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[5, 5, 5]} castShadow /> */}
+        <Scene />
+        {/* </Canvas> */}
       </div>
     </section>
   );
