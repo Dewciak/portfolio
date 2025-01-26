@@ -12,7 +12,7 @@ const Footer = () => {
           </p>
           <div className='flex items-center justify-between w-full lg:w-auto '>
             <IconsSocials />
-            <p className='lg:hidden font-medium text-xl '>wiktorskid@wp.pl</p>
+            <p className='lg:hidden font-medium text-xl text-MylightGray'>wiktorskid@wp.pl</p>
           </div>
         </div>
         <a href='mailto:wiktorskid@wp.pl' className='hidden lg:block mr-auto mt-6 font-medium text-xl no-underline '>

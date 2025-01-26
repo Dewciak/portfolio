@@ -22,11 +22,7 @@ const Gear = () => {
             <GearItem />
           </div>
         </div>
-        <div className='w-[50%]'>
-          <Suspense fallback={<div>Loading...</div>}>
-            <Spline scene='https://prod.spline.design/DHrmA9O3FtjyXCnz/scene.splinecode' />
-          </Suspense>
-        </div>
+        <div className='w-[50%]'></div>
       </div>
     </section>
   );
