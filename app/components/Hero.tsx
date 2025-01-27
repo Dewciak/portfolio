@@ -7,21 +7,28 @@ import OpenForWork from "./OpenForWork";
 import {Canvas} from "@react-three/fiber";
 import Scene from "./Scene";
 
-const Hero = () => {
+interface Props {
+  gameMode: string;
+}
+
+const Hero = ({gameMode}: Props) => {
   return (
     <section id='Home' className='flex flex-col-reverse lg:flex-row max-w-[1300px] mx-auto px-6'>
       <div className='absolute top-12 left-6 lg:hidden'>
         <OpenForWork />
       </div>
 
-      <div className='w-full lg:w-[40%] flex flex-col justify-start items-start '>
-        <div className='space-y-4'>
-          <div className='lg:mt-64  '>
+      <div className='w-full lg:w-[40%] flex flex-col justify-center items-center '>
+        <div className='space-y-4 '>
+          <div className='  '>
             <h1 className='text-5xl lg:text-6xl font-bold'>
-              I&apos;m <span>Wiktor</span>,
+              I&apos;m <span className={gameMode === "On" ? "game-mode-on" : "game-mode-off"}>Wiktor</span>,
             </h1>
             <h1 className='text-5xl lg:text-6xl font-bold'>
-              <span>Frontend</span> dev.
+              <span className={gameMode === "On" ? "game-mode-on" : "game-mode-off"}>
+                {gameMode === "On" ? "Driven" : "Frontend"}
+              </span>{" "}
+              {gameMode === "On" ? "gamer." : "dev."}
             </h1>
           </div>
           <h1 className='text-xl text-MylightGray font-thin max-w-[400px]'>
@@ -31,7 +38,7 @@ const Hero = () => {
         </div>
       </div>
       <div className='w-full lg:w-[60%] lg:h-[1000px] h-[500px]  overflow-hidden mt-16 lg:mt-0  flex items-center justify-center'>
-        {/* <Scene /> */}
+        <Scene />
       </div>
     </section>
   );

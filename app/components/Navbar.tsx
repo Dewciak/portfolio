@@ -1,5 +1,5 @@
 "use client";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {LuGamepad} from "react-icons/lu";
 import {Twirl as Hamburger} from "hamburger-react";
 import {motion} from "framer-motion";
@@ -10,15 +10,32 @@ import {GrProjects} from "react-icons/gr";
 import {SiReaddotcv} from "react-icons/si";
 import {GrContact} from "react-icons/gr";
 import OpenForWork from "./OpenForWork";
+import Link from "next/link";
 
-const Navbar = () => {
+interface NavbarProps {
+  gameMode: string;
+}
+
+const Navbar = ({gameMode}: NavbarProps) => {
+  useEffect(() => {
+    const root = document.documentElement;
+
+    if (gameMode === "On") {
+      root.style.setProperty("--Foreground-Color", "#00e0e4"); // Kolor dla trybu "On"
+      // root.style.setProperty("--Selection-Text-Color", "#ffffff");
+    } else {
+      root.style.setProperty("--GameMode-Color", "#fb4311"); // Kolor dla trybu "Off"
+      // root.style.setProperty("--Selection-Text-Color", "#ffffff");
+    }
+  }, [gameMode]);
+
   const [mobileNav, setMobileNav] = useState(false);
   return (
     <div className=' w-full fixed z-40 '>
       <div className='hidden lg:flex bg-BackgroundColor items-center justify-between w-full mx-auto py-10 px-16'>
         <OpenForWork />
         <ul className='flex space-x-10  justify-center items-center text-xl'>
-          <li className='text-ForegroundColor'>Home</li>
+          <li>Home</li>
 
           <li>
             <a href='#Tech'>Tech</a>
@@ -33,13 +50,24 @@ const Navbar = () => {
             <a href='#Contact'>Contact</a>
           </li>
         </ul>
-        <GameMode />
+        <Link
+          scroll={false}
+          href={`${gameMode === "On" ? "?gameMode=Off" : "?gameMode=On"}`}
+          className='flex space-x-4 text-gray-100 items-center justify-center font-thin '
+        >
+          <p className={`${gameMode === "On" ? "text-red-500" : ""} hidden xl:flex`}>GAME MODE</p>
+          <LuGamepad size={30} />
+        </Link>
       </div>
       <div className='flex lg:hidden justify-between items-center w-full px-4 py-8'>
         <div className='flex space-x-2 ml-auto'>
-          <div className=' bg-slate-900 rounded-full p-3 flex items-center justify-center'>
+          <Link
+            scroll={false}
+            href={`${gameMode === "On" ? "?gameMode=Off" : "?gameMode=On"}`}
+            className=' bg-slate-900 rounded-full p-3 flex items-center justify-center'
+          >
             <LuGamepad size={30} />
-          </div>
+          </Link>
 
           <div className=' bg-slate-900 rounded-full text-gray-100 px-1 flex items-center justify-center '>
             <Hamburger size={24} onToggle={setMobileNav} />
@@ -96,12 +124,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-function GameMode() {
-  return (
-    <div className='flex space-x-4 text-gray-100 items-center justify-center font-thin '>
-      <h2 className='hidden xl:flex'>GAME MODE</h2>
-      <LuGamepad size={30} />
-    </div>
-  );
-}

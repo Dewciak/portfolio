@@ -9,11 +9,15 @@ import Gear from "./components/Gear";
 import Resume from "./components/Resume";
 import Scene from "./components/StarBackground";
 
-export default function Home() {
+interface Props {
+  searchParams: {gameMode: string};
+}
+
+export default function Home({searchParams}: Props) {
   return (
     <div>
-      <Navbar />
-      <Hero />
+      <Navbar gameMode={searchParams.gameMode} />
+      <Hero gameMode={searchParams.gameMode} />
       <Tech />
       <About />
       <Works />

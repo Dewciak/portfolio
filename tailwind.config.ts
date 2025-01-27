@@ -11,6 +11,7 @@ export default {
       colors: {
         MylightGray: "#b0adac",
         ForegroundColor: "var(--Foreground-Color)",
+        GameModeColor: "var(--GameMode-Color)",
         BackgroundColor: "var(--Background-Color)",
       },
       fontFamily: {

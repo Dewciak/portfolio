@@ -4,6 +4,7 @@
 
 :root {
   --Foreground-Color: #00e0e4;
+  --GameMode-Color: #fb4311;
   --Background-Color: #01000e;
 }
 html {
@@ -21,6 +22,18 @@ body {
 span {
   color: var(--Foreground-Color);
   text-shadow: 0 0 1px #00e0e483, 0 0 10px #98bfff, 0 0 60px #00e0e483;
+}
+
+.game-mode-off {
+  color: var(--Foreground-Color);
+  text-shadow: 0 0 1px #00e0e483, 0 0 10px #98bfff, 0 0 60px #00e0e483;
+  transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+
+.game-mode-on {
+  color: var(--GameMode-Color);
+  text-shadow: 0 0 1px #e4390083, 0 0 10px #f24141, 0 0 60px #e4390083;
+  transition: color 0.5s ease, text-shadow 0.5s ease;
 }
 
 #ping-dot {
