@@ -11,8 +11,9 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background-color: #01000e;
+  background-color: var(--Background-Color);
   color: white;
+  /* transition: color 0.5s ease, text-shadow 0.5s ease; */
   font-family: "Roboto";
 }
 ::selection {
@@ -23,6 +24,7 @@ span {
   color: var(--Foreground-Color);
   text-shadow: 0 0 1px var(--Foreground-Color), 0 0 10px var(--Foreground-Color), 0 0 60px var(--Foreground-Color);
   transition: color 0.5s ease, text-shadow 0.5s ease;
+  transition: transform 0.2s ease, 0.5s ease;
 }
 
 #ping-dot {

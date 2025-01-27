@@ -78,11 +78,11 @@ interface Props {
 function EachLetterSeparator({word, gameMode}: Props) {
   const [selectedLetter, setSelectedLetter] = useState<number | undefined>(undefined);
   return (
-    <div className='flex  duration-150' onMouseLeave={() => setSelectedLetter(undefined)}>
+    <div className='flex' onMouseLeave={() => setSelectedLetter(undefined)}>
       {word.split("").map((letter, key) => (
         <span
           key={key}
-          className={`duration-150 transition-transform ${selectedLetter === key && "scale-[1.3]"} ${
+          className={` ${selectedLetter === key && "scale-[1.3]"} ${
             selectedLetter && selectedLetter - 1 === key && "scale-[1.15]"
           } ${selectedLetter && selectedLetter + 1 === key && "scale-[1.15]"}`}
           onMouseEnter={() => setSelectedLetter(key)}

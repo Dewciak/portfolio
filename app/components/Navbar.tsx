@@ -20,6 +20,7 @@ interface NavbarProps {
 const Navbar = ({gameMode}: NavbarProps) => {
   useEffect(() => {
     document.documentElement.style.setProperty("--Foreground-Color", gameMode ? "#fb4311" : "#00e0e4");
+    document.documentElement.style.setProperty("--Background-Color", gameMode ? "#000000" : "#01000e");
   }, [gameMode]);
 
   const [mobileNav, setMobileNav] = useState(false);
