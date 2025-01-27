@@ -1,0 +1,44 @@
+import Html from "@/public/images/Tech-icons/html.png";
+import Css from "@/public/images/Tech-icons/css.png";
+import Javascript from "@/public/images/Tech-icons/javascript.png";
+import Typescript from "@/public/images/Tech-icons/typescript.png";
+import ReactPic from "@/public/images/Tech-icons/react.png";
+import Next from "@/public/images/Tech-icons/nextjs.png";
+import Tailwind from "@/public/images/Tech-icons/tailwind.png";
+import Git from "@/public/images/Tech-icons/git.png";
+import Photoshop from "@/public/images/Tech-icons/photoshop.png";
+import Figma from "@/public/images/Tech-icons/figma.png";
+import Spline from "@/public/images/Tech-icons/spline.png";
+import MySql from "@/public/images/Tech-icons/mysql.png";
+import Astro from "@/public/images/Tech-icons/astro.png";
+
+import Witcher from "@/public/images/Game-icons/witcher.png";
+import Cyberpunk from "@/public/images/Game-icons/cyberpunk.png";
+import EldenRing from "@/public/images/Game-icons/eldenring.png";
+import Rdr2 from "@/public/images/Game-icons/rdr2.png";
+
+import {StaticImageData} from "next/image";
+
+const iconsMap: Record<string, StaticImageData> = {
+  Html: Html,
+  Css: Css,
+  Javascript: Javascript,
+  Typescript: Typescript,
+  ReactPic: ReactPic,
+  Next: Next,
+  Tailwind: Tailwind,
+  Git: Git,
+  Photoshop: Photoshop,
+  Figma: Figma,
+  Spline: Spline,
+  MySql: MySql,
+  Astro: Astro,
+  Witcher: Witcher,
+  Cyberpunk: Cyberpunk,
+  EldenRing: EldenRing,
+  Rdr2: Rdr2,
+};
+
+export const getIcon = (iconName: string): StaticImageData | null => {
+  return iconsMap[iconName];
+};

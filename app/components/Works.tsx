@@ -31,8 +31,11 @@ interface WebsiteData {
     code: string;
   };
 }
+interface Props {
+  gameMode: string;
+}
 
-const Works = () => {
+const Works = ({gameMode}: Props) => {
   const [selectedWebsite, setSelectedWebsite] = useState<keyof WebsiteData>("HebelMebel");
 
   const handleWebsiteChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -44,7 +47,7 @@ const Works = () => {
     <section className='max-w-[1300px] mx-auto flex flex-col justify-center items-center mt-64 px-6'>
       <div className='flex justify-between w-full items-end flex-col lg:flex-row '>
         <h1 className='lg:leading-[70%] leading-[100%]'>
-          My rescent <span>works</span>
+          My rescent <span className={gameMode === "On" ? "game-mode-on" : "game-mode-off"}>works</span>
         </h1>
         <select
           className='bg-transparent text-2xl mr-6 px-1 mt-16 lg:mt-0'

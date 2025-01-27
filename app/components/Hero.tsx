@@ -18,7 +18,7 @@ const Hero = ({gameMode}: Props) => {
         <OpenForWork />
       </div>
 
-      <div className='w-full lg:w-[40%] flex flex-col justify-center items-center '>
+      <div className='w-full lg:w-[40%] flex flex-col justify-center items-start '>
         <div className='space-y-4 '>
           <div className='  '>
             <h1 className='text-5xl lg:text-6xl font-bold'>
@@ -38,7 +38,7 @@ const Hero = ({gameMode}: Props) => {
         </div>
       </div>
       <div className='w-full lg:w-[60%] lg:h-[1000px] h-[500px]  overflow-hidden mt-16 lg:mt-0  flex items-center justify-center'>
-        <Scene />
+        {/* <Scene /> */}
       </div>
     </section>
   );

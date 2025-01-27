@@ -19,10 +19,10 @@ body {
   background-color: var(--Foreground-Color);
   color: white; /* biały */
 }
-span {
+/* span {
   color: var(--Foreground-Color);
   text-shadow: 0 0 1px #00e0e483, 0 0 10px #98bfff, 0 0 60px #00e0e483;
-}
+} */
 
 .game-mode-off {
   color: var(--Foreground-Color);
@@ -72,9 +72,9 @@ h1 {
   font-size: 3.75rem;
   font-weight: 700;
 }
-.AboutMainText {
+/* .AboutMainText {
   text-shadow: 0 0 1px #00e0e483, 0 0 10px #98bfff, 0 0 60px #00e0e483;
-}
+} */
 .social-Icon {
   position: relative; /* Ustawiamy relative na ikonie, by `::after` było pozycjonowane względem niej */
 }

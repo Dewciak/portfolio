@@ -1,7 +1,22 @@
 "use client";
 import React, {useEffect, useState} from "react";
+import websiteData from "@/app/components/textContent/About.json";
 
-const About = () => {
+interface WebsiteData {
+  gameModeOff: {
+    firstParagraph: string;
+    secondParagraph: string;
+  };
+  gameModeOn: {
+    firstParagraph: string;
+    secondParagraph: string;
+  };
+}
+interface AboutProps {
+  gameMode: string;
+}
+
+const About = ({gameMode}: AboutProps) => {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
 
   useEffect(() => {
@@ -16,14 +31,11 @@ const About = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
+  const currentData = gameMode === "On" ? websiteData.gameModeOn : websiteData.gameModeOff;
   return (
     <section id='About' className='w-full overflow-hidden'>
       <div className='max-w-[1300px] mx-auto mt-64 flex flex-col px-6'>
-        <p className='lg:mr-auto max-w-[320px] mt-16 text-MylightGray leading-8 '>
-          I&apos;ve worked in UI design and front-end development, so I can understand designs well and builds effective
-          communication between team members.
-        </p>
+        <p className='lg:mr-auto max-w-[320px] mt-16 text-MylightGray leading-8 '>{currentData.firstParagraph}</p>
         <div className='flex items-center justify-between max-w-[100%] mx-auto mt-16 w-full'>
           <div className='flex flex-col space-y-10 lg:text-[110px] text-5xl items-center justify-center font-rockSalt tracking-widest font-bold w-full '>
             <div
@@ -34,9 +46,9 @@ const About = () => {
                 transition: "transform 0.1s ease-out",
               }}
             >
-              <EachLetterSeparator word='Creative' />
+              <EachLetterSeparator gameMode={gameMode} word={gameMode === "On" ? "Maniac" : "Creative"} />
             </div>
-            <EachLetterSeparator word='Frontend' />
+            <EachLetterSeparator gameMode={gameMode} word={gameMode === "On" ? "Passionate" : "Frontend"} />
             <div
               style={{
                 transform: `translateX(${
@@ -45,13 +57,12 @@ const About = () => {
                 transition: "transform 0.1s ease-out",
               }}
             >
-              <EachLetterSeparator word='Developer' />
+              <EachLetterSeparator gameMode={gameMode} word={gameMode === "On" ? "Gamer" : "Developer"} />
             </div>
           </div>
         </div>
         <p className='lg:ml-auto max-w-[320px] mt-16 text-MylightGray leading-8 relative duration-100'>
-          Currently, I live in Seattle. In my personal life, I love to travel with my backpack, watch documentaries
-          about geography, and explore new traditional music.
+          {currentData.secondParagraph}
         </p>
       </div>
     </section>
@@ -62,17 +73,20 @@ export default About;
 
 interface Props {
   word: string;
+  gameMode: string;
 }
-function EachLetterSeparator({word}: Props) {
+function EachLetterSeparator({word, gameMode}: Props) {
   const [selectedLetter, setSelectedLetter] = useState<number | undefined>(undefined);
   return (
     <div className='flex  duration-150' onMouseLeave={() => setSelectedLetter(undefined)}>
       {word.split("").map((letter, key) => (
         <p
           key={key}
-          className={`AboutMainText duration-150 ${selectedLetter === key && "scale-[1.3]"} ${
-            selectedLetter && selectedLetter - 1 === key && "scale-[1.15]"
-          } ${selectedLetter && selectedLetter + 1 === key && "scale-[1.15]"}`}
+          className={`${gameMode === "On" ? "game-mode-on" : "game-mode-off"} duration-150 ${
+            selectedLetter === key && "scale-[1.3]"
+          } ${selectedLetter && selectedLetter - 1 === key && "scale-[1.15]"} ${
+            selectedLetter && selectedLetter + 1 === key && "scale-[1.15]"
+          }`}
           onMouseEnter={() => setSelectedLetter(key)}
         >
           {letter}

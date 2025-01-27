@@ -1,0 +1,131 @@
+{
+  "gameModeOff": [
+    {
+      "header": "HTML",
+      "description": "Markup language for structuring web content",
+      "icon": "Html"
+    },
+    {
+      "header": "CSS",
+      "description": "Style sheet language for designing web pages",
+      "icon": "Css"
+    },
+    {
+      "header": "JavaScript",
+      "description": "Programming language for dynamic web content",
+      "icon": "Javascript"
+    },
+    {
+      "header": "TypeScript",
+      "description": "Superset of JavaScript that adds static types",
+      "icon": "Typescript"
+    },
+    {
+      "header": "React",
+      "description": "JavaScript library for building user interfaces",
+      "icon": "ReactPic"
+    },
+    {
+      "header": "Next.js",
+      "description": "React framework for server-side rendering and static websites",
+      "icon": "Next"
+    },
+    {
+      "header": "Astro",
+      "description": "A framework for building fast, static websites using components from various libraries.",
+      "icon": "Astro"
+    },
+    {
+      "header": "TailwindCSS",
+      "description": "Utility-first CSS framework for rapid UI development",
+      "icon": "Tailwind"
+    },
+    {
+      "header": "MySQL",
+      "description": "Relational database management system",
+      "icon": "MySql"
+    },
+    {
+      "header": "Git",
+      "description": "Version control system for tracking changes in code",
+      "icon": "Git"
+    },
+    {
+      "header": "Photoshop",
+      "description": "Image editing software for creating and manipulating graphics",
+      "icon": "Photoshop"
+    },
+    {
+      "header": "Figma",
+      "description": "Collaborative interface design tool",
+      "icon": "Figma"
+    },
+    {
+      "header": "Spline",
+      "description": "3D design and modeling tool",
+      "icon": "Spline"
+    }
+  ],
+  "gameModeOn": [
+    {
+      "header": "Wiedźmin",
+      "description": "Markup language for structuring web content",
+      "icon": "Witcher"
+    },
+    {
+      "header": "Cyberpunk",
+      "description": "Style sheet language for designing web pages",
+      "icon": "Cyberpunk"
+    },
+    {
+      "header": "Elden Ring",
+      "description": "Programming language for dynamic web content",
+      "icon": "EldenRing"
+    },
+    {
+      "header": "Red Dead Redemption 2",
+      "description": "Programming language for dynamic web content",
+      "icon": "Rdr2"
+    },
+    {
+      "header": "God of War Ragnarok",
+      "description": "Programming language for dynamic web content",
+      "icon": "Rdr2"
+    },
+    {
+      "header": "Spiderman",
+      "description": "Programming language for dynamic web content",
+      "icon": "Rdr2"
+    },
+    {
+      "header": "Hades",
+      "description": "Programming language for dynamic web content",
+      "icon": "Rdr2"
+    },
+    {
+      "header": "Dead Cells",
+      "description": "Programming language for dynamic web content",
+      "icon": "Rdr2"
+    },
+    {
+      "header": "Dark Souls 3",
+      "description": "Programming language for dynamic web content",
+      "icon": "Rdr2"
+    },
+    {
+      "header": "Horizon Zero Dawn",
+      "description": "Programming language for dynamic web content",
+      "icon": "Rdr2"
+    },
+    {
+      "header": "Bioshock Infinite",
+      "description": "Programming language for dynamic web content",
+      "icon": "Rdr2"
+    },
+    {
+      "header": "Uncharted 4",
+      "description": "Programming language for dynamic web content",
+      "icon": "Rdr2"
+    }
+  ]
+}

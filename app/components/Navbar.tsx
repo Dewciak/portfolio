@@ -1,5 +1,5 @@
 "use client";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {LuGamepad} from "react-icons/lu";
 import {Twirl as Hamburger} from "hamburger-react";
 import {motion} from "framer-motion";
@@ -17,18 +17,6 @@ interface NavbarProps {
 }
 
 const Navbar = ({gameMode}: NavbarProps) => {
-  useEffect(() => {
-    const root = document.documentElement;
-
-    if (gameMode === "On") {
-      root.style.setProperty("--Foreground-Color", "#00e0e4"); // Kolor dla trybu "On"
-      // root.style.setProperty("--Selection-Text-Color", "#ffffff");
-    } else {
-      root.style.setProperty("--GameMode-Color", "#fb4311"); // Kolor dla trybu "Off"
-      // root.style.setProperty("--Selection-Text-Color", "#ffffff");
-    }
-  }, [gameMode]);
-
   const [mobileNav, setMobileNav] = useState(false);
   return (
     <div className=' w-full fixed z-40 '>

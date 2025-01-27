@@ -18,9 +18,9 @@ export default function Home({searchParams}: Props) {
     <div>
       <Navbar gameMode={searchParams.gameMode} />
       <Hero gameMode={searchParams.gameMode} />
-      <Tech />
-      <About />
-      <Works />
+      <Tech gameMode={searchParams.gameMode} />
+      <About gameMode={searchParams.gameMode} />
+      <Works gameMode={searchParams.gameMode} />
       <Resume />
       <Gear />
       <Footer />
