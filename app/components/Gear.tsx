@@ -1,28 +1,45 @@
 import Spline from "@splinetool/react-spline";
 import React, {Suspense} from "react";
-import Laptop from "@/public/images/Laptop.png";
-import Image from "next/image";
+import Laptop from "@/public/images/Gear/Laptop.png";
+import Image, {StaticImageData} from "next/image";
+import Scene from "./Scene";
 
-const Gear = () => {
+import GearDataJson from "./textContent/Gear.json";
+import {getIcon} from "./getIcon";
+import Link from "next/link";
+
+const Gear = ({gameMode}: {gameMode: boolean}) => {
+  const selectedGear = gameMode ? GearDataJson.gameModeOn : GearDataJson.gameModeOff;
   return (
     <section className='max-w-[1300px] mx-auto flex mt-64 flex-col px-6'>
       <h1>
-        My code <span>environment</span>
+        {gameMode ? "My sweet" : "My code"} <span>{gameMode ? "kingdom" : "environment"}</span>
       </h1>
       <div className='flex flex-col-reverse lg:flex-row'>
         <div className='w-full lg:w-[50%] '>
           <div className='flex space-x-10 py-16 text-2xl lg:text-3xl'>
-            <p className=' font-bold'>Code setup</p>
-            <p className=' font-bold text-[#636363]'>Game setup</p>
+            <Link
+              href='?gameMode=Off'
+              scroll={false}
+              className={`duration-150 font-bold ${gameMode ? "text-[#636363]" : ""}`}
+            >
+              Code setup
+            </Link>
+            <Link
+              href='?gameMode=On'
+              scroll={false}
+              className={`duration-150 font-bold ${gameMode ? "" : "text-[#636363]"}`}
+            >
+              Game setup
+            </Link>
           </div>
-          <div className='flex flex-col justify-center items-start space-y-12'>
-            <GearItem />
-            <GearItem />
-            <GearItem />
-            <GearItem />
+          <div className='flex flex-col  justify-center items-start space-y-12'>
+            {selectedGear.map((gear, key) => (
+              <GearItem key={key} title={gear.name} description={gear.description} icon={getIcon(gear.icon)!} />
+            ))}
           </div>
         </div>
-        <div className='w-[50%]'></div>
+        <div className='w-[50%]'>{/* <Scene /> */}</div>
       </div>
     </section>
   );
@@ -30,17 +47,21 @@ const Gear = () => {
 
 export default Gear;
 
-const GearItem = () => {
+interface GearItemProps {
+  title: string;
+  description: string;
+  icon: StaticImageData;
+}
+
+const GearItem = ({title, description, icon}: GearItemProps) => {
   return (
     <div className='flex space-x-6'>
-      <div className='rounded-full bg-[#191919] size-[64px]'>
-        <Image src={Laptop} alt='laptop' className='opacity-[0.6]' />
+      <div className='rounded-full bg-[#191919] size-[64px] p-1'>
+        <Image src={icon} alt='laptop' className='opacity-[0.6] object-cover ' />
       </div>
-      <div className='flex flex-col'>
-        <p>Apple Macbook air M2 16gb</p>
-        <p className='text-[#848484]'>
-          I love it for almost everything, battery life <br />, performance, weight and apple ecosystems <br /> features
-        </p>
+      <div className='flex flex-col max-w-[70%]'>
+        <p>{title}</p>
+        <p className='text-[#848484]'>{description}</p>
       </div>
     </div>
   );

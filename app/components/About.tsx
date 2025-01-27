@@ -13,7 +13,7 @@ interface WebsiteData {
   };
 }
 interface AboutProps {
-  gameMode: string;
+  gameMode: boolean;
 }
 
 const About = ({gameMode}: AboutProps) => {
@@ -31,7 +31,7 @@ const About = ({gameMode}: AboutProps) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const currentData = gameMode === "On" ? websiteData.gameModeOn : websiteData.gameModeOff;
+  const currentData = gameMode ? websiteData.gameModeOn : websiteData.gameModeOff;
   return (
     <section id='About' className='w-full overflow-hidden'>
       <div className='max-w-[1300px] mx-auto mt-64 flex flex-col px-6'>
@@ -46,9 +46,9 @@ const About = ({gameMode}: AboutProps) => {
                 transition: "transform 0.1s ease-out",
               }}
             >
-              <EachLetterSeparator gameMode={gameMode} word={gameMode === "On" ? "Maniac" : "Creative"} />
+              <EachLetterSeparator gameMode={gameMode} word={gameMode ? "Maniac" : "Creative"} />
             </div>
-            <EachLetterSeparator gameMode={gameMode} word={gameMode === "On" ? "Passionate" : "Frontend"} />
+            <EachLetterSeparator gameMode={gameMode} word={gameMode ? "Passionate" : "Frontend"} />
             <div
               style={{
                 transform: `translateX(${
@@ -57,7 +57,7 @@ const About = ({gameMode}: AboutProps) => {
                 transition: "transform 0.1s ease-out",
               }}
             >
-              <EachLetterSeparator gameMode={gameMode} word={gameMode === "On" ? "Gamer" : "Developer"} />
+              <EachLetterSeparator gameMode={gameMode} word={gameMode ? "Gamer" : "Developer"} />
             </div>
           </div>
         </div>
@@ -73,24 +73,22 @@ export default About;
 
 interface Props {
   word: string;
-  gameMode: string;
+  gameMode: boolean;
 }
 function EachLetterSeparator({word, gameMode}: Props) {
   const [selectedLetter, setSelectedLetter] = useState<number | undefined>(undefined);
   return (
     <div className='flex  duration-150' onMouseLeave={() => setSelectedLetter(undefined)}>
       {word.split("").map((letter, key) => (
-        <p
+        <span
           key={key}
-          className={`${gameMode === "On" ? "game-mode-on" : "game-mode-off"} duration-150 ${
-            selectedLetter === key && "scale-[1.3]"
-          } ${selectedLetter && selectedLetter - 1 === key && "scale-[1.15]"} ${
-            selectedLetter && selectedLetter + 1 === key && "scale-[1.15]"
-          }`}
+          className={`duration-150 transition-transform ${selectedLetter === key && "scale-[1.3]"} ${
+            selectedLetter && selectedLetter - 1 === key && "scale-[1.15]"
+          } ${selectedLetter && selectedLetter + 1 === key && "scale-[1.15]"}`}
           onMouseEnter={() => setSelectedLetter(key)}
         >
           {letter}
-        </p>
+        </span>
       ))}
     </div>
   );

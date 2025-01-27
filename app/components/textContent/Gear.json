@@ -1,0 +1,46 @@
+{
+  "gameModeOff": [
+    {
+      "name": "Apple Macbook air M2",
+      "description": "The Apple Macbook air M2 is a great laptop for coding and web development. It is lightweight and has a great battery life. It is also very fast and has a great display.",
+      "icon": "Macbook"
+    },
+    {
+      "name": "Iiyama G-Master GB3467WQSU-B5 Red Eagle",
+      "description": "The Apple Macbook air M2 is a great laptop for coding and web development. It is lightweight and has a great battery life. It is also very fast and has a great display.",
+      "icon": "Monitor"
+    },
+    {
+      "name": "Custom electric Desk",
+      "description": "The Apple Macbook air M2 is a great laptop for coding and web development. It is lightweight and has a great battery life. It is also very fast and has a great display.",
+      "icon": "Desk"
+    },
+    {
+      "name": "Edifier R1600TIII",
+      "description": "The Apple Macbook air M2 is a great laptop for coding and web development. It is lightweight and has a great battery life. It is also very fast and has a great display.",
+      "icon": "Speakers"
+    }
+  ],
+  "gameModeOn": [
+    {
+      "name": "Rtx 4070TI Ryzen 9 9700X PC",
+      "description": "The Apple Macbook air M2 is a great laptop for coding and web development. It is lightweight and has a great battery life. It is also very fast and has a great display.",
+      "icon": "Pc"
+    },
+    {
+      "name": "Playstation",
+      "description": "The Apple Macbook air M2 is a great laptop for coding and web development. It is lightweight and has a great battery life. It is also very fast and has a great display.",
+      "icon": "Ps5"
+    },
+    {
+      "name": "Sharp 42” Led",
+      "description": "The Apple Macbook air M2 is a great laptop for coding and web development. It is lightweight and has a great battery life. It is also very fast and has a great display.",
+      "icon": "Tv"
+    },
+    {
+      "name": "Samsung Soundbar",
+      "description": "The Apple Macbook air M2 is a great laptop for coding and web development. It is lightweight and has a great battery life. It is also very fast and has a great display.",
+      "icon": "Soundbar"
+    }
+  ]
+}

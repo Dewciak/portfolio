@@ -8,7 +8,7 @@ import Image, {StaticImageData} from "next/image";
 import techData from "@/app/components/textContent/Tech.json";
 
 interface Props {
-  gameMode: string;
+  gameMode: boolean;
 }
 export interface Technology {
   header: string;
@@ -16,17 +16,16 @@ export interface Technology {
   icon: string;
 }
 const Tech = ({gameMode}: Props) => {
-  const gameModeTechData = gameMode === "On" ? techData.gameModeOn : techData.gameModeOff;
+  const gameModeTechData = gameMode ? techData.gameModeOn : techData.gameModeOff;
 
-  const gameModeOn = gameMode === "On" ? true : false;
   return (
     <section
       id='Tech'
       className='max-w-[1300px] flex flex-col mx-auto justify-start items-start space-y-10 mt-64 lg:mt-0 px-6 '
     >
       <h1 className='text-6xl font-bold'>
-        <span className={gameMode === "On" ? "game-mode-on" : "game-mode-off"}>{gameModeOn ? "Games" : "Tech"}</span> i
-        {gameModeOn ? " play" : " work with"}
+        <span className={gameMode ? "game-mode-on" : "game-mode-off"}>{gameMode ? "Games" : "Tech"}</span> i
+        {gameMode ? " play" : " work with"}
       </h1>
       <p className='max-w-[600px] text-MylightGray'>
         A selection of the powerful tools and technologies I utilize to create modern, responsive, and high-performance
@@ -49,7 +48,7 @@ const Tech = ({gameMode}: Props) => {
               header={tech.header}
               description={tech.description}
               icon={getIcon(tech.icon)!}
-              gameMode={gameModeOn}
+              gameMode={gameMode}
             />
           ))}
         </motion.div>

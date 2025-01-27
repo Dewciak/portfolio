@@ -17,6 +17,16 @@ import Cyberpunk from "@/public/images/Game-icons/cyberpunk.png";
 import EldenRing from "@/public/images/Game-icons/eldenring.png";
 import Rdr2 from "@/public/images/Game-icons/rdr2.png";
 
+import Macbook from "@/public/images/Gear/Laptop.png";
+import Monitor from "@/public/images/Gear/Monitor.png";
+import Desk from "@/public/images/Gear/Desk.png";
+import Speakers from "@/public/images/Gear/Speaker.png";
+
+import Pc from "@/public/images/Gear/Pc.png";
+import Ps5 from "@/public/images/Gear/Ps5.png";
+import Tv from "@/public/images/Gear/Tv.png";
+import Soundbar from "@/public/images/Gear/Soundbar.png";
+
 import {StaticImageData} from "next/image";
 
 const iconsMap: Record<string, StaticImageData> = {
@@ -37,6 +47,14 @@ const iconsMap: Record<string, StaticImageData> = {
   Cyberpunk: Cyberpunk,
   EldenRing: EldenRing,
   Rdr2: Rdr2,
+  Macbook: Macbook,
+  Monitor: Monitor,
+  Desk: Desk,
+  Speakers: Speakers,
+  Pc: Pc,
+  Ps5: Ps5,
+  Tv: Tv,
+  Soundbar: Soundbar,
 };
 
 export const getIcon = (iconName: string): StaticImageData | null => {

@@ -14,15 +14,16 @@ interface Props {
 }
 
 export default function Home({searchParams}: Props) {
+  const gameMode = searchParams.gameMode === "On" ? true : false;
   return (
     <div>
-      <Navbar gameMode={searchParams.gameMode} />
-      <Hero gameMode={searchParams.gameMode} />
-      <Tech gameMode={searchParams.gameMode} />
-      <About gameMode={searchParams.gameMode} />
-      <Works gameMode={searchParams.gameMode} />
-      <Resume />
-      <Gear />
+      <Navbar gameMode={gameMode} />
+      <Hero gameMode={gameMode} />
+      <Tech gameMode={gameMode} />
+      <About gameMode={gameMode} />
+      {/* <Works gameMode={searchParams.gameMode} /> */}
+      <Resume gameMode={gameMode} />
+      <Gear gameMode={gameMode} />
       <Footer />
     </div>
   );

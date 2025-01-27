@@ -4,7 +4,7 @@
 
 :root {
   --Foreground-Color: #00e0e4;
-  --GameMode-Color: #fb4311;
+  /* --GameMode-Color: #fb4311; */
   --Background-Color: #01000e;
 }
 html {
@@ -19,27 +19,17 @@ body {
   background-color: var(--Foreground-Color);
   color: white; /* biały */
 }
-/* span {
+span {
   color: var(--Foreground-Color);
-  text-shadow: 0 0 1px #00e0e483, 0 0 10px #98bfff, 0 0 60px #00e0e483;
-} */
-
-.game-mode-off {
-  color: var(--Foreground-Color);
-  text-shadow: 0 0 1px #00e0e483, 0 0 10px #98bfff, 0 0 60px #00e0e483;
-  transition: color 0.5s ease, text-shadow 0.5s ease;
-}
-
-.game-mode-on {
-  color: var(--GameMode-Color);
-  text-shadow: 0 0 1px #e4390083, 0 0 10px #f24141, 0 0 60px #e4390083;
+  text-shadow: 0 0 1px var(--Foreground-Color), 0 0 10px var(--Foreground-Color), 0 0 60px var(--Foreground-Color);
   transition: color 0.5s ease, text-shadow 0.5s ease;
 }
 
 #ping-dot {
   width: 14px;
   height: 14px;
-  background-color: #00a800;
+  /* background-color: #00a800; */
+  background-color: var(--Foreground-Color);
   border-radius: 50%;
   position: relative;
 }
@@ -52,7 +42,8 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #00a800;
+  background-color: var(--Foreground-Color);
+
   opacity: 0.5;
   animation: ping 1.5s infinite;
 }
@@ -132,6 +123,7 @@ h1 {
   transform: translate(-50%, -0%);
   transition: all 0.3s ease-in-out;
 }
+
 .view-resume:hover::after {
   width: 100%;
 }

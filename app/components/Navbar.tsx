@@ -1,5 +1,5 @@
 "use client";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {LuGamepad} from "react-icons/lu";
 import {Twirl as Hamburger} from "hamburger-react";
 import {motion} from "framer-motion";
@@ -11,17 +11,23 @@ import {SiReaddotcv} from "react-icons/si";
 import {GrContact} from "react-icons/gr";
 import OpenForWork from "./OpenForWork";
 import Link from "next/link";
+import {useRouter} from "next/navigation";
 
 interface NavbarProps {
-  gameMode: string;
+  gameMode: boolean;
 }
 
 const Navbar = ({gameMode}: NavbarProps) => {
+  useEffect(() => {
+    document.documentElement.style.setProperty("--Foreground-Color", gameMode ? "#fb4311" : "#00e0e4");
+  }, [gameMode]);
+
   const [mobileNav, setMobileNav] = useState(false);
+  const router = useRouter();
   return (
     <div className=' w-full fixed z-40 '>
       <div className='hidden lg:flex bg-BackgroundColor items-center justify-between w-full mx-auto py-10 px-16'>
-        <OpenForWork />
+        <OpenForWork gameMode={gameMode} />
         <ul className='flex space-x-10  justify-center items-center text-xl'>
           <li>Home</li>
 
@@ -40,10 +46,10 @@ const Navbar = ({gameMode}: NavbarProps) => {
         </ul>
         <Link
           scroll={false}
-          href={`${gameMode === "On" ? "?gameMode=Off" : "?gameMode=On"}`}
+          href={`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`}
           className='flex space-x-4 text-gray-100 items-center justify-center font-thin '
         >
-          <p className={`${gameMode === "On" ? "text-red-500" : ""} hidden xl:flex`}>GAME MODE</p>
+          <p className={`${gameMode ? "text-GameModeColor" : ""} hidden xl:flex`}>GAME MODE</p>
           <LuGamepad size={30} />
         </Link>
       </div>
@@ -51,7 +57,7 @@ const Navbar = ({gameMode}: NavbarProps) => {
         <div className='flex space-x-2 ml-auto'>
           <Link
             scroll={false}
-            href={`${gameMode === "On" ? "?gameMode=Off" : "?gameMode=On"}`}
+            href={`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`}
             className=' bg-slate-900 rounded-full p-3 flex items-center justify-center'
           >
             <LuGamepad size={30} />
