@@ -3,7 +3,8 @@ import React, {useEffect, useMemo, useState} from "react";
 import HebelPlaceHolder from "@/public/images/Hebel.png";
 import Image from "next/image";
 
-import WorksDataJson from "@/app/components/textContent/Works.json";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 interface WorksDataJson {
   gameModeOn: Record<string, WorkItem>;
@@ -20,43 +21,78 @@ interface WorkItem {
 }
 
 interface Props {
-  gameMode: string;
+  gameMode: boolean;
 }
 
 const Works = ({gameMode}: Props) => {
-  const WorksData = gameMode === "On" ? WorksDataJson.gameModeOn : WorksDataJson.gameModeOff;
-
-  const gameModeOffOptions = ["PatrycjaDawid_Fotografia", "HebelMebel", "DariuszDawid_KomornikSądowy"];
-  const gameModeOnOptions = ["POE2", "HebelMebel", "DariuszDawid_KomornikSądowy"];
-
-  const currentOptions = useMemo(() => {
-    return gameMode === "On" ? gameModeOnOptions : gameModeOffOptions;
-  }, [gameMode]);
+  const [worksData, setWorksData] = useState<Record<string, WorkItem>>({});
+  const [currentOptions, setCurrentOptions] = useState<string[]>([]);
 
   const [selectedWebsite, setSelectedWebsite] = useState<string>(currentOptions[0]);
 
   useEffect(() => {
-    // Validate and update selectedWebsite when currentOptions change
-    const isValidOption = currentOptions.includes(selectedWebsite);
-    if (!isValidOption) {
-      setSelectedWebsite(currentOptions[0]);
-    }
-  }, [currentOptions, selectedWebsite]);
+    const fetchWorksData = async () => {
+      const response = await fetch(`/api/works?gameMode=${gameMode}`);
+      const data = await response.json();
+      setWorksData(data);
 
-  useEffect(() => {
-    // Reset selectedWebsite when gameMode changes
-    setSelectedWebsite(currentOptions[0]);
-  }, [gameMode, currentOptions]);
+      const options = Object.keys(data);
+      setCurrentOptions(options);
+      setSelectedWebsite(options[0]);
+    };
+
+    fetchWorksData();
+  }, [gameMode]);
 
   const handleWebsiteChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedWebsite(event.target.value);
   };
 
+  if (!selectedWebsite) {
+    return (
+      <div>
+        <section className='max-w-[1300px] mx-auto flex flex-col justify-center items-center mt-64 px-6'>
+          <div className='flex justify-between w-full items-end flex-col lg:flex-row '>
+            <h1 className='lg:leading-[70%] leading-[100%]'>
+              My recent <span>works</span>
+            </h1>
+            <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={300} height={30} className='mr-10' />
+          </div>
+          <div className='flex lg:mt-28 mt-16 justify-between flex-col-reverse lg:flex-row'>
+            <div className=' flex flex-col w-full lg:w-[40%] lg:space-y-10 space-y-6 lg:px-6 items-start justify-center mt-16'>
+              <h2 className='text-3xl font-bold '>
+                <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={200} height={30} />
+              </h2>
+              <div className='flex flex-wrap gap-x-4 gap-y-6 text-[#7B7B7B]'>
+                <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={60} height={30} />
+                <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={60} height={30} />
+                <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={60} height={30} />
+                <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={60} height={30} />
+              </div>
+              <p className='text-lg break-words max-w-[90%]'>
+                <Skeleton count={5} baseColor='#9e9e9e' highlightColor='#444' width={400} height={30} />
+              </p>
+              <div className='flex space-x-10 '>
+                <span>Visit&nbsp;live</span>
+                <p className='h-4  rounded w-3/4 '>View video</p>
+              </div>
+            </div>
+            <div className='w-[60%] h-[607px] '>
+              <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={700} height={600} />
+            </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  const selectedData = worksData[selectedWebsite];
+
   return (
     <section className='max-w-[1300px] mx-auto flex flex-col justify-center items-center mt-64 px-6'>
       <div className='flex justify-between w-full items-end flex-col lg:flex-row '>
         <h1 className='lg:leading-[70%] leading-[100%]'>
-          My recent <span className={gameMode === "On" ? "game-mode-on" : "game-mode-off"}>works</span>
+          My recent <span>works</span>
         </h1>
         <select
           className='bg-transparent text-2xl mr-6 px-1 mt-16 lg:mt-0'
@@ -72,20 +108,15 @@ const Works = ({gameMode}: Props) => {
       </div>
       <div className='flex lg:mt-28 mt-16 justify-between flex-col-reverse lg:flex-row'>
         <div className='flex flex-col w-full lg:w-[35%] lg:space-y-10 space-y-6 lg:px-6 items-start justify-center mt-16'>
-          <h2 className='text-3xl font-bold '>
-            {" "}
-            {WorksData[selectedWebsite as keyof typeof WorksData].header || "no project"}
-          </h2>
+          <h2 className='text-3xl font-bold '>{selectedData.header}</h2>
           <div className='flex flex-wrap gap-x-4 gap-y-6 text-[#7B7B7B]'>
-            {WorksData[selectedWebsite as keyof typeof WorksData]?.tech.split(" ").map((techName, key) => (
+            {selectedData.tech.split(" ").map((techName, key) => (
               <p key={key}>{techName}</p>
             ))}
           </div>
-          <p className='text-lg break-words max-w-[90%]'>
-            {WorksData[selectedWebsite as keyof typeof WorksData].description}
-          </p>
+          <p className='text-lg break-words max-w-[90%]'>{selectedData.description}</p>
           <div className='flex space-x-10 '>
-            <span className={gameMode === "On" ? "game-mode-on" : "game-mode-off"}>Visit live</span>
+            <span>Visit live</span>
             <p className='underline underline-offset-4'>View video</p>
           </div>
         </div>

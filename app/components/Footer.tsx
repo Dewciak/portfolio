@@ -1,8 +1,36 @@
-import React from "react";
+"use client";
+import React, {useEffect, useState} from "react";
 import IconsSocials from "./IconsSocials";
 import axios from "axios";
 
+interface TimeResponse {
+  time: string;
+}
+
 const Footer = () => {
+  const [time, setTime] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const interval = setInterval(async () => {
+      try {
+        const response = await fetch("/api/time");
+        if (!response.ok) {
+          throw new Error("Failed to fetch time");
+        }
+        const data: TimeResponse = await response.json();
+        setTime(data.time);
+        setError(null); // Clear error on successful fetch
+      } catch (error) {
+        console.error("Error fetching time:", error);
+        setError("Failed to load time");
+      }
+    }, 1000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <footer id='Contact' className=' w-full flex border-t-[1px] border-[#A8A8A8] lg:mt-44 mt-32'>
       <div className='max-w-[1300px] flex flex-col mx-auto lg:py-24 py-16 w-full px-6'>
@@ -21,7 +49,7 @@ const Footer = () => {
         <div className='mx-auto flex flex-col mt-6 lg:mt-0'>
           <span className='font-rockSalt text-center text-4xl font-bold py-10 '>Wiktor</span>
           <div className='font-thin text-center text-[#A8A8A8]'>
-            <p className='text-white'>Seattle, WA 1:36 AM PST  • 44.8°F</p>
+            <p className='text-white'>Seattle, {time}  • 44.8°F</p>
             <p>Powered by Vercel, Next.js and Github.</p>
             <p>© 2025-2025 | W. Dawid</p>
           </div>

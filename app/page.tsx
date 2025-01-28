@@ -7,7 +7,6 @@ import About from "./components/About";
 import Works from "./components/Works";
 import Gear from "./components/Gear";
 import Resume from "./components/Resume";
-import Scene from "./components/StarBackground";
 
 interface Props {
   searchParams: {gameMode: string};
@@ -21,7 +20,7 @@ export default function Home({searchParams}: Props) {
       <Hero gameMode={gameMode} />
       <Tech gameMode={gameMode} />
       <About gameMode={gameMode} />
-      <Works gameMode={searchParams.gameMode} />
+      <Works gameMode={gameMode} />
       <Resume gameMode={gameMode} />
       <Gear gameMode={gameMode} />
       <Footer />
