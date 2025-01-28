@@ -6,15 +6,27 @@ import Scene from "./Scene";
 
 import GearDataJson from "./textContent/Gear.json";
 import {getIcon} from "./getIcon";
+import Samurai from "@/public/images/Samurai.png";
 import Link from "next/link";
 
 const Gear = ({gameMode}: {gameMode: boolean}) => {
   const selectedGear = gameMode ? GearDataJson.gameModeOn : GearDataJson.gameModeOff;
   return (
     <section className='max-w-[1300px] mx-auto flex mt-64 flex-col px-6'>
-      <h1>
-        {gameMode ? "My sweet" : "My code"} <span>{gameMode ? "kingdom" : "environment"}</span>
-      </h1>
+      <div className='flex justify-between relative'>
+        <h1>
+          {gameMode ? "My sweet" : "My code"} <span>{gameMode ? "kingdom" : "environment"}</span>
+        </h1>
+
+        <Image
+          src={Samurai}
+          alt='Samurai picture'
+          className={`Samurai absolute size-[370px] object-cover right-0 top-[-200px] rotate-12 transition-opacity duration-150 ${
+            gameMode ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      </div>
+
       <div className='flex flex-col-reverse lg:flex-row'>
         <div className='w-full lg:w-[50%] '>
           <div className='flex space-x-10 py-16 text-2xl lg:text-3xl'>
