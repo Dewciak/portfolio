@@ -5,7 +5,10 @@ import Spline from "@splinetool/react-spline/next";
 import IconsSocials from "./IconsSocials";
 import OpenForWork from "./OpenForWork";
 import {Canvas} from "@react-three/fiber";
-import Scene from "./Scene";
+// import Scene from "./Scene";
+import dynamic from "next/dynamic";
+
+const Scene = dynamic(() => import("./Scene"), {ssr: false});
 
 interface Props {
   gameMode: boolean;
