@@ -13,7 +13,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
   const selectedGear = gameMode ? GearDataJson.gameModeOn : GearDataJson.gameModeOff;
   return (
     <section className='max-w-[1300px] mx-auto flex mt-64 flex-col px-6'>
-      <div className='flex justify-between relative'>
+      <div className='flex justify-between relative '>
         <h1>
           {gameMode ? "My sweet" : "My code"} <span>{gameMode ? "kingdom" : "environment"}</span>
         </h1>
@@ -21,7 +21,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
         <Image
           src={Samurai}
           alt='Samurai picture'
-          className={`Samurai absolute size-[370px] object-cover right-0 top-[-200px] rotate-12 transition-opacity duration-150 ${
+          className={`Samurai absolute lg:size-[370px] object-cover right-0 lg:top-[-200px] top-[-330px] size-[300px]   rotate-12 transition-opacity duration-150  ${
             gameMode ? "opacity-100" : "opacity-0"
           }`}
         />

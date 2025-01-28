@@ -21,7 +21,7 @@ export default function Home({searchParams}: Props) {
       <Hero gameMode={gameMode} />
       <Tech gameMode={gameMode} />
       <About gameMode={gameMode} />
-      {/* <Works gameMode={searchParams.gameMode} /> */}
+      <Works gameMode={searchParams.gameMode} />
       <Resume gameMode={gameMode} />
       <Gear gameMode={gameMode} />
       <Footer />

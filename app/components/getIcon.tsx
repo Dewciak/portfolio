@@ -16,6 +16,14 @@ import Witcher from "@/public/images/Game-icons/witcher.png";
 import Cyberpunk from "@/public/images/Game-icons/cyberpunk.png";
 import EldenRing from "@/public/images/Game-icons/eldenring.png";
 import Rdr2 from "@/public/images/Game-icons/rdr2.png";
+import Gow from "@/public/images/Game-icons/gow.png";
+import Spiderman from "@/public/images/Game-icons/spiderman.png";
+import Hades from "@/public/images/Game-icons/hades.png";
+import Deadcells from "@/public/images/Game-icons/deadcells.png";
+import Darksouls from "@/public/images/Game-icons/darksouls.png";
+import Horizon from "@/public/images/Game-icons/horizon.png";
+import Bioshock from "@/public/images/Game-icons/bioshock.png";
+import Uncharted from "@/public/images/Game-icons/uncharted.png";
 
 import Macbook from "@/public/images/Gear/Laptop.png";
 import Monitor from "@/public/images/Gear/Monitor.png";
@@ -55,6 +63,14 @@ const iconsMap: Record<string, StaticImageData> = {
   Ps5: Ps5,
   Tv: Tv,
   Soundbar: Soundbar,
+  Gow: Gow,
+  Spiderman: Spiderman,
+  Hades: Hades,
+  Deadcells: Deadcells,
+  Darksouls: Darksouls,
+  Horizon: Horizon,
+  Bioshock: Bioshock,
+  Uncharted: Uncharted,
 };
 
 export const getIcon = (iconName: string): StaticImageData | null => {

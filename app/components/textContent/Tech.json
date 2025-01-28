@@ -69,63 +69,63 @@
   "gameModeOn": [
     {
       "header": "Wiedźmin",
-      "description": "Markup language for structuring web content",
+      "description": "An epic RPG based on Andrzej Sapkowski's novels, filled with dark choices and complex characters.",
       "icon": "Witcher"
     },
     {
       "header": "Cyberpunk",
-      "description": "Style sheet language for designing web pages",
+      "description": "A futuristic action RPG set in the neon-lit, dystopian world of Night City.",
       "icon": "Cyberpunk"
     },
     {
       "header": "Elden Ring",
-      "description": "Programming language for dynamic web content",
+      "description": "An expansive open-world RPG by FromSoftware, offering challenging combat and mysterious lore.",
       "icon": "EldenRing"
     },
     {
       "header": "Red Dead Redemption 2",
-      "description": "Programming language for dynamic web content",
+      "description": "An immersive tale of an outlaw in the Wild West, featuring a realistic world and deep narrative.",
       "icon": "Rdr2"
     },
     {
       "header": "God of War Ragnarok",
-      "description": "Programming language for dynamic web content",
-      "icon": "Rdr2"
+      "description": "The continuation of the great series, where Kratos and Atreus face Norse gods in an epic adventure.",
+      "icon": "Gow"
     },
     {
       "header": "Spiderman",
-      "description": "Programming language for dynamic web content",
-      "icon": "Rdr2"
+      "description": "A dynamic action game about the adventures of a superhero fighting crime in New York City.",
+      "icon": "Spiderman"
     },
     {
       "header": "Hades",
-      "description": "Programming language for dynamic web content",
-      "icon": "Rdr2"
+      "description": "A roguelike set in Greek mythology, where you escape the underworld as the son of Hades.",
+      "icon": "Hades"
     },
     {
       "header": "Dead Cells",
-      "description": "Programming language for dynamic web content",
-      "icon": "Rdr2"
+      "description": "A roguelike platformer combining fast-paced combat with exploration of procedurally generated levels.",
+      "icon": "Deadcells"
     },
     {
       "header": "Dark Souls 3",
-      "description": "Programming language for dynamic web content",
-      "icon": "Rdr2"
+      "description": "The third installment of the iconic RPG series, known for its challenging combat and atmospheric locations.",
+      "icon": "Darksouls"
     },
     {
       "header": "Horizon Zero Dawn",
-      "description": "Programming language for dynamic web content",
-      "icon": "Rdr2"
+      "description": "An action-adventure game set in a world where you hunt robotic dinosaurs as Aloy.",
+      "icon": "Horizon"
     },
     {
       "header": "Bioshock Infinite",
-      "description": "Programming language for dynamic web content",
-      "icon": "Rdr2"
+      "description": "A shooter with a deep story, set in the sky city of Columbia with a unique retro-futuristic vibe.",
+      "icon": "Bioshock"
     },
     {
       "header": "Uncharted 4",
-      "description": "Programming language for dynamic web content",
-      "icon": "Rdr2"
+      "description": "An adventure of treasure hunter Nathan Drake, full of spectacular action scenes and an emotional story.",
+      "icon": "Uncharted"
     }
   ]
 }
