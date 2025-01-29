@@ -24,16 +24,16 @@ const WorksDataJson: WorksData = {
       mainLink: "https://poe2.com",
       secondLink: "https://video.poe2.com",
     },
-    HebelMebel: {
-      header: "Hebel Mebel",
+    VampireSurvivors: {
+      header: "Vampire Survivors",
       description: "Custom furniture design.",
       tech: "Next.js TailwindCSS",
       image: "/images/Hebel.png",
       mainLink: "https://hebelmebel.com",
       secondLink: "https://video.hebelmebel.com",
     },
-    DariuszDawid_KomornikSądowy: {
-      header: "Court Enforcement Officer",
+    MarvelRivals: {
+      header: "Marvel Rivals",
       description: "Official website for legal services.",
       tech: "React Firebase",
       image: "/images/Hebel.png",
@@ -42,29 +42,29 @@ const WorksDataJson: WorksData = {
     },
   },
   gameModeOff: {
-    PatrycjaDawid_Fotografia: {
+    PatrycjaDawidFotografia: {
       header: "Photography Portfolio",
       description: "Showcase of creative photography projects.",
-      tech: "HTML CSS",
+      tech: "Javascript React Tailwindcss ",
       image: "/images/Hebel.png",
-      mainLink: "https://fotografia.com",
-      secondLink: "https://video.fotografia.com",
+      mainLink: "https://patrycjadfotografia.pl/",
+      secondLink: "https://github.com/Dewciak/PD-strona",
     },
     HebelMebel: {
       header: "Hebel Mebel",
       description: "Custom furniture design.",
-      tech: "Next.js TailwindCSS",
+      tech: "Typescript Astro Tailwindcss",
       image: "/images/Hebel.png",
-      mainLink: "https://hebelmebel.com",
-      secondLink: "https://video.hebelmebel.com",
+      mainLink: "https://hebel-mebel.vercel.app/",
+      secondLink: "https://github.com/Dewciak/HebelMebel",
     },
-    DariuszDawid_KomornikSądowy: {
+    DariuszDawidKomornikSądowy: {
       header: "Court Enforcement Officer",
       description: "Official website for legal services.",
-      tech: "React Firebase",
+      tech: "Typescript React Nextjs Tailwindcss MySQL Firebase",
       image: "/images/Hebel.png",
-      mainLink: "https://komornik.com",
-      secondLink: "https://video.komornik.com",
+      mainLink: "https://bailiff-website.vercel.app/",
+      secondLink: "https://github.com/Dewciak/BailiffWebsite",
     },
   },
 };

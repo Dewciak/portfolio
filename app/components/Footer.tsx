@@ -3,32 +3,34 @@ import React, {useEffect, useState} from "react";
 import IconsSocials from "./IconsSocials";
 import axios from "axios";
 
-interface TimeResponse {
+interface Response {
   time: string;
+  temperature: number;
+  city: string;
 }
 
 const Footer = () => {
-  const [time, setTime] = useState<string>("");
+  const [data, setData] = useState<Response | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const interval = setInterval(async () => {
+    let intervalId: NodeJS.Timeout;
+
+    const fetchTime = async () => {
       try {
-        const response = await fetch("/api/time");
-        if (!response.ok) {
-          throw new Error("Failed to fetch time");
-        }
-        const data: TimeResponse = await response.json();
-        setTime(data.time);
-        setError(null); // Clear error on successful fetch
+        const response = await axios.get<Response>("/api/time");
+        setData(response.data);
+
+        setError(null);
       } catch (error) {
         console.error("Error fetching time:", error);
         setError("Failed to load time");
       }
-    }, 1000);
+    };
 
-    // Cleanup interval on component unmount
-    return () => clearInterval(interval);
+    intervalId = setInterval(fetchTime, 1000);
+    console.log(data);
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
@@ -49,7 +51,9 @@ const Footer = () => {
         <div className='mx-auto flex flex-col mt-6 lg:mt-0'>
           <span className='font-rockSalt text-center text-4xl font-bold py-10 '>Wiktor</span>
           <div className='font-thin text-center text-[#A8A8A8]'>
-            <p className='text-white'>Seattle, {time}  • 44.8°F</p>
+            <p className='text-white'>
+              {data?.city}, {data?.time} UTC +1 • {data?.temperature}°C
+            </p>
             <p>Powered by Vercel, Next.js and Github.</p>
             <p>© 2025-2025 | W. Dawid</p>
           </div>

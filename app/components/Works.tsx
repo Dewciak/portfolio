@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import Link from "next/link";
 
 interface WorksDataJson {
   gameModeOn: Record<string, WorkItem>;
@@ -116,8 +117,12 @@ const Works = ({gameMode}: Props) => {
           </div>
           <p className='text-lg break-words max-w-[90%]'>{selectedData.description}</p>
           <div className='flex space-x-10 '>
-            <span>Visit live</span>
-            <p className='underline underline-offset-4'>View video</p>
+            <Link href={selectedData.mainLink} target='blank'>
+              <span>Visit live</span>
+            </Link>
+            <Link href={selectedData.secondLink} className='underline underline-offset-4' target='blank'>
+              View code
+            </Link>
           </div>
         </div>
         <Image src={HebelPlaceHolder} alt='image' className='lg:w-[60%] w-full' />
