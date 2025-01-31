@@ -13,26 +13,23 @@ interface Response {
 const Footer = () => {
   const [data, setData] = useState<Response | null>(null);
   const [error, setError] = useState<string | null>(null);
-
+  const [, setForceUpdate] = useState<number>(0);
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
 
-    const fetchTime = async () => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get<Response>("/api/time", {
-          headers: {
-            "Cache-Control": "no-store",
-          },
-        });
+        const response = await axios.get<Response>("/api/time");
         setData(response.data);
-        setError(null);
       } catch (error) {
         console.error("Error fetching time:", error);
-        setError("Failed to load time");
       }
     };
 
-    intervalId = setInterval(fetchTime, 1000);
+    intervalId = setInterval(() => {
+      fetchData();
+      setForceUpdate((prev) => prev + 1); // Force re-render
+    }, 1000);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -56,9 +53,14 @@ const Footer = () => {
         <div className='mx-auto flex flex-col mt-6 lg:mt-0'>
           <span className='font-rockSalt text-center text-4xl font-bold py-10 '>Wiktor</span>
           <div className='font-thin text-center text-[#A8A8A8]'>
-            <p className='text-white'>
-              {data?.city}, {data?.time} (UTC +1) • {data?.temperature}°C
-            </p>
+            {data ? (
+              <p className='text-white'>
+                {data.city}, {data.time} (UTC +1) • {data.temperature}°C
+              </p>
+            ) : (
+              <p className='text-white'>Loading...</p>
+            )}
+
             <p>
               Powered by Vercel, Next.js and{" "}
               <Link className='hover:underline' href='https://github.com/Dewciak/portfolio'>
@@ -72,5 +74,7 @@ const Footer = () => {
     </footer>
   );
 };
+
 export const dynamic = "force-dynamic";
+
 export default Footer;
