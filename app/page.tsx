@@ -7,6 +7,7 @@ import About from "./components/About";
 import Works from "./components/Works";
 import Gear from "./components/Gear";
 import Resume from "./components/Resume";
+import {useState} from "react";
 
 interface Props {
   searchParams: {gameMode: string};
@@ -15,7 +16,7 @@ interface Props {
 export default function Home({searchParams}: Props) {
   const gameMode = searchParams.gameMode === "On" ? true : false;
   return (
-    <div>
+    <>
       <Navbar gameMode={gameMode} />
       <Hero gameMode={gameMode} />
       <Tech gameMode={gameMode} />
@@ -24,6 +25,6 @@ export default function Home({searchParams}: Props) {
       <Resume gameMode={gameMode} />
       <Gear gameMode={gameMode} />
       <Footer />
-    </div>
+    </>
   );
 }

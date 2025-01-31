@@ -1,18 +1,46 @@
+"use client";
 import Spline from "@splinetool/react-spline";
-import React, {Suspense} from "react";
+import React, {Suspense, useEffect, useState} from "react";
 import Laptop from "@/public/images/Gear/Laptop.png";
 import Image, {StaticImageData} from "next/image";
-import Scene from "./Scene";
+import dynamic from "next/dynamic";
+
+const Scene = dynamic(() => import("./Scene"), {ssr: false});
 
 import GearDataJson from "./textContent/Gear.json";
 import {getIcon} from "./getIcon";
 import Samurai from "@/public/images/Samurai.png";
 import Link from "next/link";
+import {Canvas} from "@react-three/fiber";
+import useObserver from "./hooks/useObserver";
+import handleModeChange from "./HandleModeChange";
 
 const Gear = ({gameMode}: {gameMode: boolean}) => {
+  const [isGearVisible, setIsGearVisible] = useState<boolean>(false);
+  const [roomPosition, setRoomPosition] = useState<number[]>([0, 0, 0]);
+  const [roomRotation, setRoomRotation] = useState<number[]>([0, 0, 0]);
+  const [gameRoom, setGameRoom] = useState<boolean>(false);
+  const GearRef = React.useRef<HTMLDivElement>(null);
   const selectedGear = gameMode ? GearDataJson.gameModeOn : GearDataJson.gameModeOff;
+
+  const Observer = useObserver({visibilityRef: GearRef, setIsVisible: setIsGearVisible, isVisible: isGearVisible});
+
+  const toggleGameMode = () => {
+    handleModeChange({
+      setGameRoom: setGameRoom,
+      gameMode: gameMode,
+      roomPosition: roomPosition,
+      roomRotation: roomRotation,
+      setRoomPosition: setRoomPosition,
+      setRoomRotation: setRoomRotation,
+    });
+  };
+  useEffect(() => {
+    toggleGameMode();
+  }, [gameMode]);
+
   return (
-    <section className='max-w-[1300px] mx-auto flex mt-64 flex-col px-6'>
+    <section ref={GearRef} className='max-w-[1300px] mx-auto flex mt-64 flex-col px-6'>
       <div className='flex justify-between relative '>
         <h1>
           {gameMode ? "My sweet" : "My code"} <span>{gameMode ? "kingdom" : "environment"}</span>
@@ -51,7 +79,13 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
             ))}
           </div>
         </div>
-        <div className='w-[50%]'></div>
+        <div className='w-[50%]'>
+          {isGearVisible && (
+            <Canvas camera={{position: [-1, 3, -9], fov: 90, zoom: 3}}>
+              <Scene position={roomPosition} rotation={roomRotation} />
+            </Canvas>
+          )}
+        </div>
       </div>
     </section>
   );

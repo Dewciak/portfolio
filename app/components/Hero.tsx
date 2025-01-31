@@ -5,8 +5,10 @@ import Spline from "@splinetool/react-spline/next";
 import IconsSocials from "./IconsSocials";
 import OpenForWork from "./OpenForWork";
 import {Canvas} from "@react-three/fiber";
-// import Scene from "./Scene";
+
 import dynamic from "next/dynamic";
+import useObserver from "./hooks/useObserver";
+import handleModeChange from "./HandleModeChange";
 
 const Scene = dynamic(() => import("./Scene"), {ssr: false});
 
@@ -15,53 +17,35 @@ interface Props {
 }
 
 const Hero = ({gameMode}: Props) => {
+  const [isHeroVisible, setIsHeroVisible] = useState<boolean>(false);
   const [roomPosition, setRoomPosition] = useState<number[]>([0, 0, 0]);
   const [roomRotation, setRoomRotation] = useState<number[]>([0, 0, 0]);
   const [gameRoom, setGameRoom] = useState<boolean>(false);
+  const heroRef = React.useRef<HTMLDivElement>(null);
 
-  function animateNumbers(
-    target: number[],
-    current: number[],
-    duration: number = 1000,
-    callback: (values: number[]) => void
-  ): void {
-    const steps: number = 60;
-    const increments: number[] = target.map((value, i) => (value - current[i]) / steps);
+  const Observer = useObserver({
+    visibilityRef: heroRef,
+    setIsVisible: setIsHeroVisible,
+    isVisible: isHeroVisible,
+  });
 
-    let count: number = 0;
-
-    const step = (): void => {
-      if (count >= steps) {
-        callback(target); // Zakończenie animacji
-        return;
-      }
-      current = current.map((val, i) => val + increments[i]);
-      callback([...current]);
-      count++;
-      requestAnimationFrame(step);
-    };
-
-    step();
-  }
-
-  const handleModeChange = () => {
-    if (gameMode) {
-      animateNumbers([5.5, 0, 4], roomPosition, 1000, setRoomPosition);
-      animateNumbers([0, 4.8, 0], roomRotation, 1000, setRoomRotation);
-      setGameRoom(true);
-    } else {
-      animateNumbers([0, 0, 0], roomPosition, 1000, setRoomPosition);
-      animateNumbers([0, 0, 0], roomRotation, 1000, setRoomRotation);
-      setGameRoom(false);
-    }
+  const toggleGameMode = () => {
+    handleModeChange({
+      setGameRoom: setGameRoom,
+      gameMode: gameMode,
+      roomPosition: roomPosition,
+      roomRotation: roomRotation,
+      setRoomPosition: setRoomPosition,
+      setRoomRotation: setRoomRotation,
+    });
   };
 
   useEffect(() => {
-    handleModeChange();
+    toggleGameMode();
   }, [gameMode]);
 
   return (
-    <section id='Home' className='flex flex-col-reverse lg:flex-row max-w-[1300px] mx-auto px-6'>
+    <section ref={heroRef} id='Home' className='flex flex-col-reverse lg:flex-row max-w-[1300px] mx-auto px-6'>
       <div className='absolute top-12 left-6 lg:hidden'>
         <OpenForWork gameMode={gameMode} />
       </div>
@@ -83,9 +67,11 @@ const Hero = ({gameMode}: Props) => {
         </div>
       </div>
       <div className='w-full lg:w-[60%] lg:h-[1000px]  h-[500px]   overflow-hidden mt-16 lg:mt-0  flex items-center justify-center'>
-        <Canvas camera={{position: [-1, 3, -9], fov: 90, zoom: 3}}>
-          <Scene position={roomPosition} rotation={roomRotation} />
-        </Canvas>
+        {isHeroVisible && (
+          <Canvas camera={{position: [-1, 3, -9], fov: 90, zoom: 3}}>
+            <Scene position={roomPosition} rotation={roomRotation} />
+          </Canvas>
+        )}
       </div>
     </section>
   );
