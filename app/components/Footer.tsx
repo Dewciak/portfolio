@@ -19,9 +19,12 @@ const Footer = () => {
 
     const fetchTime = async () => {
       try {
-        const response = await axios.get<Response>("/api/time");
+        const response = await axios.get<Response>("/api/time", {
+          headers: {
+            "Cache-Control": "no-cache",
+          },
+        });
         setData(response.data);
-
         setError(null);
       } catch (error) {
         console.error("Error fetching time:", error);
@@ -30,9 +33,10 @@ const Footer = () => {
     };
 
     intervalId = setInterval(fetchTime, 1000);
-    console.log(data);
+
     return () => clearInterval(intervalId);
   }, []);
+
   const currentYear = new Date().getFullYear();
   return (
     <footer id='Contact' className=' w-full flex border-t-[1px] border-[#A8A8A8] lg:mt-44 mt-32'>
