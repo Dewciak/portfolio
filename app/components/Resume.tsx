@@ -1,8 +1,7 @@
-import Image from "next/image";
-import React from "react";
 import Cv from "@/public/images/cv.png";
-import Steam from "@/public/images/steam.png";
 import CodeSs from "@/public/images/ResumeCode.png";
+import Steam from "@/public/images/steam.png";
+import Image from "next/image";
 const Resume = ({gameMode}: {gameMode: boolean}) => {
   return (
     <div className='flex my-[360px] justify-center  w-full overflow-hidden '>

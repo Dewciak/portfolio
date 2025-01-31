@@ -1,8 +1,8 @@
 "use client";
-import React, {useRef} from "react";
-import {Canvas, useFrame, useLoader} from "@react-three/fiber";
-import {Group} from "three";
 import {OrbitControls} from "@react-three/drei";
+import {useFrame, useLoader} from "@react-three/fiber";
+import {useRef} from "react";
+import {Group} from "three";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js";
 
 interface SceneProps {
@@ -16,7 +16,6 @@ const Scene = ({position, rotation}: SceneProps) => {
 
   useFrame((state, delta) => {
     if (meshRef.current) {
-      // meshRef.current.rotation.y += 0.05 * delta; obraca
       meshRef.current.rotation.set(rotation[0], rotation[1], rotation[2]);
       meshRef.current.position.set(position[0], position[1], position[2]);
 

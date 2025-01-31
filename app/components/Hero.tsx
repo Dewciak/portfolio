@@ -1,14 +1,13 @@
 "use client";
-import React, {Suspense, useState, useEffect} from "react";
+import React, {useEffect, useState} from "react";
 
-import Spline from "@splinetool/react-spline/next";
+import {Canvas} from "@react-three/fiber";
 import IconsSocials from "./IconsSocials";
 import OpenForWork from "./OpenForWork";
-import {Canvas} from "@react-three/fiber";
 
 import dynamic from "next/dynamic";
-import useObserver from "./hooks/useObserver";
 import handleModeChange from "./HandleModeChange";
+import useObserver from "./hooks/useObserver";
 
 const Scene = dynamic(() => import("./Scene"), {ssr: false});
 

@@ -1,19 +1,17 @@
 "use client";
-import Spline from "@splinetool/react-spline";
-import React, {Suspense, useEffect, useState} from "react";
-import Laptop from "@/public/images/Gear/Laptop.png";
-import Image, {StaticImageData} from "next/image";
 import dynamic from "next/dynamic";
+import Image, {StaticImageData} from "next/image";
+import React, {useEffect, useState} from "react";
 
 const Scene = dynamic(() => import("./Scene"), {ssr: false});
 
-import GearDataJson from "./textContent/Gear.json";
-import {getIcon} from "./getIcon";
 import Samurai from "@/public/images/Samurai.png";
-import Link from "next/link";
 import {Canvas} from "@react-three/fiber";
-import useObserver from "./hooks/useObserver";
+import Link from "next/link";
+import {getIcon} from "./getIcon";
 import handleModeChange from "./HandleModeChange";
+import useObserver from "./hooks/useObserver";
+import GearDataJson from "./textContent/Gear.json";
 
 const Gear = ({gameMode}: {gameMode: boolean}) => {
   const [isGearVisible, setIsGearVisible] = useState<boolean>(false);
@@ -79,7 +77,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
             ))}
           </div>
         </div>
-        <div className='w-[50%]'>
+        <div className='lg:w-[50%]  h-[400px] lg:h-auto flex items-center  mt-12'>
           {isGearVisible && (
             <Canvas camera={{position: [-1, 3, -9], fov: 90, zoom: 3}}>
               <Scene position={roomPosition} rotation={roomRotation} />

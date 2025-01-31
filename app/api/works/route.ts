@@ -6,7 +6,7 @@ interface WorkItem {
   tech: string;
   image?: string;
   mainLink: string;
-  secondLink: string;
+  secondLink?: string;
 }
 
 interface WorksData {
@@ -18,27 +18,30 @@ const WorksDataJson: WorksData = {
   gameModeOn: {
     POE2: {
       header: "Path of Exile 2",
-      description: "Action RPG game with endless build possibilities.",
-      tech: "TypeScript React",
-      image: "/images/Hebel.png",
-      mainLink: "https://poe2.com",
-      secondLink: "https://video.poe2.com",
+      description:
+        "The first Path of Exile never fully grabbed me, but Path of Exile 2 captivated me with its well-designed combat system, making each encounter feel impactful. As a fan of Souls-like games, I appreciate the game’s mechanical difficulty, especially early on. It adds to the sense of achievement, making each victory feel earned. I'm excited to see how it evolves.",
+      tech: "ActionRPG Fantasy Loot Multiplayer Strategy",
+      image: "https://www.youtube.com/embed/QpbGfihd0_Q?si=W7ObzsY-_tAFmK6D&mute=1",
+      mainLink: "https://store.steampowered.com/app/2694490/Path_of_Exile_2/",
+      secondLink: "https://github.com/Dewciak/PD-strona",
     },
     VampireSurvivors: {
       header: "Vampire Survivors",
-      description: "Custom furniture design.",
-      tech: "Next.js TailwindCSS",
-      image: "/images/Hebel.png",
-      mainLink: "https://hebelmebel.com",
-      secondLink: "https://video.hebelmebel.com",
+      description:
+        "Lately, I've been loving to pick up my Steam Deck in my free time and mindlessly kill vampires in Vampire Survivors. It’s amazing how enjoyable just walking around becomes, as the game’s focus is all about walking and killing thousands of vampires. The goal is to take out as many as possible within the 30-minute timer, and it's really fun to watch the entire screen explode with chaos as you take down massive waves of enemies",
+      tech: "Roguelike Survival Action Arcade",
+      image: "https://www.youtube.com/embed/6HXNxWbRgsg?si=MwKc5o3jKFk4XAmg&mute=1",
+      mainLink: "https://store.steampowered.com/app/1794680/Vampire_Survivors/",
+      secondLink: "https://github.com/Dewciak/PD-strona",
     },
     MarvelRivals: {
       header: "Marvel Rivals",
-      description: "Official website for legal services.",
-      tech: "React Firebase",
-      image: "/images/Hebel.png",
-      mainLink: "https://komornik.com",
-      secondLink: "https://video.komornik.com",
+      description:
+        "Marvel Rivals has really impressed me as a fan of the Marvel universe. The game offers a fresh experience with its dynamic hero synergies, where you can combine the abilities of characters to create powerful combos. I enjoy how every match feels different, thanks to the destructible environments and constantly evolving gameplay. ",
+      tech: "Hero-Shooter Strategy Multiplayer Action",
+      image: "https://www.youtube.com/embed/-b0veB7q9P4?si=acKQnEGDGDf4XzeY&mute=1",
+      mainLink: "https://store.steampowered.com/app/2767030/Marvel_Rivals/",
+      secondLink: "https://github.com/Dewciak/PD-strona",
     },
   },
   gameModeOff: {

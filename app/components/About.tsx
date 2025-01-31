@@ -1,6 +1,6 @@
 "use client";
-import React, {useEffect, useState} from "react";
 import websiteData from "@/app/components/textContent/About.json";
+import {useEffect, useState} from "react";
 
 interface WebsiteData {
   gameModeOff: {

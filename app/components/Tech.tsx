@@ -1,7 +1,6 @@
 "use client";
-import React from "react";
-import {motion} from "framer-motion";
 import {getIcon} from "@/app/components/getIcon";
+import {motion} from "framer-motion";
 
 import Image, {StaticImageData} from "next/image";
 
@@ -24,13 +23,14 @@ const Tech = ({gameMode}: Props) => {
       className='max-w-[1300px] flex flex-col mx-auto justify-start items-start space-y-10 mt-64 lg:mt-0 px-6 '
     >
       <h1 className='text-6xl font-bold'>
-        <span className={gameMode ? "game-mode-on" : "game-mode-off"}>{gameMode ? "Games" : "Tech"}</span> i
-        {gameMode ? " play" : " work with"}
+        {gameMode && "My personal "}
+        <span className={gameMode ? "game-mode-on" : "game-mode-off"}>{gameMode ? "Goats" : "Tech "}</span>
+        {!gameMode && "I work with"}
       </h1>
       <p className='max-w-[600px] text-MylightGray'>
-        A selection of the powerful tools and technologies I utilize to create modern, responsive, and high-performance
-        web applications. From front-end frameworks to design tools, these technologies help me craft seamless user
-        experiences and ensure efficient, scalable development.
+        Discover my personal Goats – the games that have left a lasting impact on me. These are the titles that have
+        shaped my gaming journey, offering unforgettable experiences, incredible mechanics, and stories that continue to
+        inspire
       </p>
       <div className='overflow-hidden w-full flex hover:cursor-grab active:cursor-grabbing '>
         <motion.div

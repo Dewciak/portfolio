@@ -1,7 +1,8 @@
 "use client";
-import React, {useEffect, useState} from "react";
-import IconsSocials from "./IconsSocials";
 import axios from "axios";
+import {useEffect, useState} from "react";
+import IconsSocials from "./IconsSocials";
+import Link from "next/link";
 
 interface Response {
   time: string;
@@ -52,9 +53,14 @@ const Footer = () => {
           <span className='font-rockSalt text-center text-4xl font-bold py-10 '>Wiktor</span>
           <div className='font-thin text-center text-[#A8A8A8]'>
             <p className='text-white'>
-              {data?.city}, {data?.time} UTC +1 • {data?.temperature}°C
+              {data?.city}, {data?.time} (UTC +1) • {data?.temperature}°C
             </p>
-            <p>Powered by Vercel, Next.js and Github.</p>
+            <p>
+              Powered by Vercel, Next.js and{" "}
+              <Link className='hover:underline' href='https://github.com/Dewciak/portfolio'>
+                Github.
+              </Link>
+            </p>
             <p>© 2025-{currentYear} | W. Dawid</p>
           </div>
         </div>

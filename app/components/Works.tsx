@@ -1,11 +1,11 @@
 "use client";
-import React, {useEffect, useMemo, useState} from "react";
 import HebelPlaceHolder from "@/public/images/Hebel.png";
 import Image from "next/image";
+import React, {useEffect, useState} from "react";
 
+import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import Link from "next/link";
 
 interface WorksDataJson {
   gameModeOn: Record<string, WorkItem>;
@@ -96,7 +96,7 @@ const Works = ({gameMode}: Props) => {
           My recent <span>works</span>
         </h1>
         <select
-          className='bg-transparent text-2xl mr-6 px-1 mt-16 lg:mt-0'
+          className='bg-transparent text-2xl lg:mr-6 px-1 mt-16 lg:mt-0'
           onChange={handleWebsiteChange}
           value={selectedWebsite}
         >
@@ -108,7 +108,7 @@ const Works = ({gameMode}: Props) => {
         </select>
       </div>
       <div className='flex lg:mt-28 mt-16 justify-between flex-col-reverse lg:flex-row'>
-        <div className='flex flex-col w-full lg:w-[35%] lg:space-y-10 space-y-6 lg:px-6 items-start justify-center mt-16'>
+        <div className='flex flex-col w-full lg:w-[35%] lg:space-y-10 space-y-6 lg:px-6 items-start justify-center mt-0'>
           <h2 className='text-3xl font-bold '>{selectedData.header}</h2>
           <div className='flex flex-wrap gap-x-4 gap-y-6 text-[#7B7B7B]'>
             {selectedData.tech.split(" ").map((techName, key) => (
@@ -118,14 +118,25 @@ const Works = ({gameMode}: Props) => {
           <p className='text-lg break-words max-w-[90%]'>{selectedData.description}</p>
           <div className='flex space-x-10 '>
             <Link href={selectedData.mainLink} target='blank'>
-              <span>Visit live</span>
+              <span>{gameMode ? "Check it out!" : "Visit live"}</span>
             </Link>
-            <Link href={selectedData.secondLink} className='underline underline-offset-4' target='blank'>
-              View code
-            </Link>
+            {!gameMode && (
+              <Link href={selectedData.secondLink} className='underline underline-offset-4' target='blank'>
+                View code
+              </Link>
+            )}
           </div>
         </div>
-        <Image src={HebelPlaceHolder} alt='image' className='lg:w-[60%] w-full' />
+        {!gameMode && <Image src={HebelPlaceHolder} alt='image' className='lg:w-[60%] w-full' />}
+        {gameMode && (
+          <iframe
+            width='750'
+            height='600'
+            src={selectedData.image}
+            title='YouTube video player'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+          ></iframe>
+        )}
       </div>
     </section>
   );

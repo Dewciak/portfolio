@@ -1,17 +1,16 @@
 "use client";
-import React, {useEffect, useState} from "react";
-import {LuGamepad} from "react-icons/lu";
-import {Twirl as Hamburger} from "hamburger-react";
 import {motion} from "framer-motion";
+import {Twirl as Hamburger} from "hamburger-react";
+import {useEffect, useState} from "react";
+import {LuGamepad} from "react-icons/lu";
 
-import {IoMdHome} from "react-icons/io";
-import {FaCode} from "react-icons/fa6";
-import {GrProjects} from "react-icons/gr";
-import {SiReaddotcv} from "react-icons/si";
-import {GrContact} from "react-icons/gr";
-import OpenForWork from "./OpenForWork";
 import Link from "next/link";
 import {useRouter} from "next/navigation";
+import {FaCode} from "react-icons/fa6";
+import {GrContact, GrProjects} from "react-icons/gr";
+import {IoMdHome} from "react-icons/io";
+import {SiReaddotcv} from "react-icons/si";
+import OpenForWork from "./OpenForWork";
 
 interface NavbarProps {
   gameMode: boolean;
@@ -33,13 +32,13 @@ const Navbar = ({gameMode}: NavbarProps) => {
           <li>Home</li>
 
           <li>
-            <a href='#Tech'>Tech</a>
+            <a href='#Tech'>{gameMode ? "Goats" : "Tech"}</a>
           </li>
           <li>
-            <a href='#Works'>Works</a>
+            <a href='#Works'>{gameMode ? "Rescently played" : "Works"}</a>
           </li>
           <li>
-            <a href='#Resume'>Resume</a>
+            <a href='#Resume'>{gameMode ? "Steam" : "Resume"}</a>
           </li>
           <li>
             <a href='#Contact'>Contact</a>
