@@ -51,7 +51,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
             ))}
           </div>
         </div>
-        <div className='w-[50%]'>{/* <Scene /> */}</div>
+        <div className='w-[50%]'></div>
       </div>
     </section>
   );

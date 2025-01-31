@@ -1,19 +1,41 @@
 "use client";
-import React from "react";
-import {Canvas, useLoader} from "@react-three/fiber";
-
+import React, {useRef} from "react";
+import {Canvas, useFrame, useLoader} from "@react-three/fiber";
+import {Group} from "three";
 import {OrbitControls} from "@react-three/drei";
-import {GLTFLoader} from "three/examples/jsm/Addons.js";
+import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js";
 
-const Scene: React.FC = () => {
-  const gltf = useLoader(GLTFLoader, "/Models/Scene.gltf");
+interface SceneProps {
+  position: number[];
+  rotation: number[];
+}
+
+const Scene = ({position, rotation}: SceneProps) => {
+  const gltf = useLoader(GLTFLoader, "/Models/scene2.gltf");
+  const meshRef = useRef<Group>();
+
+  useFrame((state, delta) => {
+    if (meshRef.current) {
+      // meshRef.current.rotation.y += 0.05 * delta; obraca
+      meshRef.current.rotation.set(rotation[0], rotation[1], rotation[2]);
+      meshRef.current.position.set(position[0], position[1], position[2]);
+
+      // meshRef.current.position.set(5.5, 0, 4);
+      // meshRef.current.rotation.set(0, 4.8, 0);
+      // two rooms working position, second room
+
+      // meshRef.current.position.set(0, 0, 0);
+      // meshRef.current.rotation.set(0, 0, 0);
+      // two rooms working position, first room
+    }
+  });
 
   return (
-    <Canvas camera={{position: [-1, 3, -9], fov: 90, zoom: 3}}>
+    <>
       <directionalLight position={[0, 10, 0]} intensity={0} />
-      <primitive object={gltf.scene} />
+      <primitive ref={meshRef} object={gltf.scene} />
       <OrbitControls enableZoom={false} enableRotate={true} enablePan={false} />
-    </Canvas>
+    </>
   );
 };
 

@@ -32,7 +32,7 @@ const Footer = () => {
     console.log(data);
     return () => clearInterval(intervalId);
   }, []);
-
+  const currentYear = new Date().getFullYear();
   return (
     <footer id='Contact' className=' w-full flex border-t-[1px] border-[#A8A8A8] lg:mt-44 mt-32'>
       <div className='max-w-[1300px] flex flex-col mx-auto lg:py-24 py-16 w-full px-6'>
@@ -55,7 +55,7 @@ const Footer = () => {
               {data?.city}, {data?.time} UTC +1 • {data?.temperature}°C
             </p>
             <p>Powered by Vercel, Next.js and Github.</p>
-            <p>© 2025-2025 | W. Dawid</p>
+            <p>© 2025-{currentYear} | W. Dawid</p>
           </div>
         </div>
       </div>
