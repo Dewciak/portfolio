@@ -21,7 +21,7 @@ const Footer = () => {
       try {
         const response = await axios.get<Response>("/api/time", {
           headers: {
-            "Cache-Control": "no-cache",
+            "Cache-Control": "no-store",
           },
         });
         setData(response.data);
