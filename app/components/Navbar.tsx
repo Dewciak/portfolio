@@ -26,7 +26,7 @@ const Navbar = ({gameMode}: NavbarProps) => {
   const router = useRouter();
   return (
     <div className=' w-full fixed z-40 '>
-      <div className='hidden lg:flex bg-BackgroundColor items-center justify-between w-full mx-auto py-10 px-16'>
+      <div className='hidden lg:flex bg-BackgroundColor items-center transition-colors duration-500 justify-between w-full mx-auto py-10 px-16'>
         <OpenForWork gameMode={gameMode} />
         <ul className='flex space-x-10  justify-center items-center text-xl'>
           <li>Home</li>

@@ -13,8 +13,8 @@ html {
 body {
   background-color: var(--Background-Color);
   color: white;
-  /* transition: color 0.5s ease, text-shadow 0.5s ease; */
   font-family: "Roboto";
+  transition: background-color 0.5s ease;
 }
 ::selection {
   background-color: var(--Foreground-Color);

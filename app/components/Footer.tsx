@@ -68,5 +68,5 @@ const Footer = () => {
     </footer>
   );
 };
-
+export const dynamic = "force-dynamic";
 export default Footer;

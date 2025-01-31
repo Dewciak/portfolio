@@ -8,6 +8,7 @@ import Works from "./components/Works";
 import Gear from "./components/Gear";
 import Resume from "./components/Resume";
 import {useState} from "react";
+import {Metadata} from "next";
 
 interface Props {
   searchParams: {gameMode: string};
@@ -28,3 +29,8 @@ export default function Home({searchParams}: Props) {
     </>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Wiktor Dawid Portfolio",
+  description: "Portfolio of Wiktor Dawid, a frontend developer.",
+};
