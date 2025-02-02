@@ -49,6 +49,7 @@ const Tech = ({gameMode}: Props) => {
               description={tech.description}
               icon={getIcon(tech.icon)!}
               gameMode={gameMode}
+              animationDelay={index * 100}
             />
           ))}
         </motion.div>
@@ -64,11 +65,15 @@ interface cardProps {
   description: string;
   icon: StaticImageData | string;
   gameMode: boolean;
+  animationDelay: number;
 }
 
-const Card = ({header, description, icon, gameMode}: cardProps) => {
+const Card = ({header, description, icon, gameMode, animationDelay}: cardProps) => {
   return (
-    <div className='w-[320px] h-[440px] bg-[#2C2C39] rounded-[20px] flex flex-col '>
+    <div
+      className='tech-item w-[320px] h-[440px] bg-[#2C2C39] rounded-[20px] flex flex-col '
+      style={{animationDelay: `${animationDelay}ms`}}
+    >
       <div className='h-[60%] flex items-center justify-center rounded-t-[20px] overflow-hidden'>
         <Image src={icon} alt='icon' className={gameMode ? "h-full object-cover rounded-t-[20px]" : "size-[130px]"} />
       </div>

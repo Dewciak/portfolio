@@ -31,6 +31,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
       roomRotation: roomRotation,
       setRoomPosition: setRoomPosition,
       setRoomRotation: setRoomRotation,
+      gear: true,
     });
   };
   useEffect(() => {
@@ -73,13 +74,19 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
           </div>
           <div className='flex flex-col  justify-center items-start space-y-12'>
             {selectedGear.map((gear, key) => (
-              <GearItem key={key} title={gear.name} description={gear.description} icon={getIcon(gear.icon)!} />
+              <GearItem
+                key={key}
+                title={gear.name}
+                description={gear.description}
+                icon={getIcon(gear.icon)!}
+                animationDelay={key * 100}
+              />
             ))}
           </div>
         </div>
-        <div className='lg:w-[50%]  h-[400px] lg:h-auto flex items-center  mt-12'>
+        <div className='lg:w-[50%]  h-[400px] lg:h-auto flex items-center  mt-12  justify-center'>
           {isGearVisible && (
-            <Canvas camera={{position: [-1, 3, -9], fov: 90, zoom: 3}}>
+            <Canvas camera={{position: gameMode ? [0, 1, -9] : [9, 1, -9], fov: 90, zoom: 7}}>
               <Scene position={roomPosition} rotation={roomRotation} />
             </Canvas>
           )}
@@ -95,11 +102,13 @@ interface GearItemProps {
   title: string;
   description: string;
   icon: StaticImageData;
+  animationDelay: number;
+  isVisible?: boolean;
 }
 
-const GearItem = ({title, description, icon}: GearItemProps) => {
+const GearItem = ({title, description, icon, animationDelay, isVisible}: GearItemProps) => {
   return (
-    <div className='flex space-x-6'>
+    <div className='gear-item flex space-x-6' style={{animationDelay: `${animationDelay}ms`}}>
       <div className='rounded-full bg-[#191919] size-[64px] p-1'>
         <Image src={icon} alt='laptop' className='opacity-[0.6] object-cover ' />
       </div>

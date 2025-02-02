@@ -51,39 +51,37 @@ const Works = ({gameMode}: Props) => {
 
   if (!selectedWebsite) {
     return (
-      <div>
-        <section className='max-w-[1300px] mx-auto flex flex-col justify-center items-center mt-64 px-6'>
-          <div className='flex justify-between w-full items-end flex-col lg:flex-row '>
-            <h1 className='lg:leading-[70%] leading-[100%]'>
-              My recent <span>works</span>
-            </h1>
-            <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={300} height={30} className='mr-10' />
-          </div>
-          <div className='flex lg:mt-28 mt-16 justify-between flex-col-reverse lg:flex-row'>
-            <div className=' flex flex-col w-full lg:w-[40%] lg:space-y-10 space-y-6 lg:px-6 items-start justify-center mt-16'>
-              <h2 className='text-3xl font-bold '>
-                <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={200} height={30} />
-              </h2>
-              <div className='flex flex-wrap gap-x-4 gap-y-6 text-[#7B7B7B]'>
-                <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={60} height={30} />
-                <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={60} height={30} />
-                <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={60} height={30} />
-                <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={60} height={30} />
-              </div>
-              <p className='text-lg break-words max-w-[90%]'>
-                <Skeleton count={5} baseColor='#9e9e9e' highlightColor='#444' width={400} height={30} />
-              </p>
-              <div className='flex space-x-10 '>
-                <span>Visit&nbsp;live</span>
-                <p className='h-4  rounded w-3/4 '>View video</p>
-              </div>
+      <section id='Works' className='max-w-[1300px] mx-auto flex flex-col justify-center items-center mt-64 px-6'>
+        <div className='flex justify-between w-full items-end flex-col lg:flex-row '>
+          <h1 className='lg:leading-[70%] leading-[100%]'>
+            My recent <span>works</span>
+          </h1>
+          <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={300} height={30} className='mr-10' />
+        </div>
+        <div className='flex lg:mt-28 mt-16 justify-between flex-col-reverse lg:flex-row'>
+          <div className=' flex flex-col w-full lg:w-[40%] lg:space-y-10 space-y-6 lg:px-6 items-start justify-center mt-16'>
+            <h2 className='text-3xl font-bold '>
+              <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={200} height={30} />
+            </h2>
+            <div className='flex flex-wrap gap-x-4 gap-y-6 text-[#7B7B7B]'>
+              <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={60} height={30} />
+              <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={60} height={30} />
+              <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={60} height={30} />
+              <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={60} height={30} />
             </div>
-            <div className='w-[60%] h-[607px] '>
-              <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={700} height={600} />
+            <p className='text-lg break-words max-w-[90%]'>
+              <Skeleton count={5} baseColor='#9e9e9e' highlightColor='#444' width={400} height={30} />
+            </p>
+            <div className='flex space-x-10 '>
+              <span>Visit&nbsp;live</span>
+              <p className='h-4  rounded w-3/4 '>View video</p>
             </div>
           </div>
-        </section>
-      </div>
+          <div className='w-[60%] h-[607px] '>
+            <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={700} height={600} />
+          </div>
+        </div>
+      </section>
     );
   }
 

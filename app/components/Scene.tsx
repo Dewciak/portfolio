@@ -11,7 +11,7 @@ interface SceneProps {
 }
 
 const Scene = ({position, rotation}: SceneProps) => {
-  const gltf = useLoader(GLTFLoader, "/Models/scene2.gltf");
+  const gltf = useLoader(GLTFLoader, "/Models/scene10.gltf");
   const meshRef = useRef<Group>();
 
   useFrame((state, delta) => {

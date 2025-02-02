@@ -5,7 +5,6 @@ import {useEffect, useState} from "react";
 import {LuGamepad} from "react-icons/lu";
 
 import Link from "next/link";
-import {useRouter} from "next/navigation";
 import {FaCode} from "react-icons/fa6";
 import {GrContact, GrProjects} from "react-icons/gr";
 import {IoMdHome} from "react-icons/io";
@@ -23,25 +22,27 @@ const Navbar = ({gameMode}: NavbarProps) => {
   }, [gameMode]);
 
   const [mobileNav, setMobileNav] = useState(false);
-  const router = useRouter();
+
   return (
     <div className=' w-full fixed z-40 '>
       <div className='hidden lg:flex bg-BackgroundColor items-center transition-colors duration-500 justify-between w-full mx-auto py-10 px-16'>
         <OpenForWork gameMode={gameMode} />
         <ul className='flex space-x-10  justify-center items-center text-xl'>
-          <li>Home</li>
+          <li>
+            <Link href='#Home'>Home</Link>
+          </li>
 
           <li>
-            <a href='#Tech'>{gameMode ? "Goats" : "Tech"}</a>
+            <Link href='#Tech'>{gameMode ? "Goats" : "Tech"}</Link>
           </li>
           <li>
-            <a href='#Works'>{gameMode ? "Rescently played" : "Works"}</a>
+            <Link href='#Works'>{gameMode ? "Rescently played" : "Works"}</Link>
           </li>
           <li>
-            <a href='#Resume'>{gameMode ? "Steam" : "Resume"}</a>
+            <Link href='#Resume'>{gameMode ? "Steam" : "Resume"}</Link>
           </li>
           <li>
-            <a href='#Contact'>Contact</a>
+            <Link href='#Contact'>Contact</Link>
           </li>
         </ul>
         <Link
@@ -88,23 +89,25 @@ const Navbar = ({gameMode}: NavbarProps) => {
           </div>
           <ul className='flex flex-col'>
             <li className='w-full bg-slate-900 text-slate-300 py-4 border-b-[1px] border-gray-800 px-6 font-medium flex justify-between items-center'>
-              <p>Home</p>
+              <a href='#Home'>Home</a>
               <IoMdHome size={25} />
             </li>
             <li className='w-full bg-slate-900 text-slate-300 py-4 border-b-[1px] border-gray-800 px-6 font-medium flex justify-between items-center'>
-              Tech
+              <a href='#Tech'>{gameMode ? "Goats" : "Tech"}</a>
               <FaCode size={25} />
             </li>
             <li className='w-full bg-slate-900 text-slate-300 py-4 border-b-[1px] border-gray-800 px-6 font-medium flex justify-between items-center'>
-              Works
+              <a href='#Works'>{gameMode ? "Rescently played" : "Works"}</a>
               <GrProjects size={25} />
             </li>{" "}
             <li className='w-full bg-slate-900 text-slate-300 py-4 border-b-[1px] border-gray-800 px-6 font-medium flex justify-between items-center'>
-              Resume
+              <a href='#Resume'>{gameMode ? "Steam" : "Resume"}</a>
               <SiReaddotcv size={25} />
             </li>
             <div className=' w-full bg-slate-900 text-slate-300  rounded-b-2xl  font-medium flex justify-between items-center'>
-              <h6 className='px-6'>Contact</h6>
+              <a href='#Contact' className='px-6'>
+                Contact
+              </a>
               <div className='flex items-center'>
                 <GrContact size={25} className='relative left-8' />
                 <div className='w-[60px] border-r-2 border-b-2 py-8  border-ForegroundColor rounded-br-2xl' />

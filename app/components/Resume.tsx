@@ -4,7 +4,7 @@ import Steam from "@/public/images/steam.png";
 import Image from "next/image";
 const Resume = ({gameMode}: {gameMode: boolean}) => {
   return (
-    <div className='flex my-[360px] justify-center  w-full overflow-hidden '>
+    <section id='Resume' className='flex my-[360px] justify-center  w-full overflow-hidden '>
       <div className='cv-image-box flex justify-center items-center flex-col group p-4 overflow-hidden w-full py-10 relative'>
         <div className='flex justtify-center mr-16 '>
           <div className='lg:w-[360px] lg:h-[544px] w-[260px] h-[300px] overflow-hidden  rounded-[17px] bg-white z-10 rotate-[-7deg] group-hover:scale-105 duration-300 group-hover:rotate-[-12deg]'>
@@ -17,7 +17,7 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
 
         <p className='view-resume mt-32 text-2xl'>{gameMode ? "My steam profile" : "View Resume"}</p>
       </div>
-    </div>
+    </section>
   );
 };
 

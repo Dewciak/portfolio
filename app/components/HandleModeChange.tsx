@@ -29,6 +29,7 @@ interface handleModeChangeProps {
   setRoomPosition: (values: number[]) => void;
   setRoomRotation: (values: number[]) => void;
   setGameRoom: (value: boolean) => void;
+  gear?: boolean;
 }
 
 export default function handleModeChange({
@@ -38,14 +39,25 @@ export default function handleModeChange({
   roomRotation,
   setRoomPosition,
   setRoomRotation,
+  gear,
 }: handleModeChangeProps): void {
   if (gameMode) {
-    animateNumbers([5.5, 0, 4], roomPosition, 1000, setRoomPosition);
-    animateNumbers([0, 4.8, 0], roomRotation, 1000, setRoomRotation);
+    if (!gear) {
+      animateNumbers([5.5, 0, 4], roomPosition, 1000, setRoomPosition);
+      animateNumbers([0, 4.8, 0], roomRotation, 1000, setRoomRotation);
+    } else {
+      animateNumbers([5, 0, 4], roomPosition, 1000, setRoomPosition);
+      animateNumbers([0, 5, 0], roomRotation, 1000, setRoomRotation);
+    }
     setGameRoom(true);
   } else {
-    animateNumbers([0, 0, 0], roomPosition, 1000, setRoomPosition);
-    animateNumbers([0, 0, 0], roomRotation, 1000, setRoomRotation);
+    if (gear) {
+      animateNumbers([-2, 0, 0], roomPosition, 1000, setRoomPosition);
+      animateNumbers([0, 0, 0], roomRotation, 1000, setRoomRotation);
+    } else {
+      animateNumbers([3, 0, 0], roomPosition, 1000, setRoomPosition);
+      animateNumbers([0, 0, 0], roomRotation, 1000, setRoomRotation);
+    }
     setGameRoom(false);
   }
 }

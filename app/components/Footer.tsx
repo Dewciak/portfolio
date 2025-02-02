@@ -53,14 +53,9 @@ const Footer = () => {
         <div className='mx-auto flex flex-col mt-6 lg:mt-0'>
           <span className='font-rockSalt text-center text-4xl font-bold py-10 '>Wiktor</span>
           <div className='font-thin text-center text-[#A8A8A8]'>
-            {data ? (
-              <p className='text-white'>
-                {data.city}, {data.time} (UTC +1) • {data.temperature}°C
-              </p>
-            ) : (
-              <p className='text-white'>Loading...</p>
-            )}
-
+            <p className='text-white'>
+              {data?.city}, {data?.time} (UTC +1) • {data?.temperature}°C
+            </p>
             <p>
               Powered by Vercel, Next.js and{" "}
               <Link className='hover:underline' href='https://github.com/Dewciak/portfolio'>
