@@ -87,7 +87,7 @@ const Navbar = ({gameMode}: NavbarProps) => {
               gameMode ? "bg-[#141414]" : "bg-slate-900"
             }`}
           >
-            <Hamburger size={24} onToggle={setMobileNav} />
+            <Hamburger size={24} onToggle={setMobileNav} toggled={mobileNav} />
           </div>
         </div>
       </div>
@@ -119,7 +119,16 @@ const Navbar = ({gameMode}: NavbarProps) => {
                 gameMode ? "bg-[#1f1f1f]" : "bg-slate-900"
               } px-6 font-medium flex justify-between items-center`}
             >
-              <ScrollLink to='Home'>Home</ScrollLink>
+              <ScrollLink
+                to='Home'
+                smooth={true}
+                duration={200}
+                offset={0}
+                spy={true}
+                onClick={() => setMobileNav(false)}
+              >
+                Home
+              </ScrollLink>
               <IoMdHome size={25} />
             </li>
             <li
@@ -127,7 +136,16 @@ const Navbar = ({gameMode}: NavbarProps) => {
                 gameMode ? "bg-[#1f1f1f]" : "bg-slate-900"
               } px-6 font-medium flex justify-between items-center`}
             >
-              <ScrollLink to='#Tech'>{gameMode ? "Goats" : "Tech"}</ScrollLink>
+              <ScrollLink
+                to='Tech'
+                smooth={true}
+                duration={200}
+                offset={-100}
+                spy={true}
+                onClick={() => setMobileNav(false)}
+              >
+                {gameMode ? "Goats" : "Tech"}
+              </ScrollLink>
               <FaCode size={25} />
             </li>
             <li
@@ -135,7 +153,16 @@ const Navbar = ({gameMode}: NavbarProps) => {
                 gameMode ? "bg-[#1f1f1f]" : "bg-slate-900"
               } px-6 font-medium flex justify-between items-center`}
             >
-              <ScrollLink to='Works'>{gameMode ? "Rescently played" : "Works"}</ScrollLink>
+              <ScrollLink
+                to='Works'
+                smooth={true}
+                duration={200}
+                offset={-100}
+                spy={true}
+                onClick={() => setMobileNav(false)}
+              >
+                {gameMode ? "Rescently played" : "Works"}
+              </ScrollLink>
               <GrProjects size={25} />
             </li>{" "}
             <li
@@ -143,7 +170,16 @@ const Navbar = ({gameMode}: NavbarProps) => {
                 gameMode ? "bg-[#1f1f1f]" : "bg-slate-900"
               } px-6 font-medium flex justify-between items-center`}
             >
-              <ScrollLink to='Resume'>{gameMode ? "Steam" : "Resume"}</ScrollLink>
+              <ScrollLink
+                to='Resume'
+                smooth={true}
+                duration={200}
+                offset={-100}
+                spy={true}
+                onClick={() => setMobileNav(false)}
+              >
+                {gameMode ? "Steam" : "Resume"}
+              </ScrollLink>
               <SiReaddotcv size={25} />
             </li>
             <div
@@ -151,7 +187,15 @@ const Navbar = ({gameMode}: NavbarProps) => {
                 gameMode ? "bg-[#1f1f1f]" : "bg-slate-900"
               }`}
             >
-              <ScrollLink to='Contact' className='px-6'>
+              <ScrollLink
+                to='Contact'
+                className='px-6'
+                smooth={true}
+                duration={200}
+                offset={-100}
+                spy={true}
+                onClick={() => setMobileNav(false)}
+              >
                 Contact
               </ScrollLink>
               <div className='flex items-center'>
