@@ -43,19 +43,23 @@ export default function handleModeChange({
 }: handleModeChangeProps): void {
   if (gameMode) {
     if (!gear) {
-      animateNumbers([5.5, 0, 4], roomPosition, 1000, setRoomPosition);
+      // Hero
+      animateNumbers([5, 0, 4], roomPosition, 1000, setRoomPosition);
       animateNumbers([0, 4.8, 0], roomRotation, 1000, setRoomRotation);
     } else {
-      animateNumbers([5, 0, 4], roomPosition, 1000, setRoomPosition);
-      animateNumbers([0, 5, 0], roomRotation, 1000, setRoomRotation);
+      // Gear
+      animateNumbers([5, -3, 3], roomPosition, 1000, setRoomPosition);
+      animateNumbers([0, 4.7, 0], roomRotation, 1000, setRoomRotation);
     }
     setGameRoom(true);
   } else {
     if (gear) {
-      animateNumbers([-2, 0, 0], roomPosition, 1000, setRoomPosition);
-      animateNumbers([0, 0, 0], roomRotation, 1000, setRoomRotation);
+      // Gear
+      animateNumbers([-1.3, 0, 0], roomPosition, 1000, setRoomPosition);
+      animateNumbers([0, 0.7, 0], roomRotation, 1000, setRoomRotation);
     } else {
-      animateNumbers([3, 0, 0], roomPosition, 1000, setRoomPosition);
+      // Hero
+      animateNumbers([0, 0, 0], roomPosition, 1000, setRoomPosition);
       animateNumbers([0, 0, 0], roomRotation, 1000, setRoomRotation);
     }
     setGameRoom(false);

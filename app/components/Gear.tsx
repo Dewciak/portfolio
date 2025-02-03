@@ -17,6 +17,8 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
   const [isGearVisible, setIsGearVisible] = useState<boolean>(false);
   const [roomPosition, setRoomPosition] = useState<number[]>([0, 0, 0]);
   const [roomRotation, setRoomRotation] = useState<number[]>([0, 0, 0]);
+  const [cameraLookAt, setCameraLookAt] = useState<number[]>([0, 0, 0]);
+  const [cameraPosition, setCameraPosition] = useState<number[]>([0, 1, -15]);
   const [gameRoom, setGameRoom] = useState<boolean>(false);
   const GearRef = React.useRef<HTMLDivElement>(null);
   const selectedGear = gameMode ? GearDataJson.gameModeOn : GearDataJson.gameModeOff;
@@ -36,6 +38,13 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
   };
   useEffect(() => {
     toggleGameMode();
+    if (gameMode) {
+      setCameraPosition([-13, 2, -10]);
+      setCameraLookAt([0, -3, 0]);
+    } else {
+      setCameraPosition([0, 1, -12]);
+      setCameraLookAt([0, 0, 0]);
+    }
   }, [gameMode]);
 
   return (
@@ -86,8 +95,13 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
         </div>
         <div className='lg:w-[50%]  h-[400px] lg:h-auto flex items-center  mt-12  justify-center'>
           {isGearVisible && (
-            <Canvas camera={{position: gameMode ? [0, 1, -9] : [9, 1, -9], fov: 90, zoom: 7}}>
-              <Scene position={roomPosition} rotation={roomRotation} />
+            <Canvas camera={{fov: 90, zoom: 7}}>
+              <Scene
+                position={roomPosition}
+                rotation={roomRotation}
+                cameraPosition={cameraPosition}
+                cameraLookAt={cameraLookAt}
+              />
             </Canvas>
           )}
         </div>

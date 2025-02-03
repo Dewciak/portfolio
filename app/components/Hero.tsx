@@ -19,6 +19,7 @@ const Hero = ({gameMode}: Props) => {
   const [isHeroVisible, setIsHeroVisible] = useState<boolean>(false);
   const [roomPosition, setRoomPosition] = useState<number[]>([0, 0, 0]);
   const [roomRotation, setRoomRotation] = useState<number[]>([0, 0, 0]);
+  const [cameraLookAt, setCameraLookAt] = useState<number[]>([0, 0, 0]);
   const [gameRoom, setGameRoom] = useState<boolean>(false);
   const heroRef = React.useRef<HTMLDivElement>(null);
 
@@ -67,8 +68,13 @@ const Hero = ({gameMode}: Props) => {
       </div>
       <div className='w-full lg:w-[60%] lg:h-[1000px]  h-[500px]   overflow-hidden mt-16 lg:mt-0  flex items-center justify-center'>
         {isHeroVisible && (
-          <Canvas camera={{position: [-1, 3, -9], fov: 90, zoom: 3}}>
-            <Scene position={roomPosition} rotation={roomRotation} />
+          <Canvas camera={{fov: 90, zoom: 3}}>
+            <Scene
+              position={roomPosition}
+              rotation={roomRotation}
+              cameraPosition={[0, 3, -9]}
+              cameraLookAt={cameraLookAt}
+            />
           </Canvas>
         )}
       </div>
