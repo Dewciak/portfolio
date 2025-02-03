@@ -28,9 +28,9 @@ const Tech = ({gameMode}: Props) => {
         {!gameMode && "I work with"}
       </h1>
       <p className='max-w-[600px] text-MylightGray'>
-        Discover my personal Goats – the games that have left a lasting impact on me. These are the titles that have
-        shaped my gaming journey, offering unforgettable experiences, incredible mechanics, and stories that continue to
-        inspire
+        {!gameMode
+          ? " Explore the front-end technologies and tools I use in my development process. As a front-end developer, I focus on languages like HTML, CSS, and JavaScript, along with frameworks like React and Next.js. I also rely on programs like Photoshop for design work, helping me bring creative ideas to life while building functional and visually appealing user interfaces."
+          : "Discover my personal Goats – the games that have left a lasting impact on me. These are the titles that have shaped my gaming journey, offering unforgettable experiences, incredible mechanics, and stories that continue to inspire"}
       </p>
       <div className='overflow-hidden w-full flex hover:cursor-grab active:cursor-grabbing '>
         <motion.div
@@ -70,9 +70,17 @@ interface cardProps {
 
 const Card = ({header, description, icon, gameMode, animationDelay}: cardProps) => {
   return (
-    <div
-      className='tech-item w-[320px] h-[440px] bg-[#2C2C39] rounded-[20px] flex flex-col '
+    <motion.div
+      className=' w-[320px] h-[440px] bg-[#2C2C39] rounded-[20px] flex flex-col '
       style={{animationDelay: `${animationDelay}ms`}}
+      initial={{opacity: 0, y: 200}}
+      whileInView={{opacity: 1, y: 0}}
+      transition={{
+        duration: 0.6,
+        ease: "easeOut",
+        delay: animationDelay / 1000,
+      }}
+      viewport={{once: true}}
     >
       <div className='h-[60%] flex items-center justify-center rounded-t-[20px] overflow-hidden'>
         <Image src={icon} alt='icon' className={gameMode ? "h-full object-cover rounded-t-[20px]" : "size-[130px]"} />
@@ -81,6 +89,6 @@ const Card = ({header, description, icon, gameMode, animationDelay}: cardProps) 
         <h2 className='text-xl'>{header}</h2>
         <p className='text-MylightGray'>{description}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };

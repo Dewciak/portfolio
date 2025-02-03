@@ -11,6 +11,7 @@ import Figma from "@/public/images/Tech-icons/figma.png";
 import Spline from "@/public/images/Tech-icons/spline.png";
 import MySql from "@/public/images/Tech-icons/mysql.png";
 import Astro from "@/public/images/Tech-icons/astro.png";
+import Blender from "@/public/images/Tech-icons/blender.png";
 
 import Witcher from "@/public/images/Game-icons/witcher.png";
 import Cyberpunk from "@/public/images/Game-icons/cyberpunk.png";
@@ -51,6 +52,7 @@ const iconsMap: Record<string, StaticImageData> = {
   Spline: Spline,
   MySql: MySql,
   Astro: Astro,
+  Blender: Blender,
   Witcher: Witcher,
   Cyberpunk: Cyberpunk,
   EldenRing: EldenRing,

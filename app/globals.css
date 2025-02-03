@@ -22,7 +22,7 @@ body {
 }
 span {
   color: var(--Foreground-Color);
-  text-shadow: 0 0 1px var(--Foreground-Color), 0 0 5px var(--Foreground-Color), 0 0 20px var(--Foreground-Color);
+  text-shadow: 0 0 1px var(--Foreground-Color), 0 0 4px var(--Foreground-Color), 0 0 20px var(--Foreground-Color);
   transition: color 0.5s ease, text-shadow 0.5s ease;
   transition: transform 0.2s ease, 0.5s ease;
 }
@@ -111,6 +111,7 @@ h1 {
 }
 .view-resume {
   position: relative;
+  padding-bottom: 5px;
 }
 
 /* @media  */
@@ -124,6 +125,7 @@ h1 {
   left: 50%;
   transform: translate(-50%, -0%);
   transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 1px var(--Foreground-Color), 0 0 4px var(--Foreground-Color), 0 0 20px var(--Foreground-Color);
 }
 
 .view-resume:hover::after {
@@ -138,35 +140,6 @@ h1 {
   top: 0;
   margin-inline: auto;
 } */
-
-.gear-item {
-  animation: fadeFromLeft 1s ease-in-out;
-}
-@keyframes fadeFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.tech-item {
-  animation: fadeFromDown 1s ease-in-out;
-}
-
-@keyframes fadeFromDown {
-  0% {
-    opacity: 0;
-    transform: translateY(200px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 @keyframes bounceCycle {
   0% {

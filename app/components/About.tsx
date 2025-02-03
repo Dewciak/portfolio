@@ -41,7 +41,7 @@ const About = ({gameMode}: AboutProps) => {
             <div
               style={{
                 transform: `translateX(${
-                  scrollPosition >= 900 && scrollPosition < 3500 ? `${scrollPosition - 2200}` : "500px"
+                  scrollPosition >= 900 && scrollPosition < 3500 ? `${scrollPosition - 1900}` : "500px"
                 }px)`,
                 transition: "transform 0.1s ease-out",
               }}
@@ -52,7 +52,7 @@ const About = ({gameMode}: AboutProps) => {
             <div
               style={{
                 transform: `translateX(${
-                  scrollPosition >= 900 && scrollPosition < 3500 ? `${-scrollPosition + 2200}` : "500"
+                  scrollPosition >= 900 && scrollPosition < 3500 ? `${-scrollPosition + 1900}` : "500"
                 }px)`,
                 transition: "transform 0.1s ease-out",
               }}

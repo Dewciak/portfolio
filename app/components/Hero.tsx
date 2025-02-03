@@ -50,7 +50,7 @@ const Hero = ({gameMode}: Props) => {
         <OpenForWork gameMode={gameMode} />
       </div>
 
-      <div className='w-full lg:w-[40%] flex flex-col justify-center items-start '>
+      <div className='w-full lg:w-[40%] flex flex-col justify-center items-start z-20'>
         <div className='space-y-4 '>
           <div className='  '>
             <h1 className='text-5xl lg:text-6xl font-bold'>
@@ -60,7 +60,7 @@ const Hero = ({gameMode}: Props) => {
               <span>{gameMode ? "Driven" : "Frontend"}</span> {gameMode ? "gamer." : "dev."}
             </h1>
           </div>
-          <h1 className='text-xl text-MylightGray font-thin max-w-[400px]'>
+          <h1 className='text-xl text-MylightGray font-thin max-w-[400px] '>
             I solve problems and make things happen, all with a few keystrokes.
           </h1>
           <IconsSocials />
@@ -68,14 +68,17 @@ const Hero = ({gameMode}: Props) => {
       </div>
       <div className='w-full lg:w-[60%] lg:h-[1000px]  h-[500px] pointer-events-none  overflow-hidden mt-16 lg:mt-0  flex items-center justify-center'>
         {isHeroVisible && (
-          <Canvas camera={{fov: 90, zoom: 3}} className=' pointer-events-none '>
-            <Scene
-              position={roomPosition}
-              rotation={roomRotation}
-              cameraPosition={[0, 3, -9]}
-              cameraLookAt={cameraLookAt}
-            />
-          </Canvas>
+          <>
+            <Canvas camera={{fov: 90, zoom: 3}} className=' pointer-events-none '>
+              <Scene
+                position={roomPosition}
+                rotation={roomRotation}
+                cameraPosition={[0, 3, -9]}
+                cameraLookAt={cameraLookAt}
+              />
+            </Canvas>
+            <div className='absolute inset-0 z-10 ' style={{pointerEvents: "auto"}}></div>
+          </>
         )}
       </div>
     </section>

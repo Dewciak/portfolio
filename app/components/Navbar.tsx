@@ -83,9 +83,8 @@ const Navbar = ({gameMode}: NavbarProps) => {
           </Link>
 
           <div
-            className={` bg-slate-900 rounded-full text-gray-100 px-1 flex items-center justify-center duration-300 transition-color ${
-              gameMode ? "bg-[#141414]" : "bg-slate-900"
-            }`}
+            className={`  rounded-full text-gray-100 px-1 flex items-center justify-center duration-300 transition-colors 
+              ${gameMode ? "bg-[#141414]" : "bg-slate-900"}`}
           >
             <Hamburger size={24} onToggle={setMobileNav} toggled={mobileNav} />
           </div>

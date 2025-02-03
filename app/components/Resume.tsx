@@ -1,6 +1,6 @@
 import Cv from "@/public/images/cv.png";
 import CodeSs from "@/public/images/ResumeCode.png";
-import Steam from "@/public/images/steam.png";
+import Steam from "@/public/images/steam.webp";
 import Image from "next/image";
 const Resume = ({gameMode}: {gameMode: boolean}) => {
   return (

@@ -56,7 +56,9 @@ const Works = ({gameMode}: Props) => {
           <h1 className='lg:leading-[70%] leading-[100%]'>
             My recent <span>works</span>
           </h1>
-          <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={300} height={30} className='mr-10' />
+          <div className='w-full lg:w-[300px] h-[30px] lg:mr-10 mt-10 lg:mt-0'>
+            <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' className='w-full h-full' />
+          </div>
         </div>
         <div className='flex lg:mt-28 mt-16 justify-between flex-col-reverse lg:flex-row'>
           <div className=' flex flex-col w-full lg:w-[40%] lg:space-y-10 space-y-6 lg:px-6 items-start justify-center mt-16'>
@@ -77,8 +79,13 @@ const Works = ({gameMode}: Props) => {
               <p className='h-4  rounded w-3/4 '>View video</p>
             </div>
           </div>
-          <div className='w-[60%] h-[607px] '>
-            <Skeleton count={1} baseColor='#9e9e9e' highlightColor='#444' width={700} height={600} />
+          <div className='lg:w-[700px] lg:h-[607px] w-full h-[300px]'>
+            <Skeleton
+              count={1}
+              baseColor='#9e9e9e'
+              highlightColor='#444'
+              className='lg:w-[700] lg:h-[600px] w-[90%] h-[300px]'
+            />
           </div>
         </div>
       </section>
@@ -97,7 +104,7 @@ const Works = ({gameMode}: Props) => {
           My recent <span>works</span>
         </h1>
         <select
-          className='bg-transparent text-2xl lg:mr-6 px-1 mt-16 lg:mt-0  w-full lg:w-auto bg-slate-900'
+          className=' text-2xl lg:mr-6 px-1 mt-16 lg:mt-0  w-full lg:w-auto bg-BackgroundColor mb-4 lg:mb-0'
           onChange={handleWebsiteChange}
           value={selectedWebsite}
         >
@@ -108,7 +115,7 @@ const Works = ({gameMode}: Props) => {
           ))}
         </select>
       </div>
-      <div className='flex lg:mt-28 mt-16 justify-between flex-col-reverse lg:flex-row'>
+      <div className='flex lg:mt-28 mt-8 justify-between flex-col-reverse lg:flex-row'>
         <div className='flex flex-col w-full lg:w-[40%] lg:space-y-10 space-y-6 lg:px-6 items-start justify-center mt-0'>
           <h2 className='text-3xl font-bold mt-16 lg:mt-0'>{selectedData.header}</h2>
           <div className='flex flex-wrap gap-x-4 gap-y-6 text-[#7B7B7B]'>
@@ -135,8 +142,7 @@ const Works = ({gameMode}: Props) => {
         )}
         {gameMode && (
           <iframe
-            width='750'
-            height='600'
+            className='lg:w-[750px] lg:h-[600px] w-full h-[300px] '
             src={selectedData.image}
             title='YouTube video player'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'

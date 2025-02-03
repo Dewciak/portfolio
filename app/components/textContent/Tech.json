@@ -61,8 +61,13 @@
       "icon": "Figma"
     },
     {
+      "header": "Blender",
+      "description": "Blender is a free, open-source 3D modeling and animation software.",
+      "icon": "Blender"
+    },
+    {
       "header": "Spline",
-      "description": "3D design and modeling tool",
+      "description": "Spline is a 3D design tool that allows users to create interactive, high-quality 3D visuals and animations without coding.",
       "icon": "Spline"
     }
   ],

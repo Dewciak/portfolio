@@ -12,6 +12,7 @@ import {getIcon} from "./getIcon";
 import handleModeChange from "./HandleModeChange";
 import useObserver from "./hooks/useObserver";
 import GearDataJson from "./textContent/Gear.json";
+import {motion} from "framer-motion";
 
 const Gear = ({gameMode}: {gameMode: boolean}) => {
   const [isGearVisible, setIsGearVisible] = useState<boolean>(false);
@@ -122,7 +123,18 @@ interface GearItemProps {
 
 const GearItem = ({title, description, icon, animationDelay, isVisible}: GearItemProps) => {
   return (
-    <div className='gear-item flex space-x-6' style={{animationDelay: `${animationDelay}ms`}}>
+    <motion.div
+      className=' flex space-x-6'
+      style={{animationDelay: `${animationDelay}ms`}}
+      initial={{opacity: 0, x: -200}}
+      whileInView={{opacity: 1, x: 0}}
+      transition={{
+        duration: 0.6,
+        ease: "easeOut",
+        delay: animationDelay / 1000,
+      }}
+      viewport={{once: true}}
+    >
       <div className='rounded-full bg-[#191919] size-[64px] p-1'>
         <Image src={icon} alt='laptop' className='opacity-[0.6] object-cover ' />
       </div>
@@ -130,6 +142,6 @@ const GearItem = ({title, description, icon, animationDelay, isVisible}: GearIte
         <p>{title}</p>
         <p className='text-[#848484]'>{description}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
