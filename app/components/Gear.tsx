@@ -48,7 +48,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
   }, [gameMode]);
 
   return (
-    <section ref={GearRef} className='max-w-[1300px] mx-auto flex mt-64 flex-col px-6'>
+    <section ref={GearRef} id='Gear' className='max-w-[1300px] mx-auto flex mt-32 lg:-mt-64 flex-col px-6'>
       <div className='flex justify-between relative '>
         <h1>
           {gameMode ? "My sweet" : "My code"} <span>{gameMode ? "kingdom" : "environment"}</span>
@@ -64,7 +64,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
       </div>
 
       <div className='flex flex-col-reverse lg:flex-row'>
-        <div className='w-full lg:w-[50%] '>
+        <div className='w-full lg:w-[50%] mt-8'>
           <div className='flex space-x-10 py-16 text-2xl lg:text-3xl'>
             <Link
               href='?gameMode=Off'
@@ -93,7 +93,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
             ))}
           </div>
         </div>
-        <div className='lg:w-[50%]  h-[400px] lg:h-auto flex items-center  mt-12  justify-center'>
+        <div className='lg:w-[50%] w-[95%] mx-auto  h-[400px] lg:h-auto flex items-center  mt-0  justify-center'>
           {isGearVisible && (
             <Canvas camera={{fov: 90, zoom: 7}}>
               <Scene

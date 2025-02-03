@@ -20,7 +20,7 @@ const Tech = ({gameMode}: Props) => {
   return (
     <section
       id='Tech'
-      className='max-w-[1300px] flex flex-col mx-auto justify-start items-start space-y-10 mt-64 lg:mt-0 px-6 '
+      className='max-w-[1300px] flex flex-col mx-auto justify-start items-start space-y-10 mt-32 lg:mt-0 px-6 '
     >
       <h1 className='text-6xl font-bold'>
         {gameMode && "My personal "}

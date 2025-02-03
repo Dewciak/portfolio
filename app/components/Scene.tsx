@@ -32,7 +32,7 @@ const Scene = ({position, rotation, cameraPosition, cameraLookAt}: SceneProps) =
     <>
       <directionalLight position={[0, 10, 0]} intensity={0} />
       <primitive ref={meshRef} object={gltf.scene} />
-      <OrbitControls enableZoom={false} enableRotate={true} enablePan={false} />
+      <OrbitControls enableZoom={false} enableRotate={false} enablePan={false} />
     </>
   );
 };

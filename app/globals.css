@@ -4,7 +4,7 @@
 
 :root {
   --Foreground-Color: #00e0e4;
-  /* --GameMode-Color: #fb4311; */
+  --GameMode-Color: #fb4311;
   --Background-Color: #01000e;
 }
 html {
@@ -67,11 +67,9 @@ h1 {
   font-size: 3.75rem;
   font-weight: 700;
 }
-/* .AboutMainText {
-  text-shadow: 0 0 1px #00e0e483, 0 0 10px #98bfff, 0 0 60px #00e0e483;
-} */
+
 .social-Icon {
-  position: relative; /* Ustawiamy relative na ikonie, by `::after` było pozycjonowane względem niej */
+  position: relative;
 }
 
 .social-Icon::after {
@@ -168,4 +166,36 @@ h1 {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes bounceCycle {
+  0% {
+    transform: translateY(0);
+  }
+
+  15% {
+    transform: translateY(-7px);
+  }
+
+  20% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-7px);
+  }
+  35% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.Gamepad {
+  animation: bounceCycle 7s ease-in-out infinite;
+}
+
+.Canvas {
+  pointer-events: none;
 }

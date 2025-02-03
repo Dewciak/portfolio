@@ -2,22 +2,22 @@
   "gameModeOff": [
     {
       "name": "Apple Macbook air M2",
-      "description": "The Apple Macbook air M2 is a great laptop for coding and web development. It is lightweight and has a great battery life. It is also very fast and has a great display.",
+      "description": "My MacBook is the perfect laptop for coding and everyday tasks. It’s lightweight, fast, and has incredible battery life, letting me work anywhere without worrying about charging.",
       "icon": "Macbook"
     },
     {
       "name": "Iiyama G-Master GB3467WQSU-B5 Red Eagle",
-      "description": "The Apple Macbook air M2 is a great laptop for coding and web development. It is lightweight and has a great battery life. It is also very fast and has a great display.",
+      "description": "This is a great ultrawide monitor for programming and multitasking. Its 34-inch display provides ample screen space for coding, debugging, and running multiple windows side by side.",
       "icon": "Monitor"
     },
     {
       "name": "Custom electric Desk",
-      "description": "The Apple Macbook air M2 is a great laptop for coding and web development. It is lightweight and has a great battery life. It is also very fast and has a great display.",
+      "description": "My electric desk has completely changed the way I work. With adjustable height, I can easily switch between sitting and standing, keeping me comfortable and focused throughout the day. ",
       "icon": "Desk"
     },
     {
       "name": "Edifier R1600TIII",
-      "description": "The Apple Macbook air M2 is a great laptop for coding and web development. It is lightweight and has a great battery life. It is also very fast and has a great display.",
+      "description": "They deliver clear and balanced sound, making coding sessions more enjoyable and music sound great.",
       "icon": "Speakers"
     }
   ],

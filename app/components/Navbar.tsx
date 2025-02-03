@@ -4,12 +4,13 @@ import {Twirl as Hamburger} from "hamburger-react";
 import {useEffect, useState} from "react";
 import {LuGamepad} from "react-icons/lu";
 
-import Link from "next/link";
 import {FaCode} from "react-icons/fa6";
 import {GrContact, GrProjects} from "react-icons/gr";
 import {IoMdHome} from "react-icons/io";
 import {SiReaddotcv} from "react-icons/si";
 import OpenForWork from "./OpenForWork";
+import Link from "next/link";
+import {Link as ScrollLink} from "react-scroll";
 
 interface NavbarProps {
   gameMode: boolean;
@@ -29,20 +30,35 @@ const Navbar = ({gameMode}: NavbarProps) => {
         <OpenForWork gameMode={gameMode} />
         <ul className='flex space-x-10  justify-center items-center text-xl'>
           <li>
-            <Link href='#Home'>Home</Link>
+            <ScrollLink to='Home' className='cursor-pointer' smooth={true} duration={200} offset={50} spy={true}>
+              Home
+            </ScrollLink>
           </li>
 
           <li>
-            <Link href='#Tech'>{gameMode ? "Goats" : "Tech"}</Link>
+            <ScrollLink to='Tech' className='cursor-pointer' smooth={true} duration={200} offset={-200} spy={true}>
+              {gameMode ? "Goats" : "Tech"}
+            </ScrollLink>
           </li>
           <li>
-            <Link href='#Works'>{gameMode ? "Rescently played" : "Works"}</Link>
+            <ScrollLink to='Works' className='cursor-pointer' smooth={true} duration={200} offset={-300} spy={true}>
+              {gameMode ? "Rescently played" : "Works"}
+            </ScrollLink>
           </li>
           <li>
-            <Link href='#Resume'>{gameMode ? "Steam" : "Resume"}</Link>
+            <ScrollLink to='Resume' className='cursor-pointer' smooth={true} duration={200} offset={-200} spy={true}>
+              {gameMode ? "Steam" : "Resume"}
+            </ScrollLink>
           </li>
           <li>
-            <Link href='#Contact'>Contact</Link>
+            <ScrollLink to='Gear' className='cursor-pointer' smooth={true} duration={200} offset={-150} spy={true}>
+              Gear
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink to='Contact' className='cursor-pointer' smooth={true} duration={200} offset={50} spy={true}>
+              Contact
+            </ScrollLink>
           </li>
         </ul>
         <Link
@@ -50,8 +66,8 @@ const Navbar = ({gameMode}: NavbarProps) => {
           href={`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`}
           className='flex space-x-4 text-gray-100 items-center justify-center font-thin '
         >
-          <p className={`${gameMode ? "text-GameModeColor" : ""} hidden xl:flex`}>GAME MODE</p>
-          <LuGamepad size={30} />
+          <p className={`${gameMode ? "text-white" : "text-gray-600"} hidden xl:flex `}>GAMING MODE</p>
+          <LuGamepad size={30} opacity={gameMode ? 1 : 0.6} className={`${gameMode ? "" : "Gamepad"}`} />
         </Link>
       </div>
       <div className='flex lg:hidden justify-between items-center w-full px-4 py-8'>
@@ -89,25 +105,25 @@ const Navbar = ({gameMode}: NavbarProps) => {
           </div>
           <ul className='flex flex-col'>
             <li className='w-full bg-slate-900 text-slate-300 py-4 border-b-[1px] border-gray-800 px-6 font-medium flex justify-between items-center'>
-              <a href='#Home'>Home</a>
+              <ScrollLink to='Home'>Home</ScrollLink>
               <IoMdHome size={25} />
             </li>
             <li className='w-full bg-slate-900 text-slate-300 py-4 border-b-[1px] border-gray-800 px-6 font-medium flex justify-between items-center'>
-              <a href='#Tech'>{gameMode ? "Goats" : "Tech"}</a>
+              <ScrollLink to='#Tech'>{gameMode ? "Goats" : "Tech"}</ScrollLink>
               <FaCode size={25} />
             </li>
             <li className='w-full bg-slate-900 text-slate-300 py-4 border-b-[1px] border-gray-800 px-6 font-medium flex justify-between items-center'>
-              <a href='#Works'>{gameMode ? "Rescently played" : "Works"}</a>
+              <ScrollLink to='Works'>{gameMode ? "Rescently played" : "Works"}</ScrollLink>
               <GrProjects size={25} />
             </li>{" "}
             <li className='w-full bg-slate-900 text-slate-300 py-4 border-b-[1px] border-gray-800 px-6 font-medium flex justify-between items-center'>
-              <a href='#Resume'>{gameMode ? "Steam" : "Resume"}</a>
+              <ScrollLink to='Resume'>{gameMode ? "Steam" : "Resume"}</ScrollLink>
               <SiReaddotcv size={25} />
             </li>
             <div className=' w-full bg-slate-900 text-slate-300  rounded-b-2xl  font-medium flex justify-between items-center'>
-              <a href='#Contact' className='px-6'>
+              <ScrollLink to='Contact' className='px-6'>
                 Contact
-              </a>
+              </ScrollLink>
               <div className='flex items-center'>
                 <GrContact size={25} className='relative left-8' />
                 <div className='w-[60px] border-r-2 border-b-2 py-8  border-ForegroundColor rounded-br-2xl' />
