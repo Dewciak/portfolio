@@ -1,9 +1,4 @@
-function animateNumbers(
-  target: number[],
-  current: number[],
-  duration: number = 1000,
-  callback: (values: number[]) => void
-): void {
+function animateNumbers(target: number[], current: number[], callback: (values: number[]) => void): void {
   const steps: number = 60;
   const increments: number[] = target.map((value, i) => (value - current[i]) / steps);
 
@@ -44,23 +39,23 @@ export default function handleModeChange({
   if (gameMode) {
     if (!gear) {
       // Hero
-      animateNumbers([5, 0, 4], roomPosition, 1000, setRoomPosition);
-      animateNumbers([0, 4.8, 0], roomRotation, 1000, setRoomRotation);
+      animateNumbers([5, 0, 4], roomPosition, setRoomPosition);
+      animateNumbers([0, 4.8, 0], roomRotation, setRoomRotation);
     } else {
       // Gear
-      animateNumbers([5, -3, 3], roomPosition, 1000, setRoomPosition);
-      animateNumbers([0, 4.7, 0], roomRotation, 1000, setRoomRotation);
+      animateNumbers([5, -3, 3], roomPosition, setRoomPosition);
+      animateNumbers([0, 4.7, 0], roomRotation, setRoomRotation);
     }
     setGameRoom(true);
   } else {
     if (gear) {
       // Gear
-      animateNumbers([-1.3, 0, 0], roomPosition, 1000, setRoomPosition);
-      animateNumbers([0, 0.7, 0], roomRotation, 1000, setRoomRotation);
+      animateNumbers([-1.3, 0, 0], roomPosition, setRoomPosition);
+      animateNumbers([0, 0.7, 0], roomRotation, setRoomRotation);
     } else {
       // Hero
-      animateNumbers([0, 0, 0], roomPosition, 1000, setRoomPosition);
-      animateNumbers([0, 0, 0], roomRotation, 1000, setRoomRotation);
+      animateNumbers([0, 0, 0], roomPosition, setRoomPosition);
+      animateNumbers([0, 0, 0], roomRotation, setRoomRotation);
     }
     setGameRoom(false);
   }

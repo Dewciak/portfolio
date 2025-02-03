@@ -97,7 +97,7 @@ const Works = ({gameMode}: Props) => {
           My recent <span>works</span>
         </h1>
         <select
-          className='bg-transparent text-2xl lg:mr-6 px-1 mt-16 lg:mt-0'
+          className='bg-transparent text-2xl lg:mr-6 px-1 mt-16 lg:mt-0  w-full lg:w-auto bg-slate-900'
           onChange={handleWebsiteChange}
           value={selectedWebsite}
         >

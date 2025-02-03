@@ -37,7 +37,7 @@ const About = ({gameMode}: AboutProps) => {
       <div className='max-w-[1300px] mx-auto mt-32 lg:mt-64 flex flex-col px-6'>
         <p className='lg:mr-auto max-w-[400px] mt-16 text-MylightGray leading-8 '>{currentData.firstParagraph}</p>
         <div className='flex items-center justify-between max-w-[100%] mx-auto mt-16 w-full'>
-          <div className='flex flex-col space-y-10 lg:text-[110px] text-5xl items-center justify-center font-rockSalt tracking-widest font-bold w-full '>
+          <div className='flex flex-col space-y-10 my-10 lg:my-2 lg:text-[110px] text-5xl items-center justify-center font-rockSalt tracking-widest font-bold w-full '>
             <div
               style={{
                 transform: `translateX(${

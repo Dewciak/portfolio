@@ -66,9 +66,9 @@ const Hero = ({gameMode}: Props) => {
           <IconsSocials />
         </div>
       </div>
-      <div className='w-full lg:w-[60%] lg:h-[1000px]  h-[500px]   overflow-hidden mt-16 lg:mt-0  flex items-center justify-center'>
+      <div className='w-full lg:w-[60%] lg:h-[1000px]  h-[500px] pointer-events-none  overflow-hidden mt-16 lg:mt-0  flex items-center justify-center'>
         {isHeroVisible && (
-          <Canvas camera={{fov: 90, zoom: 3}} className='Canvas'>
+          <Canvas camera={{fov: 90, zoom: 3}} className=' pointer-events-none '>
             <Scene
               position={roomPosition}
               rotation={roomRotation}

@@ -75,12 +75,18 @@ const Navbar = ({gameMode}: NavbarProps) => {
           <Link
             scroll={false}
             href={`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`}
-            className=' bg-slate-900 rounded-full p-3 flex items-center justify-center'
+            className={`  rounded-full p-3 flex items-center justify-center duration-300 transition-colors ${
+              gameMode ? "bg-[#141414]" : "bg-slate-900"
+            }`}
           >
             <LuGamepad size={30} />
           </Link>
 
-          <div className=' bg-slate-900 rounded-full text-gray-100 px-1 flex items-center justify-center '>
+          <div
+            className={` bg-slate-900 rounded-full text-gray-100 px-1 flex items-center justify-center duration-300 transition-color ${
+              gameMode ? "bg-[#141414]" : "bg-slate-900"
+            }`}
+          >
             <Hamburger size={24} onToggle={setMobileNav} />
           </div>
         </div>
@@ -99,28 +105,52 @@ const Navbar = ({gameMode}: NavbarProps) => {
             ease: "easeInOut",
           }}
         >
-          <div className=' w-full bg-slate-800 text-slate-300  rounded-t-2xl  font-bold flex justify-start items-center'>
+          <div
+            className={` w-full  text-slate-300  rounded-t-2xl  font-bold flex justify-start items-center ${
+              gameMode ? "bg-[#141414]" : "bg-slate-800"
+            }`}
+          >
             <div className='w-[60px] border-l-2 border-t-2 py-8  border-ForegroundColor rounded-tl-2xl' />
             <h6 className='px-4 relative right-12'>Navigation</h6>
           </div>
           <ul className='flex flex-col'>
-            <li className='w-full bg-slate-900 text-slate-300 py-4 border-b-[1px] border-gray-800 px-6 font-medium flex justify-between items-center'>
+            <li
+              className={`w-full  text-slate-300 py-4 border-b-[1px] ${
+                gameMode ? "bg-[#1f1f1f]" : "bg-slate-900"
+              } px-6 font-medium flex justify-between items-center`}
+            >
               <ScrollLink to='Home'>Home</ScrollLink>
               <IoMdHome size={25} />
             </li>
-            <li className='w-full bg-slate-900 text-slate-300 py-4 border-b-[1px] border-gray-800 px-6 font-medium flex justify-between items-center'>
+            <li
+              className={`w-full  text-slate-300 py-4 border-b-[1px] ${
+                gameMode ? "bg-[#1f1f1f]" : "bg-slate-900"
+              } px-6 font-medium flex justify-between items-center`}
+            >
               <ScrollLink to='#Tech'>{gameMode ? "Goats" : "Tech"}</ScrollLink>
               <FaCode size={25} />
             </li>
-            <li className='w-full bg-slate-900 text-slate-300 py-4 border-b-[1px] border-gray-800 px-6 font-medium flex justify-between items-center'>
+            <li
+              className={`w-full  text-slate-300 py-4 border-b-[1px] ${
+                gameMode ? "bg-[#1f1f1f]" : "bg-slate-900"
+              } px-6 font-medium flex justify-between items-center`}
+            >
               <ScrollLink to='Works'>{gameMode ? "Rescently played" : "Works"}</ScrollLink>
               <GrProjects size={25} />
             </li>{" "}
-            <li className='w-full bg-slate-900 text-slate-300 py-4 border-b-[1px] border-gray-800 px-6 font-medium flex justify-between items-center'>
+            <li
+              className={`w-full  text-slate-300 py-4 border-b-[1px] ${
+                gameMode ? "bg-[#1f1f1f]" : "bg-slate-900"
+              } px-6 font-medium flex justify-between items-center`}
+            >
               <ScrollLink to='Resume'>{gameMode ? "Steam" : "Resume"}</ScrollLink>
               <SiReaddotcv size={25} />
             </li>
-            <div className=' w-full bg-slate-900 text-slate-300  rounded-b-2xl  font-medium flex justify-between items-center'>
+            <div
+              className={`w-full  text-slate-300  rounded-b-2xl  font-medium flex justify-between items-center ${
+                gameMode ? "bg-[#1f1f1f]" : "bg-slate-900"
+              }`}
+            >
               <ScrollLink to='Contact' className='px-6'>
                 Contact
               </ScrollLink>

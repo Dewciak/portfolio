@@ -48,7 +48,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
   }, [gameMode]);
 
   return (
-    <section ref={GearRef} id='Gear' className='max-w-[1300px] mx-auto flex mt-32 lg:-mt-64 flex-col px-6'>
+    <section ref={GearRef} id='Gear' className='max-w-[1300px] mx-auto flex mt-32 lg:mt-48 flex-col px-6'>
       <div className='flex justify-between relative '>
         <h1>
           {gameMode ? "My sweet" : "My code"} <span>{gameMode ? "kingdom" : "environment"}</span>
