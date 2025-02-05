@@ -99,12 +99,19 @@ const Works = ({gameMode}: Props) => {
       id='Works'
       className='max-w-[1300px] mx-auto flex flex-col justify-center items-center mt-32 lg:mt-64 px-6'
     >
-      <div className='flex justify-between w-full items-end flex-col lg:flex-row '>
-        <h1 className='lg:leading-[70%] leading-[100%]'>
-          My recent <span>works</span>
-        </h1>
+      <div className='flex justify-between w-full items-end flex-col md:flex-row '>
+        {!gameMode && (
+          <h1 className='lg:leading-[70%] leading-[100%]'>
+            My recent <span>works</span>
+          </h1>
+        )}
+        {gameMode && (
+          <h1 className='lg:leading-[70%] leading-[100%]'>
+            Rescently <span>played</span>
+          </h1>
+        )}
         <select
-          className=' text-2xl lg:mr-6 px-1 mt-16 lg:mt-0  w-full lg:w-auto bg-BackgroundColor mb-4 lg:mb-0'
+          className=' text-2xl lg:mr-6 px-1 mt-16 lg:mt-0  w-full md:w-[250px] bg-BackgroundColor mb-4 lg:mb-0'
           onChange={handleWebsiteChange}
           value={selectedWebsite}
         >
@@ -136,17 +143,30 @@ const Works = ({gameMode}: Props) => {
           </div>
         </div>
         {!gameMode && (
-          <video className='lg:w-[55%] w-full' autoPlay loop muted controls>
-            <source src={selectedData.image} type='video/mp4' />
-          </video>
-        )}
-        {gameMode && (
+          // <video
+          //   className='lg:w-[750px] lg:h-[600px] w-full h-[400px] max-w-[600px] mx-auto'
+          //   autoPlay
+          //   loop
+          //   muted
+          //   controls
+          // >
+          //   <source src={selectedData.image} type='video/mp4' />
+          // </video>
+
           <iframe
-            className='lg:w-[750px] lg:h-[600px] w-full h-[300px] '
+            className='lg:w-[750px] lg:h-[600px] w-full h-[400px] max-w-[600px] mx-auto '
             src={selectedData.image}
             title='YouTube video player'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-          ></iframe>
+          />
+        )}
+        {gameMode && (
+          <iframe
+            className='lg:w-[750px] lg:h-[600px] w-full h-[400px] max-w-[600px] mx-auto '
+            src={selectedData.image}
+            title='YouTube video player'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+          />
         )}
       </div>
     </section>

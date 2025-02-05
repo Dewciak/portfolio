@@ -50,7 +50,7 @@ const WorksDataJson: WorksData = {
       description:
         "This is the first real website I created for my cousin, an animal photographer. The purpose of the website is to showcase her work, introduce her personality, and, most importantly, highlight the quality of her photos. She wanted the design to be simple and aligned with the colors of her logo.",
       tech: "Javascript React Tailwindcss ",
-      image: "/images/videos/Foto.mp4",
+      image: "https://www.youtube.com/embed/e_xILU5eubU?si=bWv8m6wddfqPsw1k",
       mainLink: "https://patrycjadfotografia.pl/",
       secondLink: "https://github.com/Dewciak/PD-strona",
     },
@@ -59,7 +59,7 @@ const WorksDataJson: WorksData = {
       description:
         "HebelMebel is a website created for a carpenter who specializes in solid wood furniture. The goal was to make the design clear and minimalistic while conveying a sense of 'solidness.' Due to the simplicity of the website, I chose Astro as the framework, which is perfect for this type of project – simple yet powerful.",
       tech: "Typescript Astro Tailwindcss",
-      image: "/images/videos/Foto.mp4",
+      image: "https://www.youtube.com/embed/e_xILU5eubU?si=bWv8m6wddfqPsw1k",
       mainLink: "https://hebel-mebel.vercel.app/",
       secondLink: "https://github.com/Dewciak/HebelMebel",
     },
@@ -68,7 +68,7 @@ const WorksDataJson: WorksData = {
       description:
         "This is the most advanced website I’ve created so far. From the design, which had to be purely informative due to legal constraints, to the technical aspects, it involved building an API that connects to a database, fetches data, and handles other CRUD operations. Additionally, it includes Firebase authentication for user credentials.",
       tech: "Typescript React Nextjs Tailwindcss MySQL Firebase",
-      image: "/images/videos/Foto.mp4",
+      image: "https://www.youtube.com/embed/e_xILU5eubU?si=bWv8m6wddfqPsw1k",
       mainLink: "https://bailiff-website.vercel.app/",
       secondLink: "https://github.com/Dewciak/BailiffWebsite",
     },

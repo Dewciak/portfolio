@@ -52,7 +52,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
     <section
       ref={GearRef}
       id='Gear'
-      className='max-w-[1300px] mx-auto flex pt-80 lg:mt-48 flex-col px-6 overflow-hidden'
+      className='max-w-[1300px] mx-auto flex pt-40 lg:mt-48 flex-col px-6 overflow-hidden '
     >
       <div className='flex justify-between relative '>
         <h1>
@@ -62,7 +62,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
         <Image
           src={Samurai}
           alt='Samurai picture'
-          className={`Samurai absolute lg:size-[370px] object-cover  lg:top-[-200px] top-[-330px] size-[390px]    rotate-12 transition-opacity duration-150 right-[-220px]  ${
+          className={`Samurai absolute lg:size-[370px] object-cover  lg:top-[-200px] top-[-160px] size-[300px]    rotate-12 transition-opacity duration-150 right-[-180px]  ${
             gameMode ? "opacity-100" : "opacity-0"
           }`}
         />
@@ -100,14 +100,17 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
         </div>
         <div className='lg:w-[50%] w-[95%] mx-auto  h-[400px] lg:h-auto flex items-center  mt-0  justify-center'>
           {isGearVisible && (
-            <Canvas camera={{fov: 90, zoom: 7}}>
-              <Scene
-                position={roomPosition}
-                rotation={roomRotation}
-                cameraPosition={cameraPosition}
-                cameraLookAt={cameraLookAt}
-              />
-            </Canvas>
+            <>
+              <Canvas camera={{fov: 90, zoom: 7}}>
+                <Scene
+                  position={roomPosition}
+                  rotation={roomRotation}
+                  cameraPosition={cameraPosition}
+                  cameraLookAt={cameraLookAt}
+                />
+              </Canvas>
+              <div className='absolute inset-0 z-10 ' style={{pointerEvents: "auto"}} />
+            </>
           )}
         </div>
       </div>

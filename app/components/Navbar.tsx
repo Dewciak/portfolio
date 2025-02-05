@@ -36,7 +36,7 @@ const Navbar = ({gameMode}: NavbarProps) => {
       setIsAnimating(true);
       setMobileNav(false);
 
-      router.push(`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`);
+      router.push(`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`, {scroll: false});
       await delay(300);
       setIsAnimating(false);
 
@@ -44,7 +44,7 @@ const Navbar = ({gameMode}: NavbarProps) => {
       setMobileNav(true);
     } else {
       setIsAnimating(true);
-      router.push(`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`);
+      router.push(`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`, {scroll: false});
       await delay(300);
       setIsAnimating(false);
     }
