@@ -11,19 +11,44 @@ import {SiReaddotcv} from "react-icons/si";
 import OpenForWork from "./OpenForWork";
 import Link from "next/link";
 import {Link as ScrollLink} from "react-scroll";
+import {useRouter} from "next/navigation";
+import {IoIosPodium} from "react-icons/io";
 
 interface NavbarProps {
   gameMode: boolean;
 }
 
 const Navbar = ({gameMode}: NavbarProps) => {
+  const [mobileNav, setMobileNav] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const router = useRouter();
   useEffect(() => {
     document.documentElement.style.setProperty("--Foreground-Color", gameMode ? "#fb4311" : "#00e0e4");
     document.documentElement.style.setProperty("--Background-Color", gameMode ? "#000000" : "#01000e");
   }, [gameMode]);
 
-  const [mobileNav, setMobileNav] = useState(false);
+  function delay(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
 
+  async function handleGameModeChange(): Promise<void> {
+    if (mobileNav) {
+      setIsAnimating(true);
+      setMobileNav(false);
+
+      router.push(`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`);
+      await delay(300);
+      setIsAnimating(false);
+
+      console.log("change");
+      setMobileNav(true);
+    } else {
+      setIsAnimating(true);
+      router.push(`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`);
+      await delay(300);
+      setIsAnimating(false);
+    }
+  }
   return (
     <div className=' w-full fixed z-40 '>
       <div className='hidden lg:flex bg-BackgroundColor items-center transition-colors duration-500 justify-between w-full mx-auto py-10 px-16'>
@@ -72,15 +97,16 @@ const Navbar = ({gameMode}: NavbarProps) => {
       </div>
       <div className='flex lg:hidden justify-between items-center w-full px-4 py-8'>
         <div className='flex space-x-2 ml-auto'>
-          <Link
-            scroll={false}
-            href={`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`}
+          <div
+            onClick={() => handleGameModeChange()}
             className={`  rounded-full p-3 flex items-center justify-center duration-300 transition-colors ${
               gameMode ? "bg-[#141414]" : "bg-slate-900"
             }`}
           >
-            <LuGamepad size={30} />
-          </Link>
+            <motion.div animate={{scale: isAnimating ? 1.2 : 1}} transition={{duration: 0.3, ease: "easeInOut"}}>
+              <LuGamepad size={30} />
+            </motion.div>
+          </div>
 
           <div
             className={`  rounded-full text-gray-100 px-1 flex items-center justify-center duration-300 transition-colors 
@@ -145,7 +171,7 @@ const Navbar = ({gameMode}: NavbarProps) => {
               >
                 {gameMode ? "Goats" : "Tech"}
               </ScrollLink>
-              <FaCode size={25} />
+              {gameMode ? <IoIosPodium size={25} /> : <FaCode size={25} />}
             </li>
             <li
               className={`w-full  text-slate-300 py-4 border-b-[1px] ${

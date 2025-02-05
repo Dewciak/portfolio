@@ -49,7 +49,11 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
   }, [gameMode]);
 
   return (
-    <section ref={GearRef} id='Gear' className='max-w-[1300px] mx-auto flex mt-32 lg:mt-48 flex-col px-6'>
+    <section
+      ref={GearRef}
+      id='Gear'
+      className='max-w-[1300px] mx-auto flex pt-80 lg:mt-48 flex-col px-6 overflow-hidden'
+    >
       <div className='flex justify-between relative '>
         <h1>
           {gameMode ? "My sweet" : "My code"} <span>{gameMode ? "kingdom" : "environment"}</span>
@@ -58,7 +62,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
         <Image
           src={Samurai}
           alt='Samurai picture'
-          className={`Samurai absolute lg:size-[370px] object-cover right-0 lg:top-[-200px] top-[-330px] size-[300px]   rotate-12 transition-opacity duration-150  ${
+          className={`Samurai absolute lg:size-[370px] object-cover  lg:top-[-200px] top-[-330px] size-[390px]    rotate-12 transition-opacity duration-150 right-[-220px]  ${
             gameMode ? "opacity-100" : "opacity-0"
           }`}
         />

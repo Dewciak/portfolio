@@ -5,7 +5,7 @@ const IconsSocials = () => {
   return (
     <div className=' flex space-x-4 z-20'>
       <a
-        href='https://github.com/Dewciak'
+        href='https://github.com/Dewciak/portfolio'
         target='blank'
         className='social-Icon relative cursor-pointer text-MylightGray hover:text-white '
       >
