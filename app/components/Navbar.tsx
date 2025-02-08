@@ -89,7 +89,7 @@ const Navbar = ({gameMode}: NavbarProps) => {
         <Link
           scroll={false}
           href={`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`}
-          className='flex space-x-4 text-gray-100 items-center justify-end font-thin w-[250px]  '
+          className='flex space-x-4 text-gray-100 items-center justify-end font-thin w-[280px]  '
         >
           <p className={`${gameMode ? "text-white" : "text-gray-600"} hidden xl:flex `}>GAMING MODE</p>
           <LuGamepad size={30} opacity={gameMode ? 1 : 0.6} className={`${gameMode ? "" : "Gamepad"}`} />
