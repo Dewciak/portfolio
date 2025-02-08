@@ -157,6 +157,7 @@ const Works = ({gameMode}: Props) => {
             className='lg:w-[750px] lg:h-[600px] w-full h-[400px] max-w-[600px] mx-auto '
             src={selectedData.image}
             title='YouTube video player'
+            loading='lazy'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
           />
         )}
@@ -164,6 +165,7 @@ const Works = ({gameMode}: Props) => {
           <iframe
             className='lg:w-[750px] lg:h-[600px] w-full h-[400px] max-w-[600px] mx-auto '
             src={selectedData.image}
+            loading='lazy'
             title='YouTube video player'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
           />
