@@ -9,7 +9,7 @@ import dynamic from "next/dynamic";
 import handleModeChange from "./HandleModeChange";
 import useObserver from "./hooks/useObserver";
 
-const Scene = dynamic(() => import("./Scene"), {ssr: false});
+const HeroScene = dynamic(() => import("./HeroScene"), {ssr: true});
 
 interface Props {
   gameMode: boolean;
@@ -61,25 +61,15 @@ const Hero = ({gameMode}: Props) => {
             </h1>
           </div>
           <h1 className='text-xl text-MylightGray font-thin max-w-[400px] '>
-            I solve problems and make things happen, all with a few keystrokes.
+            {gameMode
+              ? "I overcome missions and secure victories, all with a few clicks of the gamepad "
+              : "I solve problems and make things happen, all with a few keystrokes."}
           </h1>
           <IconsSocials />
         </div>
       </div>
       <div className='w-full lg:w-[60%] lg:h-[1000px]  h-[500px] pointer-events-none  overflow-hidden mt-16 lg:mt-0  flex items-center justify-center'>
-        {isHeroVisible && (
-          <>
-            <Canvas camera={{fov: 90, zoom: 3}} className=' pointer-events-none '>
-              <Scene
-                position={roomPosition}
-                rotation={roomRotation}
-                cameraPosition={[0, 3, -9]}
-                cameraLookAt={cameraLookAt}
-              />
-            </Canvas>
-            <div className='absolute inset-0 z-10 ' style={{pointerEvents: "auto"}}></div>
-          </>
-        )}
+        {isHeroVisible && <HeroScene rotation={roomRotation} position={roomPosition} cameraLookAt={cameraLookAt} />}
       </div>
     </section>
   );

@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import Image, {StaticImageData} from "next/image";
 import React, {useEffect, useState} from "react";
 
-const Scene = dynamic(() => import("./Scene"), {ssr: false});
+const GearScene = dynamic(() => import("./GearScene"), {ssr: true});
 
 import Samurai from "@/public/images/Samurai.png";
 import {Canvas} from "@react-three/fiber";
@@ -62,6 +62,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
         <Image
           src={Samurai}
           alt='Samurai picture'
+          loading='lazy'
           className={`Samurai absolute lg:size-[370px] object-cover  lg:top-[-200px] top-[-160px] size-[300px]    rotate-12 transition-opacity duration-150 right-[-180px]  ${
             gameMode ? "opacity-100" : "opacity-0"
           }`}
@@ -100,17 +101,12 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
         </div>
         <div className='lg:w-[50%] w-[95%] mx-auto  h-[400px] lg:h-auto flex items-center  mt-0  justify-center'>
           {isGearVisible && (
-            <>
-              <Canvas camera={{fov: 90, zoom: 7}}>
-                <Scene
-                  position={roomPosition}
-                  rotation={roomRotation}
-                  cameraPosition={cameraPosition}
-                  cameraLookAt={cameraLookAt}
-                />
-              </Canvas>
-              <div className='absolute inset-0 z-10 ' style={{pointerEvents: "auto"}} />
-            </>
+            <GearScene
+              rotation={roomRotation}
+              position={roomPosition}
+              cameraLookAt={cameraLookAt}
+              cameraPosition={cameraPosition}
+            />
           )}
         </div>
       </div>
@@ -143,7 +139,7 @@ const GearItem = ({title, description, icon, animationDelay, isVisible}: GearIte
       viewport={{once: true}}
     >
       <div className='rounded-full bg-[#191919] size-[64px] p-1'>
-        <Image src={icon} alt='laptop' className='opacity-[0.6] object-cover ' />
+        <Image src={icon} alt='laptop' className='opacity-[0.6] object-cover ' loading='lazy' />
       </div>
       <div className='flex flex-col max-w-[70%]'>
         <p>{title}</p>

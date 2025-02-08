@@ -36,7 +36,7 @@ const Tech = ({gameMode}: Props) => {
         <motion.div
           className='flex space-x-4 '
           drag='x'
-          dragConstraints={{left: gameModeTechData.length * -250, right: 0}}
+          dragConstraints={{left: gameModeTechData.length * -300, right: 0}}
           initial={{x: 0}}
           animate={{x: 0}}
           transition={{type: "spring", stiffness: 300, damping: 30}}
@@ -76,14 +76,19 @@ const Card = ({header, description, icon, gameMode, animationDelay}: cardProps) 
       initial={{opacity: 0, y: 200}}
       whileInView={{opacity: 1, y: 0}}
       transition={{
-        duration: 0.6,
+        duration: 0.2,
         ease: "easeOut",
         delay: animationDelay / 1000,
       }}
       viewport={{once: true}}
     >
       <div className='h-[60%] flex items-center justify-center rounded-t-[20px] overflow-hidden'>
-        <Image src={icon} alt='icon' className={gameMode ? "h-full object-cover rounded-t-[20px]" : "size-[130px]"} />
+        <Image
+          loading='lazy'
+          src={icon}
+          alt='icon'
+          className={gameMode ? "h-full object-cover rounded-t-[20px]" : "size-[130px]"}
+        />
       </div>
       <div className='w-full h-[40%] bg-[#1C1C21] rounded-b-[20px] flex flex-col space-y-4 px-6 py-4'>
         <h2 className='text-xl'>{header}</h2>

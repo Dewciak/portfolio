@@ -111,7 +111,7 @@ const Works = ({gameMode}: Props) => {
           </h1>
         )}
         <select
-          className=' text-2xl lg:mr-6 px-1 mt-16 lg:mt-0  w-full md:w-[250px] bg-BackgroundColor mb-4 lg:mb-0'
+          className=' text-2xl lg:mr-6 px-1 mt-16 lg:mt-0  w-full md:w-[250px] bg-BackgroundColor mb-4 lg:mb-0  py-2 z-40'
           onChange={handleWebsiteChange}
           value={selectedWebsite}
         >
