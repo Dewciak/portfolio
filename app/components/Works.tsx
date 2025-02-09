@@ -124,7 +124,7 @@ const Works = ({gameMode}: Props) => {
         </select>
       </div>
       <div className='flex lg:mt-28 mt-8 justify-between flex-col-reverse lg:flex-row'>
-        <div className='flex flex-col w-full lg:w-[40%] lg:space-y-10 space-y-6 lg:px-6 items-start justify-center mt-0'>
+        <div className='flex flex-col w-full lg:w-[50%] lg:space-y-10 space-y-6 lg:px-6 items-start justify-center mt-0'>
           <h2 className='text-3xl font-bold mt-16 lg:mt-0'>{selectedData.header}</h2>
           <div className='flex flex-wrap gap-x-4 gap-y-6 text-[#7B7B7B]'>
             {selectedData.tech.split(" ").map((techName, key) => (
@@ -143,34 +143,8 @@ const Works = ({gameMode}: Props) => {
             )}
           </div>
         </div>
-        {!gameMode && (
-          // <video
-          //   className='lg:w-[750px] lg:h-[600px] w-full h-[400px] max-w-[600px] mx-auto'
-          //   autoPlay
-          //   loop
-          //   muted
-          //   controls
-          // >
-          //   <source src={selectedData.image} type='video/mp4' />
-          // </video>
-          <CloudinaryVideo cloudName='dipqyxiqh' videoId={selectedData.image} />
-          //   <iframe
-          //     className='lg:w-[750px] lg:h-[600px] w-full h-[400px] max-w-[600px] mx-auto '
-          //     src={selectedData.image}
-          //     title='YouTube video player'
-          //     loading='lazy'
-          //     allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-          //   />
-          // )}
-          // {gameMode && (
-          //   <iframe
-          //     className='lg:w-[750px] lg:h-[600px] w-full h-[400px] max-w-[600px] mx-auto '
-          //     src={selectedData.image}
-          //     loading='lazy'
-          //     title='YouTube video player'
-          //     allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-          //   />
-        )}
+
+        <CloudinaryVideo cloudName='dipqyxiqh' videoId={selectedData.image} />
       </div>
     </section>
   );

@@ -10,14 +10,14 @@ interface CloudinaryVideoProps {
   width?: number;
 }
 
-const CloudinaryVideo = ({cloudName, videoId, width = 750}: CloudinaryVideoProps) => {
+const CloudinaryVideo = ({cloudName, videoId, width = 600}: CloudinaryVideoProps) => {
   const cld = new Cloudinary({
     cloud: {cloudName},
   });
 
   const myVideo = cld.video(videoId).resize(fill().width(width));
 
-  return <AdvancedVideo cldVid={myVideo} controls autoPlay muted className='z-40' />;
+  return <AdvancedVideo cldVid={myVideo} controls autoPlay muted className='z-40' playsInline />;
 };
 
 export default CloudinaryVideo;

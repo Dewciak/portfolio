@@ -21,7 +21,7 @@ const WorksDataJson: WorksData = {
       description:
         "The first Path of Exile never fully grabbed me, but Path of Exile 2 captivated me with its well-designed combat system, making each encounter feel impactful. As a fan of Souls-like games, I appreciate the game’s mechanical difficulty, especially early on. It adds to the sense of achievement, making each victory feel earned. I'm excited to see how it evolves.",
       tech: "ActionRPG Fantasy Loot Multiplayer Strategy",
-      image: "Path_of_Exile_2_Official_Second_Trailer_huoqic",
+      image: "POE",
       mainLink: "https://store.steampowered.com/app/2694490/Path_of_Exile_2/",
       secondLink: "https://github.com/Dewciak/PD-strona",
     },
@@ -30,7 +30,7 @@ const WorksDataJson: WorksData = {
       description:
         "Lately, I've been loving to pick up my Steam Deck in my free time and mindlessly kill vampires in Vampire Survivors. It’s amazing how enjoyable just walking around becomes, as the game’s focus is all about walking and killing thousands of vampires. The goal is to take out as many as possible within the 30-minute timer, and it's really fun to watch the entire screen explode with chaos as you take down massive waves of enemies",
       tech: "Roguelike Survival Action Arcade",
-      image: "Path_of_Exile_2_Official_Second_Trailer_huoqic",
+      image: "Vampire",
       mainLink: "https://store.steampowered.com/app/1794680/Vampire_Survivors/",
       secondLink: "https://github.com/Dewciak/PD-strona",
     },
@@ -39,7 +39,7 @@ const WorksDataJson: WorksData = {
       description:
         "Marvel Rivals has really impressed me as a fan of the Marvel universe. The game offers a fresh experience with its dynamic hero synergies, where you can combine the abilities of characters to create powerful combos. I enjoy how every match feels different, thanks to the destructible environments and constantly evolving gameplay. ",
       tech: "Hero-Shooter Strategy Multiplayer Action",
-      image: "Path_of_Exile_2_Official_Second_Trailer_huoqic",
+      image: "Marvel",
       mainLink: "https://store.steampowered.com/app/2767030/Marvel_Rivals/",
       secondLink: "https://github.com/Dewciak/PD-strona",
     },
@@ -50,7 +50,7 @@ const WorksDataJson: WorksData = {
       description:
         "This is the first real website I created for my cousin, an animal photographer. The purpose of the website is to showcase her work, introduce her personality, and, most importantly, highlight the quality of her photos. She wanted the design to be simple and aligned with the colors of her logo.",
       tech: "Javascript React Tailwindcss ",
-      image: "Path_of_Exile_2_Official_Second_Trailer_huoqic",
+      image: "Foto_jfpsec",
       mainLink: "https://patrycjadfotografia.pl/",
       secondLink: "https://github.com/Dewciak/PD-strona",
     },

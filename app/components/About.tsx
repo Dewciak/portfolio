@@ -43,21 +43,21 @@ const About = ({gameMode}: AboutProps) => {
                 transform: `translateX(${
                   scrollPosition >= 900 && scrollPosition < 3500 ? `${scrollPosition - 1900}` : "500px"
                 }px)`,
-                transition: "transform 0.1s ease-out",
+                willChange: "transform",
               }}
             >
-              <EachLetterSeparator gameMode={gameMode} word={gameMode ? "Maniac" : "Creative"} />
+              <EachLetterSeparator word={gameMode ? "Maniac" : "Creative"} />
             </div>
-            <EachLetterSeparator gameMode={gameMode} word={gameMode ? "Passionate" : "Frontend"} />
+            <EachLetterSeparator word={gameMode ? "Passionate" : "Frontend"} />
             <div
               style={{
                 transform: `translateX(${
                   scrollPosition >= 900 && scrollPosition < 3500 ? `${-scrollPosition + 1900}` : "500"
                 }px)`,
-                transition: "transform 0.1s ease-out",
+                willChange: "transform",
               }}
             >
-              <EachLetterSeparator gameMode={gameMode} word={gameMode ? "Gamer" : "Developer"} />
+              <EachLetterSeparator word={gameMode ? "Gamer" : "Developer"} />
             </div>
           </div>
         </div>
@@ -73,19 +73,19 @@ export default About;
 
 interface Props {
   word: string;
-  gameMode: boolean;
 }
-function EachLetterSeparator({word, gameMode}: Props) {
-  const [selectedLetter, setSelectedLetter] = useState<number | undefined>(undefined);
+function EachLetterSeparator({word}: Props) {
+  const [selectedLetter, setSelectedLetter] = useState<number | null>(null);
   return (
-    <div className='flex' onMouseLeave={() => setSelectedLetter(undefined)}>
+    <div className='flex   will-change-transform pointer-events-auto'>
       {word.split("").map((letter, key) => (
         <span
           key={key}
-          className={` ${selectedLetter === key && "scale-[1.3]"} ${
-            selectedLetter && selectedLetter - 1 === key && "scale-[1.15]"
-          } ${selectedLetter && selectedLetter + 1 === key && "scale-[1.15]"}`}
+          className={` transition-all duration-300  ${selectedLetter === key && "scale-[1.2] z-10"} ${
+            selectedLetter && selectedLetter - 1 === key && "scale-[1.10]"
+          } ${selectedLetter && selectedLetter + 1 === key && "scale-[1.10]"}`}
           onMouseEnter={() => setSelectedLetter(key)}
+          onMouseLeave={() => setSelectedLetter(null)}
         >
           {letter}
         </span>
