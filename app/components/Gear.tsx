@@ -63,26 +63,26 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
           src={Samurai}
           alt='Samurai picture'
           loading='lazy'
-          className={`Samurai absolute lg:size-[370px] object-cover  lg:top-[-200px] top-[-160px] size-[300px]    rotate-12 transition-opacity duration-150 right-[-180px]  ${
+          className={`Samurai absolute lg:size-[370px] object-cover  lg:top-[-200px] top-[-160px] size-[250px]    rotate-12 transition-opacity duration-150 right-[-180px]  ${
             gameMode ? "opacity-100" : "opacity-0"
           }`}
         />
       </div>
 
       <div className='flex flex-col-reverse lg:flex-row'>
-        <div className='w-full lg:w-[50%] mt-8'>
-          <div className='flex space-x-10 py-16 text-2xl lg:text-3xl'>
+        <div className='w-full lg:w-[50%] mt-8 z-10'>
+          <div className='flex space-x-10  text-2xl lg:text-3xl z-10 mt-6'>
             <Link
               href='?gameMode=Off'
               scroll={false}
-              className={`duration-150 font-bold ${gameMode ? "text-[#636363]" : ""}`}
+              className={`duration-150 z-10 font-bold py-16 ${gameMode ? "text-[#636363]" : ""}`}
             >
               Code setup
             </Link>
             <Link
               href='?gameMode=On'
               scroll={false}
-              className={`duration-150 font-bold ${gameMode ? "" : "text-[#636363]"}`}
+              className={`duration-150 font-bold z-10 py-16  ${gameMode ? "" : "text-[#636363]"}`}
             >
               Game setup
             </Link>

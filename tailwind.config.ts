@@ -16,7 +16,7 @@ export default {
       },
       fontFamily: {
         sans: ["Roboto", "sans-serif"],
-        rockSalt: ['"Rock Salt"', "cursive"],
+        rockSalt: ['"Rock Salt"'],
       },
     },
   },

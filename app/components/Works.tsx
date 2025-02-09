@@ -6,6 +6,7 @@ import React, {useEffect, useState} from "react";
 import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import CloudinaryVideo from "./CldVideo";
 
 interface WorksDataJson {
   gameModeOn: Record<string, WorkItem>;
@@ -111,7 +112,7 @@ const Works = ({gameMode}: Props) => {
           </h1>
         )}
         <select
-          className=' text-2xl lg:mr-6 px-1 mt-16 lg:mt-0  w-full md:w-[250px] bg-BackgroundColor mb-4 lg:mb-0  py-2 z-40'
+          className=' text-2xl lg:mr-6 px-1 mt-16 lg:mt-0  w-full md:w-[250px] bg-BackgroundColor mb-4 lg:mb-0  py-2 z-10'
           onChange={handleWebsiteChange}
           value={selectedWebsite}
         >
@@ -152,7 +153,7 @@ const Works = ({gameMode}: Props) => {
           // >
           //   <source src={selectedData.image} type='video/mp4' />
           // </video>
-          <div></div>
+          <CloudinaryVideo cloudName='dipqyxiqh' videoId={selectedData.image} />
           //   <iframe
           //     className='lg:w-[750px] lg:h-[600px] w-full h-[400px] max-w-[600px] mx-auto '
           //     src={selectedData.image}
