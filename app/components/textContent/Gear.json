@@ -24,7 +24,7 @@
   "gameModeOn": [
     {
       "name": "Rtx 4070TI Ryzen 9 9700X PC",
-      "description": "The Apple Macbook air M2 is a great laptop for coding and web development. It is lightweight and has a great battery life. It is also very fast and has a great display.",
+      "description": "This rig is my powerhouse for high-FPS gaming. Whether it’s fast-paced shooters or graphically demanding RPGs, everything runs buttery smooth and looks stunning.",
       "icon": "Pc"
     },
     {
@@ -34,12 +34,12 @@
     },
     {
       "name": "Sharp 42” Led",
-      "description": "The Apple Macbook air M2 is a great laptop for coding and web development. It is lightweight and has a great battery life. It is also very fast and has a great display.",
+      "description": "Not the biggest screen out there, but perfect for my setup. It’s where I lose myself in epic worlds, from open-world RPGs to intense action games.",
       "icon": "Tv"
     },
     {
       "name": "Samsung Soundbar",
-      "description": "The Apple Macbook air M2 is a great laptop for coding and web development. It is lightweight and has a great battery life. It is also very fast and has a great display.",
+      "description": "Nothing beats the feeling of deep bass during an intense boss fight. My soundbar makes every explosion, soundtrack, and battle hit harder.",
       "icon": "Soundbar"
     }
   ]

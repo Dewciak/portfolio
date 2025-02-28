@@ -52,7 +52,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
     <section
       ref={GearRef}
       id='Gear'
-      className='max-w-[1300px] mx-auto flex pt-40 lg:mt-48 flex-col px-6 overflow-hidden '
+      className='max-w-[1300px] mx-auto flex pt-40 lg:mt-0  flex-col px-6 overflow-hidden '
     >
       <div className='flex justify-between relative '>
         <h1>
@@ -63,7 +63,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
           src={Samurai}
           alt='Samurai picture'
           loading='lazy'
-          className={`Samurai absolute lg:size-[370px] object-cover  lg:top-[-200px] top-[-160px] size-[250px]    rotate-12 transition-opacity duration-150 right-[-180px]  ${
+          className={`Samurai absolute lg:size-[300px] object-cover  lg:top-[-150px] top-[-160px] size-[250px]    rotate-12 transition-opacity duration-150 right-[-0px]  ${
             gameMode ? "opacity-100" : "opacity-0"
           }`}
         />

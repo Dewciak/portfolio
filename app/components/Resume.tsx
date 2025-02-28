@@ -19,7 +19,7 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
     <section
       ref={resumeRef}
       id='Resume'
-      className='flex mt-[160px] lg:my-[340px] justify-center w-full overflow-hidden'
+      className='flex mt-[160px] lg:mt-[340px] lg:mb-[100px] justify-center w-full overflow-hidden '
     >
       <div className='flex justify-center items-center flex-col p-4 overflow-hidden w-full py-10 relative pb-32 '>
         <div className='cv-image-box flex justtify-center mr-16 '>

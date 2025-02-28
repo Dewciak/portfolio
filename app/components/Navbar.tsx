@@ -116,9 +116,9 @@ const Navbar = ({gameMode}: NavbarProps) => {
           </div>
         </div>
       </div>
-      <div className='absolute top-64 left-0 inset-0 flex items-center justify-center z-[-1]'>
+      <div className='absolute top-64 left-0 inset-0 flex items-center justify-center sm:justify-end z-[-1] bg-red-500'>
         <motion.div
-          className=' z-[-1] flex flex-col md:w-[450px] w-[90%] max-w-[450px] mt-32 left-[-1/2] transform translate-x-[50%]  text-center '
+          className=' z-[-1] flex flex-col md:w-[450px] w-[90%] max-w-[450px] mt-32 left-[-1/2] transform translate-x-[50%] sm:mr-6   text-center '
           initial={{opacity: 0, x: 50}}
           animate={{
             opacity: mobileNav ? 1 : 0,
