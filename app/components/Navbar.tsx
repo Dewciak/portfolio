@@ -50,8 +50,8 @@ const Navbar = ({gameMode}: NavbarProps) => {
     }
   }
   return (
-    <div className=' w-full fixed z-40 '>
-      <div className='hidden lg:flex bg-BackgroundColor items-center transition-colors duration-500 justify-between w-full mx-auto py-10 px-16'>
+    <div className=' w-full fixed z-[100] '>
+      <div className='hidden xl:flex bg-BackgroundColor items-center transition-colors duration-500 justify-between w-full mx-auto py-10 px-16'>
         <OpenForWork gameMode={gameMode} />
         <ul className='flex space-x-10  justify-center items-center text-xl mx-auto '>
           <li>
@@ -89,13 +89,13 @@ const Navbar = ({gameMode}: NavbarProps) => {
         <Link
           scroll={false}
           href={`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`}
-          className='flex space-x-4 text-gray-100 items-center justify-end font-thin w-[280px]  '
+          className='flex space-x-4 text-gray-100 items-center justify-end font-thin w-[260px]  '
         >
           <p className={`${gameMode ? "text-white" : "text-gray-600"} hidden xl:flex `}>GAMING MODE</p>
           <LuGamepad size={30} opacity={gameMode ? 1 : 0.6} className={`${gameMode ? "" : "Gamepad"}`} />
         </Link>
       </div>
-      <div className='flex lg:hidden justify-between items-center w-full px-4 py-8'>
+      <div className='flex xl:hidden justify-between items-center w-full px-4 py-8 '>
         <div className='flex space-x-2 ml-auto'>
           <div
             onClick={() => handleGameModeChange()}

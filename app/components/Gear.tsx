@@ -1,7 +1,7 @@
 "use client";
 import dynamic from "next/dynamic";
 import Image, {StaticImageData} from "next/image";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 
 const GearScene = dynamic(() => import("./GearScene"), {ssr: true});
 
@@ -21,7 +21,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
   const [cameraLookAt, setCameraLookAt] = useState<number[]>([0, 0, 0]);
   const [cameraPosition, setCameraPosition] = useState<number[]>([0, 1, -15]);
   const [gameRoom, setGameRoom] = useState<boolean>(false);
-  const GearRef = React.useRef<HTMLDivElement>(null);
+  const GearRef = useRef<HTMLDivElement>(null);
   const selectedGear = gameMode ? GearDataJson.gameModeOn : GearDataJson.gameModeOff;
 
   const Observer = useObserver({visibilityRef: GearRef, setIsVisible: setIsGearVisible, isVisible: isGearVisible});

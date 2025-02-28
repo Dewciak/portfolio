@@ -75,18 +75,10 @@ interface Props {
   word: string;
 }
 function EachLetterSeparator({word}: Props) {
-  const [selectedLetter, setSelectedLetter] = useState<number | null>(null);
   return (
     <div className='flex   will-change-transform pointer-events-auto'>
       {word.split("").map((letter, key) => (
-        <span
-          key={key}
-          className={` transition-all duration-300  ${selectedLetter === key && "scale-[1.2] z-10"} ${
-            selectedLetter && selectedLetter - 1 === key && "scale-[1.10]"
-          } ${selectedLetter && selectedLetter + 1 === key && "scale-[1.10]"}`}
-          onMouseEnter={() => setSelectedLetter(key)}
-          onMouseLeave={() => setSelectedLetter(null)}
-        >
+        <span key={key} className={` transition-all duration-300 `}>
           {letter}
         </span>
       ))}

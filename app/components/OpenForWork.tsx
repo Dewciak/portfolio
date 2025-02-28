@@ -3,7 +3,7 @@ import {TypeAnimation} from "react-type-animation";
 
 function OpenForWork({gameMode}: {gameMode: boolean}) {
   return (
-    <div className='flex items-center space-x-0 font-thin w-[280px] '>
+    <div className='flex items-center space-x-0 font-thin w-[260px] '>
       <div id='ping-dot' className='mr-4' />
       <h2>{gameMode ? "OPEN FOR" : "OPEN FOR"}</h2>
       {gameMode && (
