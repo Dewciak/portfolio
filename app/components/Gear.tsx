@@ -16,7 +16,6 @@ const GearScene = dynamic(() => import("./GearScene"), {ssr: true});
 const Gear = ({gameMode}: {gameMode: boolean}) => {
   const [isGearVisible, setIsGearVisible] = useState<boolean>(false);
   // State for tracking visibility of the scene to remove it from the dom when not visible
-
   const [roomPosition, setRoomPosition] = useState<number[]>([0, 0, 0]);
   const [roomRotation, setRoomRotation] = useState<number[]>([0, 0, 0]);
   const [cameraLookAt, setCameraLookAt] = useState<number[]>([0, 0, 0]);

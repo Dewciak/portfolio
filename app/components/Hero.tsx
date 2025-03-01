@@ -1,7 +1,6 @@
 "use client";
 import React, {useEffect, useState} from "react";
 
-import {Canvas} from "@react-three/fiber";
 import IconsSocials from "./IconsSocials";
 import OpenForWork from "./OpenForWork";
 
@@ -17,11 +16,15 @@ interface Props {
 
 const Hero = ({gameMode}: Props) => {
   const [isHeroVisible, setIsHeroVisible] = useState<boolean>(false);
+  // State for tracking visibility of the scene to remove it from the dom when not visible
   const [roomPosition, setRoomPosition] = useState<number[]>([0, 0, 0]);
   const [roomRotation, setRoomRotation] = useState<number[]>([0, 0, 0]);
   const [cameraLookAt, setCameraLookAt] = useState<number[]>([0, 0, 0]);
+  // 3d scene position and camera position for proper view
   const [gameRoom, setGameRoom] = useState<boolean>(false);
+  // State for tracking the room mode
   const heroRef = React.useRef<HTMLDivElement>(null);
+  // Ref for the hero section
 
   const Observer = useObserver({
     visibilityRef: heroRef,
@@ -43,6 +46,7 @@ const Hero = ({gameMode}: Props) => {
   useEffect(() => {
     toggleGameMode();
   }, [gameMode]);
+  // Function to toggle the game room based on the game mode
 
   return (
     <section ref={heroRef} id='Home' className='flex flex-col-reverse lg:flex-row max-w-[1300px] mx-auto px-6'>

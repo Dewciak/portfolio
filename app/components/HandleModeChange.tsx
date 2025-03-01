@@ -16,7 +16,9 @@ function animateNumbers(target: number[], current: number[], callback: (values: 
   };
 
   step();
+  // Function to animate the numbers in the array from current to target values
 }
+
 interface handleModeChangeProps {
   gameMode: boolean;
   roomPosition: number[];
