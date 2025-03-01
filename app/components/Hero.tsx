@@ -69,7 +69,9 @@ const Hero = ({gameMode}: Props) => {
         </div>
       </div>
       <div className='w-full lg:w-[60%] lg:h-[1000px]  h-[500px] pointer-events-none  overflow-hidden mt-16 lg:mt-0  flex items-center justify-center'>
-        {isHeroVisible && <HeroScene rotation={roomRotation} position={roomPosition} cameraLookAt={cameraLookAt} />}
+        {isHeroVisible && (
+          <HeroScene rotation={roomRotation} position={roomPosition} cameraLookAt={cameraLookAt} gameMode={gameMode} />
+        )}
       </div>
     </section>
   );

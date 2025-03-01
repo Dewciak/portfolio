@@ -1,8 +1,8 @@
 "use client";
 import axios from "axios";
+import Link from "next/link";
 import {useEffect, useState} from "react";
 import IconsSocials from "./IconsSocials";
-import Link from "next/link";
 
 interface Response {
   time: string;
@@ -14,6 +14,8 @@ const Footer = () => {
   const [data, setData] = useState<Response | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [, setForceUpdate] = useState<number>(0);
+
+  // Fetching time and temperature
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
 
@@ -28,13 +30,14 @@ const Footer = () => {
 
     intervalId = setInterval(() => {
       fetchData();
-      setForceUpdate((prev) => prev + 1); // Force re-render
+      setForceUpdate((prev) => prev + 1); // Force update to refresh the time
     }, 1000);
 
     return () => clearInterval(intervalId);
   }, []);
 
   const currentYear = new Date().getFullYear();
+
   return (
     <footer id='Contact' className=' w-full flex border-t-[1px] border-[#A8A8A8] lg:mt-44 mt-32'>
       <div className='max-w-[1300px] flex flex-col mx-auto lg:py-24 py-16 w-full px-6'>

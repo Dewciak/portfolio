@@ -1,30 +1,36 @@
 "use client";
+import Samurai from "@/public/images/Samurai.png";
+import {motion} from "framer-motion";
 import dynamic from "next/dynamic";
 import Image, {StaticImageData} from "next/image";
-import React, {useEffect, useRef, useState} from "react";
-
-const GearScene = dynamic(() => import("./GearScene"), {ssr: true});
-
-import Samurai from "@/public/images/Samurai.png";
-import {Canvas} from "@react-three/fiber";
 import Link from "next/link";
+import {useEffect, useRef, useState} from "react";
 import {getIcon} from "./getIcon";
 import handleModeChange from "./HandleModeChange";
 import useObserver from "./hooks/useObserver";
 import GearDataJson from "./textContent/Gear.json";
-import {motion} from "framer-motion";
+
+const GearScene = dynamic(() => import("./GearScene"), {ssr: true});
+// Dynamic import for 3d scene
 
 const Gear = ({gameMode}: {gameMode: boolean}) => {
   const [isGearVisible, setIsGearVisible] = useState<boolean>(false);
+  // State for tracking visibility of the scene to remove it from the dom when not visible
+
   const [roomPosition, setRoomPosition] = useState<number[]>([0, 0, 0]);
   const [roomRotation, setRoomRotation] = useState<number[]>([0, 0, 0]);
   const [cameraLookAt, setCameraLookAt] = useState<number[]>([0, 0, 0]);
   const [cameraPosition, setCameraPosition] = useState<number[]>([0, 1, -15]);
+  // 3d scene position and camera position for proper view
   const [gameRoom, setGameRoom] = useState<boolean>(false);
-  const GearRef = useRef<HTMLDivElement>(null);
-  const selectedGear = gameMode ? GearDataJson.gameModeOn : GearDataJson.gameModeOff;
+  // State for tracking the room mode
 
+  const GearRef = useRef<HTMLDivElement>(null);
   const Observer = useObserver({visibilityRef: GearRef, setIsVisible: setIsGearVisible, isVisible: isGearVisible});
+  // Custom hook for tracking the visibility of the scene
+
+  const selectedGear = gameMode ? GearDataJson.gameModeOn : GearDataJson.gameModeOff;
+  // Selecting the gear data based on the game mode
 
   const toggleGameMode = () => {
     handleModeChange({
@@ -37,6 +43,8 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
       gear: true,
     });
   };
+  // Function to toggle the game room based on the game mode
+
   useEffect(() => {
     toggleGameMode();
     if (gameMode) {
@@ -47,6 +55,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
       setCameraLookAt([0, 0, 0]);
     }
   }, [gameMode]);
+  // Setting the camera position based on the game mode
 
   return (
     <section
@@ -61,28 +70,33 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
 
         <Image
           src={Samurai}
-          alt='Samurai picture'
+          alt=''
           loading='lazy'
           className={`Samurai absolute lg:size-[300px] object-cover  lg:top-[-150px] top-[-160px] size-[250px]    rotate-12 transition-opacity duration-150 right-[-0px]  ${
             gameMode ? "opacity-100" : "opacity-0"
           }`}
         />
+        {/* Samurai picture visible only on game mode */}
       </div>
 
       <div className='flex flex-col-reverse lg:flex-row'>
         <div className='w-full lg:w-[50%] mt-8 z-10'>
           <div className='flex space-x-10  text-2xl lg:text-3xl z-10 mt-6'>
             <Link
+              role='button'
               href='?gameMode=Off'
               scroll={false}
               className={`duration-150 z-10 font-bold py-16 ${gameMode ? "text-[#636363]" : ""}`}
+              tabIndex={0}
             >
               Code setup
             </Link>
             <Link
+              role='button'
               href='?gameMode=On'
               scroll={false}
               className={`duration-150 font-bold z-10 py-16  ${gameMode ? "" : "text-[#636363]"}`}
+              tabIndex={1}
             >
               Game setup
             </Link>
@@ -106,6 +120,8 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
               position={roomPosition}
               cameraLookAt={cameraLookAt}
               cameraPosition={cameraPosition}
+              aria-label='3d gear scene'
+              gameMode={gameRoom}
             />
           )}
         </div>
@@ -139,7 +155,7 @@ const GearItem = ({title, description, icon, animationDelay, isVisible}: GearIte
       viewport={{once: true}}
     >
       <div className='rounded-full bg-[#191919] size-[64px] p-1'>
-        <Image src={icon} alt='laptop' className='opacity-[0.6] object-cover ' loading='lazy' />
+        <Image src={icon} alt='' className='opacity-[0.6] object-cover ' loading='lazy' />
       </div>
       <div className='flex flex-col max-w-[70%]'>
         <p>{title}</p>

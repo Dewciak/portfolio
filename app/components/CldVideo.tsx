@@ -9,7 +9,7 @@ interface CloudinaryVideoProps {
   videoId: string | undefined;
   width?: number;
 }
-
+// Video player component
 const CloudinaryVideo = ({cloudName, videoId, width = 600}: CloudinaryVideoProps) => {
   const cld = new Cloudinary({
     cloud: {cloudName},

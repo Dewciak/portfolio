@@ -18,7 +18,7 @@ interface AboutProps {
 
 const About = ({gameMode}: AboutProps) => {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
-
+  // Scroll event listener
   useEffect(() => {
     const handleScroll = () => {
       const position = window.scrollY;
@@ -31,7 +31,9 @@ const About = ({gameMode}: AboutProps) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   const currentData = gameMode ? websiteData.gameModeOn : websiteData.gameModeOff;
+
   return (
     <section id='About' className='w-full overflow-hidden'>
       <div className='max-w-[1300px] mx-auto mt-32 lg:mt-64 flex flex-col px-6'>
@@ -71,10 +73,11 @@ const About = ({gameMode}: AboutProps) => {
 
 export default About;
 
-interface Props {
+interface LetterProps {
   word: string;
 }
-function EachLetterSeparator({word}: Props) {
+
+function EachLetterSeparator({word}: LetterProps) {
   return (
     <div className='flex   will-change-transform pointer-events-auto'>
       {word.split("").map((letter, key) => (
