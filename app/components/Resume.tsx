@@ -1,13 +1,13 @@
 "use client";
 import Cv from "@/public/images/cv.png";
 import CodeSs from "@/public/images/ResumeCode.png";
+import BlueLight from "@/public/images/ResumeLight.png";
+import RedLight from "@/public/images/ResumeLightRed.png";
 import Steam from "@/public/images/steam.webp";
 import Image from "next/image";
 import Link from "next/link";
 import {useRef, useState} from "react";
 import useObserver from "./hooks/useObserver";
-import BlueLight from "@/public/images/ResumeLight.png";
-import RedLight from "@/public/images/ResumeLightRed.png";
 
 const Resume = ({gameMode}: {gameMode: boolean}) => {
   const [isVisible, setVisible] = useState<boolean>(false);
@@ -27,13 +27,13 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
             className={`lg:w-[360px] lg:h-[544px] w-[260px] h-[370px] overflow-hidden rounded-[17px] bg-white z-10 
               ${isVisible ? "scale-105 rotate-[-12deg]" : "rotate-[-7deg]"} duration-700 transition-all`}
           >
-            <Image src={gameMode ? Steam : Cv} alt='Cv' className='' loading='lazy' />
+            <Image src={gameMode ? Steam : Cv} alt='' loading='lazy' />
           </div>
           <div
             className={`overflow-hidden lg:w-[360px] lg:h-[544px] w-[260px] h-[370px] rounded-[17px] absolute ml-44 mt-12 
               ${isVisible ? "scale-105 rotate-[12deg]" : "rotate-[10deg]"} duration-700 transition-all`}
           >
-            <Image loading='lazy' src={CodeSs} alt='Code screen shot' className='object-cover h-full w-auto' />
+            <Image loading='lazy' src={CodeSs} alt='' className='object-cover h-full w-auto' />
           </div>
         </div>
 
@@ -43,6 +43,8 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
             isVisible ? "opacity-100" : "opacity-0"
           } transition-opacity duration-300 hover:text-MylightGray `}
           target='blank'
+          role='button'
+          tabIndex={22}
         >
           {gameMode ? "My steam profile" : "View Resume"}
         </Link>

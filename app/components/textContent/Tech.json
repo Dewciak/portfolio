@@ -3,134 +3,160 @@
     {
       "header": "HTML",
       "description": "Markup language for structuring web content",
-      "icon": "Html"
+      "icon": "Html",
+      "alt": "HTML logo"
     },
     {
       "header": "CSS",
       "description": "Style sheet language for designing web pages",
-      "icon": "Css"
+      "icon": "Css",
+      "alt": "CSS logo"
     },
     {
       "header": "JavaScript",
       "description": "Programming language for dynamic web content",
-      "icon": "Javascript"
+      "icon": "Javascript",
+      "alt": "JavaScript logo"
     },
     {
       "header": "TypeScript",
       "description": "Superset of JavaScript that adds static types",
-      "icon": "Typescript"
+      "icon": "Typescript",
+      "alt": "TypeScript logo"
     },
     {
       "header": "React",
       "description": "JavaScript library for building user interfaces",
-      "icon": "ReactPic"
+      "icon": "ReactPic",
+      "alt": "React logo"
     },
     {
       "header": "Next.js",
       "description": "React framework for server-side rendering and static websites",
-      "icon": "Next"
+      "icon": "Next",
+      "alt": "Next.js logo"
     },
     {
       "header": "Astro",
       "description": "A framework for building fast, static websites using components from various libraries.",
-      "icon": "Astro"
+      "icon": "Astro",
+      "alt": "Astro logo"
     },
     {
       "header": "TailwindCSS",
       "description": "Utility-first CSS framework for rapid UI development",
-      "icon": "Tailwind"
+      "icon": "Tailwind",
+      "alt": "TailwindCSS logo"
     },
     {
       "header": "MySQL",
       "description": "Relational database management system",
-      "icon": "MySql"
+      "icon": "MySql",
+      "alt": "MySQL logo"
     },
     {
       "header": "Git",
       "description": "Version control system for tracking changes in code",
-      "icon": "Git"
+      "icon": "Git",
+      "alt": "Git logo"
     },
     {
       "header": "Photoshop",
       "description": "Image editing software for creating and manipulating graphics",
-      "icon": "Photoshop"
+      "icon": "Photoshop",
+      "alt": "Photoshop logo"
     },
     {
       "header": "Figma",
       "description": "Collaborative interface design tool",
-      "icon": "Figma"
+      "icon": "Figma",
+      "alt": "Figma logo"
     },
     {
       "header": "Blender",
       "description": "Blender is a free, open-source 3D modeling and animation software.",
-      "icon": "Blender"
+      "icon": "Blender",
+      "alt": "Blender logo"
     },
     {
       "header": "Spline",
       "description": "Spline is a 3D design tool that allows users to create interactive, high-quality 3D visuals and animations without coding.",
-      "icon": "Spline"
+      "icon": "Spline",
+      "alt": "Spline logo"
     }
   ],
   "gameModeOn": [
     {
       "header": "Wiedźmin",
       "description": "An epic RPG based on Andrzej Sapkowski's novels, filled with dark choices and complex characters.",
-      "icon": "Witcher"
+      "icon": "Witcher",
+      "alt": "Witcher 3 logo"
     },
     {
       "header": "Cyberpunk",
       "description": "A futuristic action RPG set in the neon-lit, dystopian world of Night City.",
-      "icon": "Cyberpunk"
+      "icon": "Cyberpunk",
+      "alt": "Cyberpunk logo"
     },
     {
       "header": "Elden Ring",
       "description": "An expansive open-world RPG by FromSoftware, offering challenging combat and mysterious lore.",
-      "icon": "EldenRing"
+      "icon": "EldenRing",
+      "alt": "Elden Ring logo"
     },
     {
       "header": "Red Dead Redemption 2",
       "description": "An immersive tale of an outlaw in the Wild West, featuring a realistic world and deep narrative.",
-      "icon": "Rdr2"
+      "icon": "Rdr2",
+      "alt": "Red Dead Redemption 2 logo"
     },
     {
       "header": "God of War Ragnarok",
       "description": "The continuation of the great series, where Kratos and Atreus face Norse gods in an epic adventure.",
-      "icon": "Gow"
+      "icon": "Gow",
+      "alt": "God of War Ragnarok logo"
     },
     {
       "header": "Spiderman",
       "description": "A dynamic action game about the adventures of a superhero fighting crime in New York City.",
-      "icon": "Spiderman"
+      "icon": "Spiderman",
+      "alt": "Spiderman logo"
     },
     {
       "header": "Hades",
       "description": "A roguelike set in Greek mythology, where you escape the underworld as the son of Hades.",
-      "icon": "Hades"
+      "icon": "Hades",
+      "alt": "Hades logo"
     },
     {
       "header": "Dead Cells",
       "description": "A roguelike platformer combining fast-paced combat with exploration of procedurally generated levels.",
-      "icon": "Deadcells"
+      "icon": "Deadcells",
+      "alt": "Dead Cells logo"
     },
     {
       "header": "Dark Souls 3",
       "description": "The third installment of the iconic RPG series, known for its challenging combat and atmospheric locations.",
-      "icon": "Darksouls"
+      "icon": "Darksouls",
+      "alt": "Dark Souls 3 logo"
     },
     {
       "header": "Horizon Zero Dawn",
       "description": "An action-adventure game set in a world where you hunt robotic dinosaurs as Aloy.",
-      "icon": "Horizon"
+      "icon": "Horizon",
+      "alt": "Horizon Zero Dawn logo"
     },
     {
       "header": "Bioshock Infinite",
       "description": "A shooter with a deep story, set in the sky city of Columbia with a unique retro-futuristic vibe.",
-      "icon": "Bioshock"
+      "icon": "Bioshock",
+      "alt": "Bioshock Infinite logo"
     },
     {
       "header": "Uncharted 4",
       "description": "An adventure of treasure hunter Nathan Drake, full of spectacular action scenes and an emotional story.",
-      "icon": "Uncharted"
+      "icon": "Uncharted",
+      "alt": "Uncharted 4 logo"
     }
   ]
 }

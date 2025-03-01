@@ -19,12 +19,14 @@ export default function Home({searchParams}: Props) {
   return (
     <>
       <Navbar gameMode={gameMode} />
-      <Hero gameMode={gameMode} />
-      <Tech gameMode={gameMode} />
-      <About gameMode={gameMode} />
-      <Works gameMode={gameMode} />
-      <Resume gameMode={gameMode} />
-      <Gear gameMode={gameMode} />
+      <main>
+        <Hero gameMode={gameMode} />
+        <Tech gameMode={gameMode} />
+        <About gameMode={gameMode} />
+        <Works gameMode={gameMode} />
+        <Resume gameMode={gameMode} />
+        <Gear gameMode={gameMode} />
+      </main>
       <Footer />
     </>
   );

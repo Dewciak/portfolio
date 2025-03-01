@@ -12,6 +12,7 @@ export async function GET(request: Request) {
       hour: "2-digit",
       minute: "2-digit",
     });
+    // Set the timezone to Krakow and format the time
 
     const response = await fetch(url);
     const data = await response.json();
@@ -24,6 +25,7 @@ export async function GET(request: Request) {
         city: data.name,
         country: data.sys.country,
       });
+      // Return the time, temperature, weather, city, and country
     } else {
       return NextResponse.json({error: "Failed to fetch weather data"}, {status: 500});
     }

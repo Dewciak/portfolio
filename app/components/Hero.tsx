@@ -64,11 +64,11 @@ const Hero = ({gameMode}: Props) => {
               <span>{gameMode ? "Driven" : "Frontend"}</span> {gameMode ? "gamer." : "dev."}
             </h1>
           </div>
-          <h1 className='text-xl text-MylightGray font-thin max-w-[400px] '>
+          <h2 className='text-xl text-MylightGray font-thin max-w-[400px] '>
             {gameMode
               ? "I overcome missions and secure victories, all with a few clicks of the gamepad "
               : "I solve problems and make things happen, all with a few keystrokes."}
-          </h1>
+          </h2>
           <IconsSocials />
         </div>
       </div>

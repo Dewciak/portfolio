@@ -13,6 +13,7 @@ export interface Technology {
   header: string;
   description: string;
   icon: string;
+  alt: string;
 }
 const Tech = ({gameMode}: Props) => {
   const gameModeTechData = gameMode ? techData.gameModeOn : techData.gameModeOff;
@@ -27,11 +28,11 @@ const Tech = ({gameMode}: Props) => {
         <span className={gameMode ? "game-mode-on" : "game-mode-off"}>{gameMode ? "Goats" : "Tech "}</span>
         {!gameMode && "I work with"}
       </h1>
-      <p className='max-w-[600px] text-MylightGray'>
+      <h2 className='max-w-[600px] text-MylightGray'>
         {!gameMode
           ? " Explore the front-end technologies and tools I use in my development process. As a front-end developer, I focus on languages like HTML, CSS, and JavaScript, along with frameworks like React and Next.js. I also rely on programs like Photoshop for design work, helping me bring creative ideas to life while building functional and visually appealing user interfaces."
           : "Discover my personal Goats – the games that have left a lasting impact on me. These are the titles that have shaped my gaming journey, offering unforgettable experiences, incredible mechanics, and stories that continue to inspire"}
-      </p>
+      </h2>
       <div className='overflow-hidden w-full flex hover:cursor-grab active:cursor-grabbing '>
         <motion.div
           className='flex space-x-4 '
@@ -50,6 +51,8 @@ const Tech = ({gameMode}: Props) => {
               icon={getIcon(tech.icon)!}
               gameMode={gameMode}
               animationDelay={index * 100}
+              index={index + 3}
+              alt={tech.alt}
             />
           ))}
         </motion.div>
@@ -66,9 +69,11 @@ interface cardProps {
   icon: StaticImageData | string;
   gameMode: boolean;
   animationDelay: number;
+  index: number;
+  alt: string;
 }
 
-const Card = ({header, description, icon, gameMode, animationDelay}: cardProps) => {
+const Card = ({header, description, icon, gameMode, animationDelay, index, alt}: cardProps) => {
   return (
     <motion.div
       className=' w-[320px] h-[440px] bg-[#2C2C39] rounded-[20px] flex flex-col '
@@ -81,12 +86,13 @@ const Card = ({header, description, icon, gameMode, animationDelay}: cardProps) 
         delay: animationDelay / 1000,
       }}
       viewport={{once: true}}
+      tabIndex={index}
     >
       <div className='h-[60%] flex items-center justify-center rounded-t-[20px] overflow-hidden'>
         <Image
           loading='lazy'
           src={icon}
-          alt='icon'
+          alt={alt}
           className={gameMode ? "h-full object-cover rounded-t-[20px]" : "size-[130px]"}
         />
       </div>

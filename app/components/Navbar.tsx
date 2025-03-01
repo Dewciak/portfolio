@@ -4,15 +4,14 @@ import {Twirl as Hamburger} from "hamburger-react";
 import {useEffect, useState} from "react";
 import {LuGamepad} from "react-icons/lu";
 
+import Link from "next/link";
+import {useRouter} from "next/navigation";
 import {FaCode} from "react-icons/fa6";
 import {GrContact, GrProjects} from "react-icons/gr";
-import {IoMdHome} from "react-icons/io";
+import {IoIosPodium, IoMdHome} from "react-icons/io";
 import {SiReaddotcv} from "react-icons/si";
-import OpenForWork from "./OpenForWork";
-import Link from "next/link";
 import {Link as ScrollLink} from "react-scroll";
-import {useRouter} from "next/navigation";
-import {IoIosPodium} from "react-icons/io";
+import OpenForWork from "./OpenForWork";
 
 interface NavbarProps {
   gameMode: boolean;
@@ -22,10 +21,12 @@ const Navbar = ({gameMode}: NavbarProps) => {
   const [mobileNav, setMobileNav] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const router = useRouter();
+
   useEffect(() => {
     document.documentElement.style.setProperty("--Foreground-Color", gameMode ? "#fb4311" : "#00e0e4");
     document.documentElement.style.setProperty("--Background-Color", gameMode ? "#000000" : "#01000e");
   }, [gameMode]);
+  // Function to change the color theme based on the game mode
 
   function delay(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -49,8 +50,10 @@ const Navbar = ({gameMode}: NavbarProps) => {
       setIsAnimating(false);
     }
   }
+  // Function to handle the game mode change with a delay for the animation
+
   return (
-    <div className=' w-full fixed z-[100] '>
+    <nav className=' w-full fixed z-[100] '>
       <div className='hidden xl:flex bg-BackgroundColor items-center transition-colors duration-500 justify-between w-full mx-auto py-10 px-16'>
         <OpenForWork gameMode={gameMode} />
         <ul className='flex space-x-10  justify-center items-center text-xl mx-auto '>
@@ -86,6 +89,7 @@ const Navbar = ({gameMode}: NavbarProps) => {
             </ScrollLink>
           </li>
         </ul>
+
         <Link
           scroll={false}
           href={`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`}
@@ -95,6 +99,31 @@ const Navbar = ({gameMode}: NavbarProps) => {
           <LuGamepad size={30} opacity={gameMode ? 1 : 0.6} className={`${gameMode ? "" : "Gamepad"}`} />
         </Link>
       </div>
+
+      <MobileNav
+        gameMode={gameMode}
+        setMobileNav={setMobileNav}
+        mobileNav={mobileNav}
+        isAnimating={isAnimating}
+        handleGameModeChange={handleGameModeChange}
+      />
+    </nav>
+  );
+};
+
+export default Navbar;
+
+interface MobileNavProps {
+  gameMode: boolean;
+  setMobileNav: React.Dispatch<React.SetStateAction<boolean>>;
+  mobileNav: boolean;
+  isAnimating: boolean;
+  handleGameModeChange: () => void;
+}
+
+function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameModeChange}: MobileNavProps) {
+  return (
+    <>
       <div className='flex xl:hidden justify-between items-center w-full px-4 py-8 '>
         <div className='flex space-x-2 ml-auto'>
           <div
@@ -231,8 +260,6 @@ const Navbar = ({gameMode}: NavbarProps) => {
           </ul>
         </motion.div>
       </div>
-    </div>
+    </>
   );
-};
-
-export default Navbar;
+}

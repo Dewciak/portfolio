@@ -1,6 +1,4 @@
 "use client";
-import HebelPlaceHolder from "@/public/images/Hebel.png";
-import Image from "next/image";
 import React, {useEffect, useState} from "react";
 
 import Link from "next/link";
@@ -12,6 +10,7 @@ interface WorksDataJson {
   gameModeOn: Record<string, WorkItem>;
   gameModeOff: Record<string, WorkItem>;
 }
+// Define the structure of the JSON data
 
 interface WorkItem {
   header: string;
@@ -21,6 +20,7 @@ interface WorkItem {
   mainLink: string;
   secondLink: string;
 }
+// Define the structure of the work item
 
 interface Props {
   gameMode: boolean;
@@ -29,22 +29,28 @@ interface Props {
 const Works = ({gameMode}: Props) => {
   const [worksData, setWorksData] = useState<Record<string, WorkItem>>({});
   const [currentOptions, setCurrentOptions] = useState<string[]>([]);
-
   const [selectedWebsite, setSelectedWebsite] = useState<string>(currentOptions[0]);
+  const [error, setError] = useState<string | null>(null);
+  // Define the state for the works data, current options, selected website, and error
 
   useEffect(() => {
     const fetchWorksData = async () => {
-      const response = await fetch(`/api/works?gameMode=${gameMode}`);
-      const data = await response.json();
-      setWorksData(data);
+      try {
+        const response = await fetch(`/api/works?gameMode=${gameMode}`);
+        const data = await response.json();
+        setWorksData(data);
 
-      const options = Object.keys(data);
-      setCurrentOptions(options);
-      setSelectedWebsite(options[0]);
+        const options = Object.keys(data);
+        setCurrentOptions(options);
+        setSelectedWebsite(options[0]);
+      } catch (error) {
+        setError(error instanceof Error ? error.message : String(error));
+      }
     };
 
     fetchWorksData();
   }, [gameMode]);
+  // Fetch the works data from the API
 
   const handleWebsiteChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedWebsite(event.target.value);
@@ -92,6 +98,7 @@ const Works = ({gameMode}: Props) => {
       </section>
     );
   }
+  // Display a skeleton loader while the data is being fetched
 
   const selectedData = worksData[selectedWebsite];
 
@@ -115,6 +122,7 @@ const Works = ({gameMode}: Props) => {
           className=' text-2xl lg:mr-6 px-1 mt-16 lg:mt-0  w-full md:w-[250px] bg-BackgroundColor mb-4 lg:mb-0  py-2 z-10'
           onChange={handleWebsiteChange}
           value={selectedWebsite}
+          tabIndex={19}
         >
           {currentOptions.map((websiteName, key) => (
             <option key={key} value={websiteName}>
@@ -133,11 +141,17 @@ const Works = ({gameMode}: Props) => {
           </div>
           <p className='text-lg break-words max-w-[90%]'>{selectedData.description}</p>
           <div className='flex space-x-10 '>
-            <Link href={selectedData.mainLink} target='blank'>
+            <Link href={selectedData.mainLink} target='blank' tabIndex={20} role='button'>
               <span>{gameMode ? "Check it out!" : "Visit live"}</span>
             </Link>
             {!gameMode && (
-              <Link href={selectedData.secondLink} className='underline underline-offset-4' target='blank'>
+              <Link
+                href={selectedData.secondLink}
+                className='underline underline-offset-4'
+                target='blank'
+                tabIndex={21}
+                role='button'
+              >
                 View code
               </Link>
             )}
