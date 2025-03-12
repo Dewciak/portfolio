@@ -71,7 +71,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
           src={Samurai}
           alt=''
           loading='lazy'
-          className={`Samurai absolute lg:size-[300px] object-cover  lg:top-[-150px] top-[-160px] size-[250px]    rotate-12 transition-opacity duration-150 right-[-0px]  ${
+          className={`Samurai absolute lg:size-[300px] object-cover  lg:top-[-150px] top-[-150px] size-[250px]    rotate-12 transition-opacity duration-150 right-[-150px] md:right-[0px]  ${
             gameMode ? "opacity-100" : "opacity-0"
           }`}
         />
