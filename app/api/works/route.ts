@@ -45,32 +45,32 @@ const WorksDataJson: WorksData = {
     },
   },
   gameModeOff: {
+    Bailiff: {
+      header: "Bailiff's Website",
+      description:
+        "This is the most advanced website I’ve created so far. From the design, which had to be purely informative due to legal constraints, to the technical aspects, it involved building an API that connects to a database, fetches data, and handles other CRUD operations. Additionally, it includes Firebase authentication for user credentials.",
+      tech: "Typescript React Nextjs Tailwindcss MySQL Firebase",
+      image: "bailif_ncgv4o",
+      mainLink: "https://bailiff-website.vercel.app/",
+      secondLink: "https://github.com/Dewciak/BailiffWebsite",
+    },
+    Carpenter: {
+      header: "Carpenter's Website",
+      description:
+        "HebelMebel is a website created for a carpenter who specializes in solid wood furniture. The goal was to make the design clear and minimalistic while conveying a sense of 'solidness.' Due to the simplicity of the website, I chose Astro as the framework, which is perfect for this type of project – simple yet powerful.",
+      tech: "Typescript Astro Tailwindcss",
+      image: "hebel_af939f",
+      mainLink: "https://hebel-mebel.vercel.app/",
+      secondLink: "https://github.com/Dewciak/HebelMebel",
+    },
     Photography: {
-      header: "Photography Portfolio",
+      header: "Animal Photographer's Website",
       description:
         "This is the first real website I created for my cousin, an animal photographer. The purpose of the website is to showcase her work, introduce her personality, and, most importantly, highlight the quality of her photos. She wanted the design to be simple and aligned with the colors of her logo.",
       tech: "Javascript React Tailwindcss ",
       image: "Foto_jfpsec",
       mainLink: "https://patrycjadfotografia.pl/",
       secondLink: "https://github.com/Dewciak/PD-strona",
-    },
-    Carpenter: {
-      header: "Hebel Mebel",
-      description:
-        "HebelMebel is a website created for a carpenter who specializes in solid wood furniture. The goal was to make the design clear and minimalistic while conveying a sense of 'solidness.' Due to the simplicity of the website, I chose Astro as the framework, which is perfect for this type of project – simple yet powerful.",
-      tech: "Typescript Astro Tailwindcss",
-      image: "https://www.youtube.com/embed/e_xILU5eubU?si=bWv8m6wddfqPsw1k",
-      mainLink: "https://hebel-mebel.vercel.app/",
-      secondLink: "https://github.com/Dewciak/HebelMebel",
-    },
-    Bailiff: {
-      header: "Dariusz Dawid, Court Enforcement Officer at the District Court in Bielsko-Biała.",
-      description:
-        "This is the most advanced website I’ve created so far. From the design, which had to be purely informative due to legal constraints, to the technical aspects, it involved building an API that connects to a database, fetches data, and handles other CRUD operations. Additionally, it includes Firebase authentication for user credentials.",
-      tech: "Typescript React Nextjs Tailwindcss MySQL Firebase",
-      image: "https://www.youtube.com/embed/e_xILU5eubU?si=bWv8m6wddfqPsw1k",
-      mainLink: "https://bailiff-website.vercel.app/",
-      secondLink: "https://github.com/Dewciak/BailiffWebsite",
     },
   },
 };

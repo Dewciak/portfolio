@@ -6,16 +6,13 @@ import Image, {StaticImageData} from "next/image";
 
 import techData from "@/app/components/textContent/Tech.json";
 
-interface Props {
-  gameMode: boolean;
-}
 export interface Technology {
   header: string;
   description: string;
   icon: string;
   alt: string;
 }
-const Tech = ({gameMode}: Props) => {
+const Tech = ({gameMode}: {gameMode: boolean}) => {
   const gameModeTechData = gameMode ? techData.gameModeOn : techData.gameModeOff;
 
   return (
