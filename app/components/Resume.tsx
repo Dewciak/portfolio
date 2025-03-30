@@ -8,6 +8,8 @@ import Image from "next/image";
 import Link from "next/link";
 import {useRef, useState} from "react";
 import useObserver from "./hooks/useObserver";
+import ImageWork from "@/public/images/ResumeWork.png";
+import ImageGame from "@/public/images/ResumeGame.JPG";
 
 const Resume = ({gameMode}: {gameMode: boolean}) => {
   const [isVisible, setVisible] = useState<boolean>(false);
@@ -28,6 +30,18 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
               ${isVisible ? "scale-105 rotate-[-12deg]" : "rotate-[-7deg]"} duration-700 transition-all`}
           >
             <Image src={gameMode ? Steam : Cv} alt='' loading='lazy' />
+          </div>
+          <div
+            className={`lg:w-[100px] lg:h-[100px] w-[70px] h-[70px] rounded-full  z-10 relative bottom-[10px] lg:top-[10px] top-[20px]  lg:right-[90px] right-[60px]  duration-700 ${
+              isVisible && "scale-125"
+            }`}
+          >
+            <Image
+              src={gameMode ? ImageGame : ImageWork}
+              alt='Me'
+              loading='lazy'
+              className='rounded-full h-full object-cover'
+            />
           </div>
           <div
             className={`overflow-hidden lg:w-[360px] lg:h-[544px] w-[260px] h-[370px] rounded-[17px] absolute ml-44 mt-12 

@@ -65,6 +65,12 @@ const Footer = () => {
                 Github.
               </Link>
             </p>
+            <p>
+              Inspired by{" "}
+              <a href='https://yasingenc.net/' className='hover:text-ForegroundColor' target='blank'>
+                Yasin Genc portfolio
+              </a>
+            </p>
             <p>© 2025-{currentYear} | W. Dawid</p>
           </div>
         </div>
