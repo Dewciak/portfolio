@@ -50,7 +50,7 @@ const WorksDataJson: WorksData = {
       description:
         "This is the most advanced website I’ve created so far. From the design, which had to be purely informative due to legal constraints, to the technical aspects, it involved building an API that connects to a database, fetches data, and handles other CRUD operations. Additionally, it includes Firebase authentication for user credentials.",
       tech: "Typescript React Nextjs Tailwindcss MySQL Firebase",
-      image: "bailif_ncgv4o",
+      image: "bailif_1_zf5u9y",
       mainLink: "https://bailiff-website.vercel.app/",
       secondLink: "https://github.com/Dewciak/BailiffWebsite",
     },
@@ -59,7 +59,7 @@ const WorksDataJson: WorksData = {
       description:
         "HebelMebel is a website created for a carpenter who specializes in solid wood furniture. The goal was to make the design clear and minimalistic while conveying a sense of 'solidness.' Due to the simplicity of the website, I chose Astro as the framework, which is perfect for this type of project – simple yet powerful.",
       tech: "Typescript Astro Tailwindcss",
-      image: "hebel_af939f",
+      image: "hebel_1_owjuin",
       mainLink: "https://hebel-mebel.vercel.app/",
       secondLink: "https://github.com/Dewciak/HebelMebel",
     },
