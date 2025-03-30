@@ -53,8 +53,8 @@ const Navbar = ({gameMode}: NavbarProps) => {
   // Function to handle the game mode change with a delay for the animation
 
   return (
-    <nav className=' w-full fixed z-[100] '>
-      <div className='hidden xl:flex bg-BackgroundColor items-center transition-colors duration-500 justify-between w-full mx-auto py-10 px-16'>
+    <nav className=' w-full fixed z-[100] pointer-events-none '>
+      <div className='hidden pointer-events-auto lg:flex bg-BackgroundColor items-center transition-colors duration-500 justify-between w-full mx-auto py-10 px-16'>
         <OpenForWork gameMode={gameMode} />
         <ul className='flex space-x-10  justify-center items-center text-xl mx-auto '>
           <li>
@@ -123,8 +123,8 @@ interface MobileNavProps {
 
 function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameModeChange}: MobileNavProps) {
   return (
-    <>
-      <div className='flex xl:hidden justify-between items-center w-full px-4 py-8 '>
+    <div className={`${mobileNav ? "pointer-events-auto" : "pointer-events-none"}`}>
+      <div className='flex lg:hidden justify-between items-center w-full px-4 py-8 '>
         <div className='flex space-x-2 ml-auto'>
           <div
             onClick={() => handleGameModeChange()}
@@ -260,6 +260,6 @@ function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameMo
           </ul>
         </motion.div>
       </div>
-    </>
+    </div>
   );
 }
