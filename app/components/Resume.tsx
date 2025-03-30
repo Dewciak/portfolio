@@ -9,7 +9,7 @@ import Link from "next/link";
 import {useRef, useState} from "react";
 import useObserver from "./hooks/useObserver";
 import ImageWork from "@/public/images/ResumeWork.png";
-import ImageGame from "@/public/images/ResumeGame.JPG";
+import ImageGame from "@/public/images/ResumeGame.png";
 
 const Resume = ({gameMode}: {gameMode: boolean}) => {
   const [isVisible, setVisible] = useState<boolean>(false);
