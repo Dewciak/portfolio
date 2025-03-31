@@ -1,5 +1,5 @@
 import React from "react";
-import {FaGithub, FaRegEnvelope, FaInstagram} from "react-icons/fa";
+import {FaGithub, FaRegEnvelope, FaLinkedinIn} from "react-icons/fa";
 
 const IconsSocials = () => {
   return (
@@ -19,11 +19,11 @@ const IconsSocials = () => {
         <FaRegEnvelope size={30} className='hover:text-white' aria-label='Email' />
       </a>
       <a
-        href='https://www.instagram.com/wdawido/'
+        href='https://www.linkedin.com/in/wiktor-dawid-9145a2355?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app'
         target='blank'
         className='social-Icon relative cursor-pointer text-MylightGray hover:text-white'
       >
-        <FaInstagram size={30} className='hover:text-white' aria-label='Instagram' />
+        <FaLinkedinIn size={30} className='hover:text-white' aria-label='Instagram' />
       </a>
     </div>
   );
