@@ -13,6 +13,7 @@ export default {
         ForegroundColor: "var(--Foreground-Color)",
         GameModeColor: "var(--GameMode-Color)",
         BackgroundColor: "var(--Background-Color)",
+        TextColor: "hsl(0,0,95%)",
       },
       fontFamily: {
         sans: ["Roboto", "sans-serif"],

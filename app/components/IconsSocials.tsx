@@ -3,7 +3,7 @@ import {FaGithub, FaRegEnvelope, FaLinkedinIn} from "react-icons/fa";
 
 const IconsSocials = () => {
   return (
-    <div className=' flex space-x-4 z-20'>
+    <div className=' flex space-x-2 z-20'>
       <a
         href='https://github.com/Dewciak/portfolio'
         target='blank'

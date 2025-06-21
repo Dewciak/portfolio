@@ -51,6 +51,8 @@
 }
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 body {
   background-color: var(--Background-Color);
@@ -64,13 +66,7 @@ body {
   color: white; /* biały */
 }
 span {
-  background: linear-gradient(
-    90deg,
-    /* ciemny, głęboki turkus */ #00b7bc 33%,
-    /* nasycony turkus */ #00e0e4 66%,
-    /* bazowy kolor od Ciebie */ #00faff 100% /* neonowy cyan-turkus */
-  );
-
+  background: linear-gradient(90deg, #5785dd 33%, #8357da 66%, #ae29d6 100%);
   -webkit-background-clip: text;
   background-clip: text;
 

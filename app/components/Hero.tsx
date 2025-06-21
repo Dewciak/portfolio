@@ -1,12 +1,13 @@
 "use client";
 import React, {useEffect, useState} from "react";
-
+import {FaArrowRight} from "react-icons/fa";
 import IconsSocials from "./IconsSocials";
 import OpenForWork from "./OpenForWork";
 
 import dynamic from "next/dynamic";
 import handleModeChange from "./HandleModeChange";
 import useObserver from "./hooks/useObserver";
+import CtaBtn from "./CtaBtn";
 
 const HeroScene = dynamic(() => import("./HeroScene"), {ssr: true});
 
@@ -49,30 +50,48 @@ const Hero = ({gameMode}: Props) => {
   // Function to toggle the game room based on the game mode
 
   return (
-    <section ref={heroRef} id='Home' className='flex flex-col-reverse lg:flex-row max-w-[1300px] mx-auto px-6'>
+    <section
+      ref={heroRef}
+      id='Home'
+      className='flex flex-col-reverse md:flex-row md:max-w-[1200px] 2xl:max-w-[1300px] mx-auto px-6 '
+    >
       <div className='absolute top-12 left-6 lg:hidden'>
         <OpenForWork gameMode={gameMode} />
       </div>
 
-      <div className='w-full lg:w-[40%] flex flex-col justify-center items-start z-20'>
-        <div className='space-y-4 '>
+      <div className='w-full md:w-[50%] 2xl:w-[40%] flex flex-col justify-center items-start z-20'>
+        <div className='pb-6'>{/* <OpenForWork gameMode={gameMode} /> */}</div>
+        <div className=''>
           <div className='  '>
-            <h1 className='text-5xl lg:text-6xl font-bold'>
-              I&apos;m <span>Wiktor</span>,
-            </h1>
-            <h1 className='text-5xl lg:text-6xl font-bold'>
-              <span>{gameMode ? "Driven" : "Frontend"}</span> {gameMode ? "gamer." : "dev."}
+            <h1 className='text-5xl lg:text-7xl font-[500] text-TextColor'>Software</h1>
+            <h1 className='text-5xl lg:text-7xl font-[500]'>
+              {/* <span>{gameMode ? "Driven" : "Frontend"}</span> {gameMode ? "gamer." : "dev."} */}
+              <span>Engineer</span>
             </h1>
           </div>
-          <h2 className='text-xl text-MylightGray font-thin max-w-[400px] '>
+          <h2 className='text-2xl text-gray-300 font-normal max-w-[500px] mt-4 '>
             {gameMode
               ? "I overcome missions and secure victories, all with a few clicks of the gamepad "
-              : "I solve problems and make things happen, all with a few keystrokes."}
+              : "Currently specializing in Frontend React\u00A0/\u00A0Next.js"}
           </h2>
-          <IconsSocials />
+          <h3 className='text-xl text-MylightGray font-thin max-w-[500px] mt-4'>
+            {gameMode
+              ? "I overcome missions and secure victories, all with a few clicks of the gamepad "
+              : "Where performance meets pixel-perfect design."}
+          </h3>
+          <div className='flex space-x-10 mt-6 items-center'>
+            <CtaBtn text='Portfolio' />
+            {/* <CtaBtn text='Contact' /> */}
+            <button className='font-bold cursor-pointer hover flex items-center justify-center group hover:text-white duration-300 text-TextColor'>
+              Download CV{" "}
+              <div className='ml-2 group-hover:ml-4 duration-300'>
+                <FaArrowRight />
+              </div>
+            </button>
+          </div>
         </div>
       </div>
-      <div className='w-full lg:w-[60%] lg:h-[1000px]  h-[500px] pointer-events-none  overflow-hidden mt-16 lg:mt-0  flex items-center justify-center'>
+      <div className='w-full md:w-[50%] md:h-[700px] 2xl:h-[1100px] 2xl:w-[60%] hover:scale-105 duration-300   h-[500px] pointer-events-none  overflow-hidden mt-16 lg:mt-0  flex items-center justify-center'>
         {isHeroVisible && (
           <HeroScene rotation={roomRotation} position={roomPosition} cameraLookAt={cameraLookAt} gameMode={gameMode} />
         )}

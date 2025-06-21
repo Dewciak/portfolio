@@ -12,6 +12,7 @@ import {IoIosPodium, IoMdHome} from "react-icons/io";
 import {SiReaddotcv} from "react-icons/si";
 import {Link as ScrollLink} from "react-scroll";
 import OpenForWork from "./OpenForWork";
+import IconsSocials from "./IconsSocials";
 
 interface NavbarProps {
   gameMode: boolean;
@@ -56,22 +57,28 @@ const Navbar = ({gameMode}: NavbarProps) => {
     <nav className=' w-full fixed z-[100] pointer-events-none '>
       <div className='hidden pointer-events-auto lg:flex backdrop-blur bg-black/30 items-center transition-colors duration-500 justify-between w-full mx-auto py-5 px-16'>
         {/* <OpenForWork gameMode={gameMode} /> */}
-        <span className='text-xl font-bold'>Wiktor Dawid</span>
-        <ul className='flex space-x-10  justify-center items-center text-md mx-auto '>
+        <div className='flex space-x-4'>
+          <span className='text-xl font-bold'>
+            {"{"} Wiktor Dawid {"}"}
+          </span>
+          <IconsSocials />
+        </div>
+
+        <ul className='flex space-x-10  justify-center items-center text-md font-medium  '>
           <li>
             <ScrollLink to='Home' className='cursor-pointer' smooth={true} duration={200} offset={50} spy={true}>
               Home
             </ScrollLink>
           </li>
 
-          <li>
+          {/* <li>
             <ScrollLink to='Tech' className='cursor-pointer' smooth={true} duration={200} offset={-200} spy={true}>
               {gameMode ? "Goats" : "Tech"}
             </ScrollLink>
-          </li>
+          </li> */}
           <li>
             <ScrollLink to='Works' className='cursor-pointer' smooth={true} duration={200} offset={-300} spy={true}>
-              {gameMode ? "Rescently played" : "Works"}
+              {gameMode ? "Rescently played" : "Portfolio"}
             </ScrollLink>
           </li>
           <li>
@@ -79,18 +86,28 @@ const Navbar = ({gameMode}: NavbarProps) => {
               {gameMode ? "Steam" : "Resume"}
             </ScrollLink>
           </li>
-          <li>
+          {/* <li>
             <ScrollLink to='Gear' className='cursor-pointer' smooth={true} duration={200} offset={-150} spy={true}>
               Gear
             </ScrollLink>
-          </li>
+          </li> */}
           <li>
             <ScrollLink to='Contact' className='cursor-pointer' smooth={true} duration={200} offset={50} spy={true}>
               Contact
             </ScrollLink>
           </li>
+          <li>
+            <Link
+              scroll={false}
+              href={`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`}
+              className='flex space-x-4 text-gray-100 items-center justify-end  '
+            >
+              {/* <p className={`${gameMode ? "text-white" : "text-gray-600"} hidden xl:flex `}>GAMING MODE</p> */}
+              <LuGamepad size={30} opacity={gameMode ? 1 : 0.6} className={`${gameMode ? "" : "Gamepad"}`} />
+            </Link>
+          </li>
         </ul>
-
+        {/* 
         <Link
           scroll={false}
           href={`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`}
@@ -98,7 +115,7 @@ const Navbar = ({gameMode}: NavbarProps) => {
         >
           <p className={`${gameMode ? "text-white" : "text-gray-600"} hidden xl:flex `}>GAMING MODE</p>
           <LuGamepad size={30} opacity={gameMode ? 1 : 0.6} className={`${gameMode ? "" : "Gamepad"}`} />
-        </Link>
+        </Link> */}
       </div>
 
       <MobileNav
