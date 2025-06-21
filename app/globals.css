@@ -64,10 +64,18 @@ body {
   color: white; /* biały */
 }
 span {
-  color: var(--Foreground-Color);
-  text-shadow: 0 0 1px var(--Foreground-Color), 0 0 4px var(--Foreground-Color), 0 0 20px var(--Foreground-Color);
-  transition: color 0.5s ease, text-shadow 0.5s ease;
-  transition: transform 0.2s ease, 0.5s ease;
+  background: linear-gradient(
+    90deg,
+    /* ciemny, głęboki turkus */ #00b7bc 33%,
+    /* nasycony turkus */ #00e0e4 66%,
+    /* bazowy kolor od Ciebie */ #00faff 100% /* neonowy cyan-turkus */
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 .Samurai {
   filter: drop-shadow(2px 2px 10px #fb4311);

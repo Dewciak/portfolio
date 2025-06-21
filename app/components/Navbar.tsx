@@ -54,9 +54,10 @@ const Navbar = ({gameMode}: NavbarProps) => {
 
   return (
     <nav className=' w-full fixed z-[100] pointer-events-none '>
-      <div className='hidden pointer-events-auto lg:flex bg-BackgroundColor items-center transition-colors duration-500 justify-between w-full mx-auto py-10 px-16'>
-        <OpenForWork gameMode={gameMode} />
-        <ul className='flex space-x-10  justify-center items-center text-xl mx-auto '>
+      <div className='hidden pointer-events-auto lg:flex backdrop-blur bg-black/30 items-center transition-colors duration-500 justify-between w-full mx-auto py-5 px-16'>
+        {/* <OpenForWork gameMode={gameMode} /> */}
+        <span className='text-xl font-bold'>Wiktor Dawid</span>
+        <ul className='flex space-x-10  justify-center items-center text-md mx-auto '>
           <li>
             <ScrollLink to='Home' className='cursor-pointer' smooth={true} duration={200} offset={50} spy={true}>
               Home
