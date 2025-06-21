@@ -18,21 +18,22 @@ const Tech = ({gameMode}: {gameMode: boolean}) => {
   return (
     <section
       id='Tech'
-      className='max-w-[1300px] flex flex-col mx-auto justify-start items-start space-y-10 mt-32 lg:mt-0 px-6 '
+      className='max-w-[1300px] flex flex-col mx-auto justify-start items-center space-y-10 pt-32 lg:pt-0 px-6 '
     >
-      <h1 className='text-6xl font-bold'>
-        {gameMode && "My personal "}
-        <span className={gameMode ? "game-mode-on" : "game-mode-off"}>{gameMode ? "Goats" : "Tech "}</span>
-        {!gameMode && "I work with"}
-      </h1>
-      <h2 className='max-w-[600px] text-MylightGray'>
-        {!gameMode
-          ? " Explore the front-end technologies and tools I use in my development process. As a front-end developer, I focus on languages like HTML, CSS, and JavaScript, along with frameworks like React and Next.js. I also rely on programs like Photoshop for design work, helping me bring creative ideas to life while building functional and visually appealing user interfaces."
-          : "Discover my personal Goats – the games that have left a lasting impact on me. These are the titles that have shaped my gaming journey, offering unforgettable experiences, incredible mechanics, and stories that continue to inspire"}
-      </h2>
+      <div className='flex flex-col text-center'>
+        <h2 className='text-3xl font-bold '>
+          {/* {gameMode && "My personal "} */}
+          <span className={gameMode ? "game-mode-on" : "game-mode-off"}>{gameMode ? "Goats" : "STACK"}</span>
+          {/* {!gameMode && "I work with"} */}
+        </h2>
+        <h1 className='text-5xl max-w-[900px] mt-6'>
+          A curated stack of tools,&nbsp;frameworks, and&nbsp;libraries&nbsp;powering&nbsp;my&nbsp;projects.
+        </h1>
+      </div>
+
       <div className='overflow-hidden w-full flex hover:cursor-grab active:cursor-grabbing '>
         <motion.div
-          className='flex space-x-4 '
+          className='flex space-x-6 mt-6'
           drag='x'
           dragConstraints={{left: gameModeTechData.length * -300, right: 0}}
           initial={{x: 0}}
@@ -73,7 +74,7 @@ interface cardProps {
 const Card = ({header, description, icon, gameMode, animationDelay, index, alt}: cardProps) => {
   return (
     <motion.div
-      className=' w-[320px] h-[440px] bg-[#2C2C39] rounded-[20px] flex flex-col '
+      className=' w-[320px] h-[440px] bg-[#2C2C39]  rounded-[20px] border-t-[1px] border-t-[hsl(0,0%,60%)] flex flex-col border border-[hsl(0,0%,30%)]'
       style={{animationDelay: `${animationDelay}ms`}}
       initial={{opacity: 0, y: 200}}
       whileInView={{opacity: 1, y: 0}}
@@ -93,8 +94,8 @@ const Card = ({header, description, icon, gameMode, animationDelay, index, alt}:
           className={gameMode ? "h-full object-cover rounded-t-[20px]" : "size-[130px]"}
         />
       </div>
-      <div className='w-full h-[40%] bg-[#1C1C21] rounded-b-[20px] flex flex-col space-y-4 px-6 py-4'>
-        <h2 className='text-xl'>{header}</h2>
+      <div className='w-full h-[40%] bg-[#1b1b25] rounded-b-[20px] flex flex-col space-y-4 px-6 py-4'>
+        <h1 className='text-xl font-bold'>{header}</h1>
         <p className='text-MylightGray'>{description}</p>
       </div>
     </motion.div>

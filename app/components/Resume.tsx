@@ -10,6 +10,7 @@ import {useRef, useState} from "react";
 import useObserver from "./hooks/useObserver";
 import ImageWork from "@/public/images/ResumeWork.png";
 import ImageGame from "@/public/images/ResumeGame.png";
+import OpenForWork from "./OpenForWork";
 
 const Resume = ({gameMode}: {gameMode: boolean}) => {
   const [isVisible, setVisible] = useState<boolean>(false);
@@ -23,6 +24,9 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
       id='Resume'
       className='flex mt-[160px] lg:mt-[340px] lg:mb-[100px] justify-center w-full overflow-hidden '
     >
+      <div className='pb-6'>
+        <OpenForWork gameMode={gameMode} />
+      </div>
       <div className='flex justify-center items-center flex-col p-4 overflow-hidden w-full py-10 relative pb-32 '>
         <div className='cv-image-box flex justtify-center mr-16 '>
           <div

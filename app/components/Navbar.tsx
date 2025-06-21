@@ -55,18 +55,25 @@ const Navbar = ({gameMode}: NavbarProps) => {
 
   return (
     <nav className=' w-full fixed z-[100] pointer-events-none '>
-      <div className='hidden pointer-events-auto lg:flex backdrop-blur bg-black/30 items-center transition-colors duration-500 justify-between w-full mx-auto py-5 px-16'>
+      <div className='hidden pointer-events-auto lg:flex backdrop-blur bg-black/30 items-center transition-colors duration-500 justify-between w-full mx-auto py-6 px-16'>
         {/* <OpenForWork gameMode={gameMode} /> */}
-        <div className='flex space-x-4'>
-          <span className='text-xl font-bold'>
-            {"{"} Wiktor Dawid {"}"}
-          </span>
-          <IconsSocials />
+        <div className='text-xl font-bold flex space-x-2'>
+          <span>&lt;</span>
+          <p>Wiktor Dawid</p>
+          <span>/&gt;.</span>
         </div>
 
         <ul className='flex space-x-10  justify-center items-center text-md font-medium  '>
           <li>
-            <ScrollLink to='Home' className='cursor-pointer' smooth={true} duration={200} offset={50} spy={true}>
+            <ScrollLink
+              to='Home'
+              activeClass='active'
+              className='cursor-pointer'
+              smooth={true}
+              duration={200}
+              offset={50}
+              spy={true}
+            >
               Home
             </ScrollLink>
           </li>
@@ -77,12 +84,28 @@ const Navbar = ({gameMode}: NavbarProps) => {
             </ScrollLink>
           </li> */}
           <li>
-            <ScrollLink to='Works' className='cursor-pointer' smooth={true} duration={200} offset={-300} spy={true}>
+            <ScrollLink
+              to='Works'
+              activeClass='active'
+              className='cursor-pointer'
+              smooth={true}
+              duration={200}
+              offset={-300}
+              spy={true}
+            >
               {gameMode ? "Rescently played" : "Portfolio"}
             </ScrollLink>
           </li>
           <li>
-            <ScrollLink to='Resume' className='cursor-pointer' smooth={true} duration={200} offset={-200} spy={true}>
+            <ScrollLink
+              to='Resume'
+              activeClass='active'
+              className='cursor-pointer'
+              smooth={true}
+              duration={200}
+              offset={-200}
+              spy={true}
+            >
               {gameMode ? "Steam" : "Resume"}
             </ScrollLink>
           </li>
@@ -92,7 +115,15 @@ const Navbar = ({gameMode}: NavbarProps) => {
             </ScrollLink>
           </li> */}
           <li>
-            <ScrollLink to='Contact' className='cursor-pointer' smooth={true} duration={200} offset={50} spy={true}>
+            <ScrollLink
+              to='Contact'
+              activeClass='active'
+              className='cursor-pointer'
+              smooth={true}
+              duration={200}
+              offset={50}
+              spy={true}
+            >
               Contact
             </ScrollLink>
           </li>
@@ -100,7 +131,8 @@ const Navbar = ({gameMode}: NavbarProps) => {
             <Link
               scroll={false}
               href={`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`}
-              className='flex space-x-4 text-gray-100 items-center justify-end  '
+              className='w-8 h-8 bg-gradient-to-r from-[#5785dd] via-[#8357da] to-[#ae29d6] 
+                 text-transparent bg-clip-text'
             >
               {/* <p className={`${gameMode ? "text-white" : "text-gray-600"} hidden xl:flex `}>GAMING MODE</p> */}
               <LuGamepad size={30} opacity={gameMode ? 1 : 0.6} className={`${gameMode ? "" : "Gamepad"}`} />
@@ -198,6 +230,7 @@ function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameMo
                   duration={200}
                   offset={0}
                   spy={true}
+                  className='nav-link'
                   onClick={() => setMobileNav(false)}
                 >
                   Home
@@ -214,6 +247,7 @@ function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameMo
                   smooth={true}
                   duration={200}
                   offset={-100}
+                  className='nav-link'
                   spy={true}
                   onClick={() => setMobileNav(false)}
                 >
@@ -232,6 +266,7 @@ function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameMo
                   duration={200}
                   offset={-100}
                   spy={true}
+                  className='nav-link'
                   onClick={() => setMobileNav(false)}
                 >
                   {gameMode ? "Rescently played" : "Works"}
@@ -249,6 +284,7 @@ function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameMo
                   duration={200}
                   offset={-100}
                   spy={true}
+                  className='nav-link'
                   onClick={() => setMobileNav(false)}
                 >
                   {gameMode ? "Steam" : "Resume"}
