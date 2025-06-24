@@ -35,10 +35,10 @@ const About = ({gameMode}: AboutProps) => {
   const currentData = gameMode ? websiteData.gameModeOn : websiteData.gameModeOff;
 
   return (
-    <section id='About' className='w-full overflow-hidden'>
-      <div className='max-w-[1300px] mx-auto mt-32 lg:mt-64 flex flex-col px-6'>
-        <p className='lg:mr-auto max-w-[400px] mt-16 text-MylightGray leading-8 '>{currentData.firstParagraph}</p>
-        <div className='flex items-center justify-between max-w-[100%] mx-auto mt-16 w-full'>
+    <section id='About' className='w-full overflow-hidden bg-red-500'>
+      <div className='max-w-[1300px] mx-auto mt-32 lg:pt-32 flex flex-col px-6 '>
+        {/* <p className='lg:mr-auto max-w-[400px] mt-16 text-MylightGray leading-8 '>{currentData.firstParagraph}</p> */}
+        <div className='flex items-center justify-between max-w-[100%] mx-auto mt-16 w-full '>
           <div className='flex flex-col space-y-10 my-10 lg:my-2 lg:text-[110px] text-5xl items-center justify-center font-rockSalt tracking-widest font-bold w-full '>
             <div
               style={{
@@ -63,9 +63,9 @@ const About = ({gameMode}: AboutProps) => {
             </div>
           </div>
         </div>
-        <p className='lg:ml-auto max-w-[320px] mt-16 text-MylightGray leading-8 relative duration-100'>
+        {/* <p className='lg:ml-auto max-w-[320px] mt-16 text-MylightGray leading-8 relative duration-100'>
           {currentData.secondParagraph}
-        </p>
+        </p> */}
       </div>
     </section>
   );
@@ -81,9 +81,9 @@ function EachLetterSeparator({word}: LetterProps) {
   return (
     <div className='flex   will-change-transform pointer-events-auto'>
       {word.split("").map((letter, key) => (
-        <span key={key} className={` transition-all duration-300 `}>
+        <div key={key} className={` transition-all duration-300 `}>
           {letter}
-        </span>
+        </div>
       ))}
     </div>
   );

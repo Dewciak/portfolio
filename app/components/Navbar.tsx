@@ -24,7 +24,12 @@ const Navbar = ({gameMode}: NavbarProps) => {
   const router = useRouter();
 
   useEffect(() => {
-    document.documentElement.style.setProperty("--Foreground-Color", gameMode ? "#fb4311" : "#00e0e4");
+    document.documentElement.style.setProperty(
+      "--Foreground-Color",
+      gameMode
+        ? "linear-gradient(90deg, #FB4311 0%, #FB8C39 50%, #FAD461 100%)"
+        : "linear-gradient(90deg, #5785dd 0%, #8357da 50%, #ae29d6 100%)"
+    );
     document.documentElement.style.setProperty("--Background-Color", gameMode ? "#000000" : "#01000e");
   }, [gameMode]);
   // Function to change the color theme based on the game mode
@@ -55,7 +60,9 @@ const Navbar = ({gameMode}: NavbarProps) => {
 
   return (
     <nav className=' w-full fixed z-[100] pointer-events-none '>
-      <div className='hidden pointer-events-auto lg:flex backdrop-blur bg-black/30 items-center transition-colors duration-500 justify-between w-full mx-auto py-6 px-16'>
+      <IconsSocials />
+
+      <div className='hidden pointer-events-auto lg:flex backdrop-blur bg-BackgroundColor/30 items-center transition-colors duration-500 justify-between w-full mx-auto py-6 px-16'>
         {/* <OpenForWork gameMode={gameMode} /> */}
         <div className='text-xl font-bold flex space-x-2'>
           <span>&lt;</span>
@@ -135,7 +142,12 @@ const Navbar = ({gameMode}: NavbarProps) => {
                  text-transparent bg-clip-text'
             >
               {/* <p className={`${gameMode ? "text-white" : "text-gray-600"} hidden xl:flex `}>GAMING MODE</p> */}
-              <LuGamepad size={30} opacity={gameMode ? 1 : 0.6} className={`${gameMode ? "" : "Gamepad"}`} />
+              <LuGamepad
+                color='white'
+                size={30}
+                opacity={gameMode ? 1 : 0.6}
+                className={`${gameMode ? "" : "Gamepad"}`}
+              />
             </Link>
           </li>
         </ul>

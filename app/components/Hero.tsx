@@ -62,7 +62,7 @@ const Hero = ({gameMode}: Props) => {
       <div className='w-full md:w-[50%] 2xl:w-[40%] flex flex-col justify-center items-start z-20'>
         <div className=''>
           <div className='  '>
-            <h1 className='text-5xl lg:text-7xl font-[500] text-TextColor'>Software</h1>
+            <h1 className='text-5xl lg:text-7xl font-[500]'>Software</h1>
             <h1 className='text-5xl lg:text-7xl font-[500]'>
               {/* <span>{gameMode ? "Driven" : "Frontend"}</span> {gameMode ? "gamer." : "dev."} */}
               <span>Engineer</span>
@@ -90,7 +90,7 @@ const Hero = ({gameMode}: Props) => {
           </div>
         </div>
       </div>
-      <div className='w-full md:w-[50%] md:h-[700px] 2xl:h-[1000px] 2xl:w-[60%] hover:scale-105 duration-300   h-[500px] pointer-events-none  overflow-hidden mt-16 lg:mt-0  flex items-center justify-center'>
+      <div className='Scene w-full md:w-[50%] md:h-[700px] 2xl:h-[1000px] 2xl:w-[60%] hover:scale-105 duration-300   h-[500px] pointer-events-none  overflow-hidden mt-16 lg:mt-0  flex items-center justify-center'>
         {isHeroVisible && (
           <HeroScene rotation={roomRotation} position={roomPosition} cameraLookAt={cameraLookAt} gameMode={gameMode} />
         )}

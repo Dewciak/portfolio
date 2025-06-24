@@ -63,9 +63,12 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
       className='max-w-[1300px] mx-auto flex pt-40 lg:mt-0  flex-col px-6 overflow-hidden '
     >
       <div className='flex justify-between relative '>
-        <h1>
-          {gameMode ? "My sweet" : "My code"} <span>{gameMode ? "kingdom" : "environment"}</span>
-        </h1>
+        <div className='flex flex-col w-full'>
+          <span className='font-bold text-3xl'>Gear</span>
+          <h1>
+            {gameMode ? "My sweet" : "My code"} {gameMode ? "kingdom" : "environment"}
+          </h1>
+        </div>
 
         <Image
           src={Samurai}
@@ -88,7 +91,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
               className={`duration-150 z-10 font-bold py-16 ${gameMode ? "text-[#636363]" : ""}`}
               tabIndex={0}
             >
-              Code setup
+              <span>Code setup</span>
             </Link>
             <Link
               role='button'
@@ -97,7 +100,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
               className={`duration-150 font-bold z-10 py-16  ${gameMode ? "" : "text-[#636363]"}`}
               tabIndex={1}
             >
-              Game setup
+              {!gameMode ? <p>Game setup</p> : <span>Game setup</span>}
             </Link>
           </div>
           <div className='flex flex-col  justify-center items-start space-y-12'>

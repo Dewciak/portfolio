@@ -11,6 +11,7 @@ import useObserver from "./hooks/useObserver";
 import ImageWork from "@/public/images/ResumeWork.png";
 import ImageGame from "@/public/images/ResumeGame.png";
 import OpenForWork from "./OpenForWork";
+import {IoDocumentTextOutline} from "react-icons/io5";
 
 const Resume = ({gameMode}: {gameMode: boolean}) => {
   const [isVisible, setVisible] = useState<boolean>(false);
@@ -22,15 +23,25 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
     <section
       ref={resumeRef}
       id='Resume'
-      className='flex mt-[160px] lg:mt-[340px] lg:mb-[100px] justify-center w-full overflow-hidden '
+      className='flex pt-[160px] lg:pt-[0px] lg:mb-[100px] justify-center w-full overflow-hidden '
     >
-      <div className='pb-6'>
+      {/* <div className='pb-6 mx-auto text-center'>
         <OpenForWork gameMode={gameMode} />
-      </div>
+      </div> */}
       <div className='flex justify-center items-center flex-col p-4 overflow-hidden w-full py-10 relative pb-32 '>
-        <div className='cv-image-box flex justtify-center mr-16 '>
+        <div className='flex flex-col text-center'>
+          <h2 className='text-3xl font-bold '>
+            {/* {gameMode && "My personal "} */}
+            <span className={gameMode ? "game-mode-on" : "game-mode-off"}>{gameMode ? "Goats" : "Resume"}</span>
+            {/* {!gameMode && "I work with"} */}
+          </h2>
+          <h1 className='text-5xl max-w-[900px] mt-6'>
+            A summary of my education, experience, and technical skills in&nbsp;web&nbsp;development.
+          </h1>
+        </div>
+        <div className='cv-image-box flex justtify-center mr-16 py-10 mt-32 '>
           <div
-            className={`lg:w-[360px] lg:h-[544px] w-[260px] h-[370px] overflow-hidden rounded-[17px] bg-white z-10 
+            className={`lg:w-[360px]  lg:h-[544px] w-[260px] h-[370px] overflow-hidden rounded-[17px] bg-white z-10 
               ${isVisible ? "scale-105 rotate-[-12deg]" : "rotate-[-7deg]"} duration-700 transition-all`}
           >
             <Image src={gameMode ? Steam : Cv} alt='' loading='lazy' />
@@ -57,14 +68,16 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
 
         <Link
           href={"https://docs.google.com/document/d/1EYLU0Js3A6Ty38V0ynXZbpGybL-jv2vckIot6LakuVQ/edit?usp=sharing"}
-          className={`view-resume mt-32 text-2xl cursor-pointer ${
+          className={`view-resume mt-32 text-xl rounded-xl   cursor-pointer ${
             isVisible ? "opacity-100" : "opacity-0"
-          } transition-opacity duration-300 hover:text-MylightGray `}
+          }  duration-[400ms] transition-all  flex space-x-2 items-center px-6 py-3 bg-gray-200/10 hover:scale-[1.07] hover:bg-gray-200 hover:text-black backdrop-blur`}
           target='blank'
           role='button'
           tabIndex={22}
         >
-          {gameMode ? "My steam profile" : "View Resume"}
+          <IoDocumentTextOutline size={26} />
+
+          <p>{gameMode ? "My steam profile" : "Download CV"}</p>
         </Link>
         {gameMode ? (
           <Image src={RedLight} alt='light' width={1000} className='absolute overflow-visible  z-[-2]' />

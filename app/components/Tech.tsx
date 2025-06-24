@@ -23,7 +23,7 @@ const Tech = ({gameMode}: {gameMode: boolean}) => {
       <div className='flex flex-col text-center'>
         <h2 className='text-3xl font-bold '>
           {/* {gameMode && "My personal "} */}
-          <span className={gameMode ? "game-mode-on" : "game-mode-off"}>{gameMode ? "Goats" : "STACK"}</span>
+          <span className={gameMode ? "game-mode-on" : "game-mode-off"}>{gameMode ? "Goats" : "Stack"}</span>
           {/* {!gameMode && "I work with"} */}
         </h2>
         <h1 className='text-5xl max-w-[900px] mt-6'>
