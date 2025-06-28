@@ -1,29 +1,23 @@
+"use client";
 import React, {useEffect, useState} from "react";
 import {FaGithub, FaRegEnvelope, FaLinkedinIn} from "react-icons/fa";
 
 const IconsSocials = () => {
-  const [docked, setDocked] = useState(false); // true = schowany
-  const [hover, setHover] = useState(false); // true = kursor nad paskiem
+  const [docked, setDocked] = useState(false);
+  const [hover, setHover] = useState(false);
 
-  /* --- 1. Reagujemy na scroll --- */
   useEffect(() => {
     const handleScroll = () => setDocked(window.scrollY >= 300);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* --- 2. Wyliczamy przesunięcie --- */
-  const shift =
-    docked && !hover // schowany + brak hovera
-      ? "translateX(calc(100% - 20px))" // zostaw 40 px widoczne
-      : "translateX(0)"; // pełna widoczność
+  const shift = docked && !hover ? "translateX(calc(100% - 20px))" : "translateX(0)";
 
   return (
     <div
-      /* obsługa hovera */
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      /* przesunięcie + płynne przejście */
       style={{transform: shift}}
       className='fixed top-[45%] right-0 z-20 flex flex-col space-y-4
                  px-4 border-l-4 border-white transition-transform

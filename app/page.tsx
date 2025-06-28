@@ -7,9 +7,7 @@ import About from "./components/About";
 import Works from "./components/Works";
 import Gear from "./components/Gear";
 import Resume from "./components/Resume";
-import {useState} from "react";
 import {Metadata} from "next";
-import IconsSocials from "./components/IconsSocials";
 import Blobs from "./components/Blobs";
 import Portfolio from "./components/Portfolio";
 

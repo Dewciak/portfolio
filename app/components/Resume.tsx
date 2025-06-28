@@ -23,22 +23,22 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
     <section
       ref={resumeRef}
       id='Resume'
-      className='flex pt-[160px] lg:pt-[0px] lg:mb-[100px] justify-center w-full overflow-hidden '
+      className='flex pt-[160px] lg:pt-[0px] lg:mb-[70px] justify-center w-full overflow-hidden '
     >
       {/* <div className='pb-6 mx-auto text-center'>
         <OpenForWork gameMode={gameMode} />
       </div> */}
       <div className='flex justify-center items-center flex-col p-4 overflow-hidden w-full py-10 relative pb-32 '>
-        <div className='flex flex-col text-center'>
+        {/* <div className='flex flex-col text-center'>
           <h2 className='text-3xl font-bold '>
-            {/* {gameMode && "My personal "} */}
+            {gameMode && "My personal "}
             <span className={gameMode ? "game-mode-on" : "game-mode-off"}>{gameMode ? "Goats" : "Resume"}</span>
-            {/* {!gameMode && "I work with"} */}
+            {!gameMode && "I work with"}
           </h2>
           <h1 className='text-5xl max-w-[900px] mt-6'>
             A summary of my education, experience, and technical skills in&nbsp;web&nbsp;development.
           </h1>
-        </div>
+        </div> */}
         <div className='cv-image-box flex justtify-center mr-16 py-10 mt-32 '>
           <div
             className={`lg:w-[360px]  lg:h-[544px] w-[260px] h-[370px] overflow-hidden rounded-[17px] bg-white z-10 
@@ -68,7 +68,7 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
 
         <Link
           href={"https://docs.google.com/document/d/1EYLU0Js3A6Ty38V0ynXZbpGybL-jv2vckIot6LakuVQ/edit?usp=sharing"}
-          className={`view-resume mt-32 text-xl rounded-xl   cursor-pointer ${
+          className={`view-resume mt-32 text-xl rounded-xl   cursor-pointer hover:drop-shadow shadow-radial-gradient(circle_at_center,_#5785dd_0%,_transparent_70%) ${
             isVisible ? "opacity-100" : "opacity-0"
           }  duration-[400ms] transition-all  flex space-x-2 items-center px-6 py-3 bg-gray-200/10 hover:scale-[1.07] hover:bg-gray-200 hover:text-black backdrop-blur`}
           target='blank'
@@ -79,11 +79,13 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
 
           <p>{gameMode ? "My steam profile" : "Download CV"}</p>
         </Link>
-        {gameMode ? (
-          <Image src={RedLight} alt='light' width={1000} className='absolute overflow-visible  z-[-2]' />
-        ) : (
-          <Image src={BlueLight} alt='light' width={1000} className='absolute overflow-visible  z-[-2]' />
-        )}
+        <div
+          className='absolute 
+               h-[800px] w-[600px] rounded-full opacity-1 blur-[140px]
+              bg-[radial-gradient(circle_at_center,_#5785dd_0%,_transparent_70%)]
+               pointer-events-none
+              -z-10'
+        />
       </div>
     </section>
   );

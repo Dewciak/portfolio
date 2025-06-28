@@ -50,7 +50,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
       setCameraPosition([-13, 2, -10]);
       setCameraLookAt([0, -3, 0]);
     } else {
-      setCameraPosition([0, 1, -12]);
+      setCameraPosition([0, 4, -13]);
       setCameraLookAt([0, 0, 0]);
     }
   }, [gameMode]);
@@ -60,12 +60,31 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
     <section
       ref={GearRef}
       id='Gear'
-      className='max-w-[1300px] mx-auto flex pt-40 lg:mt-0  flex-col px-6 overflow-hidden '
+      className='max-w-[1300px] mx-auto flex pt-10 lg:pt-0  flex-col px-6 overflow-hidden '
     >
       <div className='flex justify-between relative '>
         <div className='flex flex-col w-full'>
-          <span className='font-bold text-3xl'>Gear</span>
-          <h1>
+          <div className='flex space-x-10  text-2xl lg:text-3xl z-10 '>
+            <Link
+              role='button'
+              href='?gameMode=Off'
+              scroll={false}
+              className={`duration-150 z-10 font-bold  ${gameMode ? "text-[#636363]" : ""}`}
+              tabIndex={0}
+            >
+              <span>Code setup</span>
+            </Link>
+            <Link
+              role='button'
+              href='?gameMode=On'
+              scroll={false}
+              className={`duration-150 font-bold z-10   ${gameMode ? "" : "text-[#636363]"}`}
+              tabIndex={1}
+            >
+              {!gameMode ? <p>Game setup</p> : <span>Game setup</span>}
+            </Link>
+          </div>
+          <h1 className='mt-6'>
             {gameMode ? "My sweet" : "My code"} {gameMode ? "kingdom" : "environment"}
           </h1>
         </div>
@@ -81,29 +100,9 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
         {/* Samurai picture visible only on game mode */}
       </div>
 
-      <div className='flex flex-col-reverse lg:flex-row'>
-        <div className='w-full lg:w-[50%] mt-8 z-10'>
-          <div className='flex space-x-10  text-2xl lg:text-3xl z-10 mt-6'>
-            <Link
-              role='button'
-              href='?gameMode=Off'
-              scroll={false}
-              className={`duration-150 z-10 font-bold py-16 ${gameMode ? "text-[#636363]" : ""}`}
-              tabIndex={0}
-            >
-              <span>Code setup</span>
-            </Link>
-            <Link
-              role='button'
-              href='?gameMode=On'
-              scroll={false}
-              className={`duration-150 font-bold z-10 py-16  ${gameMode ? "" : "text-[#636363]"}`}
-              tabIndex={1}
-            >
-              {!gameMode ? <p>Game setup</p> : <span>Game setup</span>}
-            </Link>
-          </div>
-          <div className='flex flex-col  justify-center items-start space-y-12'>
+      <div className='flex flex-col-reverse lg:flex-row justify-between'>
+        <div className='w-full lg:w-[43%] z-10 mt-12'>
+          <div className='flex flex-col  justify-center items-start space-y-12 mt-6'>
             {selectedGear.map((gear, key) => (
               <GearItem
                 key={key}
@@ -115,7 +114,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
             ))}
           </div>
         </div>
-        <div className='lg:w-[50%] w-[95%] mx-auto  h-[400px] lg:h-auto flex items-center  mt-0  justify-center'>
+        <div className='lg:w-[55%] w-[95%] mx-auto  h-[400px] lg:h-auto   flex items-center  mt-0  justify-center '>
           {isGearVisible && (
             <GearScene
               rotation={roomRotation}

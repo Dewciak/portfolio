@@ -10,7 +10,7 @@ const Blobs = () => {
                pointer-events-none
                animate-[walkBlob_28s_ease-in-out_infinite] -z-10'
       />
-      {/* 🟣 Blob #2 – inna trasa i rozmiar */}
+
       <div
         className='fixed top-1/3 left-2/3
                h-[400px] w-[400px] rounded-full opacity-50 blur-[160px]
