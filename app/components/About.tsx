@@ -2,6 +2,10 @@
 import websiteData from "@/app/components/textContent/About.json";
 import {useEffect, useState} from "react";
 import {FaRegUserCircle} from "react-icons/fa";
+import Me from "@/public/images/Me.webp";
+import Image from "next/image";
+import CountUp from "react-countup";
+
 interface WebsiteData {
   gameModeOff: {
     firstParagraph: string;
@@ -46,28 +50,44 @@ const About = ({gameMode}: AboutProps) => {
       </div>
 
       <div className='flex space-x-32 items-center justify-center'>
-        <div className='w-[700px] h-[500px] bg-red-500'></div>
+        <Image
+          src={Me}
+          alt='me'
+          className=' h-[650px] w-[650px] object-cover rounded-lg rotate-2 p-20 hover:scale-105 hover:rotate-0 duration-300'
+        ></Image>
         <div className=' flex flex-col max-w-[450px] text-justify '>
           <div className='flex space-x-12 font-black px-0'>
             <div className='flex flex-col space-y-2 w-[100px]'>
-              <strong className='text-3xl text-[#8357da]  '>22</strong>
+              <strong className='text-4xl text-[#8357da]'>
+                {/* @ts-ignore */}
+                <CountUp start={0} end={22} duration={3} enableScrollSpy={true} scrollSpyDelay={5} />
+              </strong>
               <p>
                 Years <br />
                 Old
               </p>
             </div>
             <div className='flex flex-col space-y-2 w-[100px]'>
-              <strong className='text-3xl text-[#8357da]'>4</strong>
+              <strong className='text-4xl text-[#8357da]'>
+                {" "}
+                <CountUp start={0} end={4} duration={3} enableScrollSpy={true} scrollSpyDelay={5} />
+              </strong>
               <p>
                 Studies <br /> Semester
               </p>
             </div>
             <div className='flex flex-col space-y-2 w-[100px]'>
-              <strong className='text-3xl text-[#8357da]'>501</strong>
+              <strong className='text-4xl text-[#8357da]'>
+                {" "}
+                <CountUp start={0} end={501} duration={3} enableScrollSpy={true} scrollSpyDelay={5} />
+              </strong>
               <p>Commits</p>
             </div>
             <div className='flex flex-col space-y-2 w-[100px]'>
-              <strong className='text-3xl text-[#8357da]'>1</strong>
+              <strong className='text-4xl text-[#8357da]'>
+                {" "}
+                <CountUp start={0} end={1} duration={3} enableScrollSpy={true} scrollSpyDelay={5} />
+              </strong>
               <p>Amstaff</p>
             </div>
           </div>
@@ -80,6 +100,9 @@ const About = ({gameMode}: AboutProps) => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet a, distinctio voluptate eius sequi nesciunt
             nam earum neque nulla. Ipsam eligendi excepturi alias neque labore delectus praesentium ut quibusdam
             recusandae.
+          </p>
+          <p className='mt-10'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet a, distinctio voluptate eius sequi nesciunt
           </p>
         </div>
       </div>

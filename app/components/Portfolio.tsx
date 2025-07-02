@@ -9,7 +9,10 @@ import {LuSettings2} from "react-icons/lu";
 import {VscChromeMinimize} from "react-icons/vsc";
 import {useRef, useEffect, useState, Dispatch, SetStateAction} from "react";
 import {BsPersonWorkspace} from "react-icons/bs";
+
 import bailiffImage from "@/public/images/BailiffLong.webp";
+import photographyImage from "@/public/images/PhotographyWebsiteScreen.png";
+import carpentryImage from "@/public/images/Carpentry.png";
 
 import portfolioData from "@/app/components/textContent/Portfolio.json";
 
@@ -22,7 +25,7 @@ import photographyLogo from "@/public/images/FotoLogo.png";
 export interface Portfolio {
   header: string;
   description: string;
-  image: string;
+  image: StaticImageData;
   tech: string;
 }
 
@@ -56,7 +59,11 @@ function Browser({
   selectedWebsite: number;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
-
+  const imageMap: Record<string, StaticImageData> = {
+    bailiffImage: bailiffImage,
+    carpentryImage: carpentryImage,
+    photographyImage: photographyImage,
+  };
   useEffect(() => {
     const c = containerRef.current;
     if (!c) return;
@@ -106,29 +113,54 @@ function Browser({
       c.removeEventListener("touchmove", pause);
     };
   }, []);
+  const scrollPositions = useRef<Record<number, number>>({});
+
+  useEffect(() => {
+    const c = containerRef.current;
+    if (!c) return;
+
+    const savedScroll = scrollPositions.current[selectedWebsite] ?? 0;
+    c.scrollTop = savedScroll;
+  }, [selectedWebsite]);
+
+  useEffect(() => {
+    const c = containerRef.current;
+    if (!c) return;
+
+    const handleScroll = () => {
+      scrollPositions.current[selectedWebsite] = c.scrollTop;
+    };
+
+    c.addEventListener("scroll", handleScroll, {passive: true});
+    return () => c.removeEventListener("scroll", handleScroll);
+  }, [selectedWebsite]);
 
   const portfolioWebsites: Website[] = [
     {
-      title: "Bailif",
+      title: "Komornik Sądowy przy ",
       logo: bailiffLogo,
     },
     {
-      title: "Carpentry",
+      title: "Stolarstwo Komendera",
       logo: carpentryLogo,
     },
     {
-      title: "Photography",
+      title: "Patrycja Dawid Fot",
       logo: photographyLogo,
     },
   ];
   return (
     <>
-      <div className='flex flex-col items-start mt-12 y-4 bg-[#1e1e1e] rounded-[25px]'>
+      <div className='flex flex-col items-start mt-12 y-4 bg-[#1e1e1e] rounded-[25px] pt-3 '>
         {/* ####################################### */}
         {/* Macos interface */}
         {/* ####################################### */}
-        <div className='flex  items-center  bg-[#303134]'>
-          <div className='flex space-x-2 group bg-[#1e1e1e] px-6 py-[14px]  '>
+        <div className='flex  items-center  bg-[#303134] rounded-[20px]'>
+          <div
+            className={`flex space-x-2 group bg-[#1e1e1e] px-6 py-[14px] rounded-tl-[20px] ${
+              selectedWebsite == 0 && "rounded-br-lg"
+            }`}
+          >
             <div className='w-3 h-3 bg-red-500 rounded-full flex items-center justify-center'>
               <IoIosClose className='hidden group group-hover:block duration-100 text-red-900 w-4 h-4 absolute' />
             </div>
@@ -140,38 +172,36 @@ function Browser({
             </div>
           </div>
 
-          {/* <button
-            onClick={() => setSelectedWebsite(1)}
-            className='chrome-tab  bg-[#1e1e1e] flex justify-between items-center clip-inset-rounded w-[200px] p-2 rounded-br-lg'
-          >
-            <Image src={StolarstwoLogo} alt='Bailiff Favicon' width={19} height={19} />
-            <p>stolarstwokomen</p>
-            <IoIosClose fill='#ffffff' size={24} />
-          </button>
-          <div className='chrome-tab bg-[#303134]  ml-4 flex justify-between items-center clip-inset-rounded w-[200px] p-2 rounded-t-lg -rounded-b-lg'>
-            <Image src={BailiffLogo} alt='Carpentry Favicon' width={19} height={19} />
-            <p>komornikddbielsko</p>
-            <IoIosClose fill='#ffffff' size={24} />
-          </div>
-          <div className='chrome-tab bg-[#1e1e1e] ml-6 flex justify-between items-center clip-inset-rounded w-[200px] p-2 rounded-bl-lg'>
-            <Image src={FotoLogo} alt='Fotography Favicon' width={19} height={19} />
-            <p>patrycjadawid</p>
-            <IoIosClose fill='#ffffff' size={24} />
-          </div> */}
           {portfolioWebsites.map((websiteItem, index) => (
             <button
               onClick={() => setSelectedWebsite(index)}
-              className={`chrome-tab 
-                ml-4 flex justify-between items-center
-                clip-inset-rounded w-[200px] p-2 rounded-t-lg -rounded-b-lg
-              ${selectedWebsite == index ? "bg-[#303134]" : "bg-[#1e1e1e]"}`}
+              className={`chrome-tab relative
+                 flex  items-center
+                clip-inset-rounded min-w-0 max-w-[200px] p-2  justify-between z-10 
+              ${selectedWebsite == index ? "bg-[#303134] rounded-t-lg top-[-5px]  " : "bg-[#1e1e1e]  "}
+              ${selectedWebsite == 0 && index == 1 && "rounded-bl-lg "}
+              ${selectedWebsite == 1 && index == 0 && "rounded-br-lg "}
+              ${selectedWebsite == 1 && index == 2 && "rounded-bl-lg "}
+              ${selectedWebsite == 2 && index == 1 && "rounded-br-lg "}
+              
+              
+              `}
             >
               <Image src={websiteItem.logo} alt='Carpentry Favicon' width={19} height={19} />
-              <p>{websiteItem.title}</p>
+              <p className=' whitespace-nowrap overflow-hidden flex-1 text-left ml-2'>{websiteItem.title}</p>
               <IoIosClose fill='#ffffff' size={24} />
+              <div
+                className={`absolute right-0 top-0 h-full w-8 mr-7 bg-gradient-to-l z-10  ${
+                  selectedWebsite == index ? "from-[#303134] rounded-t-lg" : "from-[#1e1e1e] rounded-t-[20px]"
+                } to-transparent pointer-events-none`}
+              />
             </button>
           ))}
-          <div className='bg-[#1e1e1e] p-2 flex items-center justify-center space-x-4'>
+          <div
+            className={`bg-[#1e1e1e] p-2 flex items-center justify-center space-x-4 ${
+              selectedWebsite == 2 && "rounded-bl-lg"
+            }`}
+          >
             <div className='opacity-50'>|</div>
             <FaPlus size={16} />
           </div>
@@ -201,11 +231,11 @@ function Browser({
         </div>
         <div
           ref={containerRef}
-          className='w-[800px] mt-0 h-[460px]  rounded-b-[20px] xl:w-[1200px] xl:h-[690px] overflow-y-scroll scroll-smooth '
+          className='w-[800px] mt-0 h-[460px]  rounded-b-[20px] xl:w-[1200px] xl:h-[690px] overflow-y-scroll '
         >
           <Image
-            src={bailiffImage}
-            alt='Bailiff image'
+            src={imageMap[portfolioData[selectedWebsite].image]}
+            alt=''
             className='w-full'
             // className='w-[800px] mt-0 h-[460px]  rounded-b-[20px] xl:w-[1200px] xl:h-[690px] '
             //   className='w-[800px] mt-0 h-[460px] rounded-b-[20px] 2xl:w-[200%] '

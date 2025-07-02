@@ -64,11 +64,19 @@ const Navbar = ({gameMode}: NavbarProps) => {
 
       <div className='hidden pointer-events-auto lg:flex backdrop-blur bg-BackgroundColor/30 items-center transition-colors duration-500 justify-between w-full mx-auto py-6 px-16'>
         {/* <OpenForWork gameMode={gameMode} /> */}
-        <div className='text-xl font-bold flex space-x-2'>
+        <ScrollLink
+          to='Home'
+          activeClass='active'
+          smooth={true}
+          duration={200}
+          offset={50}
+          spy={true}
+          className='text-xl font-bold flex space-x-2 cursor-pointer'
+        >
           <span>&lt;</span>
           <p>Wiktor Dawid</p>
           <span>/&gt;.</span>
-        </div>
+        </ScrollLink>
 
         <ul className='flex space-x-10  justify-center items-center text-md font-medium  '>
           <li>
@@ -141,13 +149,11 @@ const Navbar = ({gameMode}: NavbarProps) => {
               className={`
               relative z-10 rounded-md  bg-[#F2F0ED]
               flex items-center justify-center space-x-2 py-1 px-4
-              text-[#64748B] transition duration-300
-              shadow-[0_0_20px_rgba(87,133,221,0.4),0_0_40px_rgba(131,87,218,0.3),0_0_60px_rgba(174,41,214,0.2)]  ${
-                gameMode ? "text-white" : "hover:text-black items-center"
-              } `}
+               transition duration-300
+              shadow-[0_0_20px_rgba(87,133,221,0.4),0_0_40px_rgba(131,87,218,0.3),0_0_60px_rgba(174,41,214,0.2)]   `}
             >
-              <p className={` hidden xl:flex`}>Off</p>
-              <LuGamepad color='black' size={30} opacity={gameMode ? 1 : 0.6} />
+              <p className={` hidden xl:flex ${gameMode ? "opacity-30" : " text-black"}`}>Off</p>
+              <LuGamepad color='black' size={30} opacity={gameMode ? 1 : 0.3} />
             </Link>
           </li>
         </ul>
