@@ -5,6 +5,7 @@ import Link from "next/link";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import CloudinaryVideo from "./CldVideo";
+import {BsPersonWorkspace} from "react-icons/bs";
 
 interface WorksDataJson {
   gameModeOn: Record<string, WorkItem>;
@@ -106,6 +107,7 @@ const Works = ({gameMode}: Props) => {
       className='max-w-[1300px] mx-auto flex flex-col justify-center items-center mt-32 lg:mt-64 px-6'
     >
       <div className='flex justify-between w-full items-end flex-col md:flex-row '>
+        <BsPersonWorkspace />
         {!gameMode && <h1 className='lg:leading-[70%] leading-[100%]'>Portfolio</h1>}
         {gameMode && (
           <h1 className='lg:leading-[70%] leading-[100%]'>

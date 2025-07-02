@@ -1,32 +1,60 @@
 "use client";
 // usunąć to później
-import bailiffImage from "@/public/images/BailiffLong.png";
-import BailiffLogo from "@/public/images/BailiffLogo.webp";
-import FotoLogo from "@/public/images/FotoLogo.png";
-import StolarstwoLogo from "@/public/images/StolarstwoLogo.png";
-import Image from "next/image";
+import Image, {StaticImageData} from "next/image";
 import {BsThreeDotsVertical} from "react-icons/bs";
 import {FaRegStar, FaUserCircle} from "react-icons/fa";
 import {FaArrowLeft, FaArrowRight, FaPlus} from "react-icons/fa6";
 import {IoIosClose, IoMdRefresh} from "react-icons/io";
 import {LuSettings2} from "react-icons/lu";
 import {VscChromeMinimize} from "react-icons/vsc";
-import {useRef, useEffect} from "react";
+import {useRef, useEffect, useState, Dispatch, SetStateAction} from "react";
+import {BsPersonWorkspace} from "react-icons/bs";
+import bailiffImage from "@/public/images/BailiffLong.webp";
 
+import portfolioData from "@/app/components/textContent/Portfolio.json";
+
+import bailiffLogo from "@/public/images/BailiffLogo.webp";
+
+import carpentryLogo from "@/public/images/StolarstwoLogo.png";
+
+import photographyLogo from "@/public/images/FotoLogo.png";
+
+export interface Portfolio {
+  header: string;
+  description: string;
+  image: string;
+  tech: string;
+}
+
+interface Website {
+  title: string;
+  logo: StaticImageData;
+}
 const Portfolio = () => {
+  const [selectedWebsite, setSelectedWebsite] = useState(1);
+
   return (
-    <div className='flex flex-col text-center py-32 max-w-[1200px] mx-auto items-center justify-center'>
+    <div id='Portfolio' className='flex flex-col text-center  max-w-[1200px] mx-auto items-center justify-center pb-32'>
       <div className='flex flex-col space-y-6 justify-center items-center'>
-        <span className='text-3xl font-bold'>Portfolio</span>
-        <p className='max-w-[500px] text-TextColor font-bold text-4xl'>Selected Front-End Projects</p>
+        <span className='text-4xl font-bold'>Portfolio</span>
+        <div className='flex space-x-4 items-center'>
+          <BsPersonWorkspace size={30} className='gradient-text' />
+          <p className='max-w-[500px] text-TextColor font-bold text-4xl'>Selected Front-End Projects</p>
+        </div>
       </div>
-      <Browser />
-      <WebsiteDescription />
+      <Browser setSelectedWebsite={setSelectedWebsite} selectedWebsite={selectedWebsite} />
+      <WebsiteDescription selectedWebsite={selectedWebsite} />
     </div>
   );
 };
 
-function Browser() {
+function Browser({
+  setSelectedWebsite,
+  selectedWebsite,
+}: {
+  setSelectedWebsite: Dispatch<SetStateAction<number>>;
+  selectedWebsite: number;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -79,6 +107,20 @@ function Browser() {
     };
   }, []);
 
+  const portfolioWebsites: Website[] = [
+    {
+      title: "Bailif",
+      logo: bailiffLogo,
+    },
+    {
+      title: "Carpentry",
+      logo: carpentryLogo,
+    },
+    {
+      title: "Photography",
+      logo: photographyLogo,
+    },
+  ];
   return (
     <>
       <div className='flex flex-col items-start mt-12 y-4 bg-[#1e1e1e] rounded-[25px]'>
@@ -97,14 +139,15 @@ function Browser() {
               <FaPlus className='hidden group group-hover:block duration-100 text-green-900 w-2 h-2 absolute' />
             </div>
           </div>
-          {/* ####################################### */}
-          {/* Browser Tabs */}
-          {/* ####################################### */}
-          <div className='chrome-tab  bg-[#1e1e1e] flex justify-between items-center clip-inset-rounded w-[200px] p-2 rounded-br-lg'>
+
+          {/* <button
+            onClick={() => setSelectedWebsite(1)}
+            className='chrome-tab  bg-[#1e1e1e] flex justify-between items-center clip-inset-rounded w-[200px] p-2 rounded-br-lg'
+          >
             <Image src={StolarstwoLogo} alt='Bailiff Favicon' width={19} height={19} />
             <p>stolarstwokomen</p>
             <IoIosClose fill='#ffffff' size={24} />
-          </div>
+          </button>
           <div className='chrome-tab bg-[#303134]  ml-4 flex justify-between items-center clip-inset-rounded w-[200px] p-2 rounded-t-lg -rounded-b-lg'>
             <Image src={BailiffLogo} alt='Carpentry Favicon' width={19} height={19} />
             <p>komornikddbielsko</p>
@@ -114,7 +157,20 @@ function Browser() {
             <Image src={FotoLogo} alt='Fotography Favicon' width={19} height={19} />
             <p>patrycjadawid</p>
             <IoIosClose fill='#ffffff' size={24} />
-          </div>
+          </div> */}
+          {portfolioWebsites.map((websiteItem, index) => (
+            <button
+              onClick={() => setSelectedWebsite(index)}
+              className={`chrome-tab 
+                ml-4 flex justify-between items-center
+                clip-inset-rounded w-[200px] p-2 rounded-t-lg -rounded-b-lg
+              ${selectedWebsite == index ? "bg-[#303134]" : "bg-[#1e1e1e]"}`}
+            >
+              <Image src={websiteItem.logo} alt='Carpentry Favicon' width={19} height={19} />
+              <p>{websiteItem.title}</p>
+              <IoIosClose fill='#ffffff' size={24} />
+            </button>
+          ))}
           <div className='bg-[#1e1e1e] p-2 flex items-center justify-center space-x-4'>
             <div className='opacity-50'>|</div>
             <FaPlus size={16} />
@@ -140,7 +196,6 @@ function Browser() {
           </div>
           <div className='flex space-x-2'>
             <FaUserCircle />
-
             <BsThreeDotsVertical />
           </div>
         </div>
@@ -161,26 +216,19 @@ function Browser() {
   );
 }
 
-function WebsiteDescription() {
+function WebsiteDescription({selectedWebsite}: {selectedWebsite: number}) {
   return (
     <>
-      <h1 className='mt-10 text-4xl'>Bailiff Website</h1>
-      <h2 className='mt-2 text-xl text-gray-400'>Lorem ipsum</h2>
+      <h1 className='mt-10 text-4xl'>{portfolioData[selectedWebsite].title}</h1>
+      <h2 className='mt-2 text-xl text-gray-400'>{portfolioData[selectedWebsite].subTitle}</h2>
       <div className='flex mt-6 space-x-4'>
-        <div className='border text-TextColor py-2 px-4 bg-[#c4c3c32b] border-[#ffffff44] rounded-full  backdrop-blur-xl hover:bg-[#c4c3c356] duration-200 '>
-          <p>Typescript</p>
-        </div>
-        <div className='border text-TextColor py-2 px-4 bg-[#c4c3c32b] border-[#ffffff44] rounded-full  backdrop-blur-xl hover:bg-[#c4c3c356] duration-200 '>
-          <p>React</p>
-        </div>{" "}
-        <div className='border text-TextColor py-2 px-4 bg-[#c4c3c32b] border-[#ffffff44] rounded-full  backdrop-blur-xl hover:bg-[#c4c3c356] duration-200 '>
-          <p>Nextjs</p>
-        </div>
+        {portfolioData[selectedWebsite].tech.split(" ").map((techItem, index) => (
+          <div className='border text-TextColor py-2 px-4 bg-[#c4c3c32b] border-[#ffffff44] rounded-full  backdrop-blur-xl hover:bg-[#c4c3c356] duration-200 '>
+            <p>{techItem}</p>
+          </div>
+        ))}
       </div>
-      <p className='text-center mt-6 max-w-[500px]'>
-        This is the most advanced website I’ve created so far. From the design, which had to be purely informative due
-        to legal constraints, to the technical aspects, it involved building an API that connects to a database, fetches
-      </p>
+      <p className='text-center mt-6 max-w-[500px]'>{portfolioData[selectedWebsite].description}</p>
     </>
   );
 }

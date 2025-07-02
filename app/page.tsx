@@ -10,6 +10,7 @@ import Resume from "./components/Resume";
 import {Metadata} from "next";
 import Blobs from "./components/Blobs";
 import Portfolio from "./components/Portfolio";
+import Contact from "./components/Contact";
 
 interface Props {
   searchParams: {gameMode: string};
@@ -25,13 +26,17 @@ export default function Home({searchParams}: Props) {
       </header>
       <main>
         <Hero gameMode={gameMode} />
-        <Tech gameMode={gameMode} />
+
         {/* <Works gameMode={gameMode} /> */}
-        <Portfolio />
+        <Portfolio gameMode={gameMode} />
+
         <Resume gameMode={gameMode} />
-        {/* <About gameMode={gameMode} /> */}
+        <Tech gameMode={gameMode} />
+
+        <About gameMode={gameMode} />
 
         <Gear gameMode={gameMode} />
+        <Contact />
       </main>
       <footer>
         <Footer />

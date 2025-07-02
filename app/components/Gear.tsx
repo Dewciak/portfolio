@@ -9,6 +9,7 @@ import {getIcon} from "./getIcon";
 import handleModeChange from "./HandleModeChange";
 import useObserver from "./hooks/useObserver";
 import GearDataJson from "./textContent/Gear.json";
+import {FaLaptopCode} from "react-icons/fa";
 
 const GearScene = dynamic(() => import("./GearScene"), {ssr: true});
 // Dynamic import for 3d scene
@@ -50,8 +51,8 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
       setCameraPosition([-13, 2, -10]);
       setCameraLookAt([0, -3, 0]);
     } else {
-      setCameraPosition([0, 4, -13]);
-      setCameraLookAt([0, 0, 0]);
+      setCameraPosition([0, 3, -17]);
+      setCameraLookAt([0, 0, -1]);
     }
   }, [gameMode]);
   // Setting the camera position based on the game mode
@@ -60,49 +61,53 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
     <section
       ref={GearRef}
       id='Gear'
-      className='max-w-[1300px] mx-auto flex pt-10 lg:pt-0  flex-col px-6 overflow-hidden '
+      className='max-w-[1250px] mx-auto flex pt-10 lg:pt-44  flex-col px-6 overflow-hidden '
     >
-      <div className='flex justify-between relative '>
-        <div className='flex flex-col w-full'>
-          <div className='flex space-x-10  text-2xl lg:text-3xl z-10 '>
+      <div className='flex justify-between   items-center'>
+        <div className='flex justify-between w-full'>
+          <div className='flex space-x-4 items-center  '>
+            <FaLaptopCode size={30} />
+            <h2 className='text-3xl font-bold'>
+              {gameMode ? "My sweet" : "My code"} {gameMode ? "kingdom" : "environment"}
+            </h2>
+          </div>
+
+          <div className='flex space-x-10  text-2xl lg:text-xl z-10  items-center mr-2'>
             <Link
               role='button'
               href='?gameMode=Off'
               scroll={false}
-              className={`duration-150 z-10 font-bold  ${gameMode ? "text-[#636363]" : ""}`}
+              className={`duration-150 z-10 font-bold   ${gameMode ? "text-[#636363]" : "text-[#ae29d6]"}`}
               tabIndex={0}
             >
-              <span>Code setup</span>
+              <strong>Code setup</strong>
             </Link>
             <Link
               role='button'
               href='?gameMode=On'
               scroll={false}
-              className={`duration-150 font-bold z-10   ${gameMode ? "" : "text-[#636363]"}`}
+              className={`duration-150 font-bold z-10    ${gameMode ? "text-[#ae29d6]" : "text-[#636363]"}`}
               tabIndex={1}
             >
               {!gameMode ? <p>Game setup</p> : <span>Game setup</span>}
             </Link>
           </div>
-          <h1 className='mt-6'>
-            {gameMode ? "My sweet" : "My code"} {gameMode ? "kingdom" : "environment"}
-          </h1>
         </div>
 
-        <Image
+        {/* <Image
           src={Samurai}
           alt=''
           loading='lazy'
-          className={`Samurai absolute lg:size-[300px] object-cover  lg:top-[-150px] top-[-150px] size-[250px]    rotate-12 transition-opacity duration-150 right-[-150px] md:right-[0px]  ${
+          className={`Samurai absolute lg:size-[300px] object-cover  lg:top-[-150px] top-[-150px]  size-[250px]    rotate-12 transition-opacity duration-150 right-[-150px] md:right-[0px]  ${
             gameMode ? "opacity-100" : "opacity-0"
           }`}
-        />
+        /> */}
         {/* Samurai picture visible only on game mode */}
       </div>
 
-      <div className='flex flex-col-reverse lg:flex-row justify-between'>
-        <div className='w-full lg:w-[43%] z-10 mt-12'>
-          <div className='flex flex-col  justify-center items-start space-y-12 mt-6'>
+      <div className='relative flex flex-col-reverse lg:flex-row justify-between items-center mt-8 '>
+        <div className='w-full lg:w-[500px] z-10 mt-12 '>
+          <div className='flex flex-col  justify-center items-start space-y-6 mt-0'>
             {selectedGear.map((gear, key) => (
               <GearItem
                 key={key}
@@ -114,7 +119,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
             ))}
           </div>
         </div>
-        <div className='lg:w-[55%] w-[95%] mx-auto  h-[400px] lg:h-auto   flex items-center  mt-0  justify-center '>
+        <div className=' w-[95%] absolute lg:w-[650px]   h-[400px] lg:h-[700px] -right-24  flex  items-start  mt-0   justify-center '>
           {isGearVisible && (
             <GearScene
               rotation={roomRotation}
@@ -144,7 +149,7 @@ interface GearItemProps {
 const GearItem = ({title, description, icon, animationDelay, isVisible}: GearItemProps) => {
   return (
     <motion.div
-      className=' flex space-x-6'
+      className=' flex space-x-6 bg-[#2c2c394c] backdrop-blur-xl rounded-[20px] items-start w-full'
       style={{animationDelay: `${animationDelay}ms`}}
       initial={{opacity: 0, x: -200}}
       whileInView={{opacity: 1, x: 0}}
@@ -155,11 +160,14 @@ const GearItem = ({title, description, icon, animationDelay, isVisible}: GearIte
       }}
       viewport={{once: true}}
     >
-      <div className='rounded-full bg-[#191919] size-[64px] p-1'>
-        <Image src={icon} alt='' className='opacity-[0.6] object-cover ' loading='lazy' />
-      </div>
-      <div className='flex flex-col max-w-[70%]'>
-        <p>{title}</p>
+      <div className='flex flex-col  px-6 pb-6 space-y-0'>
+        <div className='flex justify-between items-center '>
+          <p>{title}</p>
+          <div className=' size-[55px] p-1  '>
+            {/* <Image src={icon} alt='' className='opacity-[0.6] object-cover ' loading='lazy' /> */}
+          </div>
+        </div>
+
         <p className='text-[#848484]'>{description}</p>
       </div>
     </motion.div>

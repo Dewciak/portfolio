@@ -1,0 +1,25 @@
+[
+  {
+    "title": "Bailif Website",
+    "subTitle": "Bailif Website",
+    "description": "This is the most advanced website I’ve created so far. From the design, which had to be purely informative due to legal constraints, to the technical aspects, it involved building an API that connects to a database, fetches data, and handles other CRUD operations. Additionally, it includes Firebase authentication for user credentials.",
+    "image": "BailiffWebsiteScreen",
+    "tech": "Typescript React Nextjs Tailwindcss MySQL Firebase"
+  },
+  {
+    "title": "Carpentry Website",
+    "subTitle": "Bailif Website",
+
+    "description": "This is the most advanced website I’ve created so far. From the design, which had to be purely informative due to legal constraints, to the technical aspects, it involved building an API that connects to a database, fetches data, and handles other CRUD operations. Additionally, it includes Firebase authentication for user credentials.",
+    "image": "BailiffWebsiteScreen",
+    "tech": "Typescript React Nextjs Tailwindcss MySQL Firebase"
+  },
+  {
+    "title": "Photography",
+    "subTitle": "Bailif Website",
+
+    "description": "This is the most advanced website I’ve created so far. From the design, which had to be purely informative due to legal constraints, to the technical aspects, it involved building an API that connects to a database, fetches data, and handles other CRUD operations. Additionally, it includes Firebase authentication for user credentials.",
+    "image": "BailiffWebsiteScreen",
+    "tech": "Typescript React Nextjs Tailwindcss MySQL Firebase"
+  }
+]

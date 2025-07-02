@@ -139,15 +139,15 @@ const Navbar = ({gameMode}: NavbarProps) => {
               scroll={false}
               href={`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`}
               className={`
-              relative z-10 rounded-full bg-[#F2F0ED]
-              flex items-center justify-center space-x-2 p-[6px]
+              relative z-10 rounded-md  bg-[#F2F0ED]
+              flex items-center justify-center space-x-2 py-1 px-4
               text-[#64748B] transition duration-300
               shadow-[0_0_20px_rgba(87,133,221,0.4),0_0_40px_rgba(131,87,218,0.3),0_0_60px_rgba(174,41,214,0.2)]  ${
-                gameMode ? "text-white" : "hover:text-black"
+                gameMode ? "text-white" : "hover:text-black items-center"
               } `}
             >
-              {/* <p className={` hidden xl:flex`}>Gaming mode</p> */}
-              <LuGamepad color='black' size={27} opacity={gameMode ? 1 : 0.6} />
+              <p className={` hidden xl:flex`}>Off</p>
+              <LuGamepad color='black' size={30} opacity={gameMode ? 1 : 0.6} />
             </Link>
           </li>
         </ul>

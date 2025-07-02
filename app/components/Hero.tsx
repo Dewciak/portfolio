@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import handleModeChange from "./HandleModeChange";
 import useObserver from "./hooks/useObserver";
 import CtaBtn from "./CtaBtn";
+import Link from "next/link";
 
 const HeroScene = dynamic(() => import("./HeroScene"), {ssr: true});
 
@@ -81,12 +82,16 @@ const Hero = ({gameMode}: Props) => {
           <div className='flex space-x-10 mt-6 items-center'>
             <CtaBtn text='Portfolio' />
             {/* <CtaBtn text='Contact' /> */}
-            <button className='font-bold cursor-pointer hover flex items-center justify-center group hover:text-white duration-300 text-TextColor'>
+            <Link
+              href={"https://docs.google.com/document/d/1EYLU0Js3A6Ty38V0ynXZbpGybL-jv2vckIot6LakuVQ/edit?usp=sharing"}
+              target='blank'
+              className='font-bold cursor-pointer hover flex items-center justify-center group hover:text-white duration-300 text-TextColor'
+            >
               Download CV{" "}
               <div className='ml-2 group-hover:ml-4 duration-300'>
                 <FaArrowRight />
               </div>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 "use client";
 import {getIcon} from "@/app/components/getIcon";
 import {motion} from "framer-motion";
-
+import {FaCubesStacked} from "react-icons/fa6";
 import Image, {StaticImageData} from "next/image";
 
 import techData from "@/app/components/textContent/Tech.json";
@@ -16,44 +16,28 @@ const Tech = ({gameMode}: {gameMode: boolean}) => {
   const gameModeTechData = gameMode ? techData.gameModeOn : techData.gameModeOff;
 
   return (
-    <section
-      id='Tech'
-      className='max-w-[1300px] flex flex-col mx-auto justify-start items-center space-y-10 pt-32 lg:pt-0 px-6 '
-    >
-      <div className='flex flex-col text-center'>
+    <section id='Tech' className='max-w-[1250px] flex flex-col mx-auto justify-start items-center  pt-32 lg:pt-6 px-6 '>
+      <div className='flex  text-left w-full space-x-4'>
+        <FaCubesStacked size={30} />
         <h2 className='text-3xl font-bold '>
-          {/* {gameMode && "My personal "} */}
-          <span className={gameMode ? "game-mode-on" : "game-mode-off"}>{gameMode ? "Goats" : "Stack"}</span>
-          {/* {!gameMode && "I work with"} */}
+          {/* <span spanclassName={gameMode ? "game-mode-on" : "game-mode-off"}>{gameMode ? "Goats" : "Tech Stack"}</span> */}
+          Tech Stack
         </h2>
-        <h1 className='text-5xl max-w-[900px] mt-6'>
-          A curated stack of tools,&nbsp;frameworks, and&nbsp;libraries&nbsp;powering&nbsp;my&nbsp;projects.
-        </h1>
       </div>
 
-      <div className='overflow-hidden w-full flex hover:cursor-grab active:cursor-grabbing '>
-        <motion.div
-          className='flex space-x-6 mt-6'
-          drag='x'
-          dragConstraints={{left: gameModeTechData.length * -300, right: 0}}
-          initial={{x: 0}}
-          animate={{x: 0}}
-          transition={{type: "spring", stiffness: 300, damping: 30}}
-          style={{touchAction: "none"}}
-        >
-          {gameModeTechData.map((tech: Technology, index: number) => (
-            <Card
-              key={index}
-              header={tech.header}
-              description={tech.description}
-              icon={getIcon(tech.icon)!}
-              gameMode={gameMode}
-              animationDelay={index * 100}
-              index={index + 3}
-              alt={tech.alt}
-            />
-          ))}
-        </motion.div>
+      <div className='overflow-hidden w-full flex flex-wrap gap-6 mt-14 '>
+        {gameModeTechData.map((tech: Technology, index: number) => (
+          <Card
+            key={index}
+            header={tech.header}
+            description={tech.description}
+            icon={getIcon(tech.icon)!}
+            gameMode={gameMode}
+            animationDelay={index * 100}
+            index={index + 3}
+            alt={tech.alt}
+          />
+        ))}
       </div>
     </section>
   );
@@ -74,9 +58,9 @@ interface cardProps {
 const Card = ({header, description, icon, gameMode, animationDelay, index, alt}: cardProps) => {
   return (
     <motion.div
-      className=' w-[320px] h-[440px] bg-[#2C2C39]  rounded-[20px] border-t-[1px] border-t-[hsl(0,0%,60%)] flex flex-col border border-[hsl(0,0%,30%)]'
+      className='w-[150px] h-[150px] hover:bg-[#2c2c399f] duration-300 transform cursor-default   bg-[#2c2c394c] backdrop-blur-xl   rounded-[20px]  flex items-center justify-center '
       style={{animationDelay: `${animationDelay}ms`}}
-      initial={{opacity: 0, y: 200}}
+      initial={{opacity: 0, y: 100}}
       whileInView={{opacity: 1, y: 0}}
       transition={{
         duration: 0.2,
@@ -86,17 +70,16 @@ const Card = ({header, description, icon, gameMode, animationDelay, index, alt}:
       viewport={{once: true}}
       tabIndex={index}
     >
-      <div className='h-[60%] flex items-center justify-center rounded-t-[20px] overflow-hidden'>
+      <div className=' flex flex-col items-center justify-center space-y-4 '>
         <Image
           loading='lazy'
+          width={70}
+          height={70}
           src={icon}
           alt={alt}
-          className={gameMode ? "h-full object-cover rounded-t-[20px]" : "size-[130px]"}
+          // className={gameMode ? "h-full object-cover rounded-t-[10px]" : "size-[100px]"}
         />
-      </div>
-      <div className='w-full h-[40%] bg-[#1b1b25] rounded-b-[20px] flex flex-col space-y-4 px-6 py-4'>
-        <h1 className='text-xl font-bold'>{header}</h1>
-        <p className='text-MylightGray'>{description}</p>
+        <strong className='text-TextColor'>{header}</strong>
       </div>
     </motion.div>
   );

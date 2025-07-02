@@ -9,6 +9,7 @@ import Link from "next/link";
 import {useRef, useState} from "react";
 import useObserver from "./hooks/useObserver";
 import ImageWork from "@/public/images/ResumeWork.png";
+import {SiReaddotcv} from "react-icons/si";
 import ImageGame from "@/public/images/ResumeGame.png";
 import OpenForWork from "./OpenForWork";
 import {IoDocumentTextOutline} from "react-icons/io5";
@@ -23,22 +24,17 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
     <section
       ref={resumeRef}
       id='Resume'
-      className='flex pt-[160px] lg:pt-[0px] lg:mb-[70px] justify-center w-full overflow-hidden '
+      className='flex pt-[160px] lg:pt-[0px] lg:mb-[0px] justify-center w-full overflow-hidden max-w-[1300px] mx-auto'
     >
       {/* <div className='pb-6 mx-auto text-center'>
         <OpenForWork gameMode={gameMode} />
       </div> */}
-      <div className='flex justify-center items-center flex-col p-4 overflow-hidden w-full py-10 relative pb-32 '>
-        {/* <div className='flex flex-col text-center'>
-          <h2 className='text-3xl font-bold '>
-            {gameMode && "My personal "}
-            <span className={gameMode ? "game-mode-on" : "game-mode-off"}>{gameMode ? "Goats" : "Resume"}</span>
-            {!gameMode && "I work with"}
-          </h2>
-          <h1 className='text-5xl max-w-[900px] mt-6'>
-            A summary of my education, experience, and technical skills in&nbsp;web&nbsp;development.
-          </h1>
-        </div> */}
+
+      <div className='flex justify-center items-center flex-col p-4 overflow-hidden w-full py-10 relative pb-20 '>
+        <div className='flex space-x-4 text-center w-full items-center mt-6 justify-center flex-col space-y-6 '>
+          <strong className='text-5xl font-semibold '>Resume</strong>
+          <OpenForWork gameMode={gameMode} />
+        </div>
         <div className='cv-image-box flex justtify-center mr-16 py-10 mt-32 '>
           <div
             className={`lg:w-[360px]  lg:h-[544px] w-[260px] h-[370px] overflow-hidden rounded-[17px] bg-white z-10 

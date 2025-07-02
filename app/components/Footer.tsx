@@ -40,7 +40,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id='Contact' className='relative w-full flex  lg:mt-[300px] mt-32 border-t-[0px] border-[hsl(0,0%,50%)] '>
+    <footer id='Contact' className='relative w-full flex  lg:mt-[350px] mt-32 border-t-[0px] border-[hsl(0,0%,50%)] '>
       <div className='max-w-[1300px] flex flex-col mx-auto w-full px-6 py-4 pb-20'>
         {/* <div className='flex  lg:items-center max-w-[100%] flex-col lg:flex-row  space-y-6 lg:space-y-0 items-start justify-between '>
           <p className='font-bold text-5xl'>
