@@ -60,8 +60,6 @@ const Navbar = ({gameMode}: NavbarProps) => {
 
   return (
     <nav className=' w-full fixed z-[100] pointer-events-none '>
-      <IconsSocials />
-
       <div className='hidden pointer-events-auto lg:flex backdrop-blur bg-BackgroundColor/30 items-center transition-colors duration-500 justify-between w-full mx-auto py-6 px-16'>
         {/* <OpenForWork gameMode={gameMode} /> */}
         <ScrollLink
@@ -83,7 +81,7 @@ const Navbar = ({gameMode}: NavbarProps) => {
             <ScrollLink
               to='Home'
               activeClass='active'
-              className='cursor-pointer'
+              className='cursor-pointer hover:text-[#848484]'
               smooth={true}
               duration={200}
               offset={50}
@@ -100,72 +98,70 @@ const Navbar = ({gameMode}: NavbarProps) => {
           </li> */}
           <li>
             <ScrollLink
-              to='Works'
+              to='Portfolio'
               activeClass='active'
-              className='cursor-pointer'
+              className='cursor-pointer hover:text-[#848484]'
               smooth={true}
               duration={200}
-              offset={-300}
+              offset={-140}
               spy={true}
             >
-              {gameMode ? "Rescently played" : "Portfolio"}
+              Portfolio
             </ScrollLink>
           </li>
           <li>
             <ScrollLink
               to='Resume'
               activeClass='active'
-              className='cursor-pointer'
+              className='cursor-pointer hover:text-[#848484]'
               smooth={true}
               duration={200}
-              offset={-200}
+              offset={-100}
               spy={true}
             >
               {gameMode ? "Steam" : "Resume"}
             </ScrollLink>
           </li>
-          {/* <li>
-            <ScrollLink to='Gear' className='cursor-pointer' smooth={true} duration={200} offset={-150} spy={true}>
-              Gear
+          <li>
+            <ScrollLink
+              to='About'
+              activeClass='active'
+              className='cursor-pointer hover:text-[#848484]'
+              smooth={true}
+              duration={200}
+              offset={-100}
+              spy={true}
+            >
+              About
             </ScrollLink>
-          </li> */}
+          </li>
+
           <li>
             <ScrollLink
               to='Contact'
               activeClass='active'
-              className='cursor-pointer'
+              className='cursor-pointer hover:text-[#848484]'
               smooth={true}
               duration={200}
-              offset={50}
+              offset={-150}
               spy={true}
             >
               Contact
             </ScrollLink>
           </li>
-          <li>
-            <Link
-              scroll={false}
-              href={`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`}
-              className={`
-              relative z-10 rounded-md  bg-[#F2F0ED]
-              flex items-center justify-center space-x-2 py-1 px-4
-               transition duration-300
-              shadow-[0_0_20px_rgba(87,133,221,0.4),0_0_40px_rgba(131,87,218,0.3),0_0_60px_rgba(174,41,214,0.2)]   `}
-            >
-              <p className={` hidden xl:flex ${gameMode ? "opacity-30" : " text-black"}`}>Off</p>
-              <LuGamepad color='black' size={30} opacity={gameMode ? 1 : 0.3} />
-            </Link>
-          </li>
         </ul>
-        {/* 
         <Link
           scroll={false}
           href={`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`}
-          className='flex space-x-4 text-gray-100 items-center justify-end font-thin w-[260px]  '
+          className={`
+              relative z-10 rounded-md  bg-[#F2F0ED]
+              flex items-center justify-center space-x-2 py-1 px-4
+               transition duration-300
+              ${gameMode ? "shadow-[0_0_20px_rgba(251,67,17,0.4),0_0_40px_rgba(251,140,57,0.3),0_0_60px_rgba(250,212,97,0.2)]" : "shadow-[0_0_20px_rgba(87,133,221,0.4),0_0_40px_rgba(131,87,218,0.3),0_0_60px_rgba(174,41,214,0.2)]"}   `}
         >
-          <p className={`${gameMode ? "text-white" : "text-gray-600"} hidden xl:flex `}>GAMING MODE</p>
-          <LuGamepad size={30} opacity={gameMode ? 1 : 0.6} className={`${gameMode ? "" : "Gamepad"}`} />
-        </Link> */}
+          <p className={` hidden xl:flex ${gameMode ? "text-gray-400" : " text-black"}`}>Off</p>
+          <LuGamepad color='black' size={30} opacity={gameMode ? 1 : 0.3} />
+        </Link>
       </div>
 
       <MobileNav
@@ -261,25 +257,7 @@ function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameMo
                 } px-6 font-medium flex justify-between items-center`}
               >
                 <ScrollLink
-                  to='Tech'
-                  smooth={true}
-                  duration={200}
-                  offset={-100}
-                  className='nav-link'
-                  spy={true}
-                  onClick={() => setMobileNav(false)}
-                >
-                  {gameMode ? "Goats" : "Tech"}
-                </ScrollLink>
-                {gameMode ? <IoIosPodium size={25} /> : <FaCode size={25} />}
-              </li>
-              <li
-                className={`w-full  text-slate-300 py-4 border-b-[1px] ${
-                  gameMode ? "bg-[#1f1f1f]" : "bg-slate-900"
-                } px-6 font-medium flex justify-between items-center`}
-              >
-                <ScrollLink
-                  to='Works'
+                  to='Portfolio'
                   smooth={true}
                   duration={200}
                   offset={-100}
@@ -287,7 +265,7 @@ function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameMo
                   className='nav-link'
                   onClick={() => setMobileNav(false)}
                 >
-                  {gameMode ? "Rescently played" : "Works"}
+                  Portfolio
                 </ScrollLink>
                 <GrProjects size={25} />
               </li>{" "}
@@ -306,6 +284,24 @@ function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameMo
                   onClick={() => setMobileNav(false)}
                 >
                   {gameMode ? "Steam" : "Resume"}
+                </ScrollLink>
+                <SiReaddotcv size={25} />
+              </li>
+              <li
+                className={`w-full  text-slate-300 py-4 border-b-[1px] ${
+                  gameMode ? "bg-[#1f1f1f]" : "bg-slate-900"
+                } px-6 font-medium flex justify-between items-center`}
+              >
+                <ScrollLink
+                  to='About'
+                  smooth={true}
+                  duration={200}
+                  offset={-100}
+                  spy={true}
+                  className='nav-link'
+                  onClick={() => setMobileNav(false)}
+                >
+                  About
                 </ScrollLink>
                 <SiReaddotcv size={25} />
               </li>

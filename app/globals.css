@@ -52,7 +52,7 @@
 
 :root {
   --Foreground-Color: linear-gradient(90deg, #5785dd 0%, #8357da 50%, #ae29d6 100%);
-  --GameMode-Color: #fb4311;
+  --GameMode-Color: linear-gradient(90deg, #fb4311 0%, #fb8c39 50%, #fad461 100%);
   --Background-Color: #01000e;
 }
 .gradient-text {
@@ -217,7 +217,7 @@ li a::after {
   left: 0;
   bottom: 0;
   height: 2px;
-  background: linear-gradient(90deg, #5785dd 0%, #8357da 50%, #ae29d6 100%);
+  background: var(--Foreground-Color);
   transition: width 0.3s ease-in-out;
 }
 li a.active::after {
@@ -262,9 +262,12 @@ body::before {
   z-index: -1;
   position: fixed;
   inset: 0;
-  background-image: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 0 2px, transparent 2px 40px),
+  background-image:
+    repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 0 2px, transparent 2px 40px),
     repeating-linear-gradient(to right, rgba(255, 255, 255, 0.08) 0 2px, transparent 2px 40px);
-  background-size: 100% 30px, 30px 100%;
+  background-size:
+    100% 30px,
+    30px 100%;
   opacity: 0.1; /* na chwilę podnieś, żeby zobaczyć efekt */
   pointer-events: none;
   mix-blend-mode: screen;
@@ -310,43 +313,3 @@ body::before {
 .cta-button::before {
   background-color: var(--Foreground-Color);
 }
-/* .view-resume {
-  transition: all 100ms;
-}
-.view-resume:hover {
-  background: var(--Foreground-Color);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-} */
-
-/* .chrome-tab {
-  position: relative;
-  background-color: #303134;
-  color: white;
-  padding: 12px 40px;
-  font-family: sans-serif;
-  font-weight: bold;
-  display: inline-block;
-}
-
-.chrome-tab::before,
-.chrome-tab::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 20px;
-  height: 20px;
-  background: white;
-  z-index: 1;
-}
-
-.chrome-tab::before {
-  left: -10px;
-  border-bottom-right-radius: 20px;
-}
-
-
-.chrome-tab::after {
-  right: -10px;
-  border-bottom-left-radius: 20px;
-} */

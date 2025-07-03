@@ -9,6 +9,7 @@ import {LuSettings2} from "react-icons/lu";
 import {VscChromeMinimize} from "react-icons/vsc";
 import {useRef, useEffect, useState, Dispatch, SetStateAction} from "react";
 import {BsPersonWorkspace} from "react-icons/bs";
+import {FiExternalLink} from "react-icons/fi";
 
 import bailiffImage from "@/public/images/BailiffLong.webp";
 import photographyImage from "@/public/images/PhotographyWebsiteScreen.png";
@@ -21,6 +22,7 @@ import bailiffLogo from "@/public/images/BailiffLogo.webp";
 import carpentryLogo from "@/public/images/StolarstwoLogo.png";
 
 import photographyLogo from "@/public/images/FotoLogo.png";
+import Link from "next/link";
 
 export interface Portfolio {
   header: string;
@@ -37,9 +39,9 @@ const Portfolio = () => {
   const [selectedWebsite, setSelectedWebsite] = useState(1);
 
   return (
-    <div
+    <section
       id='Portfolio'
-      className='flex flex-col text-center w-[95%] md:w-full max-w-[1200px] mx-auto items-center justify-center md:pb-32 pb-16 mt-32 md:mt-0'
+      className='flex flex-col text-center w-[95%] md:w-full max-w-[1200px] mx-auto items-center justify-center md:pb-32 pb-16 mt-32 md:mt-52'
     >
       <div className='flex flex-col space-y-6 justify-center items-center'>
         <span className='text-4xl font-bold'>Portfolio</span>
@@ -50,7 +52,7 @@ const Portfolio = () => {
       </div>
       <Browser setSelectedWebsite={setSelectedWebsite} selectedWebsite={selectedWebsite} />
       <WebsiteDescription selectedWebsite={selectedWebsite} />
-    </div>
+    </section>
   );
 };
 
@@ -154,7 +156,7 @@ function Browser({
   ];
   return (
     <>
-      <div className='flex flex-col items-start mt-12 y-4 bg-[#1e1e1e] rounded-[25px] md:pt-3 pt-2 '>
+      <div className='flex flex-col items-start mt-16 y-4 bg-[#1e1e1e] rounded-[25px] md:pt-3 pt-2 '>
         {/* ####################################### */}
         {/* Macos interface */}
         {/* ####################################### */}
@@ -201,7 +203,7 @@ function Browser({
             </button>
           ))}
           <div
-            className={`bg-[#1e1e1e] p-2  items-center justify-center space-x-4 hidden md:flex${
+            className={`bg-[#1e1e1e] p-2  items-center justify-center space-x-4 hidden md:flex ${
               selectedWebsite == 2 && "rounded-bl-lg"
             }`}
           >
@@ -223,7 +225,7 @@ function Browser({
               <div className='bg-[#303134] rounded-full w-[22px] h-[22px] flex items-center justify-center'>
                 <LuSettings2 />
               </div>
-              <p>https://komornikddbielsko.pl/</p>
+              <p>{portfolioData[selectedWebsite].link}</p>
             </div>
             <FaRegStar className='mr-2' />
           </div>
@@ -234,7 +236,7 @@ function Browser({
         </div>
         <div
           ref={containerRef}
-          className='md:w-[800px] mt-0 md:h-[460px] w-full max-w-[800px] h-[400px]  rounded-b-[20px] xl:w-[1200px] xl:h-[690px] overflow-y-scroll '
+          className=' mt-0  w-full lg:max-w-[1200px] max-w-[800px] h-[400px] lg:w-[800px] lg:h-[600px] xl:w-[1200px] xl:h-[690px]  rounded-b-[20px]  overflow-y-scroll '
         >
           <Image
             src={imageMap[portfolioData[selectedWebsite].image]}
@@ -253,15 +255,35 @@ function WebsiteDescription({selectedWebsite}: {selectedWebsite: number}) {
   return (
     <>
       <h1 className='mt-10 text-4xl'>{portfolioData[selectedWebsite].title}</h1>
-      <h2 className='mt-2 text-xl text-gray-400'>{portfolioData[selectedWebsite].subTitle}</h2>
+      <h2 className='mt-2 text-xl text-[#848484]'>{portfolioData[selectedWebsite].subTitle}</h2>
       <div className='flex mt-6 space-x-4'>
         {portfolioData[selectedWebsite].tech.split(" ").map((techItem, index) => (
-          <div className='border text-TextColor py-2 px-4 bg-[#c4c3c32b] border-[#ffffff44] rounded-full  backdrop-blur-xl hover:bg-[#c4c3c356] duration-200 '>
+          <div className=' text-TextColor py-2 px-4 bg-[#2c2c398f] backdrop-blur-xl rounded-full   hover:bg-[#c4c3c356] duration-200 '>
             <p>{techItem}</p>
           </div>
         ))}
       </div>
       <p className='text-center mt-6 max-w-[500px] px-6 md:px-0'>{portfolioData[selectedWebsite].description}</p>
+      <div className='flex space-x-6 mt-10'>
+        <Link
+          href={portfolioData[selectedWebsite].link}
+          className='text-xl rounded-xl   cursor-pointer hover:drop-shadow shadow-radial-gradient(circle_at_center,_#5785dd_0%,_transparent_70%) 
+          
+          duration-[400ms] transition-all  flex space-x-2 items-center px-6 py-3 bg-gray-200/10 hover:scale-[1.07] hover:bg-gray-200 hover:text-black backdrop-blur'
+        >
+          Visit Live
+          <FiExternalLink className='ml-2' />
+        </Link>
+        <Link
+          href={portfolioData[selectedWebsite].link}
+          className='text-xl rounded-xl   cursor-pointer hover:drop-shadow shadow-radial-gradient(circle_at_center,_#5785dd_0%,_transparent_70%) 
+          
+          duration-[400ms] transition-all  flex space-x-2 items-center px-6 py-3 bg-gray-200/10 hover:scale-[1.07] hover:bg-gray-200 hover:text-black backdrop-blur'
+        >
+          View Code
+          <FaArrowRight className='ml-2' />
+        </Link>
+      </div>
     </>
   );
 }

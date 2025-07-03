@@ -1,25 +1,28 @@
 [
   {
     "title": "Bailiff's Website",
-    "subTitle": "Bailif Website",
+    "subTitle": "Informational legal platform with secure admin panel",
     "description": "This is the most advanced website I’ve created so far. From the design, which had to be purely informative due to legal constraints, to the technical aspects, it involved building an API that connects to a database, fetches data, and handles other CRUD operations. Additionally, it includes Firebase authentication for user credentials.",
     "image": "bailiffImage",
-    "tech": "Typescript React Nextjs Tailwindcss MySQL Firebase"
+    "tech": "Typescript React Nextjs Tailwindcss MySQL Firebase",
+    "link": "https://komornikddbielsko.pl"
   },
   {
     "title": "Carpenter's Website",
-    "subTitle": "Bailif Website",
+    "subTitle": "Minimalist product site for custom wood furniture",
 
     "description": "This is a website created for a carpenter who specializes in solid wood furniture. The goal was to make the design clear and minimalistic while conveying a sense of 'solidness.' Due to the simplicity of the website, I chose Astro as the framework, which is perfect for this type of project – simple yet powerful.",
     "image": "carpentryImage",
-    "tech": "Typescript Astro Tailwindcss"
+    "tech": "Typescript Astro Tailwindcss",
+    "link": "https://stolarstwokomendera.pl"
   },
   {
     "title": "Animal Photographer's Website",
-    "subTitle": "Bailif Website",
+    "subTitle": "Portfolio site tailored to highlight photography work",
 
     "description": "This is the first real website I created for my cousin, an animal photographer. The purpose of the website is to showcase her work, introduce her personality, and, most importantly, highlight the quality of her photos. She wanted the design to be simple and aligned with the colors of her logo.",
     "image": "photographyImage",
-    "tech": "Javascript React Tailwindcss"
+    "tech": "Javascript React Tailwindcss",
+    "link": "https://patrycjadfotografia.pl"
   }
 ]

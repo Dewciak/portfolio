@@ -61,18 +61,18 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
     <section
       ref={GearRef}
       id='Gear'
-      className='max-w-[1250px] mx-auto flex pt-28 lg:pt-44   flex-col px-6 overflow-hidden '
+      className='max-w-[1250px] mx-auto flex pt-28 sm:pt-44   flex-col px-6 overflow-hidden '
     >
       <div className='flex justify-between   items-center'>
-        <div className='flex md:justify-between w-full flex-col md:flex-row justify-center items-center space-y-6'>
-          <div className='flex md:space-x-4 items-center  '>
-            <FaLaptopCode size={30} className='hidden md:block' />
+        <div className='flex lg:justify-between w-full flex-col lg:flex-row justify-center items-center space-y-6'>
+          <div className='flex lg:space-x-4 items-center  '>
+            <FaLaptopCode size={30} className='hidden lg:block' />
             <h2 className='text-3xl font-bold'>
               {gameMode ? "My sweet" : "My code"} {gameMode ? "kingdom" : "environment"}
             </h2>
           </div>
 
-          <div className='flex space-x-10  text-2xl lg:text-xl z-10  items-center mr-2'>
+          <div className='flex space-x-10  text-2xl sm:text-xl z-10  items-center mr-2'>
             <Link
               role='button'
               href='?gameMode=Off'
@@ -96,7 +96,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
       </div>
 
       <div className='relative flex flex-col-reverse lg:flex-row justify-between items-center mt-8 '>
-        <div className='w-full lg:w-[500px] z-10 mt-12 '>
+        <div className=' xl:w-[500px] lg:w-[400px] w-full max-w-[550px] z-10 mt-12 '>
           <div className='flex flex-col  justify-center items-start space-y-6 mt-0'>
             {selectedGear.map((gear, key) => (
               <GearItem
@@ -109,7 +109,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
             ))}
           </div>
         </div>
-        <div className=' w-[400px] h-[400px] md:absolute lg:w-[650px] lg:h-[700px]    md:-right-24  flex  items-start  mt-0   justify-center '>
+        <div className=' w-[400px] h-[400px] lg:absolute md:w-[650px] md:h-[700px]   lg:-right-24  flex  items-start  mt-0   justify-center '>
           {isGearVisible && (
             <GearScene
               rotation={roomRotation}

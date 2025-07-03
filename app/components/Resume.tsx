@@ -24,7 +24,7 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
     <section
       ref={resumeRef}
       id='Resume'
-      className='flex md:pt-[160px] lg:pt-[0px] lg:mb-[0px] justify-center w-full overflow-hidden max-w-[1300px] mx-auto'
+      className='flex md:pt-[0px] pt-[0px] md:mb-[0px] justify-center w-full overflow-hidden max-w-[1300px] mx-auto '
     >
       {/* <div className='pb-6 mx-auto text-center'>
         <OpenForWork gameMode={gameMode} />
@@ -37,13 +37,13 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
         </div>
         <div className='cv-image-box flex justtify-center mr-16 py-10 mt-32 '>
           <div
-            className={`lg:w-[360px]  lg:h-[544px] w-[260px] h-[370px] overflow-hidden rounded-[17px] bg-white z-10 
+            className={`md:w-[360px]  md:h-[544px] w-[260px] h-[370px] overflow-hidden rounded-[17px] bg-white z-10 
               ${isVisible ? "scale-105 rotate-[-12deg]" : "rotate-[-7deg]"} duration-700 transition-all`}
           >
             <Image src={gameMode ? Steam : Cv} alt='' loading='lazy' />
           </div>
           <div
-            className={`lg:w-[100px] lg:h-[100px] w-[70px] h-[70px] rounded-full  z-10 relative bottom-[10px] lg:top-[10px] top-[20px]  lg:right-[90px] right-[60px]  duration-700 ${
+            className={`md:w-[100px] md:h-[100px] w-[70px] h-[70px] rounded-full  z-10 relative bottom-[10px] md:top-[10px] top-[20px]  md:right-[90px] right-[60px]  duration-700 ${
               isVisible && "scale-125"
             }`}
           >
@@ -55,7 +55,7 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
             />
           </div>
           <div
-            className={`overflow-hidden lg:w-[360px] lg:h-[544px] w-[260px] h-[370px] rounded-[17px] absolute ml-44 mt-12 
+            className={`overflow-hidden md:w-[360px] md:h-[544px] w-[260px] h-[370px] rounded-[17px] absolute ml-44 mt-12 
               ${isVisible ? "scale-105 rotate-[12deg]" : "rotate-[10deg]"} duration-700 transition-all`}
           >
             <Image loading='lazy' src={CodeSs} alt='' className='object-cover h-full w-auto' />
@@ -76,11 +76,11 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
           <p>{gameMode ? "My steam profile" : "Download CV"}</p>
         </Link>
         <div
-          className='absolute 
+          className={`absolute 
                md:h-[800px] md:w-[600px] h-[400px] w-[300px] rounded-full opacity-1 blur-[140px]
-              bg-[radial-gradient(circle_at_center,_#5785dd_0%,_transparent_70%)]
+              
                pointer-events-none
-              -z-10'
+              -z-10 ${gameMode ? "bg-[radial-gradient(circle_at_center,_#fad461_0%,_transparent_40%)]" : "bg-[radial-gradient(circle_at_center,_#5785dd_0%,_transparent_70%)]"}`}
         />
       </div>
     </section>

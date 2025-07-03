@@ -13,7 +13,7 @@ export interface Technology {
   alt: string;
 }
 const Tech = ({gameMode}: {gameMode: boolean}) => {
-  const gameModeTechData = gameMode ? techData.gameModeOn : techData.gameModeOff;
+  const gameModeTechData = techData.gameModeOff;
 
   return (
     <section id='Tech' className='max-w-[1250px] flex flex-col mx-auto justify-start items-center  pt-32 lg:pt-6 px-6 '>
@@ -25,7 +25,7 @@ const Tech = ({gameMode}: {gameMode: boolean}) => {
         </h2>
       </div>
 
-      <div className='overflow-hidden w-full flex flex-wrap gap-6 mt-14 '>
+      <div className='overflow-hidden w-full flex flex-wrap gap-6 mt-14  justify-center'>
         {gameModeTechData.map((tech: Technology, index: number) => (
           <Card
             key={index}
@@ -58,7 +58,9 @@ interface cardProps {
 const Card = ({header, description, icon, gameMode, animationDelay, index, alt}: cardProps) => {
   return (
     <motion.div
-      className='w-[150px] h-[150px] hover:bg-[#2c2c399f] duration-300 transform cursor-default   bg-[#2c2c394c] backdrop-blur-xl   rounded-[20px]  flex items-center justify-center '
+      className='md:w-[150px] md:h-[150px] hover:bg-[#2c2c399f] duration-300 w-[100px] h-[100px] 
+      transform cursor-default   bg-[#2c2c394c] backdrop-blur-xl   rounded-[20px]  
+      flex items-center justify-center '
       style={{animationDelay: `${animationDelay}ms`}}
       initial={{opacity: 0, y: 100}}
       whileInView={{opacity: 1, y: 0}}
@@ -77,6 +79,7 @@ const Card = ({header, description, icon, gameMode, animationDelay, index, alt}:
           height={70}
           src={icon}
           alt={alt}
+          className='w-[50px] h-[50px]'
           // className={gameMode ? "h-full object-cover rounded-t-[10px]" : "size-[100px]"}
         />
         <strong className='text-TextColor'>{header}</strong>

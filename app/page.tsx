@@ -20,7 +20,7 @@ export default function Home({searchParams}: Props) {
   const gameMode = searchParams.gameMode === "On" ? true : false;
   return (
     <>
-      <Blobs />
+      <Blobs gameMode={gameMode} />
       <header>
         <Navbar gameMode={gameMode} />
       </header>
@@ -30,21 +30,21 @@ export default function Home({searchParams}: Props) {
         <Portfolio />
 
         <Resume gameMode={gameMode} />
-        {/* <Tech gameMode={gameMode} /> */}
+        <Tech gameMode={gameMode} />
 
         <About gameMode={gameMode} />
 
         <Gear gameMode={gameMode} />
-        <Contact />
+        <Contact gameMode={gameMode} />
       </main>
       <footer>
-        <Footer />
+        <Footer gameMode={gameMode} />
       </footer>
     </>
   );
 }
 
 export const metadata: Metadata = {
-  title: "Wiktor Dawid Portfolio",
+  title: "Wiktor Dawid | Personal Portfolio",
   description: "Portfolio of Wiktor Dawid, a frontend developer.",
 };
