@@ -27,11 +27,10 @@ export default function Home({searchParams}: Props) {
       <main>
         <Hero gameMode={gameMode} />
 
-        {/* <Works gameMode={gameMode} /> */}
-        <Portfolio gameMode={gameMode} />
+        <Portfolio />
 
         <Resume gameMode={gameMode} />
-        <Tech gameMode={gameMode} />
+        {/* <Tech gameMode={gameMode} /> */}
 
         <About gameMode={gameMode} />
 

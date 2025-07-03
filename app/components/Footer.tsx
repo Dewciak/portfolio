@@ -41,19 +41,7 @@ const Footer = () => {
 
   return (
     <footer id='Contact' className='relative w-full flex  lg:mt-[350px] mt-32 border-t-[0px] border-[hsl(0,0%,50%)] '>
-      <div className='max-w-[1300px] flex flex-col mx-auto w-full px-6 py-4 pb-20'>
-        {/* <div className='flex  lg:items-center max-w-[100%] flex-col lg:flex-row  space-y-6 lg:space-y-0 items-start justify-between '>
-          <p className='font-bold text-5xl'>
-            Let&apos;s <span>connect</span>.
-          </p>
-          <div className='flex items-center justify-between w-full lg:w-auto '>
-            <FooterSocials />
-            <p className='lg:hidden font-medium text-xl text-MylightGray'>wiktorskid@wp.pl</p>
-          </div>
-        </div> */}
-        {/* <a href='mailto:wiktorskid@wp.pl' className='hidden lg:block mr-auto mt-6 font-medium text-xl no-underline '>
-          wiktorskid@wp.pl
-        </a> */}
+      <div className='max-w-[1300px] flex flex-col mx-auto w-full px-6 py-4 md:pb-20 pb-4'>
         <div className='mx-auto flex flex-col mt-6 lg:mt-0 space-y-2 items-center justify-center'>
           <p className=' font-thin text-center text-[#A8A8A8] text-lg'>
             {data?.city}, {data?.time} (UTC +1) • {data?.temperature}°C
@@ -71,44 +59,11 @@ export const dynamic = "force-dynamic";
 
 export default Footer;
 
-const FooterSocials = () => {
-  return (
-    <div className='flex space-x-4'>
-      <a
-        href='https://github.com/Dewciak/portfolio'
-        target='_blank'
-        rel='noreferrer'
-        className='social-Icon cursor-pointer text-white hover:text-white'
-      >
-        <FaGithub size={30} aria-label='GitHub' />
-      </a>
-
-      <a
-        href='mailto:wiktorskid@wp.pl'
-        target='_blank'
-        rel='noreferrer'
-        className='social-Icon cursor-pointer text-white hover:text-white'
-      >
-        <FaRegEnvelope size={30} aria-label='Email' />
-      </a>
-
-      <a
-        href='https://www.linkedin.com/in/wiktor-dawid-9145a2355'
-        target='_blank'
-        rel='noreferrer'
-        className='social-Icon cursor-pointer text-white hover:text-white'
-      >
-        <FaLinkedinIn size={30} aria-label='LinkedIn' />
-      </a>
-    </div>
-  );
-};
-
 function Wave() {
   return (
-    <div className='absolute w-full  -z-10 opacity-100 bottom-[0px]'>
+    <div className='absolute w-full  -z-10 opacity-100 bottom-6 md:bottom-0'>
       <svg
-        className=' bottom-0 left-0 w-full z-10 h-full scale-y-100'
+        className=' bottom-0 left-0 w-full z-10 h-full md:scale-y-100 scale-y-150'
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 1440 320'
       >

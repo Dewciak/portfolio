@@ -56,15 +56,11 @@ const Hero = ({gameMode}: Props) => {
       id='Home'
       className=' relative overflow-hidden flex flex-col-reverse md:flex-row md:max-w-[1200px] 2xl:max-w-[1300px] mx-auto px-6 '
     >
-      <div className='absolute top-12 left-6 lg:hidden'>
-        <OpenForWork gameMode={gameMode} />
-      </div>
-
       <div className='w-full md:w-[50%] 2xl:w-[40%] flex flex-col justify-center items-start z-20'>
-        <div className=''>
-          <div className='  '>
-            <h1 className='text-5xl lg:text-7xl font-[500]'>Software</h1>
-            <h1 className='text-5xl lg:text-7xl font-[500]'>
+        <div>
+          <div>
+            <h1 className='text-6xl lg:text-7xl font-[500] text-center lg:text-left'>Software</h1>
+            <h1 className='text-6xl lg:text-7xl font-[500] text-center lg:text-left'>
               {/* <span>{gameMode ? "Driven" : "Frontend"}</span> {gameMode ? "gamer." : "dev."} */}
               <span>Engineer</span>
             </h1>
@@ -79,7 +75,7 @@ const Hero = ({gameMode}: Props) => {
               ? "I overcome missions and secure victories, all with a few clicks of the gamepad "
               : "Where performance meets pixel-perfect design."}
           </h3>
-          <div className='flex space-x-10 mt-6 items-center'>
+          <div className='flex space-x-10 mt-6 items-center  justify-center lg:justify-start '>
             <CtaBtn text='Portfolio' />
             {/* <CtaBtn text='Contact' /> */}
             <Link

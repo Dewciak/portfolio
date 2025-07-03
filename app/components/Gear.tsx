@@ -61,12 +61,12 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
     <section
       ref={GearRef}
       id='Gear'
-      className='max-w-[1250px] mx-auto flex pt-10 lg:pt-44  flex-col px-6 overflow-hidden '
+      className='max-w-[1250px] mx-auto flex pt-28 lg:pt-44   flex-col px-6 overflow-hidden '
     >
       <div className='flex justify-between   items-center'>
-        <div className='flex justify-between w-full'>
-          <div className='flex space-x-4 items-center  '>
-            <FaLaptopCode size={30} />
+        <div className='flex md:justify-between w-full flex-col md:flex-row justify-center items-center space-y-6'>
+          <div className='flex md:space-x-4 items-center  '>
+            <FaLaptopCode size={30} className='hidden md:block' />
             <h2 className='text-3xl font-bold'>
               {gameMode ? "My sweet" : "My code"} {gameMode ? "kingdom" : "environment"}
             </h2>
@@ -93,16 +93,6 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
             </Link>
           </div>
         </div>
-
-        {/* <Image
-          src={Samurai}
-          alt=''
-          loading='lazy'
-          className={`Samurai absolute lg:size-[300px] object-cover  lg:top-[-150px] top-[-150px]  size-[250px]    rotate-12 transition-opacity duration-150 right-[-150px] md:right-[0px]  ${
-            gameMode ? "opacity-100" : "opacity-0"
-          }`}
-        /> */}
-        {/* Samurai picture visible only on game mode */}
       </div>
 
       <div className='relative flex flex-col-reverse lg:flex-row justify-between items-center mt-8 '>
@@ -119,7 +109,7 @@ const Gear = ({gameMode}: {gameMode: boolean}) => {
             ))}
           </div>
         </div>
-        <div className=' w-[95%] absolute lg:w-[650px]   h-[400px] lg:h-[700px] -right-24  flex  items-start  mt-0   justify-center '>
+        <div className=' w-[400px] h-[400px] md:absolute lg:w-[650px] lg:h-[700px]    md:-right-24  flex  items-start  mt-0   justify-center '>
           {isGearVisible && (
             <GearScene
               rotation={roomRotation}

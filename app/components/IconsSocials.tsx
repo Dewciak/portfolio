@@ -19,9 +19,9 @@ const IconsSocials = () => {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{transform: shift}}
-      className='fixed top-[45%] right-0 z-20 flex flex-col space-y-4
+      className='fixed top-[45%] right-0 z-20  flex-col space-y-4
                  px-4 border-l-4 border-white transition-transform
-                 duration-300 ease-in-out pointer-events-auto'
+                 duration-300 ease-in-out pointer-events-auto hidden lg:flex'
     >
       <a
         href='https://github.com/Dewciak/portfolio'

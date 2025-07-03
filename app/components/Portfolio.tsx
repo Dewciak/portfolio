@@ -37,12 +37,15 @@ const Portfolio = () => {
   const [selectedWebsite, setSelectedWebsite] = useState(1);
 
   return (
-    <div id='Portfolio' className='flex flex-col text-center  max-w-[1200px] mx-auto items-center justify-center pb-32'>
+    <div
+      id='Portfolio'
+      className='flex flex-col text-center w-[95%] md:w-full max-w-[1200px] mx-auto items-center justify-center md:pb-32 pb-16 mt-32 md:mt-0'
+    >
       <div className='flex flex-col space-y-6 justify-center items-center'>
         <span className='text-4xl font-bold'>Portfolio</span>
-        <div className='flex space-x-4 items-center'>
-          <BsPersonWorkspace size={30} className='gradient-text' />
-          <p className='max-w-[500px] text-TextColor font-bold text-4xl'>Selected Front-End Projects</p>
+        <div className='flex space-x-4 items-start  md:items-start text-center'>
+          <BsPersonWorkspace size={30} className='gradient-text hidden md:block' />
+          <p className='md:max-w-[500px] text-TextColor font-bold text-4xl '>Selected Front-End Projects</p>
         </div>
       </div>
       <Browser setSelectedWebsite={setSelectedWebsite} selectedWebsite={selectedWebsite} />
@@ -151,13 +154,13 @@ function Browser({
   ];
   return (
     <>
-      <div className='flex flex-col items-start mt-12 y-4 bg-[#1e1e1e] rounded-[25px] pt-3 '>
+      <div className='flex flex-col items-start mt-12 y-4 bg-[#1e1e1e] rounded-[25px] md:pt-3 pt-2 '>
         {/* ####################################### */}
         {/* Macos interface */}
         {/* ####################################### */}
         <div className='flex  items-center  bg-[#303134] rounded-[20px]'>
           <div
-            className={`flex space-x-2 group bg-[#1e1e1e] px-6 py-[14px] rounded-tl-[20px] ${
+            className={`flex space-x-2 group bg-[#1e1e1e] md:px-6 px-4 py-[14px] rounded-tl-[20px] ${
               selectedWebsite == 0 && "rounded-br-lg"
             }`}
           >
@@ -177,7 +180,7 @@ function Browser({
               onClick={() => setSelectedWebsite(index)}
               className={`chrome-tab relative
                  flex  items-center
-                clip-inset-rounded min-w-0 max-w-[200px] p-2  justify-between z-10 
+                clip-inset-rounded min-w-0 md:max-w-[200px] max-w-[100px] p-2  justify-between z-10 
               ${selectedWebsite == index ? "bg-[#303134] rounded-t-lg top-[-5px]  " : "bg-[#1e1e1e]  "}
               ${selectedWebsite == 0 && index == 1 && "rounded-bl-lg "}
               ${selectedWebsite == 1 && index == 0 && "rounded-br-lg "}
@@ -188,17 +191,17 @@ function Browser({
               `}
             >
               <Image src={websiteItem.logo} alt='Carpentry Favicon' width={19} height={19} />
-              <p className=' whitespace-nowrap overflow-hidden flex-1 text-left ml-2'>{websiteItem.title}</p>
+              <p className=' whitespace-nowrap overflow-hidden flex-1 text-left ml-2 '>{websiteItem.title}</p>
               <IoIosClose fill='#ffffff' size={24} />
               <div
-                className={`absolute right-0 top-0 h-full w-8 mr-7 bg-gradient-to-l z-10  ${
+                className={`absolute right-0 top-0 h-full md:w-8 md:mr-7 bg-gradient-to-l z-10  w-4 mr-7  ${
                   selectedWebsite == index ? "from-[#303134] rounded-t-lg" : "from-[#1e1e1e] rounded-t-[20px]"
                 } to-transparent pointer-events-none`}
               />
             </button>
           ))}
           <div
-            className={`bg-[#1e1e1e] p-2 flex items-center justify-center space-x-4 ${
+            className={`bg-[#1e1e1e] p-2  items-center justify-center space-x-4 hidden md:flex${
               selectedWebsite == 2 && "rounded-bl-lg"
             }`}
           >
@@ -231,7 +234,7 @@ function Browser({
         </div>
         <div
           ref={containerRef}
-          className='w-[800px] mt-0 h-[460px]  rounded-b-[20px] xl:w-[1200px] xl:h-[690px] overflow-y-scroll '
+          className='md:w-[800px] mt-0 md:h-[460px] w-full max-w-[800px] h-[400px]  rounded-b-[20px] xl:w-[1200px] xl:h-[690px] overflow-y-scroll '
         >
           <Image
             src={imageMap[portfolioData[selectedWebsite].image]}
@@ -258,7 +261,7 @@ function WebsiteDescription({selectedWebsite}: {selectedWebsite: number}) {
           </div>
         ))}
       </div>
-      <p className='text-center mt-6 max-w-[500px]'>{portfolioData[selectedWebsite].description}</p>
+      <p className='text-center mt-6 max-w-[500px] px-6 md:px-0'>{portfolioData[selectedWebsite].description}</p>
     </>
   );
 }

@@ -12,12 +12,12 @@ const Contact = () => {
     <form
       action='https://api.web3forms.com/submit'
       method='POST'
-      className='flex flex-col max-w-[550px] mx-auto p-10 backdrop-blur-lg mt-[320px] pb-20 space-y-10 border rounded-[30px] bg-[#ffffff1a]'
+      className='flex flex-col md:max-w-[550px] max-w-[95%]  mx-auto md:p-10 p-6 backdrop-blur-lg md:mt-[320px] mt-32 pb-20 space-y-10 border rounded-[30px] bg-[#ffffff1a]'
     >
       <input type='hidden' name='access_key' value='64cc9455-2d9f-4697-9cc2-1dcc08ecdaa8'></input>
-      <div className='flex justify-between items-center'>
-        <h1 className='gradient-text'>Get In Touch</h1>
-        <FaConnectdevelop size={50} className='text-ForegroundColor' />
+      <div className='flex justify-between md:items-center items-start'>
+        <h1 className='gradient-text text-5xl md:text-7xl'>Get In Touch</h1>
+        <FaConnectdevelop size={40} className='text-ForegroundColor w-[40px] h-[40px] md:w-[50px] md:h-[50px] ' />
       </div>
       <h2>Have something to discuss? Send me a message and let's talk.</h2>
 

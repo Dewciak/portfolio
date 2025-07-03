@@ -24,7 +24,7 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
     <section
       ref={resumeRef}
       id='Resume'
-      className='flex pt-[160px] lg:pt-[0px] lg:mb-[0px] justify-center w-full overflow-hidden max-w-[1300px] mx-auto'
+      className='flex md:pt-[160px] lg:pt-[0px] lg:mb-[0px] justify-center w-full overflow-hidden max-w-[1300px] mx-auto'
     >
       {/* <div className='pb-6 mx-auto text-center'>
         <OpenForWork gameMode={gameMode} />
@@ -77,7 +77,7 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
         </Link>
         <div
           className='absolute 
-               h-[800px] w-[600px] rounded-full opacity-1 blur-[140px]
+               md:h-[800px] md:w-[600px] h-[400px] w-[300px] rounded-full opacity-1 blur-[140px]
               bg-[radial-gradient(circle_at_center,_#5785dd_0%,_transparent_70%)]
                pointer-events-none
               -z-10'
