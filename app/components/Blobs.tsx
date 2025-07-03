@@ -1,5 +1,3 @@
-import React from "react";
-
 const Blobs = ({gameMode}: {gameMode: boolean}) => {
   return (
     <div>

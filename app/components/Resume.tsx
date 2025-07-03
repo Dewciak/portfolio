@@ -1,18 +1,15 @@
 "use client";
 import Cv from "@/public/images/cv.png";
 import CodeSs from "@/public/images/ResumeCode.png";
-import BlueLight from "@/public/images/ResumeLight.png";
-import RedLight from "@/public/images/ResumeLightRed.png";
+import ImageGame from "@/public/images/ResumeGame.png";
+import ImageWork from "@/public/images/ResumeWork.png";
 import Steam from "@/public/images/steam.webp";
 import Image from "next/image";
 import Link from "next/link";
 import {useRef, useState} from "react";
-import useObserver from "./hooks/useObserver";
-import ImageWork from "@/public/images/ResumeWork.png";
-import {SiReaddotcv} from "react-icons/si";
-import ImageGame from "@/public/images/ResumeGame.png";
-import OpenForWork from "./OpenForWork";
 import {IoDocumentTextOutline} from "react-icons/io5";
+import useObserver from "./hooks/useObserver";
+import OpenForWork from "./OpenForWork";
 
 const Resume = ({gameMode}: {gameMode: boolean}) => {
   const [isVisible, setVisible] = useState<boolean>(false);

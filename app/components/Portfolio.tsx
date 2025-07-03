@@ -1,19 +1,18 @@
 "use client";
 // usunąć to później
 import Image, {StaticImageData} from "next/image";
-import {BsThreeDotsVertical} from "react-icons/bs";
+import {Dispatch, SetStateAction, useEffect, useRef, useState} from "react";
+import {BsPersonWorkspace, BsThreeDotsVertical} from "react-icons/bs";
 import {FaRegStar, FaUserCircle} from "react-icons/fa";
 import {FaArrowLeft, FaArrowRight, FaPlus} from "react-icons/fa6";
+import {FiExternalLink} from "react-icons/fi";
 import {IoIosClose, IoMdRefresh} from "react-icons/io";
 import {LuSettings2} from "react-icons/lu";
 import {VscChromeMinimize} from "react-icons/vsc";
-import {useRef, useEffect, useState, Dispatch, SetStateAction} from "react";
-import {BsPersonWorkspace} from "react-icons/bs";
-import {FiExternalLink} from "react-icons/fi";
 
 import bailiffImage from "@/public/images/BailiffLong.webp";
-import photographyImage from "@/public/images/PhotographyWebsiteScreen.png";
 import carpentryImage from "@/public/images/Carpentry.png";
+import photographyImage from "@/public/images/PhotographyWebsiteScreen.png";
 
 import portfolioData from "@/app/components/textContent/Portfolio.json";
 

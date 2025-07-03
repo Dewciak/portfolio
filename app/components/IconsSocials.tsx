@@ -1,6 +1,6 @@
 "use client";
-import React, {useEffect, useState} from "react";
-import {FaGithub, FaRegEnvelope, FaLinkedinIn} from "react-icons/fa";
+import {useEffect, useState} from "react";
+import {FaGithub, FaLinkedinIn, FaRegEnvelope} from "react-icons/fa";
 
 const IconsSocials = () => {
   const [docked, setDocked] = useState(false);

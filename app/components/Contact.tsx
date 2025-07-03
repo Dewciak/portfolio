@@ -1,12 +1,9 @@
 "use client";
 
-import React, {useState} from "react";
-import {FaRegUserCircle} from "react-icons/fa";
-import {MdOutlineMailOutline} from "react-icons/md";
-import {LuSend} from "react-icons/lu";
+import {FaConnectdevelop, FaGithub, FaLinkedinIn, FaRegEnvelope, FaRegUserCircle} from "react-icons/fa";
 import {FiMessageSquare} from "react-icons/fi";
-import {FaConnectdevelop} from "react-icons/fa";
-import {FaGithub, FaRegEnvelope, FaLinkedinIn} from "react-icons/fa";
+import {LuSend} from "react-icons/lu";
+import {MdOutlineMailOutline} from "react-icons/md";
 
 const Contact = ({gameMode}: {gameMode: boolean}) => {
   return (

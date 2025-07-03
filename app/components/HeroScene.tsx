@@ -1,11 +1,11 @@
+import GameImage from "@/public/images/GearNoWebGlGame.png";
+import WorkImage from "@/public/images/HeroNoWebGl.png";
 import {Canvas} from "@react-three/fiber";
 import Image from "next/image";
-import {useEffect, useState, useRef, Suspense} from "react";
-import Scene from "./Scene";
-import WorkImage from "@/public/images/HeroNoWebGl.png";
-import GameImage from "@/public/images/GearNoWebGlGame.png";
+import {Suspense, useEffect, useRef, useState} from "react";
 import {ErrorBoundary} from "react-error-boundary";
 import ClipLoader from "react-spinners/ClipLoader";
+import Scene from "./Scene";
 
 interface Props {
   position: number[];

@@ -1,15 +1,14 @@
 "use client";
-import Samurai from "@/public/images/Samurai.png";
 import {motion} from "framer-motion";
 import dynamic from "next/dynamic";
-import Image, {StaticImageData} from "next/image";
+import {StaticImageData} from "next/image";
 import Link from "next/link";
 import {useEffect, useRef, useState} from "react";
+import {FaLaptopCode} from "react-icons/fa";
 import {getIcon} from "./getIcon";
 import handleModeChange from "./HandleModeChange";
 import useObserver from "./hooks/useObserver";
 import GearDataJson from "./textContent/Gear.json";
-import {FaLaptopCode} from "react-icons/fa";
 
 const GearScene = dynamic(() => import("./GearScene"), {ssr: true});
 // Dynamic import for 3d scene

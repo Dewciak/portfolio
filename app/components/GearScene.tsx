@@ -1,9 +1,9 @@
-import {Canvas} from "@react-three/fiber";
-import dynamic from "next/dynamic";
-import {useEffect, useState, useRef, Suspense} from "react";
-import Image from "next/image";
 import WorkImage from "@/public/images/GearNoWebGl.png";
 import GameImage from "@/public/images/GearNoWebGlGame.png";
+import {Canvas} from "@react-three/fiber";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+import {Suspense, useEffect, useRef, useState} from "react";
 import {ErrorBoundary} from "react-error-boundary";
 import ClipLoader from "react-spinners/ClipLoader";
 

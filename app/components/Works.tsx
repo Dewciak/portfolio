@@ -2,10 +2,9 @@
 import React, {useEffect, useState} from "react";
 
 import Link from "next/link";
+import {BsPersonWorkspace} from "react-icons/bs";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import CloudinaryVideo from "./CldVideo";
-import {BsPersonWorkspace} from "react-icons/bs";
 
 interface WorksDataJson {
   gameModeOn: Record<string, WorkItem>;

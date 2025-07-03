@@ -1,9 +1,6 @@
 "use client";
 import axios from "axios";
-import Link from "next/link";
 import {useEffect, useState} from "react";
-import IconsSocials from "./IconsSocials";
-import {FaGithub, FaRegEnvelope, FaLinkedinIn} from "react-icons/fa6";
 
 interface Response {
   time: string;

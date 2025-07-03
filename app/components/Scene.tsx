@@ -1,7 +1,7 @@
 "use client";
 import {OrbitControls} from "@react-three/drei";
 import {useFrame, useLoader, useThree} from "@react-three/fiber";
-import {useEffect, useRef} from "react";
+import {useRef} from "react";
 import {Group, Vector3} from "three";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js";
 

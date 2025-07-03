@@ -6,13 +6,10 @@ import {LuGamepad} from "react-icons/lu";
 
 import Link from "next/link";
 import {useRouter} from "next/navigation";
-import {FaCode} from "react-icons/fa6";
 import {GrContact, GrProjects} from "react-icons/gr";
-import {IoIosPodium, IoMdHome} from "react-icons/io";
+import {IoMdHome} from "react-icons/io";
 import {SiReaddotcv} from "react-icons/si";
 import {Link as ScrollLink} from "react-scroll";
-import OpenForWork from "./OpenForWork";
-import IconsSocials from "./IconsSocials";
 
 interface NavbarProps {
   gameMode: boolean;

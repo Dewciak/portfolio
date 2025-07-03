@@ -1,8 +1,8 @@
 "use client";
 import {getIcon} from "@/app/components/getIcon";
 import {motion} from "framer-motion";
-import {FaCubesStacked} from "react-icons/fa6";
 import Image, {StaticImageData} from "next/image";
+import {FaCubesStacked} from "react-icons/fa6";
 
 import techData from "@/app/components/textContent/Tech.json";
 

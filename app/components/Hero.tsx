@@ -1,14 +1,12 @@
 "use client";
 import React, {useEffect, useState} from "react";
 import {FaArrowRight} from "react-icons/fa";
-import IconsSocials from "./IconsSocials";
-import OpenForWork from "./OpenForWork";
 
 import dynamic from "next/dynamic";
+import Link from "next/link";
+import CtaBtn from "./CtaBtn";
 import handleModeChange from "./HandleModeChange";
 import useObserver from "./hooks/useObserver";
-import CtaBtn from "./CtaBtn";
-import Link from "next/link";
 
 const HeroScene = dynamic(() => import("./HeroScene"), {ssr: true});
 
