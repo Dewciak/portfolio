@@ -136,7 +136,7 @@ h1 {
   left: 50%;
   width: 45px;
   height: 45px;
-  background: linear-gradient(90deg, #5785dd 0%, #8357da 50%, #ae29d6 100%);
+  background: var(--Foreground-Color);
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
   transition: transform 0.15s ease-in-out;

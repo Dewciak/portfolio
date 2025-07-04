@@ -60,7 +60,11 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
         </div>
 
         <Link
-          href={"https://docs.google.com/document/d/1EYLU0Js3A6Ty38V0ynXZbpGybL-jv2vckIot6LakuVQ/edit?usp=sharing"}
+          href={
+            gameMode
+              ? "https://steamcommunity.com/profiles/76561198126028419/"
+              : "https://docs.google.com/document/d/1EYLU0Js3A6Ty38V0ynXZbpGybL-jv2vckIot6LakuVQ/edit?usp=sharing"
+          }
           className={`view-resume mt-32 text-xl rounded-xl   cursor-pointer hover:drop-shadow shadow-radial-gradient(circle_at_center,_#5785dd_0%,_transparent_70%) ${
             isVisible ? "opacity-100" : "opacity-0"
           }  duration-[400ms] transition-all  flex space-x-2 items-center px-6 py-3 bg-gray-200/10 hover:scale-[1.07] hover:bg-gray-200 hover:text-black backdrop-blur`}
