@@ -3,7 +3,7 @@ import {motion} from "framer-motion";
 import {Twirl as Hamburger} from "hamburger-react";
 import {useEffect, useState} from "react";
 import {LuGamepad} from "react-icons/lu";
-
+import {FaRegUser} from "react-icons/fa";
 import Link from "next/link";
 import {useRouter} from "next/navigation";
 import {GrContact, GrProjects} from "react-icons/gr";
@@ -300,7 +300,7 @@ function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameMo
                 >
                   About
                 </ScrollLink>
-                <SiReaddotcv size={25} />
+                <FaRegUser size={25} />
               </li>
               <div
                 className={`w-full  text-slate-300  rounded-b-2xl  font-medium flex justify-between items-center ${

@@ -3,12 +3,12 @@ import {Link} from "react-scroll";
 
 const CtaBtn = ({text}: {text: string}) => {
   return (
-    <Link to='Portfolio' className='flex flex-col relative  group'>
+    <Link to='Portfolio' className='flex flex-col relative  group pb-2 md:pb-0'>
       <button
         className='cta-button relative px-6 py-3 bg-white text-black 
         duration-300  border transition-transform
         font-semibold
-        group-hover:translate-y-2 group-hover:translate-x-2'
+        md:group-hover:translate-y-2 group-hover:translate-x-2'
       >
         <span className='relative z-10'>{text}</span>
 

@@ -75,7 +75,7 @@ const Hero = ({gameMode}: Props) => {
             target='blank'
             className='font-bold cursor-pointer hover flex items-center justify-center group hover:text-white duration-300 text-TextColor'
           >
-            Download CV{" "}
+            Open CV{" "}
             <div className='ml-2 group-hover:ml-4 duration-300'>
               <FaArrowRight />
             </div>

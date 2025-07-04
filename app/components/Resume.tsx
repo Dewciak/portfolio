@@ -74,7 +74,7 @@ const Resume = ({gameMode}: {gameMode: boolean}) => {
         >
           <IoDocumentTextOutline size={26} />
 
-          <p>{gameMode ? "My steam profile" : "Download CV"}</p>
+          <p>{gameMode ? "My steam profile" : "Open CV"}</p>
         </Link>
         <div
           className={`absolute 
