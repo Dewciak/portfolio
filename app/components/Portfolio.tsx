@@ -35,7 +35,7 @@ interface Website {
   logo: StaticImageData;
 }
 const Portfolio = () => {
-  const [selectedWebsite, setSelectedWebsite] = useState(1);
+  const [selectedWebsite, setSelectedWebsite] = useState(0);
 
   return (
     <section
@@ -255,7 +255,7 @@ function WebsiteDescription({selectedWebsite}: {selectedWebsite: number}) {
     <>
       <h1 className='mt-10 text-4xl'>{portfolioData[selectedWebsite].title}</h1>
       <h2 className='mt-2 text-xl text-[#848484]'>{portfolioData[selectedWebsite].subTitle}</h2>
-      <div className='flex mt-6 space-x-4'>
+      <div className='flex mt-6 gap-x-4  max-w-[350px] gap-y-4 flex-wrap justify-center items-center'>
         {portfolioData[selectedWebsite].tech.split(" ").map((techItem, index) => (
           <div className=' text-TextColor py-2 px-4 bg-[#2c2c398f] backdrop-blur-xl rounded-full   hover:bg-[#c4c3c356] duration-200 '>
             <p>{techItem}</p>
