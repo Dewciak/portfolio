@@ -13,6 +13,7 @@ import {VscChromeMinimize} from "react-icons/vsc";
 import bailiffImage from "@/public/images/BailiffLong.webp";
 import carpentryImage from "@/public/images/Carpentry.png";
 import photographyImage from "@/public/images/PhotographyWebsiteScreen.png";
+import catchzoneImage from "@/public/images/CatchZoneLongShorter.png";
 
 import portfolioData from "@/app/components/textContent/Portfolio.json";
 
@@ -21,6 +22,9 @@ import bailiffLogo from "@/public/images/BailiffLogo.webp";
 import carpentryLogo from "@/public/images/StolarstwoLogo.png";
 
 import photographyLogo from "@/public/images/FotoLogo.png";
+
+import catchzoneLogo from "@/public/images/catchzoneLogo.png";
+
 import Link from "next/link";
 
 export interface Portfolio {
@@ -67,6 +71,7 @@ function Browser({
     bailiffImage: bailiffImage,
     carpentryImage: carpentryImage,
     photographyImage: photographyImage,
+    catchzoneImage: catchzoneImage,
   };
   useEffect(() => {
     const c = containerRef.current;
@@ -151,6 +156,10 @@ function Browser({
     {
       title: "Patrycja Dawid Fot",
       logo: photographyLogo,
+    },
+    {
+      title: "CatchZone",
+      logo: catchzoneLogo,
     },
   ];
   return (

@@ -22,7 +22,16 @@
 
     "description": "This is the first real website I created for my cousin, an animal photographer. The purpose of the website is to showcase her work, introduce her personality, and, most importantly, highlight the quality of her photos. She wanted the design to be simple and aligned with the colors of her logo.",
     "image": "photographyImage",
-    "tech": "Javascript React Tailwindcss",
+    "tech": "Javascript React Tailwindcss Vite",
     "link": "https://patrycjadfotografia.pl"
+  },
+  {
+    "title": "Modern Pokedex Web App",
+    "subTitle": "A responsive Pokédex app with smart filtering and dynamic data loading",
+
+    "description": "This is the first real website I created for my cousin, an animal photographer. The purpose of the website is to showcase her work, introduce her personality, and, most importantly, highlight the quality of her photos. She wanted the design to be simple and aligned with the colors of her logo.",
+    "image": "catchzoneImage",
+    "tech": "Typescript React Vite",
+    "link": "https://catch-zone.vercel.app/"
   }
 ]
