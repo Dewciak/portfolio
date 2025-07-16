@@ -164,7 +164,7 @@ function Browser({
   ];
   return (
     <>
-      <div className='flex flex-col items-start mt-16 y-4 bg-[#1e1e1e] rounded-[25px] md:pt-3 pt-2 '>
+      <div className='flex flex-col items-start mt-16 y-4 bg-[#1e1e1e] rounded-[25px] md:pt-3 pt-2 lg:max-w-[1200px] max-w-[800px] h-[600px] lg:w-[800px] lg:h-[600px] xl:w-[1200px] xl:h-[690px]  '>
         {/* ####################################### */}
         {/* Macos interface */}
         {/* ####################################### */}
@@ -190,7 +190,7 @@ function Browser({
               onClick={() => setSelectedWebsite(index)}
               className={`chrome-tab relative
                  flex  items-center
-                clip-inset-rounded min-w-0 md:max-w-[200px] max-w-[100px] p-2  justify-between z-10 
+                clip-inset-rounded min-w-0 xl:max-w-[200px] max-w-[80px] sm:max-w-[120px] p-2  justify-between z-10 
               ${selectedWebsite == index ? "bg-[#303134] rounded-t-lg top-[-5px]  " : "bg-[#1e1e1e]  "}
               ${selectedWebsite == 0 && index == 1 && "rounded-bl-lg "}
               ${selectedWebsite == 1 && index == 0 && "rounded-br-lg "}
@@ -242,14 +242,11 @@ function Browser({
             <BsThreeDotsVertical />
           </div>
         </div>
-        <div
-          ref={containerRef}
-          className=' mt-0  w-full lg:max-w-[1200px] max-w-[800px] h-[400px] lg:w-[800px] lg:h-[600px] xl:w-[1200px] xl:h-[690px]  rounded-b-[20px]  overflow-y-scroll '
-        >
+        <div ref={containerRef} className=' mt-0  w-full  rounded-b-[20px]  overflow-y-scroll '>
           <Image
             src={imageMap[portfolioData[selectedWebsite].image]}
             alt=''
-            className='w-full'
+            className='w-full object-cover mx-auto'
             // className='w-[800px] mt-0 h-[460px]  rounded-b-[20px] xl:w-[1200px] xl:h-[690px] '
             //   className='w-[800px] mt-0 h-[460px] rounded-b-[20px] 2xl:w-[200%] '
           />
