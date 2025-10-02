@@ -55,17 +55,17 @@ const Hero = ({gameMode}: Props) => {
       className=' relative overflow-hidden flex flex-col-reverse md:flex-row md:max-w-[1200px] 2xl:max-w-[1300px] mx-auto px-6 '
     >
       <div className='w-full md:w-[50%] 2xl:w-[40%] flex flex-col justify-center items-center md:items-start z-20 '>
-        <h1 className='text-6xl md:text-7xl font-[500] text-center md:text-left'>Software</h1>
+        <h1 className='text-6xl md:text-7xl font-[500] text-center md:text-left'>Frontend</h1>
         <h1 className='text-6xl md:text-7xl font-[500] text-center md:text-left'>
           {/* <span>{gameMode ? "Driven" : "Frontend"}</span> {gameMode ? "gamer." : "dev."} */}
-          <span>Engineer</span>
+          <span>Developer</span>
         </h1>
 
         <h2 className='text-2xl text-gray-300 font-normal max-w-[500px] mt-4 text-center md:text-left'>
-          Currently specializing in Frontend React&nbsp;/&nbsp;Next.js
+          Specializing in React&nbsp;/&nbsp;Next.js
         </h2>
         <h3 className='text-xl text-MylightGray font-thin max-w-[500px] mt-4 text-center md:text-left'>
-          Where performance meets pixel-perfect design.
+          Crafting modern, responsive interfaces with a focus on performance and user experience.
         </h3>
         <div className='flex space-x-10 mt-6 items-center  justify-center md:justify-start '>
           <CtaBtn text='Portfolio' />
