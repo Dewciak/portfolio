@@ -149,10 +149,7 @@ function Browser({
       title: "Komornik Sądowy przy ",
       logo: bailiffLogo,
     },
-    {
-      title: "Stolarstwo Komendera",
-      logo: carpentryLogo,
-    },
+
     {
       title: "Patrycja Dawid Fot",
       logo: photographyLogo,

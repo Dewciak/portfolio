@@ -62,7 +62,7 @@ const Hero = ({gameMode}: Props) => {
         </h1>
 
         <h2 className='text-2xl text-gray-300 font-normal max-w-[500px] mt-4 text-center md:text-left'>
-          Specializing in React&nbsp;/&nbsp;Next.js
+          Hi, I’m Wiktor - specializing in React&nbsp;/&nbsp;Next.js
         </h2>
         <h3 className='text-xl text-MylightGray font-thin max-w-[500px] mt-4 text-center md:text-left'>
           Crafting modern, responsive interfaces with a focus on performance and user experience.
