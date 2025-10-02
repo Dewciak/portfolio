@@ -7,15 +7,7 @@
     "tech": "Typescript React Nextjs Tailwindcss MySQL Firebase",
     "link": "https://komornikddbielsko.pl"
   },
-  {
-    "title": "Carpenter's Website",
-    "subTitle": "Minimalist product site for custom wood furniture",
 
-    "description": "This is a website created for a carpenter who specializes in solid wood furniture. The goal was to make the design clear and minimalistic while conveying a sense of 'solidness.' Due to the simplicity of the website, I chose Astro as the framework, which is perfect for this type of project – simple yet powerful.",
-    "image": "carpentryImage",
-    "tech": "Typescript Astro Tailwindcss",
-    "link": "https://stolarstwokomendera.pl"
-  },
   {
     "title": "Animal Photographer's Website",
     "subTitle": "Portfolio site tailored to highlight photography work",
