@@ -18,12 +18,12 @@
     "link": "https://patrycjadfotografia.pl"
   },
   {
-    "title": "Modern Pokedex Web App",
-    "subTitle": "A responsive Pokédex app with smart filtering and dynamic data loading",
+    "title": "Biuro Rachunkowe Info-Tax",
+    "subTitle": "Professional accounting firm website built with WordPress",
 
-    "description": "This is the first real website I created for my cousin, an animal photographer. The purpose of the website is to showcase her work, introduce her personality, and, most importantly, highlight the quality of her photos. She wanted the design to be simple and aligned with the colors of her logo.",
-    "image": "catchzoneImage",
-    "tech": "Typescript React Vite",
-    "link": "https://catch-zone.vercel.app/"
+    "description": "A clean, professional website created for an accounting office in Bielsko-Biała. The site presents the firm's services, builds trust with potential clients, and makes it easy to get in touch. Built with WordPress and Elementor for simple content management by the client.",
+    "image": "intotax",
+    "tech": "Wordpress Elementor",
+    "link": "https://info-tax.bielsko.pl"
   }
 ]

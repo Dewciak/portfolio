@@ -14,6 +14,7 @@ import bailiffImage from "@/public/images/BailiffLong.webp";
 import carpentryImage from "@/public/images/Carpentry.png";
 import photographyImage from "@/public/images/PhotographyWebsiteScreen.png";
 import catchzoneImage from "@/public/images/CatchZoneLongShorter.png";
+import infotax from "@/public/images/infotax.png"
 
 import portfolioData from "@/app/components/textContent/Portfolio.json";
 
