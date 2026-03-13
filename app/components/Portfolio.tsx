@@ -14,7 +14,8 @@ import bailiffImage from "@/public/images/BailiffLong.webp";
 import carpentryImage from "@/public/images/Carpentry.png";
 import photographyImage from "@/public/images/PhotographyWebsiteScreen.png";
 import catchzoneImage from "@/public/images/CatchZoneLongShorter.png";
-import infotax from "@/public/images/infotax.png"
+import infotaxImage from "@/public/images/infotax.png";
+import infotaxLogo from "@/public/images/infotaxLogo.png";
 
 import portfolioData from "@/app/components/textContent/Portfolio.json";
 
@@ -73,6 +74,7 @@ function Browser({
     carpentryImage: carpentryImage,
     photographyImage: photographyImage,
     catchzoneImage: catchzoneImage,
+    infotaxImage: infotaxImage,
   };
   useEffect(() => {
     const c = containerRef.current;
@@ -159,6 +161,10 @@ function Browser({
       title: "CatchZone",
       logo: catchzoneLogo,
     },
+    {
+      title: "Info-Tax",
+      logo: infotaxLogo,
+    },
   ];
   return (
     <>
@@ -190,10 +196,8 @@ function Browser({
                  flex  items-center
                 clip-inset-rounded min-w-0 xl:max-w-[200px] max-w-[80px] sm:max-w-[120px] p-2  justify-between z-10 
               ${selectedWebsite == index ? "bg-[#303134] rounded-t-lg top-[-5px]  " : "bg-[#1e1e1e]  "}
-              ${selectedWebsite == 0 && index == 1 && "rounded-bl-lg "}
-              ${selectedWebsite == 1 && index == 0 && "rounded-br-lg "}
-              ${selectedWebsite == 1 && index == 2 && "rounded-bl-lg "}
-              ${selectedWebsite == 2 && index == 1 && "rounded-br-lg "}
+              ${index == selectedWebsite + 1 && "rounded-bl-lg "}
+              ${index == selectedWebsite - 1 && "rounded-br-lg "}
               
               
               `}
@@ -210,7 +214,7 @@ function Browser({
           ))}
           <div
             className={`bg-[#1e1e1e] p-2  items-center justify-center space-x-4 hidden md:flex ${
-              selectedWebsite == 2 && "rounded-bl-lg"
+              selectedWebsite == portfolioWebsites.length - 1 && "rounded-bl-lg"
             }`}
           >
             <div className='opacity-50'>|</div>
