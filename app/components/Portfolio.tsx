@@ -13,7 +13,6 @@ import {VscChromeMinimize} from "react-icons/vsc";
 import bailiffImage from "@/public/images/BailiffLong.webp";
 import carpentryImage from "@/public/images/Carpentry.png";
 import photographyImage from "@/public/images/PhotographyWebsiteScreen.png";
-import catchzoneImage from "@/public/images/CatchZoneLongShorter.png";
 import infotaxImage from "@/public/images/infotax.png";
 import infotaxLogo from "@/public/images/infotaxLogo.png";
 
@@ -24,8 +23,6 @@ import bailiffLogo from "@/public/images/BailiffLogo.webp";
 import carpentryLogo from "@/public/images/StolarstwoLogo.png";
 
 import photographyLogo from "@/public/images/FotoLogo.png";
-
-import catchzoneLogo from "@/public/images/catchzoneLogo.png";
 
 import Link from "next/link";
 
@@ -73,7 +70,6 @@ function Browser({
     bailiffImage: bailiffImage,
     carpentryImage: carpentryImage,
     photographyImage: photographyImage,
-    catchzoneImage: catchzoneImage,
     infotaxImage: infotaxImage,
   };
   useEffect(() => {
@@ -157,11 +153,7 @@ function Browser({
       title: "Patrycja Dawid Fot",
       logo: photographyLogo,
     },
-    {
-      title: "CatchZone",
-      logo: catchzoneLogo,
-    },
-    {
+{
       title: "Info-Tax",
       logo: infotaxLogo,
     },
