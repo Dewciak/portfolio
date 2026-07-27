@@ -2,21 +2,26 @@
 import React, {useEffect, useState} from "react";
 import {FaArrowRight} from "react-icons/fa";
 
+import {CV_URL} from "@/app/lib/links";
+import {useTranslations} from "next-intl";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import CtaBtn from "./CtaBtn";
 import handleModeChange from "./HandleModeChange";
 import useObserver from "./hooks/useObserver";
 
-const HeroScene = dynamic(() => import("./HeroScene"), {ssr: true});
+const HeroScene = dynamic(() => import("./HeroScene"), {ssr: false});
 
 interface Props {
   gameMode: boolean;
 }
 
 const Hero = ({gameMode}: Props) => {
+  const t = useTranslations("hero");
   const [isHeroVisible, setIsHeroVisible] = useState<boolean>(false);
   // State for tracking visibility of the scene to remove it from the dom when not visible
+  const [sceneAllowed, setSceneAllowed] = useState<boolean>(false);
+  // Gate that keeps the WebGL bundle off the critical path until the browser is idle
   const [roomPosition, setRoomPosition] = useState<number[]>([0, 0, 0]);
   const [roomRotation, setRoomRotation] = useState<number[]>([0, 0, 0]);
   const [cameraLookAt, setCameraLookAt] = useState<number[]>([0, 0, 0]);
@@ -31,6 +36,19 @@ const Hero = ({gameMode}: Props) => {
     setIsVisible: setIsHeroVisible,
     isVisible: isHeroVisible,
   });
+
+  // Defer the 3D scene until after first paint so it never competes for LCP.
+  useEffect(() => {
+    const allow = () => setSceneAllowed(true);
+
+    if (typeof window.requestIdleCallback === "function") {
+      const handle = window.requestIdleCallback(allow, {timeout: 2500});
+      return () => window.cancelIdleCallback?.(handle);
+    }
+
+    const timer = window.setTimeout(allow, 1200);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   const toggleGameMode = () => {
     handleModeChange({
@@ -52,38 +70,37 @@ const Hero = ({gameMode}: Props) => {
     <section
       ref={heroRef}
       id='Home'
-      className=' relative overflow-hidden flex flex-col-reverse md:flex-row md:max-w-[1200px] 2xl:max-w-[1300px] mx-auto px-6 '
+      className='relative mx-auto flex w-full flex-col-reverse overflow-visible px-6 md:max-w-[1200px] md:flex-row 2xl:max-w-[1300px]'
     >
-      <div className='w-full md:w-[50%] 2xl:w-[40%] flex flex-col justify-center items-center md:items-start z-20 '>
-        <h1 className='text-6xl md:text-7xl font-[500] text-center md:text-left'>Frontend</h1>
-        <h1 className='text-6xl md:text-7xl font-[500] text-center md:text-left'>
-          {/* <span>{gameMode ? "Driven" : "Frontend"}</span> {gameMode ? "gamer." : "dev."} */}
-          <span>Developer</span>
+      <div className='z-20 flex w-full flex-col items-center justify-center md:h-[700px] md:w-[48%] md:translate-y-5 md:self-start md:items-start 2xl:h-[800px] 2xl:w-[42%]'>
+        <h1 className='text-center text-5xl font-[500] md:text-left md:text-7xl'>
+          <span className='block'>{t("titleLine1")}</span>
+          <span className='block'>{t("titleLine2")}</span>
         </h1>
 
-        <h2 className='text-2xl text-gray-300 font-normal max-w-[500px] mt-4 text-center md:text-left'>
-          Hi, I’m Wiktor - specializing in React&nbsp;/&nbsp;Next.js
+        <h2 className='mt-4 max-w-[520px] text-balance text-center text-2xl font-normal text-gray-300 md:text-left'>
+          {t("subtitle")}
         </h2>
-        <h3 className='text-xl text-MylightGray font-thin max-w-[500px] mt-4 text-center md:text-left'>
-          Crafting modern, responsive interfaces with a focus on performance and user experience.
+        <h3 className='mt-4 max-w-[500px] text-pretty text-center text-xl font-thin text-MylightGray md:text-left'>
+          {t("tagline")}
         </h3>
         <div className='flex space-x-10 mt-6 items-center  justify-center md:justify-start '>
-          <CtaBtn text='Portfolio' />
-          {/* <CtaBtn text='Contact' /> */}
+          <CtaBtn text={t("ctaPortfolio")} />
           <Link
-            href={"https://docs.google.com/document/d/1EYLU0Js3A6Ty38V0ynXZbpGybL-jv2vckIot6LakuVQ/edit?usp=sharing"}
-            target='blank'
+            href={CV_URL}
+            target='_blank'
+            rel='noreferrer'
             className='font-bold cursor-pointer hover flex items-center justify-center group hover:text-white duration-300 text-TextColor'
           >
-            Open CV{" "}
+            {t("openCv")}{" "}
             <div className='ml-2 group-hover:ml-4 duration-300'>
               <FaArrowRight />
             </div>
           </Link>
         </div>
       </div>
-      <div className='Scene w-full md:w-[50%] md:h-[700px] 2xl:h-[800px] 2xl:w-[60%] hover:scale-105 duration-300   h-[500px] pointer-events-none  overflow-hidden mt-16 md:mt-0  flex items-center justify-center'>
-        {isHeroVisible && (
+      <div className='Scene relative mt-16 flex h-[500px] w-full items-center justify-center overflow-hidden pointer-events-none md:absolute md:bottom-[-24%] md:left-[calc(50%_-_50vw)] md:top-[-6%] md:mt-0 md:h-auto md:w-[130vw] md:overflow-visible'>
+        {isHeroVisible && sceneAllowed && (
           <HeroScene rotation={roomRotation} position={roomPosition} cameraLookAt={cameraLookAt} gameMode={gameMode} />
         )}
       </div>

@@ -1,290 +1,201 @@
 "use client";
-// usunąć to później
+
+import {useTranslations} from "next-intl";
 import Image, {StaticImageData} from "next/image";
-import {Dispatch, SetStateAction, useEffect, useRef, useState} from "react";
-import {BsPersonWorkspace, BsThreeDotsVertical} from "react-icons/bs";
+import Link from "next/link";
+import {useState} from "react";
+import {BsThreeDotsVertical} from "react-icons/bs";
 import {FaRegStar, FaUserCircle} from "react-icons/fa";
 import {FaArrowLeft, FaArrowRight, FaPlus} from "react-icons/fa6";
-import {FiExternalLink} from "react-icons/fi";
+import {FiArrowUpRight} from "react-icons/fi";
 import {IoIosClose, IoMdRefresh} from "react-icons/io";
 import {LuSettings2} from "react-icons/lu";
-import {VscChromeMinimize} from "react-icons/vsc";
-
-import bailiffImage from "@/public/images/BailiffLong.webp";
-import carpentryImage from "@/public/images/Carpentry.png";
-import photographyImage from "@/public/images/PhotographyWebsiteScreen.png";
-import infotaxImage from "@/public/images/infotax.png";
-import infotaxLogo from "@/public/images/infotaxLogo.png";
 
 import portfolioData from "@/app/components/textContent/Portfolio.json";
-
+import ansbbImage from "@/public/images/ansbb.webp";
+import ansbbLogo from "@/public/images/ansbbLogo.png";
+import bailiffImage from "@/public/images/BailiffLong.webp";
 import bailiffLogo from "@/public/images/BailiffLogo.webp";
-
+import ansbbMobile from "@/public/images/ansbb-mobile.webp";
+import bailiffMobile from "@/public/images/bailiff-mobile.webp";
+import carpentryMobile from "@/public/images/carpentry-mobile.webp";
+import infotaxMobile from "@/public/images/infotax-mobile.webp";
+import patrycjaMobile from "@/public/images/patrycja-mobile.webp";
+import patrycjaLogo from "@/public/images/FotoLogo.png";
+import carpentryImage from "@/public/images/StolarstwoKomendera.webp";
 import carpentryLogo from "@/public/images/StolarstwoLogo.png";
+import infotaxImage from "@/public/images/infotax.webp";
+import infotaxLogo from "@/public/images/infotaxLogo.png";
+import patrycjaImage from "@/public/images/patrycja.webp";
 
-import photographyLogo from "@/public/images/FotoLogo.png";
-
-import Link from "next/link";
-
-export interface Portfolio {
-  header: string;
-  description: string;
-  image: StaticImageData;
-  tech: string;
-}
-
-interface Website {
-  title: string;
-  logo: StaticImageData;
-}
-const Portfolio = () => {
-  const [selectedWebsite, setSelectedWebsite] = useState(0);
-
-  return (
-    <section
-      id='Portfolio'
-      className='flex flex-col text-center w-[95%] md:w-full max-w-[1200px] mx-auto items-center justify-center md:pb-32 pb-16 mt-32 md:mt-52'
-    >
-      <div className='flex flex-col space-y-6 justify-center items-center'>
-        <span className='text-4xl font-bold'>Portfolio</span>
-        <div className='flex space-x-4 items-start  md:items-start text-center'>
-          <BsPersonWorkspace size={30} className='gradient-text hidden md:block' />
-          <p className='md:max-w-[500px] text-TextColor font-bold text-4xl '>Selected Front-End Projects</p>
-        </div>
-      </div>
-      <Browser setSelectedWebsite={setSelectedWebsite} selectedWebsite={selectedWebsite} />
-      <WebsiteDescription selectedWebsite={selectedWebsite} />
-    </section>
-  );
+const images: Record<string, StaticImageData> = {
+  bailiffImage,
+  carpentryImage,
+  infotaxImage,
+  ansbbImage,
+  patrycjaImage,
 };
 
-function Browser({
-  setSelectedWebsite,
-  selectedWebsite,
-}: {
-  setSelectedWebsite: Dispatch<SetStateAction<number>>;
-  selectedWebsite: number;
-}) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const imageMap: Record<string, StaticImageData> = {
-    bailiffImage: bailiffImage,
-    carpentryImage: carpentryImage,
-    photographyImage: photographyImage,
-    infotaxImage: infotaxImage,
-  };
-  useEffect(() => {
-    const c = containerRef.current;
-    if (!c) return;
+const logos: Record<string, StaticImageData> = {
+  bailiffImage: bailiffLogo,
+  carpentryImage: carpentryLogo,
+  infotaxImage: infotaxLogo,
+  ansbbImage: ansbbLogo,
+  patrycjaImage: patrycjaLogo,
+};
 
-    const STEP = 0.5; // może być mniejsze niż 1
-    const RESUME_DELAY = 6000;
+/** Narrow-viewport captures. Projects without one fall back to the desktop shot. */
+const mobileImages: Record<string, StaticImageData> = {
+  bailiffMobile,
+  carpentryMobile,
+  infotaxMobile,
+  ansbbMobile,
+  patrycjaMobile,
+};
 
-    let direction = 1;
-    let paused = false;
-    let rafId: number;
-    let resumeTimeout: ReturnType<typeof setTimeout> | null = null;
-    let remainder = 0; // acumulator of the pixels
+const projects = portfolioData.map((project) => ({
+  ...project,
+  image: images[project.image],
+  logo: logos[project.image],
+  mobileImage: "mobileImage" in project ? mobileImages[project.mobileImage as string] : undefined,
+}));
 
-    const step = () => {
-      if (!paused) {
-        remainder += direction * STEP;
+const Portfolio = () => {
+  const t = useTranslations("portfolio");
+  const [selectedWebsite, setSelectedWebsite] = useState(0);
+  const activeProject = projects[selectedWebsite];
+  const activeTitle = t(`projects.${activeProject.id}.title`);
 
-        if (Math.abs(remainder) >= 1) {
-          const delta = Math.trunc(remainder); // whole number
-          c.scrollTop += delta;
-          remainder -= delta;
-        }
-
-        if (c.scrollTop + c.clientHeight >= c.scrollHeight - 1) direction = -1;
-        else if (c.scrollTop <= 0) direction = 1;
-      }
-      rafId = requestAnimationFrame(step);
-    };
-
-    const pause = () => {
-      paused = true;
-      if (resumeTimeout) clearTimeout(resumeTimeout);
-      resumeTimeout = setTimeout(() => (paused = false), RESUME_DELAY);
-    };
-
-    // Stopping animation when user scrolls or clicks the container
-    c.addEventListener("wheel", pause, {passive: true});
-    c.addEventListener("touchmove", pause, {passive: true});
-    c.addEventListener("click", pause, {passive: true});
-
-    rafId = requestAnimationFrame(step);
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      if (resumeTimeout) clearTimeout(resumeTimeout);
-      c.removeEventListener("wheel", pause);
-      c.removeEventListener("touchmove", pause);
-    };
-  }, []);
-  const scrollPositions = useRef<Record<number, number>>({});
-
-  useEffect(() => {
-    const c = containerRef.current;
-    if (!c) return;
-
-    const savedScroll = scrollPositions.current[selectedWebsite] ?? 0;
-    c.scrollTop = savedScroll;
-  }, [selectedWebsite]);
-
-  useEffect(() => {
-    const c = containerRef.current;
-    if (!c) return;
-
-    const handleScroll = () => {
-      scrollPositions.current[selectedWebsite] = c.scrollTop;
-    };
-
-    c.addEventListener("scroll", handleScroll, {passive: true});
-    return () => c.removeEventListener("scroll", handleScroll);
-  }, [selectedWebsite]);
-
-  const portfolioWebsites: Website[] = [
-    {
-      title: "Komornik Sądowy przy ",
-      logo: bailiffLogo,
-    },
-
-    {
-      title: "Patrycja Dawid Fot",
-      logo: photographyLogo,
-    },
-{
-      title: "Info-Tax",
-      logo: infotaxLogo,
-    },
-  ];
   return (
-    <>
-      <div className='flex flex-col items-start mt-16 y-4 bg-[#1e1e1e] rounded-[25px] md:pt-3 pt-2 lg:max-w-[1200px] max-w-[800px] h-[600px] lg:w-[800px] lg:h-[600px] xl:w-[1200px] xl:h-[690px]  '>
-        {/* ####################################### */}
-        {/* Macos interface */}
-        {/* ####################################### */}
-        <div className='flex  items-center  bg-[#303134] rounded-[20px]'>
-          <div
-            className={`flex space-x-2 group bg-[#1e1e1e] md:px-6 px-4 py-[14px] rounded-tl-[20px] ${
-              selectedWebsite == 0 && "rounded-br-lg"
-            }`}
-          >
-            <div className='w-3 h-3 bg-red-500 rounded-full flex items-center justify-center'>
-              <IoIosClose className='hidden group group-hover:block duration-100 text-red-900 w-4 h-4 absolute' />
-            </div>
-            <div className='w-3 h-3 bg-[#f4bf4f] rounded-full items-center justify-center'>
-              <VscChromeMinimize className='hidden group group-hover:block duration-100 text-yellow-900 w-3 h-3 absolute' />
-            </div>
-            <div className='w-3 h-3 bg-green-500 rounded-full flex justify-center items-center'>
-              <FaPlus className='hidden group group-hover:block duration-100 text-green-900 w-2 h-2 absolute' />
-            </div>
+    <section id='Portfolio' className='portfolio-section mx-auto mt-32 w-[calc(100%-2rem)] max-w-[1240px] md:mt-48'>
+      <h2 className='mb-10 text-center text-4xl font-semibold text-white md:mb-14 md:text-5xl'>{t("heading")}</h2>
+
+      <div className='portfolio-browser'>
+        <div className='portfolio-browser__tabs'>
+          <div aria-hidden='true' className='portfolio-traffic-lights'>
+            <i className='bg-[#ff5f57]' />
+            <i className='bg-[#febc2e]' />
+            <i className='bg-[#28c840]' />
           </div>
 
-          {portfolioWebsites.map((websiteItem, index) => (
-            <button
-              onClick={() => setSelectedWebsite(index)}
-              className={`chrome-tab relative
-                 flex  items-center
-                clip-inset-rounded min-w-0 xl:max-w-[200px] max-w-[80px] sm:max-w-[120px] p-2  justify-between z-10 
-              ${selectedWebsite == index ? "bg-[#303134] rounded-t-lg top-[-5px]  " : "bg-[#1e1e1e]  "}
-              ${index == selectedWebsite + 1 && "rounded-bl-lg "}
-              ${index == selectedWebsite - 1 && "rounded-br-lg "}
-              
-              
-              `}
-            >
-              <Image src={websiteItem.logo} alt='Carpentry Favicon' width={19} height={19} />
-              <p className=' whitespace-nowrap overflow-hidden flex-1 text-left ml-2 '>{websiteItem.title}</p>
-              <IoIosClose fill='#ffffff' size={24} />
-              <div
-                className={`absolute right-0 top-0 h-full md:w-8 md:mr-7 bg-gradient-to-l z-10  w-4 mr-7  ${
-                  selectedWebsite == index ? "from-[#303134] rounded-t-lg" : "from-[#1e1e1e] rounded-t-[20px]"
-                } to-transparent pointer-events-none`}
-              />
-            </button>
-          ))}
-          <div
-            className={`bg-[#1e1e1e] p-2  items-center justify-center space-x-4 hidden md:flex ${
-              selectedWebsite == portfolioWebsites.length - 1 && "rounded-bl-lg"
-            }`}
-          >
-            <div className='opacity-50'>|</div>
-            <FaPlus size={16} />
+          <div role='tablist' aria-label={t("tablist")} className='portfolio-tablist'>
+            {projects.map((project, index) => {
+              const isSelected = selectedWebsite === index;
+
+              return (
+                <button
+                  key={project.id}
+                  id={`portfolio-tab-${index}`}
+                  type='button'
+                  role='tab'
+                  aria-controls='portfolio-preview'
+                  aria-selected={isSelected}
+                  onClick={() => setSelectedWebsite(index)}
+                  className={`portfolio-tab ${isSelected ? "portfolio-tab--active" : ""}`}
+                >
+                  <Image src={project.logo} alt='' width={20} height={20} className='h-5 w-5 shrink-0 object-contain' />
+                  <span className='min-w-0 flex-1 truncate'>{t(`projects.${project.id}.tabTitle`)}</span>
+                  <IoIosClose aria-hidden='true' className='shrink-0 text-white/40' size={18} />
+                </button>
+              );
+            })}
+          </div>
+
+          <div aria-hidden='true' className='portfolio-new-tab'>
+            <FaPlus size={14} />
           </div>
         </div>
-        {/* ####################################### */}
-        {/* Main Browser Line with link */}
-        {/* ####################################### */}
-        <div className='flex bg-[#303134] py-2 w-full px-4 pb-4 rounded-t-md justify-between items-center'>
-          <div className='flex space-x-2'>
+
+        <div className='portfolio-toolbar'>
+          <div aria-hidden='true' className='hidden items-center gap-4 text-white/45 sm:flex'>
             <FaArrowLeft />
             <FaArrowRight />
             <IoMdRefresh />
           </div>
-          <div className='bg-[#1d1d1d] rounded-full px-1 flex justify-between w-[85%] py-1 items-center'>
-            <div className='flex space-x-2 text-TextColor'>
-              <div className='bg-[#303134] rounded-full w-[22px] h-[22px] flex items-center justify-center'>
-                <LuSettings2 />
-              </div>
-              <p>{portfolioData[selectedWebsite].link}</p>
-            </div>
-            <FaRegStar className='mr-2' />
-          </div>
-          <div className='flex space-x-2'>
+          <Link
+            href={activeProject.link}
+            target='_blank'
+            rel='noreferrer'
+            className='portfolio-address'
+            aria-label={t("openInNewTab", {title: activeTitle})}
+          >
+            <span aria-hidden='true' className='grid h-6 w-6 shrink-0 place-items-center rounded-full bg-white/[0.06]'>
+              <LuSettings2 size={14} />
+            </span>
+            <span className='truncate'>{activeProject.link.replace(/^https?:\/\//, "")}</span>
+          </Link>
+          <div aria-hidden='true' className='hidden shrink-0 items-center gap-4 text-white/55 sm:flex'>
+            <FaRegStar />
             <FaUserCircle />
             <BsThreeDotsVertical />
           </div>
         </div>
-        <div ref={containerRef} className=' mt-0  w-full  rounded-b-[20px]  overflow-y-scroll '>
+
+        <div
+          key={activeProject.id}
+          id='portfolio-preview'
+          role='tabpanel'
+          aria-labelledby={`portfolio-tab-${selectedWebsite}`}
+          className='portfolio-preview relative h-[520px] overflow-y-auto bg-[#ecebe7] sm:h-[560px] lg:h-[650px]'
+        >
+          {/* Both are lazy: a display:none image never intersects the viewport,
+              so the variant for the other breakpoint is never downloaded. */}
+          {activeProject.mobileImage && (
+            <Image
+              src={activeProject.mobileImage}
+              alt={t("previewAlt", {title: activeTitle})}
+              sizes='calc(100vw - 32px)'
+              quality={72}
+              loading='lazy'
+              placeholder='blur'
+              className='mx-auto h-auto w-full animate-[portfolioReveal_.45s_ease-out] md:hidden'
+            />
+          )}
           <Image
-            src={imageMap[portfolioData[selectedWebsite].image]}
-            alt=''
-            className='w-full object-cover mx-auto'
-            // className='w-[800px] mt-0 h-[460px]  rounded-b-[20px] xl:w-[1200px] xl:h-[690px] '
-            //   className='w-[800px] mt-0 h-[460px] rounded-b-[20px] 2xl:w-[200%] '
+            src={activeProject.image}
+            alt={t("previewAlt", {title: activeTitle})}
+            sizes='(min-width: 1280px) 1240px, calc(100vw - 64px)'
+            quality={72}
+            loading='lazy'
+            placeholder='blur'
+            className={`mx-auto h-auto w-full animate-[portfolioReveal_.45s_ease-out] ${
+              activeProject.mobileImage ? "hidden md:block" : ""
+            }`}
           />
         </div>
       </div>
-    </>
-  );
-}
 
-function WebsiteDescription({selectedWebsite}: {selectedWebsite: number}) {
-  return (
-    <>
-      <h1 className='mt-10 text-4xl'>{portfolioData[selectedWebsite].title}</h1>
-      <h2 className='mt-2 text-xl text-[#848484]'>{portfolioData[selectedWebsite].subTitle}</h2>
-      <div className='flex mt-6 gap-x-4  max-w-[350px] gap-y-4 flex-wrap justify-center items-center'>
-        {portfolioData[selectedWebsite].tech.split(" ").map((techItem, index) => (
-          <div className=' text-TextColor py-2 px-4 bg-[#2c2c398f] backdrop-blur-xl rounded-full   hover:bg-[#c4c3c356] duration-200 '>
-            <p>{techItem}</p>
+      <article className='portfolio-case-study'>
+        <div className='min-w-0'>
+          <p className='mb-5 text-xs font-medium uppercase tracking-[0.2em] text-white/40'>
+            {t("counter", {
+              current: String(selectedWebsite + 1).padStart(2, "0"),
+              total: String(projects.length).padStart(2, "0"),
+            })}
+          </p>
+          <h3 className='text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl'>{activeTitle}</h3>
+          <p className='mt-2 text-lg text-white/50'>{t(`projects.${activeProject.id}.subTitle`)}</p>
+          <p className='mt-6 max-w-[720px] text-base leading-7 text-white/70'>
+            {t(`projects.${activeProject.id}.description`)}
+          </p>
+        </div>
+
+        <div className='flex min-w-[250px] flex-col items-start gap-7 lg:items-end'>
+          <div className='flex flex-wrap gap-2 lg:justify-end'>
+            {activeProject.tech.split(" ").map((tech) => (
+              <span key={tech} className='portfolio-tech'>
+                {tech}
+              </span>
+            ))}
           </div>
-        ))}
-      </div>
-      <p className='text-center mt-6 max-w-[500px] px-6 md:px-0'>{portfolioData[selectedWebsite].description}</p>
-      <div className='flex space-x-6 mt-10'>
-        <Link
-          href={portfolioData[selectedWebsite].link}
-          className='text-xl rounded-xl   cursor-pointer hover:drop-shadow shadow-radial-gradient(circle_at_center,_#5785dd_0%,_transparent_70%) 
-          
-          duration-[400ms] transition-all  flex space-x-2 items-center px-6 py-3 bg-gray-200/10 hover:scale-[1.07] hover:bg-gray-200 hover:text-black backdrop-blur'
-        >
-          Visit Live
-          <FiExternalLink className='ml-2' />
-        </Link>
-        <Link
-          href={portfolioData[selectedWebsite].link}
-          className='text-xl rounded-xl   cursor-pointer hover:drop-shadow shadow-radial-gradient(circle_at_center,_#5785dd_0%,_transparent_70%) 
-          
-          duration-[400ms] transition-all  flex space-x-2 items-center px-6 py-3 bg-gray-200/10 hover:scale-[1.07] hover:bg-gray-200 hover:text-black backdrop-blur'
-        >
-          View Code
-          <FaArrowRight className='ml-2' />
-        </Link>
-      </div>
-    </>
+          <Link href={activeProject.link} target='_blank' rel='noreferrer' className='portfolio-cta'>
+            {t("visit")}
+            <FiArrowUpRight />
+          </Link>
+        </div>
+      </article>
+    </section>
   );
-}
+};
 
 export default Portfolio;

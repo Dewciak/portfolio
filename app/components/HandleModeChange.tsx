@@ -1,22 +1,27 @@
+const activeAnimations = new WeakMap<(values: number[]) => void, number>();
+
 function animateNumbers(target: number[], current: number[], callback: (values: number[]) => void): void {
-  const steps: number = 60;
-  const increments: number[] = target.map((value, i) => (value - current[i]) / steps);
+  const duration = 700;
+  const startValues = [...current];
+  const startedAt = performance.now();
+  const activeAnimation = activeAnimations.get(callback);
 
-  let count: number = 0;
+  if (activeAnimation) cancelAnimationFrame(activeAnimation);
 
-  const step = (): void => {
-    if (count >= steps) {
-      callback(target);
-      return;
+  const step = (now: number): void => {
+    const progress = Math.min((now - startedAt) / duration, 1);
+    const values = target.map((value, index) => startValues[index] + (value - startValues[index]) * progress);
+
+    callback(values);
+
+    if (progress < 1) {
+      activeAnimations.set(callback, requestAnimationFrame(step));
+    } else {
+      activeAnimations.delete(callback);
     }
-    current = current.map((val, i) => val + increments[i]);
-    callback([...current]);
-    count++;
-    requestAnimationFrame(step);
   };
 
-  step();
-  // Function to animate the numbers in the array from current to target values
+  activeAnimations.set(callback, requestAnimationFrame(step));
 }
 
 interface handleModeChangeProps {

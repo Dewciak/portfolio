@@ -1,29 +1,37 @@
 [
   {
-    "title": "Bailiff's Website",
-    "subTitle": "Informational legal platform with secure admin panel",
-    "description": "This is the most advanced website I’ve created so far. From the design, which had to be purely informative due to legal constraints, to the technical aspects, it involved building an API that connects to a database, fetches data, and handles other CRUD operations. Additionally, it includes Firebase authentication for user credentials.",
+    "id": "carpentry",
+    "image": "carpentryImage",
+    "mobileImage": "carpentryMobile",
+    "tech": "Nextjs Typescript Tailwindcss",
+    "link": "https://stolarstwokomendera.pl"
+  },
+  {
+    "id": "bailiff",
     "image": "bailiffImage",
+    "mobileImage": "bailiffMobile",
     "tech": "Typescript React Nextjs Tailwindcss MySQL Firebase",
     "link": "https://komornikddbielsko.pl"
   },
-
   {
-    "title": "Animal Photographer's Website",
-    "subTitle": "Portfolio site tailored to highlight photography work",
-
-    "description": "This is the first real website I created for my cousin, an animal photographer. The purpose of the website is to showcase her work, introduce her personality, and, most importantly, highlight the quality of her photos. She wanted the design to be simple and aligned with the colors of her logo.",
-    "image": "photographyImage",
-    "tech": "Javascript React Tailwindcss Vite",
-    "link": "https://patrycjadfotografia.pl"
-  },
-  {
-    "title": "Biuro Rachunkowe Info-Tax",
-    "subTitle": "Professional accounting firm website built with WordPress",
-
-    "description": "A clean, professional website created for an accounting office in Bielsko-Biała. The site presents the firm's services, builds trust with potential clients, and makes it easy to get in touch. Built with WordPress and Elementor for simple content management by the client.",
+    "id": "infotax",
     "image": "infotaxImage",
+    "mobileImage": "infotaxMobile",
     "tech": "Wordpress Elementor",
     "link": "https://info-tax.bielsko.pl"
+  },
+  {
+    "id": "ansbb",
+    "image": "ansbbImage",
+    "mobileImage": "ansbbMobile",
+    "tech": "Hono Nodejs SQLite JWT Docker",
+    "link": "https://wu.wiktordawid.pl"
+  },
+  {
+    "id": "patrycja",
+    "image": "patrycjaImage",
+    "mobileImage": "patrycjaMobile",
+    "tech": "React Vite Tailwindcss",
+    "link": "https://patrycjadfotografia.pl"
   }
 ]

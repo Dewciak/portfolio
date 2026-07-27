@@ -1,0 +1,159 @@
+{
+  "meta": {
+    "title": "Wiktor Dawid | Full-Stack Web Developer",
+    "description": "Full-stack web developer — React, Next.js and WordPress. I build fast, responsive websites and online stores: from interface design through backend and database to deployment."
+  },
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "resume": "Resume",
+    "steam": "Steam",
+    "about": "About",
+    "contact": "Contact",
+    "label": "Navigation",
+    "gameModeOff": "Off",
+    "gameModeToggle": "Toggle game mode",
+    "languageLabel": "Change language",
+    "languagePl": "Polski",
+    "languageEn": "English"
+  },
+  "hero": {
+    "titleLine1": "Full-Stack",
+    "titleLine2": "Web Developer",
+    "subtitle": "Hi, I'm Wiktor — I build websites and online stores.",
+    "tagline": "I work with React, Next.js and WordPress — from interface design through backend to deployment.",
+    "ctaPortfolio": "Portfolio",
+    "openCv": "Open CV",
+    "sceneAlt": "3D scene — my desk",
+    "sceneLoading": "Loading 3D scene"
+  },
+  "portfolio": {
+    "heading": "Portfolio",
+    "tablist": "Portfolio projects",
+    "counter": "Project {current} / {total}",
+    "visit": "Visit live project",
+    "openInNewTab": "Open {title} in a new tab",
+    "previewAlt": "Full-page preview of {title}",
+    "projects": {
+      "carpentry": {
+        "title": "Stolarstwo Komendera",
+        "subTitle": "Bespoke solid-wood furniture studio website",
+        "description": "A refined showcase site for a local carpenter, designed to present bespoke solid-wood furniture, selected work, the maker's story and a clear path to a custom enquiry.",
+        "tabTitle": "Stolarstwo Komendera"
+      },
+      "bailiff": {
+        "title": "Bailiff's Office",
+        "subTitle": "Informational legal platform with an admin panel",
+        "description": "The most advanced site I've built so far. From the design — which had to stay purely informational for legal reasons — to the technical side: a custom API wired to a database, full CRUD operations and Firebase authentication for user credentials.",
+        "tabTitle": "Komornik D. D."
+      },
+      "infotax": {
+        "title": "Biuro Rachunkowe Info-Tax",
+        "subTitle": "Accounting firm website built on WordPress",
+        "description": "A clean, professional website for an accounting office in Bielsko-Biała. It presents the firm's services, builds trust with prospective clients and makes getting in touch easy. Built on WordPress with Elementor so the client can manage content on their own.",
+        "tabTitle": "Info-Tax"
+      },
+      "ansbb": {
+        "title": "Virtual Campus — my own frontend",
+        "subTitle": "Personal project: a student portal rewritten from scratch",
+        "description": "My university's portal was awkward enough that I built my own. I hooked into their API and pulled the timetable, grades and messages into a single view — with JWT auth, an SQLite cache and a Hono backend. I host it myself, in a container. Unofficial, built purely for my own use.",
+        "tabTitle": "ANSBB — Virtual Campus"
+      },
+      "patrycja": {
+        "title": "Patrycja Dawid Photography",
+        "subTitle": "Website for an animal photographer",
+        "description": "The first real website I built — for my cousin, who photographs dogs and horses. The whole layout is meant to step back so the photos carry the attention: a custom design built around her logo colours, a gallery split by category, a services section and an availability calendar next to the contact form.",
+        "tabTitle": "Patrycja Dawid Photo."
+      }
+    }
+  },
+  "resume": {
+    "heading": "Resume",
+    "openCv": "Open CV",
+    "steamProfile": "My Steam profile",
+    "openForWork": ["Available immediately", "Open for work", "Ready for opportunities"]
+  },
+  "tech": {
+    "heading": "Tech Stack",
+    "groups": {
+      "frontend": "Frontend",
+      "backend": "Backend & data",
+      "cms": "CMS & e-commerce",
+      "devops": "DevOps & tooling",
+      "design": "Design & 3D"
+    },
+    "gameHeading": "GOATs"
+  },
+  "about": {
+    "heading": "About Me",
+    "imageAlt": "Photo of Wiktor Dawid",
+    "stats": {
+      "age": "Years Old",
+      "semester": "Studies Semester",
+      "commits": "Contributions",
+      "dog": "Amstaff"
+    },
+    "firstParagraph": "I build websites and web apps commercially — from the front end in React and Next.js, through themes and stores on WordPress and WooCommerce, to APIs, databases and deployment. I work at the Spec od IT agency, where I take client projects from a Figma mockup all the way to production.",
+    "secondParagraph": "I live in Kęty, Małopolska. Outside of work you'll find me at the gym, out for a run, deep in hardware videos, or exploring a new game.",
+    "thirdParagraph": "I also have a wonderful dog, Nero — he never fails to bring a smile to my face.",
+    "github": {
+      "heading": "GitHub activity",
+      "subheading": "Activity since January {year}",
+      "viewProfile": "View profile",
+      "contributions": "contributions",
+      "less": "Less",
+      "more": "More",
+      "loading": "Loading GitHub activity",
+      "calendarLabel": "{count} GitHub contributions since January {year}",
+      "dayTitle": "{date}: {count, plural, =0 {no contributions} one {# contribution} other {# contributions}}"
+    }
+  },
+  "gear": {
+    "headingWork": "My code environment",
+    "headingGame": "My sweet kingdom",
+    "codeSetup": "Code setup",
+    "gameSetup": "Game setup",
+    "sceneAlt": "3D scene — my desk",
+    "items": {
+      "macbook": {
+        "name": "Apple MacBook Air M2",
+        "description": "The perfect laptop for coding and everyday work. Lightweight, fast, with battery life that comfortably lasts a full day."
+      },
+      "monitor": {
+        "name": "Iiyama G-Master GB3467WQSU-B5 Red Eagle",
+        "description": "A great ultrawide for programming and multitasking. Its 34-inch display gives you plenty of room to work."
+      },
+      "desk": {
+        "name": "Custom electric desk",
+        "description": "My electric desk completely changed the way I work. Adjustable height lets me switch between sitting and standing whenever I want."
+      },
+      "pc": {
+        "name": "PC — RTX 4070 Ti, Ryzen 9 9700X",
+        "description": "My workhorse for high-FPS gaming. Fast-paced shooters and graphically demanding RPGs run buttery smooth and look stunning."
+      },
+      "ps5": {
+        "name": "PlayStation",
+        "description": "Mostly my go-to for streaming movies and shows, but also perfect for some casual co-op with friends when the mood strikes."
+      },
+      "tv": {
+        "name": "Sharp 42\" LED",
+        "description": "Not the biggest screen out there, but perfect for my setup. It's where I lose myself in open worlds and action games."
+      }
+    }
+  },
+  "contact": {
+    "heading": "Get In Touch",
+    "subheading": "Have a project or a question? Leave a message and I'll get back to you.",
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Your Email",
+    "messagePlaceholder": "Your Message",
+    "submit": "Send message",
+    "github": "GitHub",
+    "email": "Email",
+    "linkedin": "LinkedIn"
+  },
+  "footer": {
+    "timezone": "Europe/Warsaw",
+    "copyright": "© Copyright {year} Wiktor Dawid"
+  }
+}

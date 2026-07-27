@@ -15,9 +15,19 @@ interface Props {
   cameraPosition: number[];
   cameraLookAt: number[];
   gameMode?: boolean;
+  referenceViewportHeight?: number;
+  zoomFactor?: number;
 }
 
-const GearScene = ({position, rotation, cameraLookAt, cameraPosition, gameMode}: Props) => {
+const GearScene = ({
+  position,
+  rotation,
+  cameraLookAt,
+  cameraPosition,
+  gameMode,
+  referenceViewportHeight,
+  zoomFactor,
+}: Props) => {
   const [webGLSupported, setWebGLSupported] = useState<boolean | null>(null);
   const [renderError, setRenderError] = useState<boolean>(false);
   const canvasRef = useRef<HTMLDivElement>(null);
@@ -93,6 +103,8 @@ const GearScene = ({position, rotation, cameraLookAt, cameraPosition, gameMode}:
               rotation={rotation}
               cameraPosition={cameraPosition}
               cameraLookAt={cameraLookAt}
+              referenceViewportHeight={referenceViewportHeight}
+              zoomFactor={zoomFactor}
             />
           </Canvas>
         </Suspense>

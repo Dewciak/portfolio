@@ -1,13 +1,16 @@
 "use client";
+import {Link as LocaleLink, usePathname} from "@/i18n/navigation";
+import {routing} from "@/i18n/routing";
 import {motion} from "framer-motion";
 import {Twirl as Hamburger} from "hamburger-react";
-import {useEffect, useState} from "react";
-import {LuGamepad} from "react-icons/lu";
-import {FaRegUser} from "react-icons/fa";
+import {useLocale, useTranslations} from "next-intl";
 import Link from "next/link";
-import {useRouter} from "next/navigation";
+import {useRouter, useSearchParams} from "next/navigation";
+import {useEffect, useState} from "react";
+import {FaRegUser} from "react-icons/fa";
 import {GrContact, GrProjects} from "react-icons/gr";
 import {IoMdHome} from "react-icons/io";
+import {LuGamepad} from "react-icons/lu";
 import {SiReaddotcv} from "react-icons/si";
 import {Link as ScrollLink} from "react-scroll";
 
@@ -16,18 +19,17 @@ interface NavbarProps {
 }
 
 const Navbar = ({gameMode}: NavbarProps) => {
+  const t = useTranslations("nav");
   const [mobileNav, setMobileNav] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    document.documentElement.style.setProperty(
-      "--Foreground-Color",
-      gameMode
-        ? "linear-gradient(90deg, #FB4311 0%, #FB8C39 50%, #FAD461 100%)"
-        : "linear-gradient(90deg, #5785dd 0%, #8357da 50%, #ae29d6 100%)"
-    );
-    document.documentElement.style.setProperty("--Background-Color", gameMode ? "#000000" : "#01000e");
+    const root = document.documentElement;
+    root.style.setProperty("--theme-accent-start", gameMode ? "#FB4311" : "#5785dd");
+    root.style.setProperty("--theme-accent-middle", gameMode ? "#FB8C39" : "#8357da");
+    root.style.setProperty("--theme-accent-end", gameMode ? "#FAD461" : "#AE29D6");
+    root.style.setProperty("--theme-background", gameMode ? "#000000" : "#01000e");
   }, [gameMode]);
   // Function to change the color theme based on the game mode
 
@@ -44,7 +46,6 @@ const Navbar = ({gameMode}: NavbarProps) => {
       await delay(300);
       setIsAnimating(false);
 
-      console.log("change");
       setMobileNav(true);
     } else {
       setIsAnimating(true);
@@ -58,7 +59,6 @@ const Navbar = ({gameMode}: NavbarProps) => {
   return (
     <nav className=' w-full fixed z-[100] pointer-events-none '>
       <div className='hidden pointer-events-auto lg:flex backdrop-blur bg-BackgroundColor/30 items-center transition-colors duration-500 justify-between w-full mx-auto py-6 px-16'>
-        {/* <OpenForWork gameMode={gameMode} /> */}
         <ScrollLink
           to='Home'
           activeClass='active'
@@ -84,15 +84,10 @@ const Navbar = ({gameMode}: NavbarProps) => {
               offset={50}
               spy={true}
             >
-              Home
+              {t("home")}
             </ScrollLink>
           </li>
 
-          {/* <li>
-            <ScrollLink to='Tech' className='cursor-pointer' smooth={true} duration={200} offset={-200} spy={true}>
-              {gameMode ? "Goats" : "Tech"}
-            </ScrollLink>
-          </li> */}
           <li>
             <ScrollLink
               to='Portfolio'
@@ -103,7 +98,7 @@ const Navbar = ({gameMode}: NavbarProps) => {
               offset={-140}
               spy={true}
             >
-              Portfolio
+              {t("portfolio")}
             </ScrollLink>
           </li>
           <li>
@@ -116,7 +111,7 @@ const Navbar = ({gameMode}: NavbarProps) => {
               offset={-100}
               spy={true}
             >
-              {gameMode ? "Steam" : "Resume"}
+              {gameMode ? t("steam") : t("resume")}
             </ScrollLink>
           </li>
           <li>
@@ -129,7 +124,7 @@ const Navbar = ({gameMode}: NavbarProps) => {
               offset={-100}
               spy={true}
             >
-              About
+              {t("about")}
             </ScrollLink>
           </li>
 
@@ -143,22 +138,27 @@ const Navbar = ({gameMode}: NavbarProps) => {
               offset={-150}
               spy={true}
             >
-              Contact
+              {t("contact")}
             </ScrollLink>
           </li>
         </ul>
-        <Link
-          scroll={false}
-          href={`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`}
-          className={`
+
+        <div className='flex items-center space-x-4'>
+          <LocaleSwitch />
+          <Link
+            scroll={false}
+            aria-label={t("gameModeToggle")}
+            href={`${gameMode ? "?gameMode=Off" : "?gameMode=On"}`}
+            className={`
               relative z-10 rounded-md  bg-[#F2F0ED]
               flex items-center justify-center space-x-2 py-1 px-4
                transition duration-300
               ${gameMode ? "shadow-[0_0_20px_rgba(251,67,17,0.4),0_0_40px_rgba(251,140,57,0.3),0_0_60px_rgba(250,212,97,0.2)]" : "shadow-[0_0_20px_rgba(87,133,221,0.4),0_0_40px_rgba(131,87,218,0.3),0_0_60px_rgba(174,41,214,0.2)]"}   `}
-        >
-          <p className={` hidden xl:flex ${gameMode ? "text-gray-400" : " text-black"}`}>Off</p>
-          <LuGamepad color='black' size={30} opacity={gameMode ? 1 : 0.3} />
-        </Link>
+          >
+            <p className={` hidden xl:flex ${gameMode ? "text-gray-400" : " text-black"}`}>{t("gameModeOff")}</p>
+            <LuGamepad color='black' size={30} opacity={gameMode ? 1 : 0.3} />
+          </Link>
+        </div>
       </div>
 
       <MobileNav
@@ -174,6 +174,34 @@ const Navbar = ({gameMode}: NavbarProps) => {
 
 export default Navbar;
 
+function LocaleSwitch() {
+  const t = useTranslations("nav");
+  const activeLocale = useLocale();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  // Keep ?gameMode=On across a language change
+  const query = Object.fromEntries(searchParams.entries());
+
+  return (
+    <div className='locale-switch' role='group' aria-label={t("languageLabel")}>
+      {routing.locales.map((locale) => (
+        <LocaleLink
+          key={locale}
+          href={{pathname, query}}
+          locale={locale}
+          scroll={false}
+          hrefLang={locale}
+          aria-current={locale === activeLocale}
+          title={locale === "pl" ? t("languagePl") : t("languageEn")}
+        >
+          {locale.toUpperCase()}
+        </LocaleLink>
+      ))}
+    </div>
+  );
+}
+
 interface MobileNavProps {
   gameMode: boolean;
   setMobileNav: React.Dispatch<React.SetStateAction<boolean>>;
@@ -183,11 +211,17 @@ interface MobileNavProps {
 }
 
 function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameModeChange}: MobileNavProps) {
+  const t = useTranslations("nav");
+
   return (
     <div className='pointer-events-auto lg:pointer-events-none'>
       <div className='flex lg:hidden justify-between items-center w-full px-4 py-8 '>
-        <div className='flex space-x-2 ml-auto'>
-          <div
+        <div className='flex space-x-2 ml-auto items-center'>
+          <LocaleSwitch />
+
+          <button
+            type='button'
+            aria-label={t("gameModeToggle")}
             onClick={() => handleGameModeChange()}
             className={`  rounded-full p-3 flex items-center justify-center duration-300 transition-colors ${
               gameMode ? "bg-[#141414]" : "bg-slate-900"
@@ -196,13 +230,13 @@ function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameMo
             <motion.div animate={{scale: isAnimating ? 1.2 : 1}} transition={{duration: 0.3, ease: "easeInOut"}}>
               <LuGamepad size={30} />
             </motion.div>
-          </div>
+          </button>
 
           <div
-            className={`  rounded-full text-gray-100 px-1 flex items-center justify-center duration-300 transition-colors 
+            className={`  rounded-full text-gray-100 px-1 flex items-center justify-center duration-300 transition-colors
               ${gameMode ? "bg-[#141414]" : "bg-slate-900"}`}
           >
-            <Hamburger size={24} onToggle={setMobileNav} toggled={mobileNav} />
+            <Hamburger size={24} onToggle={setMobileNav} toggled={mobileNav} label={t("label")} />
           </div>
         </div>
       </div>
@@ -227,7 +261,7 @@ function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameMo
               }`}
             >
               <div className='w-[60px] border-l-2 border-t-2 py-8  border-ForegroundColor rounded-tl-2xl' />
-              <h6 className='px-4 relative right-12'>Navigation</h6>
+              <h6 className='px-4 relative right-12'>{t("label")}</h6>
             </div>
             <ul className='flex flex-col'>
               <li
@@ -244,7 +278,7 @@ function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameMo
                   className='nav-link'
                   onClick={() => setMobileNav(false)}
                 >
-                  Home
+                  {t("home")}
                 </ScrollLink>
                 <IoMdHome size={25} />
               </li>
@@ -262,7 +296,7 @@ function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameMo
                   className='nav-link'
                   onClick={() => setMobileNav(false)}
                 >
-                  Portfolio
+                  {t("portfolio")}
                 </ScrollLink>
                 <GrProjects size={25} />
               </li>{" "}
@@ -280,7 +314,7 @@ function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameMo
                   className='nav-link'
                   onClick={() => setMobileNav(false)}
                 >
-                  {gameMode ? "Steam" : "Resume"}
+                  {gameMode ? t("steam") : t("resume")}
                 </ScrollLink>
                 <SiReaddotcv size={25} />
               </li>
@@ -298,7 +332,7 @@ function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameMo
                   className='nav-link'
                   onClick={() => setMobileNav(false)}
                 >
-                  About
+                  {t("about")}
                 </ScrollLink>
                 <FaRegUser size={25} />
               </li>
@@ -316,7 +350,7 @@ function MobileNav({gameMode, setMobileNav, mobileNav, isAnimating, handleGameMo
                   spy={true}
                   onClick={() => setMobileNav(false)}
                 >
-                  Contact
+                  {t("contact")}
                 </ScrollLink>
                 <div className='flex items-center'>
                   <GrContact size={25} className='relative left-8' />

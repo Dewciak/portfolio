@@ -1,0 +1,159 @@
+{
+  "meta": {
+    "title": "Wiktor Dawid | Full-Stack Web Developer",
+    "description": "Full-stack web developer — React, Next.js i WordPress. Buduję szybkie, responsywne strony i sklepy internetowe: od projektu interfejsu, przez backend i bazę danych, po wdrożenie."
+  },
+  "nav": {
+    "home": "Start",
+    "portfolio": "Portfolio",
+    "resume": "CV",
+    "steam": "Steam",
+    "about": "O mnie",
+    "contact": "Kontakt",
+    "label": "Nawigacja",
+    "gameModeOff": "Wył.",
+    "gameModeToggle": "Przełącz tryb gamingowy",
+    "languageLabel": "Zmień język",
+    "languagePl": "Polski",
+    "languageEn": "English"
+  },
+  "hero": {
+    "titleLine1": "Full-Stack",
+    "titleLine2": "Web Developer",
+    "subtitle": "Cześć, jestem Wiktor — buduję strony i sklepy internetowe.",
+    "tagline": "Pracuję w React, Next.js i WordPressie — od projektu interfejsu, przez backend, po wdrożenie.",
+    "ctaPortfolio": "Portfolio",
+    "openCv": "Otwórz CV",
+    "sceneAlt": "Scena 3D — moje biurko",
+    "sceneLoading": "Wczytywanie sceny 3D"
+  },
+  "portfolio": {
+    "heading": "Portfolio",
+    "tablist": "Projekty w portfolio",
+    "counter": "Projekt {current} / {total}",
+    "visit": "Zobacz na żywo",
+    "openInNewTab": "Otwórz {title} w nowej karcie",
+    "previewAlt": "Podgląd pełnej strony — {title}",
+    "projects": {
+      "carpentry": {
+        "title": "Stolarstwo Komendera",
+        "subTitle": "Strona pracowni mebli z litego drewna",
+        "description": "Wizytówka lokalnego stolarza — prezentuje meble z litego drewna na wymiar, wybrane realizacje, historię pracowni i prowadzi wprost do zapytania o indywidualne zlecenie.",
+        "tabTitle": "Stolarstwo Komendera"
+      },
+      "bailiff": {
+        "title": "Kancelaria komornicza",
+        "subTitle": "Serwis informacyjny z panelem administracyjnym",
+        "description": "Najbardziej rozbudowany projekt, jaki do tej pory zrobiłem. Od warstwy wizualnej, która ze względu na przepisy musiała pozostać czysto informacyjna, po techniczną: własne API spięte z bazą danych, pełne operacje CRUD i uwierzytelnianie użytkowników przez Firebase.",
+        "tabTitle": "Komornik D. D."
+      },
+      "infotax": {
+        "title": "Biuro Rachunkowe Info-Tax",
+        "subTitle": "Strona biura rachunkowego na WordPressie",
+        "description": "Przejrzysty serwis dla biura rachunkowego z Bielska-Białej. Prezentuje ofertę, buduje zaufanie i ułatwia kontakt. Postawiony na WordPressie z Elementorem, żeby klient mógł samodzielnie zarządzać treścią.",
+        "tabTitle": "Info-Tax"
+      },
+      "ansbb": {
+        "title": "Wirtualna Uczelnia — własny frontend",
+        "subTitle": "Prywatny projekt: portal studencki napisany od nowa",
+        "description": "Portal mojej uczelni był na tyle niewygodny, że napisałem sobie własny. Podpiąłem się pod ich API i złożyłem plan zajęć, oceny i wiadomości w jeden widok — z logowaniem na JWT, cache'em w SQLite i backendem na Hono. Hostuję to sam, w kontenerze. Projekt nieoficjalny, zrobiony wyłącznie na własny użytek.",
+        "tabTitle": "ANSBB — Wirtualna Uczelnia"
+      },
+      "patrycja": {
+        "title": "Patrycja Dawid Fotografia",
+        "subTitle": "Strona fotografki zwierząt",
+        "description": "Pierwsza prawdziwa strona, jaką zrobiłem — dla mojej kuzynki, fotografki psów i koni. Cały układ ma schodzić na drugi plan, żeby uwagę niosły zdjęcia: autorski projekt pod kolory jej logo, galeria z podziałem na kategorie, oferta i kalendarz wolnych terminów przy formularzu kontaktowym.",
+        "tabTitle": "Patrycja Dawid Fot."
+      }
+    }
+  },
+  "resume": {
+    "heading": "CV",
+    "openCv": "Otwórz CV",
+    "steamProfile": "Mój profil na Steam",
+    "openForWork": ["Dostępny od zaraz", "Otwarty na współpracę", "Gotowy na nowe wyzwania"]
+  },
+  "tech": {
+    "heading": "Stack technologiczny",
+    "groups": {
+      "frontend": "Frontend",
+      "backend": "Backend i dane",
+      "cms": "CMS i e-commerce",
+      "devops": "DevOps i narzędzia",
+      "design": "Design i 3D"
+    },
+    "gameHeading": "GOAT-y"
+  },
+  "about": {
+    "heading": "O mnie",
+    "imageAlt": "Zdjęcie — Wiktor Dawid",
+    "stats": {
+      "age": "Lat",
+      "semester": "Semestr studiów",
+      "commits": "Kontrybucji",
+      "dog": "Amstaff"
+    },
+    "firstParagraph": "Komercyjnie buduję strony i aplikacje internetowe — od frontendu w React i Next.js, przez motywy i sklepy na WordPressie i WooCommerce, po API, bazę danych i wdrożenie. Pracuję w agencji Spec od IT, gdzie prowadzę projekty klientów od makiety w Figmie do produkcyjnego wdrożenia.",
+    "secondParagraph": "Mieszkam w Kętach, w Małopolsce. Po godzinach znajdziesz mnie na siłowni, na bieganiu, przy materiałach o hardware albo w nowej grze.",
+    "thirdParagraph": "Mam też wspaniałego psa, Nero — nigdy nie zawodzi, jeśli chodzi o poprawianie humoru.",
+    "github": {
+      "heading": "Aktywność na GitHubie",
+      "subheading": "Aktywność od stycznia {year}",
+      "viewProfile": "Zobacz profil",
+      "contributions": "kontrybucji",
+      "less": "Mniej",
+      "more": "Więcej",
+      "loading": "Wczytywanie aktywności z GitHuba",
+      "calendarLabel": "{count} kontrybucji na GitHubie od stycznia {year}",
+      "dayTitle": "{date}: {count, plural, =0 {brak kontrybucji} one {# kontrybucja} few {# kontrybucje} many {# kontrybucji} other {# kontrybucji}}"
+    }
+  },
+  "gear": {
+    "headingWork": "Moje środowisko pracy",
+    "headingGame": "Moja jaskinia gracza",
+    "codeSetup": "Setup do pracy",
+    "gameSetup": "Setup do grania",
+    "sceneAlt": "Scena 3D — moje biurko",
+    "items": {
+      "macbook": {
+        "name": "Apple MacBook Air M2",
+        "description": "Idealny laptop do kodowania i codziennej pracy. Lekki, szybki, z baterią, która spokojnie wyrabia cały dzień."
+      },
+      "monitor": {
+        "name": "Iiyama G-Master GB3467WQSU-B5 Red Eagle",
+        "description": "Świetny ultrawide do programowania i pracy na kilku oknach naraz. 34 cale dają naprawdę dużo miejsca."
+      },
+      "desk": {
+        "name": "Biurko elektryczne (custom)",
+        "description": "Elektryczne biurko całkowicie zmieniło sposób, w jaki pracuję. Regulacja wysokości pozwala swobodnie przechodzić między pracą na siedząco i na stojąco."
+      },
+      "pc": {
+        "name": "PC — RTX 4070 Ti, Ryzen 9 9700X",
+        "description": "Mój koń pociągowy do grania w wysokich klatkach. Szybkie strzelanki i wymagające graficznie RPG-i chodzą płynnie i wyglądają obłędnie."
+      },
+      "ps5": {
+        "name": "PlayStation",
+        "description": "Głównie do filmów i seriali, ale sprawdza się też przy luźnym co-opie ze znajomymi, kiedy przyjdzie ochota."
+      },
+      "tv": {
+        "name": "Sharp 42\" LED",
+        "description": "Nie największy ekran na świecie, ale idealny do mojego setupu. To tu tracę poczucie czasu w otwartych światach i grach akcji."
+      }
+    }
+  },
+  "contact": {
+    "heading": "Napisz do mnie",
+    "subheading": "Masz projekt albo pytanie? Zostaw wiadomość — odezwę się.",
+    "namePlaceholder": "Twoje imię",
+    "emailPlaceholder": "Twój e-mail",
+    "messagePlaceholder": "Twoja wiadomość",
+    "submit": "Wyślij wiadomość",
+    "github": "GitHub",
+    "email": "E-mail",
+    "linkedin": "LinkedIn"
+  },
+  "footer": {
+    "timezone": "Europe/Warsaw",
+    "copyright": "© Copyright {year} Wiktor Dawid"
+  }
+}
