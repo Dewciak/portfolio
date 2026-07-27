@@ -31,21 +31,24 @@ const Navbar = ({gameMode}: NavbarProps) => {
     root.style.setProperty("--theme-accent-end", gameMode ? "#FAD461" : "#AE29D6");
     root.style.setProperty("--theme-background", gameMode ? "#000000" : "#01000e");
 
-    // Swap the favicon to match the theme. The tags are replaced rather than
-    // re-pointed, because browsers ignore a bare href change on <link rel="icon">.
+    // Swap the favicon to match the theme. Only tags created here are touched —
+    // the <link rel="icon"> that Next renders from metadata is owned by React,
+    // and removing it makes reconciliation throw on the next render.
+    // Appended last, so browsers prefer these over the static ones.
     const variant = gameMode ? "game" : "work";
     const {head} = document;
 
-    head.querySelectorAll('link[rel="icon"], link[rel="apple-touch-icon"]').forEach((node) => node.remove());
+    head.querySelectorAll("link[data-theme-icon]").forEach((node) => node.remove());
 
     const icons = [
-      {rel: "icon", type: "image/svg+xml", href: `/favicon-${variant}.svg`},
+      {rel: "icon", type: "image/svg+xml", sizes: "", href: `/favicon-${variant}.svg`},
       {rel: "icon", type: "image/png", sizes: "32x32", href: `/favicon-${variant}-32.png`},
-      {rel: "apple-touch-icon", href: `/apple-touch-icon-${variant}.png`},
+      {rel: "apple-touch-icon", type: "", sizes: "", href: `/apple-touch-icon-${variant}.png`},
     ];
 
     for (const icon of icons) {
       const link = document.createElement("link");
+      link.setAttribute("data-theme-icon", "");
       link.rel = icon.rel;
       link.href = icon.href;
       if (icon.type) link.type = icon.type;
