@@ -97,9 +97,9 @@
       "commits": "Kontrybucji",
       "dog": "Amstaff"
     },
-    "firstParagraph": "Komercyjnie buduję strony i aplikacje internetowe — od frontendu w React i Next.js, przez motywy i sklepy na WordPressie i WooCommerce, po API, bazę danych i wdrożenie. Pracuję w agencji Spec od IT, gdzie prowadzę projekty klientów od makiety w Figmie do produkcyjnego wdrożenia.",
-    "secondParagraph": "Mieszkam w Kętach, w Małopolsce. Po godzinach znajdziesz mnie na siłowni, na bieganiu, przy materiałach o hardware albo w nowej grze.",
-    "thirdParagraph": "Mam też wspaniałego psa, Nero — nigdy nie zawodzi, jeśli chodzi o poprawianie humoru.",
+    "firstParagraph": "Komercyjnie buduję strony i aplikacje internetowe — od frontendu w React i Next.js, przez motywy i sklepy na WordPressie i WooCommerce, po API, bazę danych i hosting. Pracuję w agencji Spec od IT, gdzie prowadzę projekty klientów od makiety w Figmie po produkcję.",
+    "secondParagraph": "Mieszkam w Kętach, w Małopolsce. Po godzinach siłownia, bieganie, filmy o sprzęcie albo jakaś nowa gra.",
+    "thirdParagraph": "Mam też psa, Nero. To zwykle on decyduje, kiedy robię przerwę od ekranu.",
     "github": {
       "heading": "Aktywność na GitHubie",
       "subheading": "Aktywność od stycznia {year}",
