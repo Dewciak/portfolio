@@ -22,6 +22,14 @@ export async function generateMetadata({params}: {params: {locale: string}}): Pr
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio.wiktordawid.pl"),
     title: t("title"),
     description: t("description"),
+    // Work-mode variant is the SSR default; Navbar swaps it when game mode is on.
+    icons: {
+      icon: [
+        {url: "/favicon-work.svg", type: "image/svg+xml"},
+        {url: "/favicon-work-32.png", type: "image/png", sizes: "32x32"},
+      ],
+      apple: "/apple-touch-icon-work.png",
+    },
     alternates: {
       canonical: locale === routing.defaultLocale ? "/" : `/${locale}`,
       languages: {

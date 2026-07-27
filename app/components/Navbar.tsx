@@ -30,8 +30,30 @@ const Navbar = ({gameMode}: NavbarProps) => {
     root.style.setProperty("--theme-accent-middle", gameMode ? "#FB8C39" : "#8357da");
     root.style.setProperty("--theme-accent-end", gameMode ? "#FAD461" : "#AE29D6");
     root.style.setProperty("--theme-background", gameMode ? "#000000" : "#01000e");
+
+    // Swap the favicon to match the theme. The tags are replaced rather than
+    // re-pointed, because browsers ignore a bare href change on <link rel="icon">.
+    const variant = gameMode ? "game" : "work";
+    const {head} = document;
+
+    head.querySelectorAll('link[rel="icon"], link[rel="apple-touch-icon"]').forEach((node) => node.remove());
+
+    const icons = [
+      {rel: "icon", type: "image/svg+xml", href: `/favicon-${variant}.svg`},
+      {rel: "icon", type: "image/png", sizes: "32x32", href: `/favicon-${variant}-32.png`},
+      {rel: "apple-touch-icon", href: `/apple-touch-icon-${variant}.png`},
+    ];
+
+    for (const icon of icons) {
+      const link = document.createElement("link");
+      link.rel = icon.rel;
+      link.href = icon.href;
+      if (icon.type) link.type = icon.type;
+      if (icon.sizes) link.setAttribute("sizes", icon.sizes);
+      head.appendChild(link);
+    }
   }, [gameMode]);
-  // Function to change the color theme based on the game mode
+  // Function to change the color theme and favicon based on the game mode
 
   function delay(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
