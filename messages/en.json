@@ -71,7 +71,11 @@
     "heading": "Resume",
     "openCv": "Open CV",
     "steamProfile": "My Steam profile",
-    "openForWork": ["Available immediately", "Open for work", "Ready for opportunities"]
+    "openForWork": [
+      "Available immediately",
+      "Open for work",
+      "Ready for opportunities"
+    ]
   },
   "tech": {
     "heading": "Tech Stack",
@@ -132,7 +136,7 @@
         "description": "My workhorse for high-FPS gaming. Fast-paced shooters and graphically demanding RPGs run buttery smooth and look stunning."
       },
       "ps5": {
-        "name": "PlayStation",
+        "name": "Playstation",
         "description": "Mostly my go-to for streaming movies and shows, but also perfect for some casual co-op with friends when the mood strikes."
       },
       "tv": {

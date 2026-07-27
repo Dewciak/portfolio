@@ -71,7 +71,11 @@
     "heading": "CV",
     "openCv": "Otwórz CV",
     "steamProfile": "Mój profil na Steam",
-    "openForWork": ["Dostępny od zaraz", "Otwarty na współpracę", "Gotowy na nowe wyzwania"]
+    "openForWork": [
+      "Dostępny od zaraz",
+      "Otwarty na współpracę",
+      "Gotowy na nowe wyzwania"
+    ]
   },
   "tech": {
     "heading": "Stack technologiczny",
@@ -110,34 +114,34 @@
   },
   "gear": {
     "headingWork": "Moje środowisko pracy",
-    "headingGame": "Moja jaskinia gracza",
+    "headingGame": "Moje stanowisko do grania",
     "codeSetup": "Setup do pracy",
     "gameSetup": "Setup do grania",
     "sceneAlt": "Scena 3D — moje biurko",
     "items": {
       "macbook": {
         "name": "Apple MacBook Air M2",
-        "description": "Idealny laptop do kodowania i codziennej pracy. Lekki, szybki, z baterią, która spokojnie wyrabia cały dzień."
+        "description": "Lekki, cichy i wystarczająco szybki do codziennego kodowania. Bateria wyrabia pełny dzień bez ładowarki."
       },
       "monitor": {
         "name": "Iiyama G-Master GB3467WQSU-B5 Red Eagle",
-        "description": "Świetny ultrawide do programowania i pracy na kilku oknach naraz. 34 cale dają naprawdę dużo miejsca."
+        "description": "34 cale w formacie ultrawide. Mieszczą się dwa okna obok siebie, bez ciągłego przełączania."
       },
       "desk": {
         "name": "Biurko elektryczne (custom)",
-        "description": "Elektryczne biurko całkowicie zmieniło sposób, w jaki pracuję. Regulacja wysokości pozwala swobodnie przechodzić między pracą na siedząco i na stojąco."
+        "description": "Regulowana wysokość, więc część dnia pracuję na stojąco. Przy ośmiu godzinach dziennie robi różnicę."
       },
       "pc": {
         "name": "PC — RTX 4070 Ti, Ryzen 9 9700X",
-        "description": "Mój koń pociągowy do grania w wysokich klatkach. Szybkie strzelanki i wymagające graficznie RPG-i chodzą płynnie i wyglądają obłędnie."
+        "description": "Główna maszyna do grania. Strzelanki chodzą w wysokich klatkach, wymagające graficznie RPG-i na wysokich ustawieniach."
       },
       "ps5": {
-        "name": "PlayStation",
-        "description": "Głównie do filmów i seriali, ale sprawdza się też przy luźnym co-opie ze znajomymi, kiedy przyjdzie ochota."
+        "name": "Playstation",
+        "description": "Głównie do filmów i seriali. Od czasu do czasu co-op ze znajomymi."
       },
       "tv": {
         "name": "Sharp 42\" LED",
-        "description": "Nie największy ekran na świecie, ale idealny do mojego setupu. To tu tracę poczucie czasu w otwartych światach i grach akcji."
+        "description": "Nieduży ekran, ale do tego kąta w sam raz. Podpięty pod konsolę."
       }
     }
   },
